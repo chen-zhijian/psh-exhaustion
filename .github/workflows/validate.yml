@@ -26,21 +26,29 @@ jobs:
       - name: Check local links, TeX references, and preserved source files
         run: python scripts/check.py
 
-      - name: Install LaTeX
-        run: |
-          sudo apt-get \
-            -o Acquire::Retries=3 \
-            -o Acquire::http::Timeout=60 \
-            -o Acquire::https::Timeout=60 \
-            update
+      - name: Restore cached TeX installation
+        id: tinytex
+        uses: actions/cache@v5
+        with:
+          path: ~/.TinyTeX
+          key: tinytex-ubuntu24-${{ runner.arch }}-v1-${{ hashFiles('.github/workflows/validate.yml') }}
 
-          sudo env DEBIAN_FRONTEND=noninteractive apt-get \
-            -o Acquire::Retries=3 \
-            -o Acquire::http::Timeout=60 \
-            -o Acquire::https::Timeout=60 \
-            install -y --no-install-recommends \
-            texlive-latex-base texlive-latex-recommended texlive-latex-extra \
-            texlive-fonts-recommended lmodern
+      - name: Set up TinyTeX on a cache miss
+        if: steps.tinytex.outputs.cache-hit != 'true'
+        uses: r-lib/actions/setup-tinytex@v2
+        env:
+          TINYTEX_INSTALLER: TinyTeX-1
+
+      - name: Add TinyTeX to PATH
+        run: echo "$HOME/.TinyTeX/bin/x86_64-linux" >> "$GITHUB_PATH"
+
+      - name: Install document packages on a cache miss
+        if: steps.tinytex.outputs.cache-hit != 'true'
+        run: |
+          tlmgr update --self
+          tlmgr install \
+            amscls amsfonts amsmath lm mathtools microtype enumitem \
+            booktabs tools placeins xcolor hyperref geometry fancyhdr
 
       - name: Compile both documents without replacing published PDFs
         run: python scripts/build.py

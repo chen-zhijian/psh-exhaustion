@@ -1,0 +1,101 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=23mm]{geometry}
+\usepackage{xcolor,hyperref,fancyhdr}
+\definecolor{ink}{HTML}{173F4A}
+\definecolor{muted}{HTML}{53636B}
+\hypersetup{colorlinks=true,linkcolor=ink,urlcolor=ink,pdftitle={PSH Exhaustions: Research Catalogue}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{vibemath / PSH Exhaustions}}
+\fancyhead[R]{\small Research catalogue}
+\fancyfoot[L]{\small\color{muted}Draft collection \textbullet\ 23 October 2026}
+\fancyfoot[R]{\small\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{2em}
+\newcommand{\entry}[2]{\par\medskip{\large\bfseries\color{ink}#1}\par\smallskip #2\par}
+\begin{document}
+\thispagestyle{plain}
+{\small\scshape Several complex variables\hfill 23 October 2026}
+
+{\LARGE\bfseries\color{ink}PSH Exhaustions}\par
+{\Large Threefold counterexamples and surface criteria}\par
+One manuscript \textbullet\ Current and previous versions \textbullet\ Revision record
+
+\medskip\hrule\medskip
+This collection examines the distinction between continuous and smooth plurisubharmonic (psh) exhaustions. It packages a revised manuscript from the user's \emph{vibemath} research work, together with its earlier version and supplied revision materials.
+
+\textbf{Current paper.} \emph{Continuous and Smooth Plurisubharmonic Exhaustions: Threefold Counterexamples and Partial Results for Surfaces}. The supplied revision has 27 pages; the archived predecessor has 47. Both source/PDF pairs are preserved.
+
+\entry{A. A K\"ahler threefold with a regularity gap}{
+Theorem 1.1 constructs a smooth quasi-projective K\"ahler threefold
+\[
+M=\operatorname{Tot}(L^{-1})
+\]
+admitting a locally Lipschitz psh exhaustion but no $C^2$ psh exhaustion. The compact base is a ruled surface from Koike's modified Grauert example. The construction combines a continuous semipositive metric with an obstruction to every $C^2$ exhaustion.
+}
+
+\entry{B. The same gap on a non-K\"ahler threefold}{
+Theorem 1.2 constructs, over any point $x\in M$, a proper modification $\mu:N\to M$ that is biholomorphic away from the fiber over $x$. The smooth threefold $N$ is non-K\"ahler and admits a locally Lipschitz psh exhaustion but no $C^2$ one. Hironaka's opposite-order blowups are an attributed input.
+}
+
+\entry{C. A line-bundle radius criterion}{
+For a holomorphic line bundle $A$ over a compact complex manifold, Corollary 3.4 gives, for $r=2$ and $r=\infty$,
+\[
+\begin{gathered}
+\operatorname{Tot}(A^{-1})\text{ has a }C^r\text{ psh exhaustion}\\
+\Longleftrightarrow\\
+A\text{ has a }C^r\text{ semipositive Hermitian metric}.
+\end{gathered}
+\]
+Circle averaging and a high-level radius function give the reverse direction to the usual squared-norm construction.
+}
+
+\entry{D. Partial affirmative results for surfaces}{
+Theorem 5.4 treats complements of nonzero effective divisors in nonprojective compact surfaces. Theorem 5.5 treats smooth $\mathbf P^1$-bundles with nonempty reduced simple normal crossing boundary. In both settings, continuous and smooth psh exhaustibility is equivalent to the absence of a negative definite connected boundary component.
+}
+
+\newpage
+{\Large\bfseries\color{ink}Scope, dependencies, and reading guide}
+
+\entry{What the surface section establishes}{
+Proposition 5.2 shows that for a line bundle $A$ over a compact Riemann surface, continuous exhaustibility of $\operatorname{Tot}(A^{-1})$, nonnegative degree of $A$, and smooth exhaustibility are equivalent.
+
+Proposition 5.6 gives further projective sufficient cases; Proposition 5.8 gives smooth square-zero boundary criteria. Corollary 5.7 supplies necessary numerical conditions for projective pairs remaining after these reductions. Those conditions do not construct a surface counterexample.
+
+Table 1 concerns compact \emph{minimal} surface compactifiers under its explicit hypotheses. A change of compactifier can change the open complement. The table is not a classification of arbitrary noncompact surfaces.
+}
+
+\entry{Proof map and revision history}{
+\textbf{Sections 2--3.} A cusp correction near a negative curve reaches the locally Lipschitz endpoint. Global gluing produces a metric; the radius criterion transfers the known $C^2$ metric obstruction to an exhaustion obstruction.
+
+\textbf{Section 4.} Compactly supported modifications preserve the relevant exhaustion properties. A localized Hironaka configuration supplies the non-K\"ahler example.
+
+\textbf{Section 5.} Boundary intersection matrices, collar constructions, surface classification, abundance, and neighborhood results yield the stated affirmative cases.
+
+Sections 2--4 and the two principal theorem statements are unchanged from the predecessor. Source hashes, the supplied patch, and the Chinese change report document the revision.
+}
+
+\entry{Attribution and verification status}{
+The ruled-surface obstruction is credited to earlier work. Supporting criteria are not uniformly claimed as new; priority checking remains qualified.
+
+Some surface branches invoke Theorem 1.6 of the cited September 2026 Chen--Filip--Sun--Tosatti--Zhang preprint. The supplied report records incomplete access to V\^aj\^aitu's published full text. These inherited qualifications remain in the repository.
+
+Repository checks cover integrity, links, references, compilation, and layout. External journal review and formal verification are not established. Authorship and licensing remain unassigned.
+}
+
+\entry{Questions left unresolved by this manuscript}{
+The general continuous-to-$C^2$ exhaustion problem in complex dimension two is not resolved. Neither minimal counterexample dimension nor the optimal regularity threshold is determined. In particular, existence of a $C^1$ exhaustion on the constructed threefolds is not decided here.
+}
+
+\entry{Repository guide}{
+Start with \texttt{CONTENTS.md} for precise statements and locations. The current paper is in \texttt{preprints/}; the predecessor is in \texttt{archive/}. See \texttt{reviews/} for scope notes and revision materials, \texttt{reasoning\_traces/} for the editorial summary, and \texttt{UPLOAD\_TO\_GITHUB.md} for publishing instructions.
+}
+
+\smallskip
+The catalogue structure is inspired by \href{https://github.com/openai/math}{openai/math}. This is a separate collection. The label \emph{vibemath} identifies the user's research context; it is not an author attribution.
+\end{document}

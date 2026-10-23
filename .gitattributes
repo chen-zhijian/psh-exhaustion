@@ -1,0 +1,13 @@
+* text=auto
+*.md text eol=lf
+*.tex text eol=lf
+*.bib text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.pdf binary
+
+# Preserve the supplied current and historical manuscripts byte for byte.
+preprints/001-psh-exhaustion/psh_exhaustion_refereed.tex -text
+archive/previous_version/psh_exhaustion_refereed.tex -text
+reviews/source/* -text

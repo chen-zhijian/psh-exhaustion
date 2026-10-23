@@ -1,0 +1,61 @@
+{
+  "archive": {
+    "filename": "psh_exhaustion_surface_revision.zip",
+    "sha256": "3c46615e0078f5c851c11535ca041f6d6f14ebf108b78ef9898d2258b4a23555"
+  },
+  "files": [
+    {
+      "archive_path": "psh_exhaustion_refereed.tex",
+      "repository_path": "preprints/001-psh-exhaustion/psh_exhaustion_refereed.tex",
+      "sha256": "1df9a09b2d7393af7a097b43ef0b016884a488ee01c0fe0b350dcea101081d16",
+      "bytes": 80606
+    },
+    {
+      "archive_path": "psh_exhaustion_refereed.pdf",
+      "repository_path": "preprints/001-psh-exhaustion/psh_exhaustion_refereed.pdf",
+      "sha256": "ed20b6d8baf4a91327ea7d80c8a49a0d14d32c6630dbb7e275dedb378b4f273c",
+      "bytes": 536675
+    },
+    {
+      "archive_path": "previous_version/psh_exhaustion_refereed.tex",
+      "repository_path": "archive/previous_version/psh_exhaustion_refereed.tex",
+      "sha256": "e13d28754783b1dded51abaf53939f95e2ebf3a62aaa381c460bd8d4b88c4b75",
+      "bytes": 139675
+    },
+    {
+      "archive_path": "previous_version/psh_exhaustion_refereed.pdf",
+      "repository_path": "archive/previous_version/psh_exhaustion_refereed.pdf",
+      "sha256": "ac1e499200ef3020c11937d6d946b2347c8344269c6b3f05c13d296e4d21919e",
+      "bytes": 626781
+    },
+    {
+      "archive_path": "psh_exhaustion_surface_changes_zh.md",
+      "repository_path": "reviews/source/psh_exhaustion_surface_changes_zh.md",
+      "sha256": "0000cd0cc8a1cbe8c72befe0700559c0da0bb25a8ead2ca5395966eee7657ccf",
+      "bytes": 7178
+    },
+    {
+      "archive_path": "psh_exhaustion_surface_revision.patch",
+      "repository_path": "reviews/source/psh_exhaustion_surface_revision.patch",
+      "sha256": "f0b5cdf9862dbe6bd2f373b155eff6c40665a70fef2d600d8f26a39ca0d72197",
+      "bytes": 132719
+    },
+    {
+      "archive_path": "psh_exhaustion_surface_revision_manifest.json",
+      "repository_path": "reviews/source/psh_exhaustion_surface_revision_manifest.json",
+      "sha256": "6a08399c3b25cb9c64e36e3c20337cfd09fff0ae4a5738dba360b02fd1b84cda",
+      "bytes": 1221
+    },
+    {
+      "archive_path": "README.txt",
+      "repository_path": "reviews/source/README.txt",
+      "sha256": "9bb1269b3b545e6ac6618b9d3d63d41cb7891a9ac860a9f00925f6a49481755b",
+      "bytes": 964
+    }
+  ],
+  "notes": [
+    "All eight supplied archive members are preserved byte for byte at the mapped repository locations.",
+    "Hashes identify the acquired snapshot; they do not establish mathematical correctness or authorship.",
+    "New repository documentation and overview are not archive members."
+  ]
+}

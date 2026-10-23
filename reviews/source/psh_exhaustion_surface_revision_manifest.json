@@ -1,0 +1,29 @@
+{
+  "revision_date": "2026-10-23",
+  "original_file_sha256": "e13d28754783b1dded51abaf53939f95e2ebf3a62aaa381c460bd8d4b88c4b75",
+  "revised_file_sha256": "1df9a09b2d7393af7a097b43ef0b016884a488ee01c0fe0b350dcea101081d16",
+  "sections_2_to_4_unchanged": true,
+  "sections_2_to_4_sha256": "fb05923ebe35e134d06fcc1dbac40afc4ab66707dd676eaedbc06762166c0088",
+  "principal_theorem_statements_unchanged": true,
+  "old_surface_word_count": 10793,
+  "new_surface_word_count": 3907,
+  "unused_bibliography_entries_removed": [
+    "Ohsawa1981",
+    "TomassiniVajaitu2008",
+    "KoikeNodes2017",
+    "KoikeOgawa",
+    "KoikeTakakura2026"
+  ],
+  "missing_references": [],
+  "previous_pdf_pages": 47,
+  "revised_pdf_pages": 27,
+  "surface_section_starts_on_page": 16,
+  "classification_table_page": 26,
+  "pdf_sha256": "ed20b6d8baf4a91327ea7d80c8a49a0d14d32c6630dbb7e275dedb378b4f273c",
+  "final_compile_undefined_references": false,
+  "final_compile_undefined_citations": false,
+  "final_compile_overfull_boxes": false,
+  "final_compile_underfull_boxes": false,
+  "bibliography_entries": 17,
+  "word_count_method": "Whitespace-separated tokens in the surface-section LaTeX source, including commands; not a prose-only word count."
+}

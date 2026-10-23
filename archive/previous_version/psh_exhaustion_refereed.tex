@@ -1,0 +1,3126 @@
+% Referee revision, 23 October 2026.
+% Original file preserved as psh_exhaustion(1).tex.
+% See the separate referee report and unified diff for the audit trail.
+\documentclass[11pt]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,urlcolor=blue!55!black]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\PP}{\mathbf P}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\Tot}{\operatorname{Tot}}
+\newcommand{\Bl}{\operatorname{Bl}}
+\newcommand{\ddc}{dd^c}
+\newcommand{\psh}{\mathrm{psh}}
+\newcommand{\Levi}{\mathcal L}
+\newcommand{\barp}{\bar\partial}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\base}{\operatorname{pr}}
+\newcommand{\Uone}{\mathrm U(1)}
+
+\title[Continuous and smooth plurisubharmonic exhaustions]{Continuous and Smooth
+Plurisubharmonic Exhaustions:\\
+Threefold Counterexamples and Partial Results for Surfaces}
+\author{}
+\date{}
+\subjclass[2020]{Primary 32F17; Secondary 32Q15, 32L05}
+\keywords{Plurisubharmonic exhaustion, K\"ahler manifold, semipositive line bundle,
+ruled surface, Hironaka modification, Ueda theory, class VII surface, holonomy}
+
+\begin{document}
+
+
+\begin{abstract}
+Starting from Koike's modified Grauert example, we construct a smooth
+quasi-projective K\"ahler threefold with a locally Lipschitz
+plurisubharmonic exhaustion but no $C^2$ plurisubharmonic exhaustion. A modification over one point gives a non-K\"ahler threefold
+with the same properties. For divisor complements in compact complex
+surfaces, we prove that continuous and smooth plurisubharmonic
+exhaustions are equivalent to a boundary intersection-matrix condition
+in two settings: every nonprojective compactifier, without a K\"ahler
+assumption, and every smooth $\PP^1$-bundle with reduced simple normal
+crossing boundary, without a degree restriction. Further affirmative
+results treat disconnected projective boundaries and several log
+surface cases. For smooth square-zero boundaries, character extension
+and irregularity give sufficient conditions independent of continuous
+weak completeness. Scoped holonomy arguments sharpen the remaining
+neighborhood problem. The unrestricted implication in dimension two,
+including the general K\"ahler and quasi-projective cases, is not proved.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction and main results}\label{sec:intro}
+
+The regularity of a plurisubharmonic exhaustion matters even for
+K\"ahler manifolds. This paper constructs a smooth quasi-projective
+threefold admitting a continuous plurisubharmonic exhaustion but no
+$C^2$ one, and then inserts a non-K\"ahler configuration over a single
+point without changing these exhaustion properties. In dimension two,
+the same line-bundle construction cannot give a counterexample. We
+prove this obstruction and several affirmative regularization results
+for surfaces, and specify the boundary problem left by our reductions.
+Throughout the introduction, ``psh'' abbreviates plurisubharmonic, and
+``smooth'' means $C^\infty$.
+
+\subsection{Threefold counterexamples and their metric construction}
+
+Our compact base is the modified Grauert ruled surface appearing in
+Koike's work \cite[Example~4.1]{Koike2021}. Its failure of semipositivity
+is already known; the first-order obstruction, including its $C^2$
+version, is not claimed as a new result here
+\cite[Theorem~1.4 and Example~4.1]{Koike2021},
+\cite[Remark~2.8]{Wu2026}. We include a direct proof to make the
+regularity threshold used below explicit. The analytic construction
+then consists of a cusp correction, a global maximum, and a radius
+criterion converting any hypothetical $C^2$ exhaustion into a
+forbidden metric. Failure of smooth semipositivity by itself would
+not provide a continuous exhaustion.
+
+The cusp estimate also reaches the locally Lipschitz endpoint: a
+sufficiently large multiple of $q^{1/2}$ dominates the initial
+curvature in the scaled tangent variables. The coefficient is
+essential at this endpoint; for smaller exponents shrinking the
+neighborhood already suffices.
+
+\begin{theorem}\label{thm:main}
+Let $C$ be the smooth projective completion of
+\[
+ y^2=x^5-x,
+\]
+let $K=K_C$, and let
+\begin{equation}\label{eq:extension-intro}
+ 0\longrightarrow K\longrightarrow V\longrightarrow\OO_C
+ \longrightarrow0
+\end{equation}
+be a nonsplit holomorphic extension. Let
+\[
+ S=\PP_{\mathrm{lines}}(V),\qquad
+ \pi:S\longrightarrow C,\qquad
+ Y=\PP(K)\subset S,
+\]
+and set
+\begin{equation}\label{eq:main-line}
+ L=\OO_S(Y)\otimes\pi^*K,\qquad M=\Tot(L^{-1}).
+\end{equation}
+Then:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.5em]
+ \item $S$ is a smooth projective surface and $M$ is a smooth
+ quasi-projective K\"ahler threefold;
+ \item $L$ admits a continuous Hermitian metric with plurisubharmonic
+ local weights, but admits no $C^2$ Hermitian metric with semipositive
+ curvature;
+ \item $M$ admits a continuous plurisubharmonic exhaustion, but admits
+ no $C^2$ plurisubharmonic exhaustion.
+\end{enumerate}
+The metric and the exhaustion in \textup{(ii)--(iii)} can be chosen
+locally Lipschitz, and hence locally of class $C^{0,\gamma}$ for every
+$0<\gamma\le1$. No assertion about existence of a $C^1$ exhaustion
+is made.
+\end{theorem}
+
+The passage from metrics to exhaustions uses a criterion valid for a
+holomorphic line bundle $A$ over any compact complex manifold $Z$:
+\[
+\begin{gathered}
+ \Tot(A^{-1})\text{ admits a }C^r\text{ psh exhaustion}\\
+ \Longleftrightarrow\\[-2pt]
+ A\text{ admits a }C^r\text{ semipositive Hermitian metric},
+ \qquad r\in\{2,\infty\}.
+\end{gathered}
+\]
+This is Corollary~\ref{cor:criterion}. A semipositive metric gives the
+squared dual norm exhaustion. Conversely, averaging an arbitrary
+exhaustion under fiberwise circle rotation and taking a sufficiently
+high level yields a radius function whose negative logarithm is a psh
+metric weight. Consequently, the obstruction in Theorem~\ref{thm:main}
+rules out every $C^2$ psh exhaustion, not only a smoothing of the
+particular one constructed here.
+
+The non-K\"ahler example has the same dimension and agrees with $M$
+away from a compact exceptional fiber.
+
+\begin{theorem}\label{thm:nonkahler-threefold}
+For every point $x$ of the threefold $M$ in Theorem~\ref{thm:main}, there
+is a smooth non-K\"ahler threefold $N$ and a proper holomorphic
+modification $\mu:N\to M$ inducing a biholomorphism
+\[
+ N\setminus\mu^{-1}(x)\simeq M\setminus\{x\}.
+\]
+The threefold $N$ admits a locally Lipschitz psh exhaustion but no
+$C^2$ psh exhaustion.
+\end{theorem}
+
+The construction places Hironaka's opposite-order blowups inside the
+exceptional plane of the blowup of $x$. It produces two compact rational
+curves whose sum is zero in real homology, precluding a K\"ahler form.
+The exhaustion assertions follow from Proposition~\ref{prop:compact-modification}:
+a proper surjective holomorphic map that is biholomorphic away from a compact
+subset preserves the existence of $C^r$ psh exhaustions, for
+$r=0,2,\infty$. The reverse implication uses convex composition to
+make an exhaustion constant near the exceptional set before descending
+it. Thus the modification is localized over one point; no small
+deformation of a fixed complex structure is asserted. Choosing $x$
+outside the zero section also preserves a neighborhood of the compact
+base. The compact product principle in Proposition~\ref{prop:compact-product}
+gives further examples in higher dimensions, including the Hopf-surface
+product in Corollary~\ref{cor:nonkahler}.
+
+
+\subsection{Surface results and the remaining boundary problem}
+
+For a line bundle $A$ over a compact connected Riemann surface $B$,
+the existence of a continuous psh exhaustion on $\Tot(A^{-1})$ is
+equivalent both to $\deg A\ge0$ and to the existence of a smooth psh
+exhaustion (Corollary~\ref{cor:curve-total-space}). Thus the threefold
+construction cannot be lowered in dimension by replacing its compact
+base with a curve.
+
+Holomorphic convexity gives a different affirmative mechanism.
+V\^aj\^aitu's theorem \cite{Vajaitu2022} implies that a connected
+noncompact complex surface with a continuous psh exhaustion and a
+nonconstant holomorphic function admits a smooth psh exhaustion
+(Proposition~\ref{prop:surface-nonconstant-function}). A criterion of
+Mongodi--Slodkowski also applies when an exhaustion takes arbitrarily
+large values outside the image of the continuous minimal kernel
+(Proposition~\ref{prop:surface-minimal-kernel}). Neither statement
+requires a compactification. Their separate ambient real-analytic
+regularization theorem has an additional hypothesis, recorded in
+Subsection~\ref{subsec:surface-history}.
+
+Our principal geometric results concern divisor complements
+$X=S\setminus\supp D$, where $S$ is a smooth compact complex surface
+and $D\ne0$ is effective. The existence of this compactification is an
+additional assumption. Only the support of $D$ determines $X$.
+
+\begin{theorem}[Two numerical criteria for surface exhaustions]
+\label{thm:surface-criteria-intro}
+Let $S$ be a connected smooth compact complex surface, let $D\ne0$
+be effective, and put $X=S\setminus\supp D$. Suppose that either
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.5em]
+\item $S$ is nonprojective, with no K\"ahler or normal-crossing assumption; or
+\item $S\to B$ is a smooth $\PP^1$-bundle over a compact connected
+Riemann surface and $D$ is reduced with simple normal crossings.
+\end{enumerate}
+Then the following are equivalent:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=2.5em]
+\item $X$ admits a continuous psh exhaustion;
+\item $X$ admits a smooth psh exhaustion;
+\item no connected component of $\supp D$ has negative definite
+intersection matrix.
+\end{enumerate}
+In \textup{(ii)}, there is no restriction on the boundary degree or
+the number of connected boundary components.
+\end{theorem}
+
+The two cases are proved in Theorem~\ref{thm:nonprojective} and
+Corollary~\ref{cor:ruled-all-degrees}. The negative definite obstruction
+is local: contraction to a normal surface point contradicts the
+Hartogs maximum principle for a divergent psh function. For a
+nonprojective surface of algebraic dimension one, the matrix condition
+forces the boundary to be a union of whole elliptic fiber supports.
+In algebraic dimension zero, reduction to a minimal model and Enoki's
+theorem handle the class~VII case; the remaining Hopf boundaries are
+smooth elliptic curves. The elliptic-neighborhood step uses the
+September 2026 preprint \cite{CFSTZ2026}. In the smooth ruled case,
+a connected square-zero boundary is either a fiber or a smooth
+\'etale multisection. A finite \'etale base change reduces the latter
+to an affine-line bundle, a punctured degree-zero line bundle, or a
+product with a punctured projective line.
+
+For projective compactifiers, disconnected boundary support also
+implies the continuous-to-smooth conclusion
+(Theorem~\ref{thm:surface-disconnected-boundary}). Resolution with the
+full reduced boundary preserves the open surface. The intersection
+matrix gives smooth strictly psh collars in the positive-eigenvalue
+case. The residual projective case has a connected reduced simple
+normal crossing boundary supporting a divisor
+\[
+ A=\sum_i a_iD_i,\quad a_i>0,\qquad
+ A\text{ nef},\quad A^2=0,\quad A\cdot D_i=0,
+\]
+with $\kappa(S,A)=0$ and $K_S\cdot A\ge0$
+(Corollary~\ref{cor:surface-connected-residual}). The continuous
+exhaustion hypothesis is retained in this reduction.
+
+We also prove the implication for smooth log Fano pairs, connected
+numerically log Calabi--Yau pairs, and elliptic fibrations with vertical
+boundary (Propositions~\ref{prop:surface-log-fano},
+\ref{prop:surface-log-cy}, and \ref{prop:surface-elliptic-iitaka}).
+These statements concern the indicated smooth compactifications;
+arbitrary log minimal model steps need not preserve the complement.
+
+For a smooth connected curve $C$ with $C^2=0$ in a compact K\"ahler
+surface, Ueda theory supplies further sufficient conditions without
+assuming continuous weak completeness
+(Proposition~\ref{prop:surface-ueda-sufficient}). Let $\rho$ be the
+unitary character of $N_{C/S}$ and put
+\[
+ K=\ker\bigl(H_1(C,\mathbb Z)\longrightarrow H_1(S,\mathbb Z)\bigr).
+\]
+If $\rho(K)$ is finite, a positive power of the character extends
+to $S$, and $S\setminus C$ has a smooth psh exhaustion
+(Theorem~\ref{thm:homology}). This holds in particular when the
+homology map is injective, or when
+$q(S)=h^1(S,\OO_S)\ge g(C)$
+(Corollary~\ref{cor:irregularity}).
+
+The examples in Section~\ref{sec:surface-examples} separate these
+questions from holomorphic convexity and from the log Kodaira
+dimension. Some complements have smooth psh exhaustions and only
+constant holomorphic functions even when the ordinary canonical bundle
+is ample. Other pairs realize arbitrary degree-zero normal bundles;
+no continuous exhaustion is asserted for their arbitrary parameters.
+
+The residual analytic problem already includes smooth connected
+square-zero curves of genus at least two. Any counterexample of this
+form must have $q(S)<g(C)$ and
+\[
+ \operatorname{rank}K=2\bigl(g(C)-q(S)\bigr),\qquad \rho(K)\text{ infinite},
+\]
+as well as an infinite-type neighborhood which is not unitary flat
+(Corollary~\ref{cor:surface-residual-homology}). A continuous collar
+which is constant on the leaves of a given holomorphic foliation
+does force unitary linearization; a nonlinearizable irrational cyclic
+holomorphic suspension admits no continuous divergent psh collar
+(Propositions~\ref{prop:basic-collar} and
+\ref{prop:cyclic-suspension}). These statements do not produce a
+foliation or leafwise constancy from an arbitrary psh collar.
+The full continuous-to-smooth implication for complex surfaces,
+including all K\"ahler surfaces and all projective divisor complements,
+remains unproved here.
+
+Sections~\ref{sec:metrics}--\ref{sec:nonkahler} give the detailed
+threefold constructions. Section~\ref{sec:surfaces} establishes the
+surface reductions and the nonprojective criterion.
+Section~\ref{sec:surface-log-cases} develops the homological, ruled,
+and log surface results. Section~\ref{sec:surface-examples} gives the
+examples, and Section~\ref{sec:surface-remaining} places the holonomy
+obstructions beside the precise remaining problem.
+
+\subsection{Relation to prior work and scope of the claims}
+\label{subsec:provenance}
+
+The known ruled-surface obstruction, Hironaka's opposite-order blowups,
+and the quoted classification and Ueda theorems are inputs, not new
+constructions of this paper. The nonconstant-holomorphic-function and
+minimal-kernel criteria below are explicitly recorded consequences of
+V\^aj\^aitu and Mongodi--Slodkowski. Likewise, the affine-line-bundle
+step in the smooth-ruling argument reproduces a construction of
+Koike--Ueda. The surface results combine these inputs with the boundary
+and character arguments given here; we do not claim priority for every
+intermediate criterion or for a general regularization theorem.
+
+The self-contained threefold argument is the combination of the
+explicit bounded-potential metric and the radius obstruction, followed
+by a compactly supported modification. Remark~\ref{rem:minimal}
+explains exactly which part of the bounded-potential question in
+\cite[Section~4]{Zhang2025} this construction addresses. We make no
+claim that dimension three is the smallest possible dimension of a
+counterexample, nor that Lipschitz regularity is an optimal threshold.
+The full dimension-two problem is not settled in this article.
+
+Some surface conclusions use Theorem~1.6 and Proposition~6.2(B) of the
+September 2026 preprint \cite{CFSTZ2026}; these uses are stated at the
+relevant steps and are independent of the threefold construction.
+The October 2026 preprint \cite{KoikeTakakura2026} concerns a different
+neighborhood condition, as explained in
+Remark~\ref{rem:pseudoconvex-neighborhoods}.
+
+\subsection{Conventions and terminology}\label{sec:conventions}
+
+We use
+\[
+ d^c=\frac{i}{4\pi}(\barp-\partial),\qquad
+ \ddc=\frac{i}{2\pi}\partial\barp.
+\]
+For a holomorphic line bundle $A$ and a local holomorphic frame $e$, a
+Hermitian metric is written
+\[
+ \|e\|_h^2=e^{-\varphi}.
+\]
+Its curvature is $\Theta_h(A)=\ddc\varphi$, representing $c_1(A)$.
+If $e_j=g_{ij}e_i$, the metric weights satisfy
+\begin{equation}\label{eq:metric-transition}
+ \varphi_j=\varphi_i-\log|g_{ij}|^2.
+\end{equation}
+A positive continuous Hermitian metric is semipositive in the current
+sense when its local weights are continuous psh functions. For a $C^2$
+metric this agrees with pointwise semipositivity of its curvature.
+
+For a $C^2$ real-valued function $f$, its unnormalized Levi form is
+\[
+ \Levi_f(\xi)=\sum_{j,k}f_{z_j\bar z_k}\xi_j\overline{\xi_k}.
+\]
+Thus $f$ is psh exactly when $\Levi_f\ge0$. The fixed positive factor
+$1/(2\pi)$ in $\ddc$ does not affect any positivity argument.
+Poincar\'e--Lelong takes the form
+\begin{equation}\label{eq:PL}
+ \ddc\log\|s_D\|_h^2=[D]-\Theta_h(\OO(D)),
+\end{equation}
+where $s_D$ is the canonical section of an effective divisor $D$.
+
+\begin{definition}
+A continuous real-valued function $F$ on a complex manifold $X$ is an
+\emph{exhaustion} if every sublevel set $\{F\le c\}$ is compact.
+Equivalently, $F(x_j)\to+\infty$ for every sequence escaping every
+compact subset of $X$.
+\end{definition}
+
+We say that $X$ is \emph{continuously weakly complete} or
+\emph{smoothly weakly complete} when it admits a continuous or smooth
+psh exhaustion, respectively. Specifying the regularity avoids the
+varying conventions for weak completeness in the literature.
+Our projectivization $\PP_{\mathrm{lines}}(E)$ parametrizes
+one-dimensional subspaces of the fibers of $E$, and its tautological
+line bundle is $\OO_{\PP(E)}(-1)$.
+
+\section{The ruled surface and continuous semipositive metrics}\label{sec:metrics}
+
+\subsection{The ruled surface and the metric obstruction}\label{sec:ruled}
+
+\subsubsection{The curve and the extension}
+
+The polynomial $x^5-x$ has five distinct roots. The double covering
+$C\to\PP^1$ is therefore branched at these five roots and at infinity.
+Riemann--Hurwitz gives
+\[
+ 2g(C)-2=2(-2)+6=2,
+\]
+so $g(C)=2$ and $\deg K=2$. Serre duality gives
+\[
+ \operatorname{Ext}^1(\OO_C,K)=H^1(C,K)
+ \simeq H^0(C,\OO_C)^*\simeq\C.
+\]
+Consequently a nonzero extension class exists. All nonzero classes give
+isomorphic extensions after allowing scalar automorphisms of the end
+terms, so the isomorphism class of $V$ is unambiguous.
+
+One can also specify the extension through a Dolbeault operator. Choose
+a smooth positive $(1,1)$-form $\beta$ on $C$ with
+$\int_C\beta=1$, and regard it as a $K$-valued $(0,1)$-form. On the
+smooth bundle $K\oplus\OO_C$, set
+\begin{equation}\label{eq:dolbeault-extension}
+ \barp_V(s,f)=(\barp_Ks+f\beta,\barp f).
+\end{equation}
+This operator is integrable, since there are no $(0,2)$-forms on a
+curve, and defines \eqref{eq:extension-intro}. A splitting would give a
+holomorphic lift $(s,1)$ and hence $\barp_Ks=-\beta$. Since $s$ is a
+smooth $(1,0)$-form, Stokes' theorem would then imply
+$\int_C\beta=0$, a contradiction. The choice of the standard
+identification of $K$-valued $(0,1)$-forms with $(1,1)$-forms only changes
+this argument by a sign.
+
+\subsubsection{The negative section and the line bundle}
+
+By GAGA, $V$ is algebraic, so $S=\PP_{\mathrm{lines}}(V)$ is a smooth
+projective surface. The inclusion $K\hookrightarrow V$ gives a section
+$Y=\PP(K)$ of $\pi$. Its normal bundle is
+\begin{equation}\label{eq:normal}
+ N_{Y/S}\simeq\operatorname{Hom}(K,V/K)\simeq K^{-1}.
+\end{equation}
+In particular,
+\begin{equation}\label{eq:restriction}
+ \OO_S(Y)|_Y\simeq K^{-1},\qquad
+ L|_Y\simeq\OO_Y,\qquad Y^2=-2.
+\end{equation}
+The trivialization of $L|_Y$ in \eqref{eq:restriction} is the canonical
+one induced by $K^{-1}\otimes K$.
+
+For context, this line bundle is nef and big. If $F$ is a fiber of $\pi$,
+then
+\[
+ L\cdot Y=0,\qquad L\cdot F=1,\qquad L^2=2.
+\]
+For every irreducible curve $D\ne Y$ dominating $C$,
+\[
+ L\cdot D=Y\cdot D+2\deg(\pi|_D)>0.
+\]
+Every vertical irreducible curve is a fiber. Hence $L$ is nef, and the
+usual surface criterion $L^2>0$ implies bigness. For completeness, the
+latter also follows from Riemann--Roch: $h^2(S,L^m)=0$ for $m$ large,
+because $(K_S-mL)$ has negative intersection with a fixed ample divisor,
+and therefore
+\[
+ h^0(S,L^m)\ge\chi(S,L^m)=m^2+O(m).
+\]
+Moreover, $2L-Y=Y+2\pi^*K$ is ample by Nakai--Moishezon: its square is
+$6$, its intersections with $Y$ and a fiber are $2$ and $1$, and its
+intersection with every other irreducible curve is positive.
+
+\subsubsection{First-order transition functions}
+
+Choose a finite coordinate cover $\{U_i\}$ of $C$, frames $k_i$ of $K$,
+and holomorphic lifts $v_i$ of $1$ in \eqref{eq:extension-intro}.
+On overlaps,
+\begin{equation}\label{eq:vector-transitions}
+ k_j=g_{ij}k_i,\qquad v_j=v_i+c_{ij}k_i.
+\end{equation}
+The cocycle $\{c_{ij}k_i\}$ represents the nonzero extension class.
+Near $Y$, write a line in $V$ as
+\[
+ [k_i+w_iv_i].
+\]
+Expressing this line in the $j$-th frame yields
+\begin{equation}\label{eq:normal-transition}
+ w_j=\frac{g_{ij}w_i}{1-c_{ij}w_i}.
+\end{equation}
+Shrinking the neighborhoods if necessary, all denominators are nonzero.
+Let $d_i$ be the frame of $\OO_S(Y)$ defined by $s_Y=w_id_i$. Then
+\[
+ \frac{d_j}{d_i}=\frac{w_i}{w_j}
+ =\frac{1-c_{ij}w_i}{g_{ij}}.
+\]
+Thus the frames $\ell_i=d_i\otimes\pi^*k_i$ of $L$ satisfy
+\begin{equation}\label{eq:L-transition}
+ \ell_j=(1-c_{ij}w_i)\ell_i.
+\end{equation}
+Their restrictions to $Y$ agree, in accordance with the trivialization
+in \eqref{eq:restriction}.
+
+\begin{proposition}\label{prop:no-metric}
+The line bundle $L$ admits no $C^2$ Hermitian metric with semipositive
+curvature.
+\end{proposition}
+
+\begin{proof}
+Suppose such a metric exists, with $C^2$ psh weights $\varphi_i$ in the
+frames $\ell_i$. By \eqref{eq:L-transition}, the functions
+$\varphi_i|_Y$ agree on overlaps. They define a subharmonic function on
+the compact connected curve $Y$, hence a constant. Rescaling the metric,
+we may assume
+\begin{equation}\label{eq:flat-value}
+ \varphi_i(z,0)=0.
+\end{equation}
+In particular $\varphi_{i,z\bar z}(z,0)=0$. The Levi matrix at $(z,0)$
+is positive semidefinite. A positive semidefinite Hermitian matrix with
+a zero diagonal entry has zero entries in the corresponding row and
+column. Therefore
+\[
+ \varphi_{i,w\bar z}(z,0)=0.
+\]
+The $C^1$ function
+\[
+ a_i(z)=\varphi_{i,w}(z,0)
+\]
+satisfies the Cauchy--Riemann equation and is holomorphic.
+
+Equations \eqref{eq:metric-transition} and \eqref{eq:L-transition} give
+\[
+ \varphi_j(z,w_j)
+ =\varphi_i(z,w_i)-\log|1-c_{ij}(z)w_i|^2,
+\]
+where the base coordinate change is understood. Differentiating with
+respect to $w_i$ at zero and using \eqref{eq:normal-transition}, we obtain
+\begin{equation}\label{eq:coboundary}
+ g_{ij}a_j=a_i+c_{ij}.
+\end{equation}
+The holomorphic lifts $v_i'=v_i-a_ik_i$ consequently agree on overlaps:
+\[
+ v_j'=v_i+c_{ij}k_i-a_jg_{ij}k_i=v_i-a_ik_i=v_i'.
+\]
+They define a global holomorphic lift of $1$, splitting
+\eqref{eq:extension-intro}. This is a contradiction.
+\end{proof}
+
+This calculation is the specialized first-order obstruction occurring
+in \cite[Theorem~1.4 and Example~4.1]{Koike2021}. Related obstruction
+classes, including their applicability to $C^2$ metrics, are discussed
+in \cite{Wu2026}. Neither reference is needed for the preceding proof.
+
+\subsection{A local continuous metric near a negative curve}\label{sec:cusp}
+
+We isolate the analytic estimate used in the construction. The unitary
+flatness assumption means that a smooth metric of zero curvature exists
+on the restricted line bundle.
+
+\begin{lemma}[Cusp correction]\label{lem:cusp}
+Let $D$ be a compact connected smooth curve in a complex surface $X$. Suppose
+$\deg N_{D/X}<0$, and let $A$ be a holomorphic line bundle such that
+$A|_D$ is unitary flat. Choose a smooth metric $h_0$ on $A$ restricting
+to a flat metric on $D$, and a smooth metric $h_D$ on $\OO_X(D)$ whose
+curvature is strictly negative on $TD$. Put
+\[
+ q=\|s_D\|_{h_D}^2.
+\]
+For every $0<a\le\tfrac12$, there is a constant $\Lambda>0$ such that
+the local weights of $h_0$ plus $\Lambda q^a$ are strictly psh off $D$
+on a sufficiently small neighborhood of $D$ and extend as continuous
+psh weights across $D$. They are locally of class $C^{0,2a}$; in
+particular they are locally Lipschitz when $a=\tfrac12$.
+For $0<a<\tfrac12$ one may take $\Lambda=1$ after shrinking the
+neighborhood. At $a=\tfrac12$, a sufficiently large $\Lambda$ suffices.
+\end{lemma}
+
+\begin{proof}
+The chosen metrics exist. Negative degree on the curve gives a negative
+curvature metric on $N_{D/X}=\OO_X(D)|_D$. Any metric on a restricted
+line bundle extends smoothly to a neighborhood: extend the logarithm
+of its ratio to a fixed smooth metric. The same argument extends the
+flat metric on $A|_D$.
+
+Use finitely many relatively compact coordinates $(z,w)$ near $D$,
+with $D=\{w=0\}$. Write
+\[
+ q=|w|^2e^{-b(z,w)},\qquad \beta=-b,
+\]
+where $b$ is the smooth weight of $h_D$. Negativity along $TD$ says
+\begin{equation}\label{eq:beta-positive}
+ \beta_{z\bar z}(z,0)>0.
+\end{equation}
+For $w\ne0$, set $\tau=\log q=\log|w|^2+\beta$. The chain rule gives
+the exact identity
+\begin{equation}\label{eq:cusp-exact}
+ \Levi_{q^a}(v)
+ =q^a\bigl(a\Levi_{\tau}(v)+a^2|\partial\tau(v)|^2\bigr).
+\end{equation}
+Evaluate this on
+\[
+ v=\xi\frac{\partial}{\partial z}
+    +w\nu\frac{\partial}{\partial w}.
+\]
+Since $\log|w|^2$ is pluriharmonic off $D$,
+\[
+ \Levi_{\tau}(v)
+ =\beta_{z\bar z}(z,0)|\xi|^2
+   +O(|w|)(|\xi|^2+|\nu|^2),
+\]
+and
+\[
+ \partial\tau(v)
+ =\nu+\beta_z(z,0)\xi+O(|w|)(|\xi|+|\nu|).
+\]
+Therefore
+\begin{align}\label{eq:scaled-cusp}
+ \frac{\Levi_{q^a}(\xi,w\nu)}{q^a}
+ &=a\beta_{z\bar z}(z,0)|\xi|^2
+   +a^2|\nu+\beta_z(z,0)\xi|^2\notag\\
+ &\hspace{1em}+O(|w|)(|\xi|^2+|\nu|^2).
+\end{align}
+All remainder bounds are uniform after choosing the finite cover and
+shrinking its coordinate neighborhoods.
+
+The leading Hermitian form in \eqref{eq:scaled-cusp} is positive
+definite: vanishing of its first term forces $\xi=0$ by
+\eqref{eq:beta-positive}, and vanishing of the second then forces
+$\nu=0$. Its smallest eigenvalue has a positive uniform lower bound on
+the compact coordinate pieces covering $D$. Also $q^a$ is uniformly
+comparable to $|w|^{2a}$. Thus, after shrinking the neighborhoods,
+\begin{equation}\label{eq:cusp-lower}
+ \Levi_{q^a}(\xi,w\nu)
+ \ge c|w|^{2a}(|\xi|^2+|\nu|^2)
+\end{equation}
+for a uniform $c>0$.
+
+Let $\varphi_0$ be a local weight of $h_0$. Its restriction to $D$ has
+zero curvature, so $\varphi_{0,z\bar z}(z,0)=0$. Smoothness gives
+\[
+ \varphi_{0,z\bar z}=O(|w|),\qquad
+ \varphi_{0,z\bar w}=O(1),\qquad
+ \varphi_{0,w\bar w}=O(1).
+\]
+Consequently, in the same scaled variables,
+\begin{equation}\label{eq:baseline-bound}
+ |\Levi_{\varphi_0}(\xi,w\nu)|
+ \le C|w|(|\xi|^2+|\nu|^2).
+\end{equation}
+Combining \eqref{eq:cusp-lower} and \eqref{eq:baseline-bound} yields
+\begin{equation}\label{eq:cusp-coefficient}
+ \Levi_{\varphi_0+\Lambda q^a}(\xi,w\nu)
+ \ge\bigl(\Lambda c|w|^{2a}-C|w|\bigr)
+       (|\xi|^2+|\nu|^2).
+\end{equation}
+If $0<a<\tfrac12$, take $\Lambda=1$ and then shrink until the
+coefficient is positive. If $a=\tfrac12$, fix $\Lambda>C/c$; the
+coefficient becomes $(\Lambda c-C)|w|>0$ throughout the punctured
+neighborhood where the two uniform estimates hold. The constants
+$c,C$ were obtained before choosing $\Lambda$, so this choice is not
+circular. Every tangent vector at $w\ne0$ can be written in these
+scaled variables. This proves strict plurisubharmonicity off $D$ in
+both cases.
+
+The function $q^a=|w|^{2a}e^{-ab}$ is continuous and locally
+$C^{0,2a}$, including $2a=1$. The local weights
+$\varphi_0+\Lambda q^a$ are bounded near $D$ and extend continuously
+to it. The removable singularity theorem for psh functions across an
+analytic hypersurface therefore proves that these extended weights
+are psh. Adding the globally defined function $\Lambda q^a$ preserves
+the metric transition law \eqref{eq:metric-transition}.
+\end{proof}
+
+\begin{remark}
+The scale in \eqref{eq:scaled-cusp} is essential. The normal component
+of the Levi form has order $|w|^{2a-2}$, while the tangential component
+has order $|w|^{2a}$. These two scales allow the cusp to dominate the
+bounded mixed curvature of a smooth initial metric. At $a=\tfrac12$
+the scaled cusp and the initial error both have order $|w|$, which
+explains the coefficient choice in \eqref{eq:cusp-coefficient}.
+Ordinary smoothing of the cusp would not preserve this domination at
+$D$. The argument proves no $C^1$ regularity.
+\end{remark}
+
+\subsection{An explicit global continuous metric}\label{sec:global}
+
+Return to the ruled surface $S$ and the line bundle $L$ in
+\eqref{eq:main-line}. Choose a positive smooth metric $h_K$ on $K$.
+Using \eqref{eq:restriction}, extend the dual metric $h_K^{-1}$ on
+$\OO_S(Y)|_Y$ to a smooth metric $h_Y$ on $\OO_S(Y)$. Set
+\begin{equation}\label{eq:baseline-metric}
+ h_0=h_Y\otimes\pi^*h_K,\qquad
+ \theta_0=\Theta_{h_0}(L),\qquad
+ q=\|s_Y\|_{h_Y}^2.
+\end{equation}
+The metric $h_0|_Y$ is the flat metric under the canonical
+trivialization of $L|_Y$, and
+\begin{equation}\label{eq:curvature-restrictions}
+ \theta_0|_{TY}=0,\qquad
+ \Theta_{h_Y}(\OO(Y))|_{TY}=-\Theta_{h_K}(K)<0.
+\end{equation}
+
+Fix $0<a\le\tfrac12$ and choose $\Lambda>0$ as in
+Lemma~\ref{lem:cusp}. Since $q$ vanishes exactly on $Y$ and $S$ is
+compact, there exists $\varepsilon>0$ such that the weights
+$\varphi_0+\Lambda q^a$ are psh on $\{q<\varepsilon\}$.
+Write $Q=\max_Sq$ and choose $0<\varepsilon<Q$. Choose a constant
+\begin{equation}\label{eq:B-choice}
+ B>\max_{\varepsilon\le t\le Q}\bigl(\Lambda t^a-\log t\bigr).
+\end{equation}
+Define, on $[0,Q]$,
+\begin{equation}\label{eq:chi}
+ \chi(0)=0,\qquad
+ \chi(t)=\max\{\Lambda t^a,\log t+B\}\quad(t>0),
+\end{equation}
+and put
+\begin{equation}\label{eq:global-metric}
+ h=h_0\exp\bigl(-\chi(q)\bigr).
+\end{equation}
+
+\begin{proposition}\label{prop:continuous-metric}
+The metric \eqref{eq:global-metric} is a positive continuous Hermitian
+metric on $L$ with psh local weights. It is locally $C^{0,2a}$,
+and is locally Lipschitz for $a=\tfrac12$.
+\end{proposition}
+
+\begin{proof}
+The logarithmic branch in \eqref{eq:chi} tends to $-\infty$ as $t\to0$,
+so $\chi(t)=\Lambda t^a$ for all sufficiently small $t$. Hence $\chi$ is
+continuous at zero and bounded on $[0,Q]$.
+
+On $S\setminus Y$, Poincar\'e--Lelong and
+\eqref{eq:baseline-metric} give
+\begin{equation}\label{eq:log-curvature}
+ \theta_0+\ddc\log q=\pi^*\Theta_{h_K}(K)\ge0.
+\end{equation}
+As a current on $S$, the same expression equals
+$\pi^*\Theta_{h_K}(K)+[Y]$. Thus $\varphi_0+\log q+B$ is a singular
+psh weight of $L$.
+
+On $\{0<q<\varepsilon\}$, the weights of $h$ are
+\[
+ \varphi_0+\chi(q)
+ =\max\{\varphi_0+\Lambda q^a,\varphi_0+\log q+B\},
+\]
+a maximum of two psh functions. They are therefore psh. On
+$\{q\ge\varepsilon\}$, \eqref{eq:B-choice} makes the logarithmic
+branch strictly dominant. This domination also holds on a collar of
+$\{q=\varepsilon\}$, so no boundary gluing issue arises. The weights
+are psh there by \eqref{eq:log-curvature}. Near $Y$, the cusp branch is
+dominant, and Lemma~\ref{lem:cusp} proves positivity across $Y$.
+
+All the weights are finite and continuous. Near $Y$ their only
+nonsmooth term is $\Lambda q^a=\Lambda|w|^{2a}e^{-ab}$,
+which is $C^{0,2a}$ for $0<2a\le1$.
+Away from $Y$, both branches are smooth, and their maximum is locally
+Lipschitz, hence locally $C^{0,2a}$. This proves the asserted regularity.
+\end{proof}
+
+\begin{remark}[Bounded potentials and minimal singularities]\label{rem:minimal}
+The current
+\[
+ T=\theta_0+\ddc\chi(q)\in c_1(L)
+\]
+has locally Lipschitz potentials when $a=\tfrac12$. It also has minimal
+singularities: if $T'=\theta_0+\ddc v\ge0$ is another positive current
+in $c_1(L)$, its quasi-psh potential $v$ is bounded above on compact
+$S$, while $\chi(q)$ is bounded below. Hence
+\[
+ v\le\chi(q)+C_v
+\]
+for a constant $C_v$. This is precisely the comparison expressing that
+$T$ is no more singular than $T'$. Here global potentials exist by the
+$\partial\bar\partial$-lemma on the projective surface.
+
+For this modified Grauert example, Proposition~\ref{prop:continuous-metric}
+therefore gives an affirmative answer to the bounded-potential question
+in \cite[Section~4]{Zhang2025} for the modified example. That question
+also mentions Grauert's original example; the present argument does
+not identify its line bundle with $L$ and does not settle that other
+case. The metric is constructed here, not taken from that preprint.
+This explicit answer for $L$ is not a statement about arbitrary nef
+and big line bundles, nor a claim that every minimal-singularity
+representative has continuous potentials.
+\end{remark}
+
+\section{Line-bundle exhaustions and the K\"ahler counterexample}\label{sec:radius}
+
+\subsection{Dual norms and compact-group averaging}
+
+\begin{lemma}\label{lem:norm}
+Let $Z$ be a compact complex manifold and $A\to Z$ a holomorphic line
+bundle with a positive continuous Hermitian metric $h$ having psh
+local weights. Then the squared dual norm
+\[
+ \rho(v)=\|v\|_{h^{-1}}^2\qquad(v\in\Tot(A^{-1}))
+\]
+is a continuous psh exhaustion. If the weights are locally
+$C^{0,\gamma}$ for $0<\gamma\le1$, so is $\rho$.
+\end{lemma}
+
+\begin{proof}
+For a local frame $e_i$ of $A$, write a dual vector as
+$v=\lambda_i e_i^*$, and write $h(e_i,e_i)=e^{-\varphi_i}$. Then
+\begin{equation}\label{eq:local-norm}
+ \rho=|\lambda_i|^2e^{\varphi_i}.
+\end{equation}
+Off the zero section, $\log\rho=\log|\lambda_i|^2+\varphi_i$ is psh.
+Composition with the increasing convex function $\exp$ makes $\rho$
+psh there. Formula \eqref{eq:local-norm} extends continuously by zero
+to the zero section and is locally bounded, so removability gives psh
+on the whole total space.
+
+Fix a smooth Hermitian metric $h_{\mathrm{ref}}$ on $A^{-1}$. By
+compactness of $Z$ and positivity of $h$, constants $c,C>0$ satisfy
+\[
+ c\|v\|_{h_{\mathrm{ref}}}^2
+ \le\rho(v)\le C\|v\|_{h_{\mathrm{ref}}}^2.
+\]
+The closed disk bundle of any fixed radius over $Z$ is compact.
+Every sublevel of $\rho$ is a closed subset of such a disk bundle and
+is therefore compact. The H\"older assertion follows locally from
+\eqref{eq:local-norm}.
+\end{proof}
+
+\begin{lemma}[Averaging preserves exhaustions]\label{lem:average}
+Let a compact group $G$ act continuously on a locally compact Hausdorff
+space $X$, and let $F$ be a continuous exhaustion. Its normalized Haar average
+\[
+ \overline F(x)=\int_G F(gx)\,dg
+\]
+is also an exhaustion. If $G$ is a compact Lie group, $X$ is a complex
+manifold, the action is smooth and holomorphic, and $F$ is $C^2$ psh,
+then $\overline F$ is $C^2$ psh. The same assertion holds in the
+smooth category.
+\end{lemma}
+
+\begin{proof}
+For $K_c=\{F\le c\}$, the orbit saturation $G\cdot K_c$ is compact.
+If $x\notin G\cdot K_c$, then $F(gx)>c$ for every $g\in G$, and
+continuity on the compact orbit implies $\overline F(x)>c$. Hence
+\[
+ \{\overline F\le c\}\subset G\cdot K_c.
+\]
+The sublevel on the left is closed and therefore compact. Differentiation
+under the integral preserves $C^2$ regularity, and averaging the
+nonnegative Levi forms of the holomorphic pullbacks preserves psh.
+\end{proof}
+
+\subsection{The radius criterion}
+
+\begin{proposition}[The radius criterion]\label{prop:radius}
+Let $Z$ be a compact complex manifold and $A\to Z$ a holomorphic line
+bundle. If $\Tot(A^{-1})$ admits a $C^2$ psh exhaustion, then $A$ admits
+a $C^2$ Hermitian metric with semipositive curvature. If the exhaustion
+is smooth, the metric is smooth.
+\end{proposition}
+
+\begin{proof}
+Average the exhaustion over the holomorphic circle action
+$v\mapsto e^{i\alpha}v$ on the fibers, using
+Lemma~\ref{lem:average}. Denote the resulting invariant exhaustion by
+$F$. For a local frame $e_i$ of $A$ and $v=\lambda_i e_i^*$, circle
+invariance gives
+\begin{equation}\label{eq:radial-function}
+ F(z,\lambda_i)=U_i(z,t),\qquad t=\log|\lambda_i|^2,
+ \quad\lambda_i\ne0.
+\end{equation}
+The function
+\begin{equation}\label{eq:holomorphic-pullback}
+ V_i(z,\zeta)=U_i(z,\operatorname{Re}\zeta)
+             =F(z,e^{\zeta/2})
+\end{equation}
+is a holomorphic pullback of $F$ and is psh. In particular
+$U_{i,tt}\ge0$.
+
+For fixed $z$, continuity at the zero section gives the finite limit
+\[
+ \lim_{t\to-\infty}U_i(z,t)=F(z,0).
+\]
+Exhaustiveness gives $U_i(z,t)\to+\infty$ as $t\to+\infty$.
+A differentiable convex function with finite left limit has
+nonnegative derivative. Moreover, if its derivative vanishes at
+$t_0$, convexity forces it to be constant on $(-\infty,t_0]$.
+Consequently
+\begin{equation}\label{eq:radial-positive}
+ U_{i,t}(z,t)>0\quad\text{whenever }U_i(z,t)>F(z,0).
+\end{equation}
+
+Fix $c>\max_ZF|_Z$. By convexity, the two limits, and
+\eqref{eq:radial-positive}, there is a unique solution
+\begin{equation}\label{eq:implicit-radius}
+ U_i(z,\sigma_i(z))=c,
+ \qquad U_{i,t}(z,\sigma_i(z))>0.
+\end{equation}
+The implicit function theorem makes $\sigma_i$ of class $C^2$, or
+smooth when $F$ is smooth.
+
+We verify the sign of its Levi form explicitly. Differentiating
+\eqref{eq:implicit-radius} twice in base coordinates gives
+\begin{align}\label{eq:implicit-hessian}
+ 0={}&U_{i,z_j\bar z_k}
+ +U_{i,z_jt}\sigma_{i,\bar z_k}
+ +U_{i,t\bar z_k}\sigma_{i,z_j}\notag\\
+ &+U_{i,tt}\sigma_{i,z_j}\sigma_{i,\bar z_k}
+ +U_{i,t}\sigma_{i,z_j\bar z_k},
+\end{align}
+with all derivatives of $U_i$ evaluated at $(z,\sigma_i(z))$.
+For $V_i$ in \eqref{eq:holomorphic-pullback}, its $\zeta\bar\zeta$
+entry is $U_{i,tt}/4$, and its mixed entries have a factor $1/2$.
+Thus \eqref{eq:implicit-hessian} is precisely the identity
+\begin{equation}\label{eq:radius-Levi}
+ \Levi_{V_i}\bigl(\xi,2\partial\sigma_i(\xi)\bigr)
+ =-U_{i,t}\Levi_{\sigma_i}(\xi).
+\end{equation}
+The left side is nonnegative and $U_{i,t}>0$, so
+$\psi_i=-\sigma_i$ is psh.
+
+If $e_j=g_{ij}e_i$, the dual coordinates satisfy
+$\lambda_j=g_{ij}\lambda_i$. The level in
+\eqref{eq:implicit-radius} consequently transforms by
+\[
+ \sigma_j=\sigma_i+\log|g_{ij}|^2,
+\]
+so
+\[
+ \psi_j=\psi_i-\log|g_{ij}|^2.
+\]
+These are exactly the metric transition laws
+\eqref{eq:metric-transition}. Hence $\|e_i\|^2=e^{-\psi_i}$ defines
+the desired semipositive Hermitian metric on $A$.
+\end{proof}
+
+\begin{corollary}\label{cor:criterion}
+For a holomorphic line bundle $A$ over a compact complex manifold,
+$\Tot(A^{-1})$ admits a $C^2$ psh exhaustion if and only if $A$ admits
+a $C^2$ semipositive Hermitian metric. The same equivalence holds with
+$C^2$ replaced by $C^\infty$.
+\end{corollary}
+
+\begin{proof}
+The forward implication is Proposition~\ref{prop:radius}. For the
+reverse implication, the squared dual norm in Lemma~\ref{lem:norm}
+has the regularity of the given metric, by its local expression
+\eqref{eq:local-norm}.
+\end{proof}
+
+\subsection{Proof of the K\"ahler counterexample}\label{sec:conclusion}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+The construction in Subsection~\ref{sec:ruled} gives a smooth projective
+surface $S$ and an algebraic line bundle $L$. The total space $M$ is
+the open subset
+\begin{equation}\label{eq:compactification}
+ M=\PP_{\mathrm{lines}}(\OO_S\oplus L^{-1})
+       \setminus\PP_{\mathrm{lines}}(L^{-1}).
+\end{equation}
+The identification sends $v\in L^{-1}_z$ to the line $[(1,v)]$.
+The projective bundle in \eqref{eq:compactification} is a smooth
+projective threefold. Restricting any of its K\"ahler forms proves
+that $M$ is K\"ahler.
+
+Let $h$ be the continuous semipositive metric from
+Proposition~\ref{prop:continuous-metric}. If $p:M\to S$ is the bundle
+projection, the exhaustion is explicitly
+\begin{equation}\label{eq:explicit-exhaustion}
+ \rho(v)=\|v\|_{h^{-1}}^2
+       =\|v\|_{h_0^{-1}}^2
+          \exp\!\bigl(\chi(q(p(v)))\bigr).
+\end{equation}
+Lemma~\ref{lem:norm} shows that $\rho$ is continuous, psh, and
+exhaustive. Taking $a=\tfrac12$ and the coefficient $\Lambda$ supplied
+by Lemma~\ref{lem:cusp} makes $h$, its weights, and $\rho$ locally
+Lipschitz. In particular the same example has local $C^{0,\gamma}$
+regularity for all $0<\gamma\le1$.
+
+If a $C^2$ psh exhaustion on $M$ existed,
+Proposition~\ref{prop:radius} would produce a $C^2$ semipositive
+Hermitian metric on $L$. Proposition~\ref{prop:no-metric} excludes
+such a metric. Therefore no $C^2$ psh exhaustion exists, completing
+the proof.
+\end{proof}
+
+\begin{remark}[Interpretation]
+The example separates existence of a continuous exhaustion from
+existence of any smooth exhaustion. The conclusion does not depend on
+whether the particular function \eqref{eq:explicit-exhaustion} can be
+smoothed: every hypothetical $C^2$ exhaustion leads to the forbidden
+metric. The argument does not determine whether a $C^1$ psh
+exhaustion exists, and the surface results below do not establish that
+dimension three is minimal. Thus a definition of weak pseudoconvexity
+requiring a smooth
+psh exhaustion is strictly stronger than the corresponding definition
+requiring only a continuous psh exhaustion, even for smooth
+quasi-projective K\"ahler threefolds.
+\end{remark}
+
+\section{Compact modifications and non-K\"ahler counterexamples}
+\label{sec:nonkahler}
+
+The K\"ahler counterexample can be changed over a single point to obtain
+a non-K\"ahler counterexample of the same dimension.  We first isolate
+the exhaustion argument, then insert Hironaka's opposite-order blowup
+configuration in an exceptional plane.  Compact products give a simpler
+alternative when an increase in dimension is allowed.
+
+\subsection{Exhaustions under compactly supported modifications}
+
+\begin{proposition}\label{prop:compact-modification}
+Let $f:X'\to X$ be a proper surjective holomorphic map between nonempty
+complex manifolds.  Suppose that, for a compact set $K\subset X$, it
+restricts to a biholomorphism
+\[
+ X'\setminus f^{-1}(K)\longrightarrow X\setminus K.
+\]
+For every $r\in\{0,2,\infty\}$, $X$ admits a $C^r$ psh exhaustion
+if and only if $X'$ does.
+\end{proposition}
+
+\begin{proof}
+The case $K=\varnothing$ is immediate.  Holomorphic pullback preserves
+plurisubharmonicity and the stated
+regularity, and properness makes the sublevels of a pulled-back
+exhaustion compact.  Conversely, suppose $F$ is a $C^r$ psh exhaustion
+on $X'$.  Choose a relatively compact open neighborhood $U$ of $K$ and
+\[
+ c>\max_{f^{-1}(\overline U)}F.
+\]
+Choose a smooth convex nondecreasing function
+$\chi:\R\to[0,\infty)$ that vanishes on $(-\infty,c]$ and tends to
+infinity.  For example, integrate a smooth nondecreasing function
+which is zero up to $c$ and one from $c+1$ onward.  On $X\setminus K$
+define
+\[
+ G=\chi\circ F\circ(f|_{X'\setminus f^{-1}(K)})^{-1}.
+\]
+This function is $C^r$ and psh.  It vanishes on $U\setminus K$, so
+extension by zero on $K$ gives a $C^r$ psh function on all of $X$.
+For each nonempty sublevel $\{G\le a\}$ choose $b$ such that
+$\chi(t)\le a$ implies $t\le b$.  Then
+\[
+ \{G\le a\}\subset K\cup f(\{F\le b\}).
+\]
+The left side is closed and the right side is compact.  Thus $G$ is an
+exhaustion; no smooth descent of the original function $F$ is needed.
+\end{proof}
+
+\subsection{A non-K\"ahler modification over one point}
+
+\begin{proposition}\label{prop:point-modification}
+Let $X$ be a connected smooth complex threefold and $x\in X$.
+There is a connected smooth non-K\"ahler threefold $N$ and a proper
+holomorphic modification $\mu:N\to X$ inducing a biholomorphism
+\[
+ N\setminus\mu^{-1}(x)\simeq X\setminus\{x\}.
+\]
+\end{proposition}
+
+\begin{proof}
+Blow up $x$, obtaining
+\[
+ b:W=\Bl_xX\longrightarrow X,\qquad E=b^{-1}(x)\simeq\PP^2.
+\]
+In homogeneous coordinates $[u:v:w]$ on $E$, take
+\[
+ A=\{w=0\},\qquad B=\{uv=w^2\}.
+\]
+The line $A$ and smooth conic $B$ meet transversely at exactly
+$p=[1:0:0]$ and $q=[0:1:0]$.  Near either point they are the two
+coordinate axes in a smooth surface $E$ inside $W$.
+
+Over $W\setminus\{q\}$, first blow up $A\setminus\{q\}$ and then
+the strict transform of $B\setminus\{q\}$.  Over
+$W\setminus\{p\}$, first blow up $B\setminus\{p\}$ and then the
+strict transform of $A\setminus\{p\}$.  All these centers are closed
+smooth curves in the respective open manifolds.  On
+$W\setminus\{p,q\}$ the centers are disjoint, so the blowups commute
+canonically over the base.  Glue the two resulting manifolds through
+this isomorphism and write
+\[
+ \nu:N\longrightarrow W,\qquad \mu=b\circ\nu.
+\]
+The glued space is Hausdorff: points with distinct images can be
+separated in $W$, and points with the same image belong to one of the
+Hausdorff open manifolds lying over the two base opens.  It is smooth
+of dimension three because every blowup center is smooth.  Properness
+is local on the target, so $\nu$ and $\mu$ are proper.  Each blowup
+chart is connected and the charts overlap, hence $N$ is connected.
+All centers lie in $E$, so $\mu$ is an isomorphism away from $x$.
+This is Hironaka's opposite-order construction
+\cite[Section~6]{Barlet2015}; see also \cite[Tag~08J1]{StacksHironaka}.
+
+For completeness, the obstruction to a K\"ahler form is entirely
+contained in compact exceptional surfaces.  Let $D_A,D_B\subset N$
+be the exceptional divisors dominating $A,B$, and let
+$\alpha,\beta\in H_2(N,\R)$ be the classes of their general
+$\PP^1$ fibers.  The surfaces $D_A,D_B$ are smooth and compact:
+locally each is a ruled surface or its blowup at a point, and they
+map properly to the compact curves $A,B$.  The fiber divisors of
+each map are linearly equivalent, since $A\simeq B\simeq\PP^1$,
+and hence are homologous on the corresponding compact surface.
+
+Over $p$, the strict transform of $B$ meets the first exceptional
+divisor transversely at one point.  The second blowup therefore
+restricts on that divisor to a surface blowup at that point.  Its
+fiber over $p$ is the reduced union of the strict transform
+$R_p\simeq\PP^1$ of the first exceptional fiber and the new
+exceptional fiber $T_p\simeq\PP^1$. Both occur with multiplicity one.
+Indeed, take local coordinates $(x,y,z)$ with
+$A=\{y=z=0\}$ and $B=\{x=z=0\}$. In the first blowup chart
+$z=yt$, the first exceptional divisor is $y=0$ and the second center
+is $x=t=0$. Its restriction to $y=0$ is the blowup of the smooth
+surface with coordinates $(x,t)$ at the origin. The pullback of the
+fiber equation $x=0$ is its strict transform plus the exceptional
+curve, each once. The curve $T_p$ is also the fiber of $D_B\to B$
+over $p$. Thus
+\[
+ \alpha=[R_p]+[T_p],\qquad \beta=[T_p].
+\]
+Over $q$ the order is reversed.  With analogous notation,
+\[
+ \beta=[R_q]+[T_q],\qquad \alpha=[T_q].
+\]
+These relations hold in ordinary homology: they arise from fiber
+divisors on compact $D_A$ and $D_B$, regardless of compactness of $N$.
+Adding them gives
+\begin{equation}\label{eq:hironaka-zero-cycle}
+ [R_p]+[R_q]=0\quad\text{in }H_2(N,\R).
+\end{equation}
+If $\omega$ were a K\"ahler form on $N$, closedness and
+\eqref{eq:hironaka-zero-cycle} would imply
+\[
+ 0=\int_{R_p}\omega+\int_{R_q}\omega>0,
+\]
+a contradiction.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:nonkahler-threefold}]
+Apply Proposition~\ref{prop:point-modification} to the threefold $M$
+of Theorem~\ref{thm:main} at the chosen point $x$.  If $\rho$ is its
+continuous psh exhaustion, then
+\[
+ \rho_N=\rho\circ\mu,\qquad
+ \{\rho_N\le a\}=\mu^{-1}(\{\rho\le a\})
+\]
+is a continuous psh exhaustion of $N$.  A holomorphic map is locally
+Lipschitz in smooth coordinate charts, so local Lipschitz regularity
+of the exhaustion is preserved.  A $C^2$ psh
+exhaustion on $N$ would give one on $M$ by
+Proposition~\ref{prop:compact-modification} with $K=\{x\}$, contrary
+to Theorem~\ref{thm:main}.
+\end{proof}
+
+\begin{remark}[The sense in which the change is local]
+The point $x$ can be chosen outside the zero section of $M\to S$.
+The construction then preserves a neighborhood of that section and,
+by properness, a neighborhood of infinity.  More precisely, for every
+neighborhood $U$ of $x$, $\mu$ is an isomorphism over $M\setminus U$.
+This is a modification supported over one point; it makes no claim
+about a small deformation of the complex structure on a fixed smooth
+manifold.
+\end{remark}
+
+\subsection{Compact products and an explicit fivefold}\label{sec:products}
+
+\begin{proposition}[Compact product principle]\label{prop:compact-product}
+Let $X$ be a nonempty complex manifold and $T$ a nonempty compact
+connected complex manifold.  For each $r\in\{0,2,\infty\}$, $X$
+admits a $C^r$ psh exhaustion if and only if $X\times T$ does.  If
+$T$ is non-K\"ahler, then $X\times T$ is non-K\"ahler.
+\end{proposition}
+
+\begin{proof}
+Pullback by the projection preserves regularity and
+plurisubharmonicity, with compact sublevels
+\begin{equation}\label{eq:product-sublevels}
+ \{f\circ\operatorname{pr}_X\le a\}=\{f\le a\}\times T.
+\end{equation}
+Conversely, restriction to the closed holomorphic slice
+$X\times\{t_0\}$ preserves regularity, plurisubharmonicity, and
+compact sublevels.  A K\"ahler form on the product would restrict to
+one on $\{x_0\}\times T$, proving the final assertion.  In fact, the
+maximum principle makes every continuous psh function on the product
+constant on each compact connected fiber $\{x\}\times T$.
+\end{proof}
+
+\begin{corollary}[A non-K\"ahler fivefold]\label{cor:nonkahler}
+Let $M$ be the threefold of Theorem~\ref{thm:main} and let
+\begin{equation}\label{eq:hopf-surface}
+ H=(\C^2\setminus\{0\})/\langle z\mapsto2z\rangle.
+\end{equation}
+Then $M\times H$ is a smooth non-K\"ahler fivefold admitting a
+continuous psh exhaustion but no $C^2$ psh exhaustion.  For every
+$0<\gamma<1$ its exhaustion can be chosen locally $C^{0,\gamma}$.
+\end{corollary}
+
+\begin{proof}
+The dilation action is free and properly discontinuous: if a compact
+set lies in $r\le\|z\|\le R$, only finitely many integers $n$ satisfy
+$r/R\le2^n\le R/r$.  Polar coordinates identify its quotient smoothly
+with
+\begin{equation}\label{eq:hopf-topology}
+ H\simeq S^3\times\bigl(\R/(\log2)\mathbb Z\bigr)
+ \simeq S^3\times S^1.
+\end{equation}
+Thus $H$ is a compact connected complex surface with
+$H^2_{\mathrm{dR}}(H)=0$.  Any K\"ahler form $\omega$ would be exact,
+and Stokes' theorem would give $\int_H\omega^2=0$, contradicting
+positivity.  Apply Proposition~\ref{prop:compact-product} and
+Theorem~\ref{thm:main}.  Explicitly,
+\begin{equation}\label{eq:nonkahler-exhaustion}
+ \rho_{M\times H}(v,[z])=\rho(v)
+\end{equation}
+is the required exhaustion, with the same local H\"older regularity.
+\end{proof}
+
+\section{The surface problem and boundary reductions}\label{sec:surfaces}
+
+\subsection{Line-bundle total spaces over compact curves}
+\label{sec:surface-curves}
+
+The construction of Theorem~\ref{thm:main} has a two-dimensional compact
+base and a one-dimensional fiber.  Its dimension cannot be lowered by
+replacing the base by a compact Riemann surface: on a compact curve,
+pseudoeffectivity of a line bundle already implies smooth semipositivity.
+Here pseudoeffectivity means the existence of a closed positive
+$(1,1)$-current in the first Chern class; its potentials may be singular.
+Thus this assertion is stronger than the analogous assertion for a
+continuous semipositive metric.
+
+\begin{proposition}[Semipositivity on a compact curve]
+\label{prop:curve-semipositivity}
+Let $B$ be a compact connected Riemann surface and $A$ a holomorphic
+line bundle on $B$.  The following conditions are equivalent:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.5em]
+\item $A$ is pseudoeffective;
+\item $\deg A\ge0$;
+\item $A$ admits a smooth Hermitian metric with semipositive curvature.
+\end{enumerate}
+For $\deg A=0$ the metric can be chosen flat, and for $\deg A>0$ it can
+be chosen to have strictly positive curvature.
+\end{proposition}
+
+\begin{proof}
+A positive $(1,1)$-current on a curve is a positive measure.  If it
+represents $c_1(A)$, its total mass is $\deg A$, proving
+\textup{(i)}$\Rightarrow$\textup{(ii)}.  For the converse construction,
+choose a smooth Hermitian metric $h_0$ on $A$, with curvature $\theta_0$,
+and a smooth positive $(1,1)$-form $\omega$ with $\int_B\omega=1$.
+Write $d=\deg A$.  Since
+\[
+\int_B(d\omega-\theta_0)=0,
+\]
+the Poisson equation, equivalently the $\partial\bar\partial$-lemma
+on a compact Riemann surface, gives a smooth real function $f$ with
+\[
+\ddc f=d\omega-\theta_0.
+\]
+The metric $h=h_0e^{-f}$ has curvature
+\[
+\Theta_h(A)=\theta_0+\ddc f=d\omega.
+\]
+It is semipositive if $d\ge0$, flat if $d=0$, and strictly positive
+if $d>0$.  Its curvature itself is a positive current, completing the
+equivalence.
+\end{proof}
+
+\begin{remark}
+This is the classical degree criterion, and does not assert
+semiampleness.  A non-torsion line bundle in $\operatorname{Pic}^0(B)$
+is unitary flat, but has no nonzero section of any positive tensor
+power.  For a noncompact Riemann surface, every holomorphic line bundle
+is holomorphically trivial: the surface is Stein, and the exponential
+sequence gives this assertion from $H^1(B,\OO_B)=0$ and
+$H^2(B,\mathbb Z)=0$.  The compact case is the one relevant to the
+construction in this paper.
+\end{remark}
+
+\begin{corollary}[Line-bundle total spaces of dimension two]
+\label{cor:curve-total-space}
+For a holomorphic line bundle $A$ on a compact connected Riemann surface
+$B$, the following are equivalent:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.5em]
+\item $\Tot(A^{-1})$ admits a continuous psh exhaustion;
+\item $\deg A\ge0$;
+\item $\Tot(A^{-1})$ admits a smooth psh exhaustion.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+If $\deg A\ge0$, Proposition~\ref{prop:curve-semipositivity} and
+Lemma~\ref{lem:norm} give the smooth squared dual norm exhaustion.
+For the remaining implication, compactify the total space as
+\[
+\Tot(A^{-1})=
+\PP_{\mathrm{lines}}(\OO_B\oplus A^{-1})\setminus C_\infty,
+\qquad C_\infty=\PP_{\mathrm{lines}}(A^{-1}).
+\]
+Its boundary normal bundle is
+\[
+N_{C_\infty/\PP(\OO_B\oplus A^{-1})}
+\simeq\operatorname{Hom}(A^{-1},\OO_B)\simeq A.
+\]
+If $\deg A<0$, this boundary is negative definite, and
+Proposition~\ref{prop:surface-negative-boundary} below rules out a
+continuous psh exhaustion of its complement.
+\end{proof}
+
+In particular, a continuous semipositive metric on a line bundle over
+a compact curve cannot furnish the metric obstruction used in
+Theorem~\ref{thm:main}: a smooth semipositive metric always exists on
+that same bundle.  This rules out the present construction in complex
+dimension two; it does not prove the equivalence of the two exhaustion
+definitions for arbitrary complex surfaces.
+
+\subsection{Historical surface results and their precise scope}
+\label{subsec:surface-history}
+
+The surface problem has two different aspects: regularizing an exhaustion,
+and deciding when the surface is holomorphically convex. The latter
+property gives a regularization mechanism through a proper holomorphic
+map, but it is stronger than the existence of a smooth psh exhaustion.
+
+Ohsawa's 1981 result \cite[Proposition~1.4]{Ohsawa1981} states that a
+connected noncompact smooth weakly $1$-complete surface is
+holomorphically convex if and only if it has a nonconstant holomorphic
+function. His definition of weak $1$-completeness assumes a
+$C^\infty$ psh exhaustion. The remark following his Theorem~1.1 says
+that continuity suffices for that theorem's dichotomy concerning the
+fibers of a holomorphic function; it should not be read as changing the
+regularity hypothesis throughout the paper.
+
+Tomassini and V\^aj\^aitu subsequently treated singular surfaces with a
+continuous psh exhaustion \cite{TomassiniVajaitu2008}; see also the
+more general holomorphic-convexity theorem
+\cite[Theorem~1.1]{Vajaitu2022}. We use only its consequence for a
+smooth connected surface equipped with a finite continuous psh
+exhaustion. The following proposition records that consequence,
+rather than a new holomorphic-convexity theorem. No assertion about
+regularizing an arbitrary possibly discontinuous exhaustion is needed.
+
+\begin{proposition}[Consequence of V\^aj\^aitu]\label{prop:surface-nonconstant-function}
+Let $X$ be a connected noncompact complex surface admitting a continuous
+psh exhaustion. If $\OO(X)\ne\C$, then $X$ admits a smooth psh
+exhaustion.
+\end{proposition}
+
+\begin{proof}
+V\^aj\^aitu's theorem makes $X$ holomorphically convex. Its Remmert
+reduction is a proper holomorphic map $r:X\to Y$ to a Stein space.
+Choose a smooth strongly psh exhaustion $\eta$ on $Y$, where smoothness
+on a complex space means local restriction of a smooth function from a
+local ambient Euclidean space. Then $\eta\circ r$ is smooth on $X$,
+including along the positive-dimensional fibers, and it is psh by
+holomorphic pullback. Finally,
+\[
+ \{\eta\circ r\le t\}=r^{-1}(\{\eta\le t\})
+\]
+is compact by properness. Thus $\eta\circ r$ is an exhaustion. Its
+Levi form may degenerate along compact fibers, as is appropriate for
+weak $1$-completeness.
+\end{proof}
+
+This implication does not dispose of surfaces for which
+$\OO(X)=\C$. In particular, a holomorphically convex noncompact
+connected surface always has a nonconstant holomorphic function, whereas
+a smooth psh exhaustion can exist without one. Thus replacing the
+holomorphic-function hypothesis in this argument requires another
+regularization mechanism.
+
+
+For a continuously weakly complete manifold $X$, its continuous minimal
+kernel is
+\[
+ \Sigma_X^0=\bigcap_v\{x\in X:
+       v\text{ is not strongly psh near }x\},
+\]
+where $v$ ranges over continuous psh exhaustions. Strong
+plurisubharmonicity here means stability under sufficiently small
+$C^2$ perturbations locally.
+
+\begin{proposition}[Mongodi--Slodkowski criterion]
+\label{prop:surface-minimal-kernel}
+Let $X$ be a connected complex manifold with a continuous psh exhaustion
+$u$. If $u(\Sigma_X^0)$ contains no terminal half-line $(a,+\infty)$,
+then $X$ admits a smooth psh exhaustion.
+Consequently, if a continuously weakly complete manifold has no smooth
+psh exhaustion, then for every continuous psh exhaustion $u$ there is
+$a_u\in\R$ such that
+\[
+ (a_u,+\infty)\subset u(\Sigma_X^0).
+\]
+\end{proposition}
+\begin{proof}
+By \cite[Lemma~2.1]{MongodiSlodkowski2020}, the stated image condition
+makes $X$ a modification of a Stein space. Pulling back a smooth
+strongly psh exhaustion by this proper holomorphic map gives the
+claim. The final assertion is the contrapositive. No ambient
+real-analytic exhaustion is assumed in this lemma.
+\end{proof}
+
+A separate theorem in \cite[Corollaries~4.4--4.5]{MongodiSlodkowski2020}
+requires a noncompact surface $M$ already carrying a real-analytic psh
+exhaustion. Every continuously weakly complete domain $\Omega\subset M$
+then has a real-analytic psh exhaustion, strongly psh outside
+$\Sigma_\Omega^0$, and its continuous and real-analytic minimal kernels
+coincide. Their Theorem~1.1 also describes the domain's geometry through
+Stein modifications, proper fibrations, or Grauert-type structure.
+
+The ambient hypothesis needs independent verification: taking
+$M=\Omega$ is circular, and a compactification
+$\Omega=S\setminus|D|$ does not supply the required noncompact ambient
+surface. These results do not prove the unrestricted implication
+or settle every projective divisor complement. This limitation does not
+assert that the unrestricted problem has any particular published status.
+
+\subsection{Divisorial compactifications and allowed modifications}
+\label{sec:surface-pair-reduction}
+
+For the divisor-complement arguments in the rest of this section,
+$S$ is a connected smooth compact complex surface, $D$ is a nonzero
+effective divisor, and
+\[
+ X=S\setminus\supp D.
+\]
+The existence of this compactification is an additional hypothesis on
+$X$, rather than a property of every noncompact complex surface.  Only
+the support of $D$ determines the complement.  We consequently replace
+$D$ by its reduced divisor whenever convenient. K\"ahlerness or
+projectivity will be imposed explicitly when needed.
+
+\begin{lemma}\label{lem:surface-boundary-divergence}
+If $u$ is a continuous exhaustion of $X$, then $u(x)\to+\infty$ as
+$x\to\supp D$.  More precisely, for every $b\in\R$ there is a neighborhood
+$U_b$ of $\supp D$ in $S$ such that $u>b$ on $U_b\setminus\supp D$.
+\end{lemma}
+\begin{proof}
+The sublevel set $K_b=\{u\le b\}$ is a compact subset of $X$, hence a
+closed subset of $S$ disjoint from $\supp D$.  Take $U_b=S\setminus K_b$.
+\end{proof}
+
+\begin{proposition}\label{prop:surface-finite-modifications}
+Let $\mu:X'\to X$ be a proper modification between connected smooth
+complex surfaces with compact exceptional locus. For each
+$\mathcal R\in\{C^0,C^2,C^\infty\}$, $X$ admits a psh exhaustion of
+class $\mathcal R$ if and only if $X'$ does.
+\end{proposition}
+\begin{proof}
+The image of the exceptional locus is compact, and $\mu$ is an
+isomorphism outside that image. Apply
+Proposition~\ref{prop:compact-modification}.
+\end{proof}
+
+\begin{remark}\label{rem:surface-boundary-transforms}
+For a blowup $\mu:S'\to S$ at a boundary point, the appropriate upstairs
+boundary is the full reduced inverse image of $\supp D$, including the
+exceptional curve.  Its complement is biholomorphic to $X$.  In
+particular, resolving the boundary to simple normal crossings does not
+change the open surface.  Keeping only the strict transform of the
+boundary generally changes the complement and does not give a proper
+modification of the original open surface.  Proposition~
+\ref{prop:surface-finite-modifications} concerns modifications with
+compact exceptional locus; it does not assert descent under arbitrary
+modifications with infinitely many exceptional centers escaping to
+infinity.
+\end{remark}
+
+\subsection{An obstruction from negative definite boundary components}
+
+\begin{lemma}\label{lem:surface-normal-puncture-bound}
+Let $(V,p)$ be a normal complex surface germ with an isolated puncture.
+A continuous plurisubharmonic function on $V\setminus\{p\}$ is bounded
+above on a sufficiently small punctured neighborhood of $p$.
+\end{lemma}
+\begin{proof}
+A local finite projection gives a proper finite holomorphic map
+$\tau:V\to\Delta^2$ after shrinking representatives, with
+$\tau^{-1}(0)=\{p\}$.  If $v$ is the given function, put
+\[
+ v_*(z)=\max\{v(y):\tau(y)=z\},\qquad z\ne0.
+\]
+This function is continuous, by properness and openness of the finite
+map.  Away from its branch locus it is the maximum of finitely many
+plurisubharmonic functions on local inverse branches.  Along the branch
+locus away from $0$ it is locally bounded and continuous, so the usual
+removable-singularity theorem makes it plurisubharmonic there as well.
+
+For completeness, a Hartogs argument gives the needed bound on
+$\Delta^2\setminus\{0\}$.  Choose a small bidisc and $r>0$ so that its
+compact vertical circular boundary
+\[
+ K=\{(z_1,z_2):|z_1|\le r,\ |z_2|=r\}
+\]
+lies in the punctured bidisc.  Set $M=\max_K v_*$.  For $z_1\ne0$, the
+maximum principle on the vertical disc gives $v_*(z_1,z_2)\le M$ for
+$|z_2|<r$.  For $z_1=0$ and $z_2\ne0$, the same bound follows by
+continuity.  Since $v\le v_*\circ\tau$, this bounds $v$ near $p$.
+\end{proof}
+
+\begin{proposition}\label{prop:surface-negative-boundary}
+Suppose that a connected component $E$ of $\supp D$ has negative
+definite intersection matrix.  Then $S\setminus\supp D$ admits no
+continuous plurisubharmonic exhaustion.
+\end{proposition}
+\begin{proof}
+Grauert's contraction theorem \cite{Grauert1962} contracts $E$, on a
+neighborhood $U$ avoiding the other boundary components, to an isolated
+point $p$ of a normal complex surface $V$.  The contraction induces a
+biholomorphism $U\setminus E\simeq V\setminus\{p\}$.  An exhaustion
+$u$ on $X$ would induce a continuous plurisubharmonic function on this
+punctured neighborhood.  Lemma~\ref{lem:surface-normal-puncture-bound}
+makes it bounded above near $p$, whereas Lemma~
+\ref{lem:surface-boundary-divergence} requires it to tend to infinity.
+\end{proof}
+
+\subsection{Intersection matrices and smooth collars}
+
+\begin{lemma}\label{lem:surface-collar-gluing}
+Suppose that each connected component $E$ of $\supp D$ has a
+neighborhood $U_E$ and a smooth plurisubharmonic function
+$\Phi_E:U_E\setminus E\to\R$ tending to infinity at $E$.  Then $X$
+admits a smooth plurisubharmonic exhaustion.
+\end{lemma}
+\begin{proof}
+There are finitely many boundary components.  Choose pairwise disjoint
+smaller neighborhoods $W_E$ whose closures lie in $U_E$, with compact
+boundaries disjoint from $E$.  Choose $T_E>\max_{\partial W_E}\Phi_E$.
+Let $\chi_E$ be smooth, convex, nondecreasing, zero on
+$(-\infty,T_E]$, and unbounded at infinity.  Continuity ensures that
+$\chi_E(\Phi_E)$ vanishes on a neighborhood of $\partial W_E$.
+Therefore the function equal to $\chi_E(\Phi_E)$ on $W_E\setminus E$
+and zero elsewhere on $X$ is smooth and plurisubharmonic.  The sum of
+these functions tends to infinity at every boundary component.  Since
+$S$ is compact, its sublevel sets are compact subsets of $X$.
+\end{proof}
+
+\begin{lemma}\label{lem:surface-positive-boundary-metric}
+Let $E=\bigcup_{i=1}^rE_i$ be a connected reduced simple normal crossing
+divisor on a smooth compact complex surface.  If a divisor
+$A=\sum_i a_iE_i$, with $a_i\in\mathbb Z_{>0}$, satisfies
+$A\cdot E_i>0$ for every $i$, then $\OO_S(A)$ has a smooth Hermitian
+metric of strictly positive curvature on a neighborhood of $E$.
+\end{lemma}
+\begin{proof}
+The restriction $\OO_S(A)|_E$ is ample, since its degree on every
+irreducible component is positive.  Choose $m>0$ for which
+$\OO_S(mA)|_E$ is very ample, and endow this restriction with its
+Fubini--Study metric.  On a sufficiently small ambient coordinate
+neighborhood, holomorphic sections giving the embedding of $E$ lift to
+holomorphic local sections of $\OO_S(mA)$.  Their Fubini--Study weights,
+divided by $m$, define local smooth metrics of $\OO_S(A)$, with the
+prescribed restriction to $E$ and positive curvature in tangent
+directions along its smooth part.
+
+At a node the Zariski tangent space of $E$ equals the ambient tangent
+space.  A projective embedding of $E$ is injective on that tangent
+space.  Accordingly, the local Fubini--Study metric obtained by lifting
+its sections has strictly positive ambient curvature at the node, and
+on a smaller neighborhood of it.  Fix these local metrics on disjoint
+small neighborhoods of the finitely many nodes.  Patch the remaining
+local extensions of the prescribed metric using a smooth partition of
+unity, relative to any global reference metric, while keeping the
+chosen metrics unchanged on smaller node neighborhoods.  On the
+smooth part of $E$, the tangential curvature is unchanged by this
+patching: tangential second derivatives depend only on the common
+restriction to the curve.  The resulting global smooth metric thus has
+positive tangential curvature on $E$ and strictly positive ambient
+curvature near its nodes.
+
+Let $s_E$ be the canonical section of $\OO_S(E)$, choose any smooth
+metric on this bundle, and set $q=\|s_E\|^2$.  Along the smooth part of
+$E$, $\ddc q$ vanishes on the tangent line and is strictly positive in
+the normal direction.  At a node $\ddc q=0$, because a reduced local
+equation is the product of the two branch coordinates.  In particular,
+$\ddc q$ is positive semidefinite along all of $E$.
+
+Add $Cq$ to the local weights of the patched metric.  Away from fixed
+node neighborhoods, compactness, positivity of the tangential block,
+and positivity of the normal block of $\ddc q$ show that a sufficiently
+large $C$ makes the full curvature matrix positive along $E$; this is
+also immediate from its Schur complement.  Near the nodes, the old
+curvature is already positive and $\ddc q$ is semipositive on $E$.
+The new curvature is therefore positive everywhere on $E$, hence on
+an ambient neighborhood by continuity.
+\end{proof}
+
+\begin{proposition}\label{prop:surface-boundary-matrix}
+Assume that $S$ is K\"ahler, that $D$ is reduced with simple normal crossings and that $X$
+admits a continuous plurisubharmonic exhaustion.  For each connected
+component $E=\bigcup_{i=1}^rE_i$ of $D$, let
+$I=(E_i\cdot E_j)$ and let $\lambda$ be its largest eigenvalue.
+Then $\lambda\ge0$, and the following alternatives hold.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.5em]
+\item If $\lambda>0$, a smooth strictly plurisubharmonic collar
+exhaustion exists near $E$.
+\item If $\lambda=0$, there are positive integers $a_i$ such that
+$A=\sum_i a_iE_i$ is nef and
+\[
+ A\cdot E_i=0\quad\hbox{for every }i,\qquad A^2=0.
+\]
+The matrix $I$ is negative semidefinite with one-dimensional kernel.
+\end{enumerate}
+Thus the only connected boundary configurations not already settled by
+the collar construction are supports of effective nef square-zero
+divisors as in \textup{(ii)}.
+\end{proposition}
+\begin{proof}
+The off-diagonal entries of $I$ are nonnegative, and connectedness of
+$E$ makes the matrix irreducible.  Applying Perron--Frobenius to $I+c
+\operatorname{Id}$ for sufficiently large $c$, its largest eigenvalue
+is simple and has a strictly positive eigenvector.  If $\lambda<0$,
+$I$ is negative definite, contrary to Proposition~
+\ref{prop:surface-negative-boundary}.
+
+If $\lambda>0$, approximate its positive eigenvector by a positive
+rational vector $a$ sufficiently closely that $Ia$ has strictly
+positive entries, and clear denominators.  Then $A\cdot E_i>0$ for
+all $i$.  Lemma~\ref{lem:surface-positive-boundary-metric} gives a
+positive metric $h$ on a neighborhood of $E$.  The function
+\[
+ \Phi=-\log\|s_A\|_h^2
+\]
+is smooth and strictly plurisubharmonic off $E$, since
+$\ddc\Phi=\Theta_h(\OO_S(A))$ there.  It tends to infinity at every
+point of $E$.
+
+If $\lambda=0$, every eigenvalue is nonpositive, and simplicity of the
+largest eigenvalue gives a one-dimensional kernel spanned by a
+positive vector.  Since $I$ has integral entries, its kernel has a
+rational generator; clear denominators to obtain positive integers
+$a_i$.  Then $A\cdot E_i=0$ and $A^2=0$.  For any irreducible curve
+$G$ outside $E$, effectiveness gives $A\cdot G\ge0$.  In the
+projective case this proves nefness.  For a nonprojective compactifier,
+the independent argument in Corollary~\ref{thm:surface-nonprojective-pair}
+below identifies $E$ as a whole elliptic fiber support.  Its positive
+kernel vector is proportional to the fiber multiplicity vector, so
+some positive multiple of $A$ is a positive multiple of a fiber divisor.
+Pulling back a
+positive metric from the base and taking its appropriate root gives
+a smooth semipositive metric on $\OO_S(A)$, proving nefness also in
+the analytic sense.  Its numerical class is nonzero, because
+$A\cdot H>0$ for a
+K\"ahler class $H$.
+\end{proof}
+
+\subsection{Disconnected boundaries and nonprojective compactifiers}\label{sec:surface-nonprojective}
+
+\begin{theorem}\label{thm:surface-disconnected-boundary}
+Let $S$ be smooth projective and let $D$ be a nonzero effective divisor
+whose support is disconnected.  If $S\setminus\supp D$ admits a
+continuous plurisubharmonic exhaustion, then it admits a smooth one.
+\end{theorem}
+\begin{proof}
+Resolve the boundary using its full reduced inverse image, which
+preserves both the complement and the number of its connected boundary
+components.  Write these components as $E_1,\ldots,E_r$, with $r\ge2$.
+Proposition~\ref{prop:surface-boundary-matrix} supplies an effective
+divisor $A_k$ supported exactly on $E_k$, with $A_k^2\ge0$; in the
+positive-eigenvalue case its square is strictly positive.  Disjointness
+gives $A_k\cdot A_l=0$ for $k\ne l$.
+
+If $A_k^2>0$, the Hodge index theorem makes the intersection form
+negative definite on its orthogonal complement.  The numerical class
+of $A_l$ is nonzero, because its intersection with an ample divisor is
+positive.  We would therefore have $A_l^2<0$, a contradiction.  Thus
+every boundary component is in the zero-eigenvalue alternative:
+\[
+ A_k\text{ is nef},\qquad A_k^2=0,\qquad A_k\cdot A_l=0.
+\]
+The Hodge index theorem also implies that these nonzero isotropic nef
+classes are proportional.  Their proportionality factors are positive
+and rational, as can be seen by intersecting them with an integral
+ample divisor.  For every $k\ge2$, choose positive integers $p_k,q_k$
+such that $p_kA_k-q_kA_1$ is numerically trivial.
+
+On a smooth projective surface, numerical triviality of a divisor
+implies that its real first Chern class vanishes.  Equivalently, this
+follows from the Hodge index theorem on divisor classes.  The
+$\partial\bar\partial$-lemma then supplies a smooth unitary flat
+Hermitian metric $h_k$ on
+\[
+ L_k=\OO_S(p_kA_k-q_kA_1).
+\]
+Indeed, the curvature of any smooth reference metric is an exact real
+$(1,1)$-form, and changing its weight by a global smooth potential
+makes its curvature zero.  This argument also permits torsion integral
+first Chern classes.
+
+Let $\sigma_k$ be the canonical meromorphic section of $L_k$ with
+divisor $p_kA_k-q_kA_1$.  On $X=S\setminus\supp D$, the function
+\[
+ \phi_k=\log\|\sigma_k\|_{h_k}^2
+\]
+is smooth and pluriharmonic.  It tends to $-\infty$ at $E_k$ and to
+$+\infty$ at $E_1$.  Hence
+\[
+ \rho=\sum_{k=2}^r\phi_k^2
+\]
+is smooth and plurisubharmonic, because
+$\ddc(\phi_k^2)=\frac{i}{\pi}\partial\phi_k\wedge\barp\phi_k\ge0$.
+It tends to infinity at every boundary component.  Compactness of $S$
+makes it an exhaustion.  The same function transports through the
+biholomorphism of complements obtained from the boundary resolution.
+\end{proof}
+
+
+\begin{theorem}[A numerical criterion at nonprojective infinity]
+\label{thm:nonprojective}
+Let $S$ be a smooth compact connected nonprojective complex surface and $D\ne0$ an effective
+divisor. Put $X=S\setminus\supp D$. The following are equivalent:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.5em]
+\item $X$ admits a continuous plurisubharmonic exhaustion;
+\item $X$ admits a smooth plurisubharmonic exhaustion;
+\item no connected component of $\supp D$ has negative-definite intersection matrix.
+\end{enumerate}
+There is no K\"ahler assumption, and the boundary need not have normal crossings.
+\end{theorem}
+\begin{proof}
+Proposition~\ref{prop:surface-negative-boundary} proves
+\textup{(i)}$\Rightarrow$\textup{(iii)}, without a K\"ahler hypothesis.
+The implication \textup{(ii)}$\Rightarrow$\textup{(i)} is immediate.
+We prove \textup{(iii)}$\Rightarrow$\textup{(ii)}.
+
+The algebraic dimension of $S$ is zero or one. If $a(S)=1$, its algebraic reduction $f:S\to
+B$ is a holomorphic elliptic fibration with connected fibers and every compact curve is
+vertical; see \cite[Section~2]{FN2005}. For a fiber $F=\sum m_iC_i$, its intersection matrix
+$I$ satisfies
+\begin{equation}\label{eq:surface-fiber-intersection-identity}
+ x^{\mathsf T}Ix=-\sum_{i<j}(C_i\cdot C_j)m_im_j
+       \left(\frac{x_i}{m_i}-\frac{x_j}{m_j}\right)^2.
+\end{equation}
+Connectedness makes its kernel the line spanned by $(m_i)$. Every proper principal submatrix
+is consequently negative definite. Condition \textup{(iii)} therefore forces the boundary to
+contain every fiber support it meets. Hence $X=f^{-1}(B\setminus P)$ for a finite nonempty
+set $P$, and the restriction of $f$ is proper. Pull back a smooth strictly subharmonic
+exhaustion of $B\setminus P$.
+
+Suppose $a(S)=0$. By \cite[Lemma 2.1(1)]{FN2005}, $c_1(L)^2\le0$ for every holomorphic line
+bundle $L$ on $S$. Thus every boundary intersection matrix is negative semidefinite. On each
+connected component, condition \textup{(iii)} and Perron--Frobenius give a strictly positive
+kernel vector; the integral matrix permits an integral choice after rescaling. Summing the
+corresponding divisors gives
+\[
+ A=\sum a_iD_i,\qquad a_i>0,\qquad A^2=0,
+ \qquad\supp A=\supp D.
+\]
+
+Contract to a smooth minimal model $p:S\to S_0$. For any single blowdown $q:T\to T'$ with
+exceptional curve $E$, put $A'=q_*A$ and write $A=q^*A'+bE$. Then
+\[
+ 0=A^2=(A')^2-b^2.
+\]
+The surface $T'$ remains nonprojective, so $(A')^2\le0$ by the same lemma. Consequently
+$b=0$, $(A')^2=0$, and $A'\ne0$. Iterating gives $A=p^*A_0$ for a nonzero effective
+square-zero divisor $A_0$ and, crucially,
+\[
+ \supp A=p^{-1}(\supp A_0).
+\]
+Thus $X=p^{-1}(X_0)$ for $X_0=S_0\setminus\supp A_0$, and $p|_X$ is proper. A smooth psh
+exhaustion of $X_0$ pulls back to one of $X$.
+
+If $S$ is K\"ahler, its minimal model of algebraic dimension zero is a torus or a K3 surface
+\cite[Section~2]{FN2005}. A torus of algebraic dimension zero has no curves: a curve on a
+nonprojective torus must be a smooth elliptic curve by adjunction and the absence of
+rational curves, and its elliptic quotient would give algebraic dimension at least one. On a
+K3 surface, Riemann--Roch and $H^0(S_0,\OO(-A_0))=0$ yield $h^0(S_0,\OO(A_0))\ge2$,
+contradicting $a(S_0)=0$. Thus this alternative cannot occur.
+
+If $S$ is non-K\"ahler, $S_0$ is of class~VII; see \cite[Section~2]{FN2005}. For
+$b_2(S_0)=n>0$, Enoki's Main Theorem \cite[p.~454]{Enoki} identifies $S_0$ with
+$S_{n,\alpha,t}$ and $A_0$ with a positive multiple of its distinguished rational cycle. Its
+complement is an affine-line bundle of degree $-n$ over an elliptic curve \cite[(0.4),
+p.~453]{Enoki}. Completing the affine fibers gives a smooth projective $\PP^1$-bundle whose
+infinity section $C_\infty$ has square $n>0$.
+Lemma~\ref{lem:surface-positive-boundary-metric} gives a metric of
+positive curvature near $C_\infty$. The function
+$-\log\|s_{C_\infty}\|^2$ is a smooth strictly psh divergent collar,
+and Lemma~\ref{lem:surface-collar-gluing} gives a smooth exhaustion of $X_0$.
+
+For $b_2(S_0)=0$, a minimal class~VII surface with a curve is elliptic or Hopf by the
+theorem of Kodaira recalled in \cite[p.~453]{Enoki}. Algebraic dimension zero excludes the
+elliptic-fibration case, so $S_0$ is Hopf. Every irreducible curve $C$ on $S_0$ has
+$C^2=K_{S_0}\cdot C=0$, hence arithmetic genus one. Its normalization cannot be rational:
+any holomorphic map from $\PP^1$ lifts to the universal cover $\C^2\setminus\{0\}$ and is
+constant. Therefore $C$ is smooth elliptic. Distinct such curves are disjoint because their
+intersection numbers vanish. The boundary of $X_0$ is consequently a disjoint union of
+smooth square-zero elliptic curves. Finite Ueda type gives a smooth strictly psh collar by
+\cite[Theorem 2.5]{CLPT2018}; infinite type gives a unitary flat neighborhood by
+\cite[Theorem 1.6]{CFSTZ2026}. The latter gives a smooth pluriharmonic logarithmic collar.
+Lemma~\ref{lem:surface-collar-gluing} combines these collars into a smooth psh exhaustion of
+$X_0$.
+\end{proof}
+
+\begin{remark}
+The Hopf elliptic-neighborhood step uses the September 2026 preprint \cite{CFSTZ2026}.
+Enoki's theorem applies to any nonzero square-zero divisor on a minimal class~VII surface
+with positive second Betti number; it does not assume that the divisor is already a cycle.
+Thus the proof does not use an unresolved classification of all class~VII surfaces. It also
+explains why the whole pullback of the boundary, rather than its strict transform alone,
+matters when passing to the minimal model.
+\end{remark}
+
+
+\begin{corollary}[The nonprojective K\"ahler case]
+\label{thm:surface-nonprojective-pair}
+Let $S$ be a connected smooth compact nonprojective K\"ahler surface
+and $D\ne0$ effective. If $S\setminus\supp D$ has a continuous psh
+exhaustion, then $a(S)=1$, and the algebraic reduction is a holomorphic
+elliptic fibration $f:S\to B$ with connected fibers such that
+\[
+ \supp D=f^{-1}(P)
+\]
+for a finite nonempty subset $P\subset B$. A smooth exhaustion is
+pulled back from $B\setminus P$.
+\end{corollary}
+\begin{proof}
+The proof of Theorem~\ref{thm:nonprojective} excludes algebraic
+dimension zero in the K\"ahler case and proves the whole-fiber
+description in algebraic dimension one, including for nonminimal
+surfaces and multiple fibers.
+\end{proof}
+
+\subsection{Moving boundaries and the residual projective case}
+
+\begin{proposition}\label{prop:surface-semiample-boundary}
+Let $S$ be projective and let $A$ be a nonzero effective semiample
+divisor with $A^2=0$.  Then $S\setminus\supp A$ admits a smooth
+plurisubharmonic exhaustion.  There are a smooth projective curve $B$,
+a proper holomorphic map $f:S\to B$ with connected fibers, a positive
+integer $m$, and a nonzero effective divisor $G$ on $B$ such that
+\[
+ mA=f^*G.
+\]
+\end{proposition}
+\begin{proof}
+A globally generated multiple of $A$ defines a projective morphism.
+Its image is a curve: it is not a point because $A$ is numerically
+nonzero, and it cannot have dimension two because $A^2=0$.  Its Stein
+factorization gives $f:S\to B$ with $B$ a smooth projective curve and
+connected fibers, and $\OO_S(mA)=f^*L$ for a line bundle $L$ on $B$
+after increasing $m$ if necessary.  Since $f_*\OO_S=\OO_B$, the
+canonical section with divisor $mA$ is the pullback of a section of
+$L$.  Its divisor $G$ is effective and nonzero.  Consequently,
+\[
+ S\setminus\supp A=f^{-1}(B\setminus\supp G),
+\]
+and the restriction of $f$ to this complement is proper.
+
+Every compact Riemann surface with a nonempty finite set removed has
+a smooth strictly subharmonic exhaustion $\psi$.  Explicitly, fix an
+area form $\omega$ of total mass one, and for each removed point $p$
+take a Green function $g_p$ with $\ddc g_p=\delta_p-\omega$.  Then
+$\psi=-\sum_p g_p$ is smooth with $\ddc\psi=\#\{p\}\,\omega>0$ on
+the punctured curve and tends to infinity at each puncture.  The
+pullback $\psi\circ f$ is the required smooth plurisubharmonic
+exhaustion.
+\end{proof}
+
+\begin{proposition}\label{prop:surface-moving-boundary}
+Let $S$ be smooth projective and let $A$ be a nonzero effective nef
+divisor with $A^2=0$.  If either $\kappa(S,A)=1$ or $K_S\cdot A<0$,
+then $S\setminus\supp A$ admits a smooth plurisubharmonic exhaustion.
+\end{proposition}
+\begin{proof}
+A nef line bundle of Iitaka dimension one on a compact normal surface
+is semiample by \cite[Lemma~7.3]{Fujino2021}.  Thus the first case
+follows from Proposition~\ref{prop:surface-semiample-boundary}.
+
+For the second case, Riemann--Roch gives
+\[
+ \chi(\OO_S(nA))=\chi(\OO_S)-\frac n2K_S\cdot A.
+\]
+For an ample divisor $H$, the intersection
+$(K_S-nA)\cdot H$ is negative for large $n$, since $A\cdot H>0$.
+Therefore $H^0(S,\OO_S(K_S-nA))=0$ and, by Serre duality,
+$H^2(S,\OO_S(nA))=0$.  It follows that
+$h^0(S,\OO_S(nA))\ge\chi(\OO_S(nA))$ is unbounded when $K_S\cdot A<0$.
+Consequently $\kappa(S,A)\ge1$.  A nef divisor of square zero has
+Iitaka dimension at most one: a moving linear system with
+two-dimensional image would have a positive-square moving part on a
+resolution, contradicting nefness and $A^2=0$.  Thus
+$\kappa(S,A)=1$, and the first case applies.
+\end{proof}
+
+\begin{corollary}\label{cor:surface-connected-residual}
+For divisorial compactifications by smooth projective surfaces, the
+unproved continuous-to-smooth exhaustion implication reduces to the
+following class of pairs:
+\[
+ \begin{gathered}
+ D\text{ reduced with simple normal crossings and connected support},
+ \\[2pt]
+ A=\sum_i a_iD_i,\quad a_i\in\mathbb Z_{>0},\quad A\text{ nef},
+ \\[2pt]
+ A\cdot D_i=0\text{ for every }i,\qquad A^2=0,
+ \\[2pt]
+ \kappa(S,A)=0,\qquad K_S\cdot A\ge0.
+ \end{gathered}
+\]
+In this reduction, the standing hypothesis that
+$S\setminus\supp D$ has a continuous plurisubharmonic exhaustion is
+retained.
+\end{corollary}
+\begin{proof}
+Boundary resolution preserves the open surface.  Disconnected supports
+are handled by Theorem~\ref{thm:surface-disconnected-boundary}.
+Proposition~\ref{prop:surface-boundary-matrix} either gives a smooth
+collar, hence a global exhaustion, or supplies $A$ with the displayed
+intersection properties.  Since $A$ is nonzero and effective,
+$\kappa(S,A)\ge0$; nefness and $A^2=0$ give $\kappa(S,A)\le1$.
+Proposition~\ref{prop:surface-moving-boundary} settles
+$\kappa(S,A)=1$ and $K_S\cdot A<0$.  The stated cases remain.
+\end{proof}
+
+\section{Birational reductions and affirmative log surface cases}
+\label{sec:surface-log-cases}
+
+The results in this section concern smooth compactifications.  Throughout,
+$S$ is a smooth projective surface, $D\ne0$ is a reduced simple normal
+crossing divisor, and $X=S\setminus\supp D$.  Whenever a continuous
+plurisubharmonic exhaustion is assumed, it is finite-valued on $X$.
+The statements do not assert that an arbitrary singular log minimal
+endpoint has these smooth compactification properties.
+
+\subsection{Birational reductions and their scope}
+\label{sec:surface-mmp-scope}
+
+The log surface MMP applies to projective pairs and, more generally,
+to suitable compact K\"ahler log surface pairs; see
+\cite{Fujino2012,Fujino2021}.  A nef log-adjoint endpoint is controlled
+by $K_S+D$, whereas the exhaustion at infinity depends on the analytic
+neighborhood of $D$.  These are distinct pieces of information.
+
+The complement is preserved by a boundary contraction precisely when
+the upstairs removed set is the full inverse image of the downstairs
+removed set.  An interior contraction with compact exceptional locus
+is covered by Proposition~\ref{prop:surface-finite-modifications}.
+General log MMP steps need not satisfy either condition.  Moreover,
+singular log endpoints may require a separate analysis of discrepancies
+and boundary coefficients on a resolution.  We do not assume that
+arbitrary log MMP steps preserve either exhaustion property.
+
+For a smooth projective pair with reduced SNC boundary, write
+$\overline\kappa(X)=\kappa(S,K_S+D)$ for its log Kodaira dimension.
+The log MMP leads to a Mori fiber space when this dimension is
+$-\infty$, and otherwise to a nef log-adjoint model.  Log abundance
+then gives an associated morphism with image of dimension $0$, $1$,
+or $2$.  These correspond to a numerically trivial log adjoint,
+a curve Iitaka fibration, and log general type, respectively.
+For a smooth curve-fibration model with $(K_S+D)\cdot F=0$, adjunction
+gives $2g(F)-2+D\cdot F=0$; its general open fiber is therefore
+elliptic or $\C^*$.  This organizes the cases below, but does not
+assert that passage to every log endpoint preserves the open surface.
+For a smooth irreducible boundary there is a useful restricted statement.
+\begin{proposition}\label{prop:surface-smooth-boundary-negative-steps}
+Let $S$ be smooth projective and let $C\subset S$ be a smooth connected
+curve of genus at least two with $C^2=0$.  Every birational
+$(K_S+C)$-negative extremal contraction from this smooth pair contracts
+a $(-1)$-curve disjoint from $C$.  Thus a sequence of these birational
+steps restricts to finite proper modifications of $S\setminus C$,
+and both exhaustion properties are preserved.
+\end{proposition}
+\begin{proof}
+Adjunction gives $(K_S+C)\cdot C=2g(C)-2>0$, so $C$ is not contracted.
+For an irreducible contracted curve $E\ne C$, one has $E^2<0$ and
+$C\cdot E\ge0$.  Again by adjunction,
+\[
+ (K_S+C)\cdot E=2p_a(E)-2-E^2+C\cdot E.
+\]
+Negativity forces $p_a(E)=0$, $E^2=-1$, and $C\cdot E=0$.
+The contraction is therefore the blowdown of a smooth rational
+$(-1)$-curve away from the boundary.  After each such step the surface
+and the boundary remain smooth, with the same boundary genus and
+self-intersection.  Proposition~\ref{prop:surface-finite-modifications}
+applies at every step.
+\end{proof}
+
+\begin{remark}\label{rem:surface-log-adjoint-not-exhaustion}
+Even when $K_S+D$ is semiample, its associated map need not be proper
+on $S\setminus\supp D$.  Thus semiampleness of the log adjoint is not
+the assertion of Proposition~\ref{prop:surface-semiample-boundary},
+which requires semiampleness of a divisor supported on the boundary.
+The general remaining smoothing implication is not asserted in this
+article.
+\end{remark}
+
+\subsection{Ueda-theoretic sufficient conditions for a smooth boundary}
+
+We recall the neighborhood invariant used below.  For a smooth curve
+$C$ of square zero, give $N_{C/S}$ its unitary flat structure and
+choose local defining functions with first-order transition constants
+$t_{ij}$ of modulus one.  A system of type $n$ satisfies
+\[
+ w_i=t_{ij}w_j+O(w_j^{n+1}).
+\]
+The Ueda type is the largest attainable $n$, or infinity if such systems
+exist at every order.  The successive obstructions lie in
+$H^1(C,N_{C/S}^{-n})$.  Infinite type is a formal condition and does
+not by itself supply convergent defining functions.  Exact equations
+$w_i=t_{ij}w_j$ on a neighborhood give type $(\beta)$; infinite type
+without such equations is type $(\gamma)$
+\cite[\S\S2,5]{Ueda1983}.
+The Diophantine condition on $N$ means that, for some $c,\tau>0$ and
+an invariant distance on $\operatorname{Pic}^0(C)$,
+\[
+ \operatorname{dist}(N^{\otimes m},\OO_C)\ge c m^{-\tau}
+ \qquad(m\ge1).
+\]
+
+\begin{proposition}[A smooth square-zero boundary]
+\label{prop:surface-ueda-sufficient}
+Let $C$ be a smooth connected curve on a smooth compact K\"ahler
+surface $S$, with $C^2=0$, and set $N=\OO_C(C)$.  The complement
+$S\setminus C$ admits a smooth psh exhaustion in each of the
+following cases:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.5em]
+ \item the Ueda type of $C\subset S$ is finite;
+ \item $\OO_S(C)$ is unitary flat on a neighborhood of $C$;
+ \item $N$ is torsion;
+ \item for some $k>0$, the unitary representation associated with
+ $N^{\otimes k}$ extends from $\pi_1(C)$ to $\pi_1(S)$;
+ \item $N$ satisfies the Diophantine condition;
+ \item $C$ is elliptic.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Case \textup{(i)} follows from Ueda's strictly psh collar theorem
+\cite[Theorem~2.5]{CLPT2018} and
+Lemma~\ref{lem:surface-collar-gluing}.  In case \textup{(ii)},
+unitary defining functions give the pluriharmonic collar function
+$-\log|w_i|^2$, to which the same lemma applies.
+
+For \textup{(iii)}, finite Ueda type has already been treated.  In
+infinite type, the fibration theorem for torsion normal bundle
+\cite[Theorem~1.3]{CLPT2018} makes a positive multiple of $C$ a
+fiber of a holomorphic fibration; a local base coordinate gives the
+required collar function.
+
+For \textup{(iv)}, torsion normal bundles have already been treated
+in \textup{(iii)}, so only infinite Ueda type with non-torsion normal
+bundle remains.  Neeman's
+extension theorem \cite[Theorem~4.4]{CLPT2018} gives an effective
+divisor $E$ disjoint from $C$ with $[E]=m[C]$ in real cohomology for
+some $m>0$. Hence $\OO_S(mC-E)$ has zero real first Chern class and
+admits a unitary flat metric $h$ by the $\partial\bar\partial$-lemma.
+If $\sigma$ is its canonical meromorphic section, then
+$-m^{-1}\log\|\sigma\|_h^2$ is a smooth pluriharmonic collar diverging
+at $C$. This also gives the unitary flat neighborhood consequence.  In \textup{(v)}, finite
+type is already covered, and Ueda's convergence theorem
+\cite[Theorem~3]{Ueda1983} gives the flat neighborhood in infinite type.
+Finally, finite type again handles one alternative in \textup{(vi)};
+for infinite type,
+\cite[Theorem~1.6]{CFSTZ2026} excludes type $(\gamma)$ and hence
+gives case \textup{(ii)}.
+\end{proof}
+
+
+\subsection{Homology and irregularity of a square-zero boundary}
+
+\begin{lemma}[Exact character-extension criterion]\label{lem:characters}
+Let $i:C\hookrightarrow S$ be the inclusion of a smooth connected compact complex curve in a
+compact complex surface, and let
+\[
+ j=i_*:H_1(C,\mathbb Z)\longrightarrow H_1(S,\mathbb Z).
+\]
+A character $\rho:H_1(C,\mathbb Z)\to\Uone$ extends to $H_1(S,\mathbb Z)$ if and only if it
+is trivial on $\ker j$. A positive power of $\rho$ extends if and only if $\rho(\ker j)$ is
+finite. In particular, injectivity of $j$ implies extension of every unitary character,
+without taking a power.
+\end{lemma}
+\begin{proof}
+Necessity is immediate. If $\rho$ is trivial on $\ker j$, define a character on the subgroup
+$j(H_1(C,\mathbb Z))$ by $j(a)\mapsto\rho(a)$. Every character from a subgroup of a finitely
+generated abelian group to $\Uone$ extends to the whole group. Indeed, $\Uone$ is divisible,
+and hence an injective abelian group. Alternatively one can use the structure theorem for
+finitely generated abelian groups and successively take roots in $\Uone$. This argument
+allows torsion in $H_1(S,\mathbb Z)$ and a nonprimitive image of $j$.
+
+Apply the first assertion to $\rho^k$. Such a power extends exactly when $\rho(\ker j)$ is
+killed by a positive integer $k$, equivalently is contained in the finite group of $k$th
+roots of unity. Conversely every finite subgroup of $\Uone$ is killed by its order. Finally,
+representations into $\Uone$ factor through the abelianization, so the same statements hold
+for extension from $\pi_1(C)$ to $\pi_1(S)$.
+\end{proof}
+
+\begin{theorem}[A homological sufficient condition]\label{thm:homology}
+Let $S$ be a smooth compact connected K\"ahler surface and $C\subset S$ a smooth connected
+curve with $C^2=0$. Let $\rho$ be the unitary character associated with $N_{C/S}$, viewed as
+a character of $H_1(C,\mathbb Z)$. If
+\[
+ \rho\bigl(\ker(H_1(C,\mathbb Z)\to H_1(S,\mathbb Z))\bigr)
+ \quad\text{is finite},
+\]
+then $S\setminus C$ admits a smooth plurisubharmonic exhaustion. In particular this holds
+when $H_1(C,\mathbb Z)\to H_1(S,\mathbb Z)$ is injective. No continuous exhaustion is
+assumed.
+\end{theorem}
+\begin{proof}
+The degree-zero normal bundle is unitary flat. By
+Lemma~\ref{lem:characters}, a positive power of its character extends
+to $H_1(S,\mathbb Z)$ and hence to $\pi_1(S)$. Apply
+Proposition~\ref{prop:surface-ueda-sufficient}\textup{(iv)}.
+\end{proof}
+
+\begin{corollary}[Irregularity at least the boundary genus]\label{cor:irregularity}
+Let $S$ and $C$ be as in Theorem~\ref{thm:homology}. If
+\[
+ q(S):=h^1(S,\OO_S)\ \ge\ g(C),
+\]
+then $S\setminus C$ admits a smooth plurisubharmonic exhaustion. No continuous exhaustion is assumed.
+\end{corollary}
+\begin{proof}
+Consider the restriction map
+\[
+ r:H^1(S,\OO_S)\longrightarrow H^1(C,\OO_C).
+\]
+If $r$ is not injective, \cite[Proposition 2.7]{CLPT2018} implies that $C$ is a multiple
+fiber of a holomorphic fibration $f:S\to B$. Taking connected fibers, $f^{-1}(b)$ has
+support exactly $C$ for one point $b\in B$. Thus the restriction $S\setminus C\to
+B\setminus\{b\}$ is proper; pull back a smooth strictly subharmonic exhaustion of the
+punctured compact curve.
+
+If $r$ is injective, the inequality $q(S)\ge g(C)$ forces equality, and $r$ is an
+isomorphism. The functorial Hodge decomposition on compact K\"ahler manifolds identifies $r$
+with the $(0,1)$ part of $i^*:H^1(S,\C)\to H^1(C,\C)$; complex conjugation identifies its
+$(1,0)$ part. Therefore $i^*$ is an isomorphism, and so is $i_*:H_1(C,\mathbb Q)\to
+H_1(S,\mathbb Q)$.
+
+The kernel of the integral map $j:H_1(C,\mathbb Z)\to H_1(S,\mathbb Z)$ is consequently
+torsion. Since $H_1(C,\mathbb Z)\simeq\mathbb Z^{2g(C)}$ is torsion-free, that kernel is
+zero. Torsion in the target causes no difficulty: an element mapping to torsion maps to zero
+rationally, and hence must already be zero in the source. Apply Theorem~\ref{thm:homology};
+Lemma~\ref{lem:characters} shows that here the character itself extends, not merely a
+positive power.
+\end{proof}
+
+\begin{remark}[The genus-zero endpoint]
+If $C\simeq\PP^1$ and $C^2=0$, then $N_{C/S}\simeq\OO_{\PP^1}$. All Ueda obstruction groups
+$H^1(C,N_{C/S}^{-n})$ vanish, so the type is infinite. The torsion-normal-bundle fibration
+theorem gives a fibration with fiber $C$, and hence a smooth exhaustion of the complement.
+This is also covered by Corollary~\ref{cor:irregularity}, since $q(S)\ge0=g(C)$.
+\end{remark}
+
+\subsection{Smooth rulings in every boundary degree}
+
+In a smooth ruling the square-zero alternative has a particularly
+rigid form. The following proposition includes affine-line complements
+and bisections, and removes any degree restriction.
+
+\begin{proposition}[Connected square-zero boundaries in a smooth ruling]
+\label{prop:ruled-all-degrees-zero}
+Let $f:S\to B$ be a smooth $\PP^1$-bundle over a connected smooth
+projective complex curve. Let $E=\bigcup_{i=1}^r E_i$ be a nonempty connected
+reduced simple normal crossing divisor. Suppose that there are integers
+$a_i>0$ such that
+\[
+ A=\sum_{i=1}^r a_iE_i,\qquad A\cdot E_i=0\quad(1\le i\le r).
+\]
+Then $S\setminus E$ admits a smooth plurisubharmonic exhaustion, without
+assuming a continuous exhaustion. More precisely, either $E$ is one fiber,
+or $E=C$ is a single smooth curve with $C^2=0$ and $f|_C:C\to B$ finite
+\'etale. If its degree $d$ is at least three, a finite \'etale base change
+identifies the pair with
+\[
+ (S',E')\simeq
+ \bigl(B'\times\PP^1,\ B'\times Q\bigr),
+ \qquad |Q|=d.
+\]
+\end{proposition}
+
+\begin{proof}
+Every vertical irreducible curve in $S$ is a whole fiber, since the fibers
+are irreducible. If all components of $E$ are vertical, their disjointness
+and connectedness of $E$ make $E$ one fiber. The map
+$S\setminus E\to B\setminus\{b\}$ is proper, so the pullback of a smooth
+subharmonic exhaustion of the punctured compact curve is an exhaustion.
+Such an exhaustion can, for example, be obtained from a metric of positive
+curvature on $\mathcal O_B(b)$ and the negative logarithm of the squared
+norm of its canonical section, followed by adding a constant.
+
+Now suppose that $E$ has a horizontal component. For a fiber class $F$,
+we have $A\cdot F>0$. Thus no fiber can be a component of $E$, since
+$A\cdot E_i=0$. All components are therefore horizontal.
+A $\PP^1$-bundle over a smooth projective complex curve is the
+projectivization of a rank-two vector bundle; in particular $S$ is
+projective and has a section $C_0$. Write
+\[
+ C_0^2=-e,\qquad C_0\cdot F=1,\qquad F^2=0.
+\]
+These classes form a basis of the real numerical divisor space.
+Put $a=A\cdot F>0$ and write $A\equiv aC_0+bF$.
+The orthogonality assumptions give $A^2=\sum_i a_i(A\cdot E_i)=0$,
+so $b=ae/2$. Write $E_i\equiv d_iC_0+b_iF$, where
+$d_i=E_i\cdot F>0$. Then
+\[
+ 0=A\cdot E_i=a\bigl(b_i-d_ie/2\bigr),
+ \qquad E_i\equiv d_i\bigl(C_0+(e/2)F\bigr).
+\]
+It follows that
+\[
+ E_i^2=0,\qquad E_i\cdot E_j=0\quad(i\ne j).
+\]
+Distinct irreducible curves on a smooth surface have nonnegative local
+intersection multiplicities. Hence the $E_i$ are pairwise disjoint;
+connectedness implies that $E=C$ is one component. The SNC hypothesis
+makes $C$ smooth, and the preceding calculation gives $C^2=0$.
+
+Set $d=C\cdot F$. The canonical numerical class is
+\[
+ K_S\equiv-2C_0+(2g(B)-2-e)F,
+ \qquad C\equiv d\bigl(C_0+(e/2)F\bigr).
+\]
+Consequently
+\[
+ K_S\cdot C=d(2g(B)-2),\qquad
+ 2g(C)-2=d(2g(B)-2).
+\]
+The second equality is adjunction. Since the nonconstant map
+$f|_C:C\to B$ is finite of degree $d$, Riemann--Hurwitz makes its
+ramification divisor zero. It is therefore \'etale for every $d$.
+
+If $d=1$, the complement is a holomorphic affine-line bundle over $B$.
+Its associated linear bundle has degree zero, because its dual is the
+normal bundle of the infinity section $C$, whose degree is $C^2=0$.
+We recall the affine-bundle argument, including the normal form needed
+for smoothness. Give the linear bundle a unitary flat metric and choose
+local affine coordinates with transitions
+$w_i=a_{ij}w_j+b_{ij}(z)$, where the $a_{ij}$ are unitary constants.
+Choose a smooth section with local coordinates $s_i$. The forms
+$\bar\partial s_i$ give a global linear-bundle-valued $(0,1)$-form.
+Subtracting a global smooth section of the linear bundle makes this form
+harmonic. In a local flat frame over a curve, its coefficient is
+antiholomorphic. On sufficiently small coordinate disks choose
+antiholomorphic primitives $g_i$ of this harmonic form. Then $s_i-g_i$
+is holomorphic, and replacing $w_i$ by $w_i-(s_i-g_i)$ gives transitions
+\[
+ w_i=a_{ij}w_j+c_{ij},\qquad
+ g_i=a_{ij}g_j+c_{ij},\qquad |a_{ij}|=1,
+\]
+with constant $c_{ij}$: the differences are both holomorphic and
+antiholomorphic. This is the curve case of the normal form in
+\cite[Proposition~2.1]{KoikeUeda2025}.
+The functions $\rho_i=|w_i-g_i|^2$ agree globally. In coordinates $(z,w_i)$,
+\[
+ (\rho_i)_{z\bar z}=|(g_i)_{\bar z}|^2,\qquad
+ (\rho_i)_{w_i\bar w_i}=1,\qquad
+ (\rho_i)_{z\bar w_i}=(\rho_i)_{w_i\bar z}=0.
+\]
+Thus $\rho$ is smooth and plurisubharmonic. Its sublevel sets are bundles
+of closed disks of bounded radius around a smooth section over compact
+$B$, and hence are compact.
+
+For $d\ge2$, choose a connected finite \'etale Galois cover
+$p:B'\to B$ killing the finite monodromy of $C\to B$.
+The pullback $S'=S\times_B B'$ has boundary $E'$ consisting of $d$
+pairwise disjoint sections. If $q:S'\to S$ is the induced map and $T$
+is any of these sections, the projection formula gives
+\[
+ T^2=(q^*C)\cdot T=C\cdot q_*T=0,
+\]
+since $q^*C$ is the reduced union of these disjoint sections and $q_*T$
+is a positive integral multiple of $C$.
+
+If $d=2$, putting the sections at zero and infinity gives transition
+functions $w_i=\lambda_{ij}(z)w_j$. Thus
+$S'\setminus E'\simeq L^\times$ for a line bundle $L$ of degree zero;
+the degree is, up to sign, the self-intersection of either section.
+For a unitary flat metric on $L$, the function
+$t=\log\|v\|^2$ is pluriharmonic on $L^\times$, and $t^2$ is a smooth
+nonnegative plurisubharmonic exhaustion.
+
+If $d\ge3$, use the unique fiberwise projective transformation putting
+three labeled sections at $0,1,\infty$. It varies holomorphically on
+local trivializations; uniqueness makes the resulting trivializations
+agree. Hence $S'\simeq B'\times\PP^1$. Every remaining section
+is a holomorphic map $B'\to\PP^1$ avoiding $0,1,\infty$. Such a
+map is constant, since a nonconstant map between compact connected
+curves is surjective. Thus $E'=B'\times Q$ for a fixed set of $d$ points.
+Writing $Q=\{\infty,q_1,\ldots,q_{d-1}\}$, an explicit smooth
+nonnegative subharmonic exhaustion of $\PP^1\setminus Q$ is
+\[
+ r(z)=|z|^2+\sum_{j=1}^{d-1}|z-q_j|^{-2}.
+\]
+Its pullback to $B'\times(\PP^1\setminus Q)$ is proper because
+$B'$ is compact.
+
+In either case $d\ge2$, let $\rho'$ be the nonnegative exhaustion just
+constructed and let $G$ be the deck group of $S'\setminus E'\to S\setminus C$.
+The average
+\[
+ \rho'_G=\frac1{|G|}\sum_{g\in G}\rho'\circ g
+\]
+is smooth, plurisubharmonic, and invariant. It remains proper, because
+$\rho'_G\ge\rho'/|G|$. It descends smoothly through the finite \'etale
+cover to the required exhaustion of $S\setminus C$.
+\end{proof}
+
+\begin{corollary}[The boundary-matrix criterion for smooth rulings]
+\label{cor:ruled-all-degrees}
+Let $f:S\to B$ be a smooth $\PP^1$-bundle over a connected smooth
+projective complex curve, and let $D\ne0$ be a reduced SNC divisor.
+The following conditions are equivalent:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.5em]
+\item $S\setminus D$ admits a continuous plurisubharmonic exhaustion;
+\item $S\setminus D$ admits a smooth plurisubharmonic exhaustion;
+\item The intersection matrix of every connected component of $D$ is
+not negative definite.
+\end{enumerate}
+In particular, there is no restriction on $D\cdot F$ or on the number
+of connected boundary components.
+\end{corollary}
+
+\begin{proof}
+Smooth implies continuous, and
+Proposition~\ref{prop:surface-negative-boundary} gives the necessary
+matrix condition. Conversely, consider one connected component
+$E=\bigcup_i E_i$ of $D$ and its intersection matrix $I$. Its largest
+eigenvalue $\lambda$ is nonnegative by hypothesis. The
+Perron--Frobenius argument in the proof of
+Proposition~\ref{prop:surface-boundary-matrix} uses only this matrix
+condition for the remaining conclusions. If $\lambda>0$, it gives a
+positive integral divisor $H$ supported on $E$ with $H\cdot E_i>0$,
+and hence a smooth strictly psh divergent collar by
+Lemma~\ref{lem:surface-positive-boundary-metric}. If $\lambda=0$,
+the one-dimensional rational kernel has a strictly positive integral
+generator. Proposition~\ref{prop:ruled-all-degrees-zero} then supplies
+a smooth exhaustion of $S\setminus E$, whose restriction gives a
+collar at $E$. Lemma~\ref{lem:surface-collar-gluing} combines the
+collars at all connected boundary components.
+\end{proof}
+
+\begin{remark}[Scope]
+This criterion uses the rank-two numerical divisor space and the absence
+of reducible fibers of a smooth ruling. It does not settle a ruled surface
+after arbitrary blowups, a singular rational fibration, or the general
+projective square-zero boundary problem.
+\end{remark}
+
+\subsection{Log Fano and log Calabi--Yau pairs}
+
+\subsubsection{The log Fano case}
+
+\begin{proposition}[The smooth log Fano case]
+\label{prop:surface-log-fano}
+Suppose that $-(K_S+D)$ is ample.  If $X$ admits a continuous psh
+exhaustion, then it admits a smooth psh exhaustion.
+\end{proposition}
+
+\begin{proof}
+Apply Proposition~\ref{prop:surface-boundary-matrix} to each connected
+component $Y$ of $\supp D$.  The negative definite case is excluded
+by the continuous exhaustion hypothesis.  A positive largest eigenvalue
+provides a smooth strictly psh collar function, which is sufficient by
+Lemma~\ref{lem:surface-collar-gluing}.  In the remaining case there
+is an effective nef integral divisor $A_Y$, supported on $Y$, with
+$A_Y^2=0$ and $A_Y\cdot D_i=0$ for every component of $Y$.
+The other connected boundary components are disjoint from $Y$, so
+$D\cdot A_Y=0$.  Therefore
+\[
+ K_S\cdot A_Y=(K_S+D)\cdot A_Y<0.
+\]
+Proposition~\ref{prop:surface-moving-boundary} gives a smooth psh
+exhaustion of $S\setminus Y$, whose restriction is a collar function
+at $Y$.  Choose disjoint collars for the finitely many connected
+boundary components and apply the construction of
+Lemma~\ref{lem:surface-collar-gluing} separately on each collar.
+The sum of these functions is a smooth psh exhaustion of $X$.
+\end{proof}
+
+\subsubsection{The log Calabi--Yau case}
+
+\begin{proposition}[Connected reduced boundary in the log Calabi--Yau case]
+\label{prop:surface-log-cy}
+Assume that $D$ is connected and that $K_S+D\equiv0$ numerically.
+If $X$ admits a continuous psh exhaustion, then it admits a smooth
+psh exhaustion.
+\end{proposition}
+
+\begin{proof}
+For every irreducible component $D_i$, adjunction gives
+\begin{equation}\label{eq:surface-cy-adjunction}
+ 0=(K_S+D)\cdot D_i
+   =2g(D_i)-2+(D-D_i)\cdot D_i.
+\end{equation}
+Since $D$ is reduced SNC and connected, this implies that $D$ is either
+a single smooth elliptic curve or a cycle of smooth rational curves.
+Here a cycle with two components has two transverse intersection points.
+
+The negative definite and positive largest-eigenvalue cases of the
+boundary intersection matrix are treated by
+Proposition~\ref{prop:surface-boundary-matrix}.  It remains to consider
+the negative semidefinite case with a strictly positive kernel vector.
+For a single elliptic component this means $D^2=0$.
+If its Ueda type is finite, Ueda's theorem provides a smooth strictly
+psh collar function tending to infinity at $D$
+\cite[Theorem~2.5]{CLPT2018}.  If its Ueda type is infinite, the
+exclusion of type $(\gamma)$ for elliptic curves in compact complex
+surfaces \cite[Theorem~1.6]{CFSTZ2026} gives a unitary flat
+neighborhood.  In the latter neighborhood, unitary defining functions
+$w_i=t_{ij}w_j$, $|t_{ij}|=1$, give the smooth pluriharmonic function
+$-\log|w_i|^2$.  Lemma~\ref{lem:surface-collar-gluing} concludes
+the elliptic case.
+
+Now suppose that $D$ is a rational cycle.  Contract any component
+which is a $(-1)$-curve.  This is the inverse of blowing up a boundary
+node and taking the full reduced total transform.  If $q:S\to S'$
+is this contraction and $D'$ is the image cycle, then
+\[
+ q^*D'=D+E,\qquad K_S=q^*K_{S'}+E,
+ \qquad K_S+D=q^*(K_{S'}+D').
+\]
+Thus $S\setminus D\simeq S'\setminus D'$ and
+$K_{S'}+D'\equiv0$.  Contracting a component of a three-component
+cycle yields a two-component cycle; contracting a component of a
+two-component cycle yields an irreducible nodal rational curve.
+Every intermediate support is a reduced nodal cycle.
+
+The existence of a positive square-zero weighted divisor is also
+preserved.  Indeed, a nef kernel divisor has intersection zero with
+the contracted curve and hence is the numerical pullback of its
+pushforward.  Stop when the boundary has no smooth $(-1)$-component,
+or when it has become irreducible nodal.  In the irreducible case,
+the existence of a nonzero square-zero weighted divisor implies
+$D^2=0$.
+
+In the remaining reducible case write $b_i=-D_i^2$ and let
+$A=\sum a_iD_i$, $a_i>0$, be a kernel divisor.  Negative
+semidefiniteness, positive intersections with the adjacent components,
+and the absence of $(-1)$-components imply $b_i\ge2$.
+Adding the equations $A\cdot D_i=0$ gives
+\[
+ \sum_i (b_i-2)a_i=0,
+\]
+where the two edges incident to a component are counted separately
+also for a two-component cycle.  Hence $b_i=2$ for all $i$.
+The kernel equations on a connected cycle then force all $a_i$ to
+be equal.  Consequently the reduced divisor $D$ itself is nef and
+$D^2=0$.
+
+The resulting surface is rational.  Indeed, $K_S\equiv-D$ implies
+$K_S\cdot H<0$ for an ample divisor $H$, so $\kappa(S)=-\infty$.
+If $S$ were nonrational ruled, its rational curves would be vertical
+for the ruling over a curve of positive genus.  The supports of fibers
+of such a ruling, including after point blowups, have tree dual graphs;
+they contain neither a rational cycle nor an irreducible nodal rational
+curve.  The Enriques--Kodaira classification therefore makes $S$
+rational.  On a rational surface numerical triviality of a line bundle
+implies its triviality, so
+\[
+ \OO_S(D)\simeq K_S^{-1}.
+\]
+
+The normal line bundle $N_D=\OO_D(D)$ has multidegree zero.  Since
+$D$ is a rational nodal cycle, $\operatorname{Pic}^0(D)\simeq\C^*$.
+Let $q_D\in\C^*$ be its period.  Changing the orientation of the
+cycle replaces $q_D$ by $q_D^{-1}$, so the following alternatives do
+not depend on that choice.
+
+If $|q_D|=1$, the semipositivity theorem for generalized Halphen
+surfaces gives a smooth semipositive Hermitian metric $h$ on
+$\OO_S(D)$ \cite[Proposition~6.2\textup{(B)}]{CFSTZ2026}.
+The function $-\log\|s_D\|_h^2$ on $S\setminus D$ is therefore
+a smooth psh exhaustion.
+
+If $|q_D|\ne1$, then every $N_D^{-m}$ is a nontrivial multidegree-zero
+line bundle on the rational cycle.  The normalization exact sequence
+gives
+\[
+ H^0(D,N_D^{-m})=H^1(D,N_D^{-m})=0\qquad(m\ge1).
+\]
+In particular, all the nodal Ueda obstruction classes vanish, so the
+pair has infinite type.  Koike's theorem for nonunitary normal periods
+\cite[Theorem~1.6]{KoikeNodes2017} then supplies a smooth strictly
+psh function on a punctured neighborhood, tending to infinity at $D$.
+Lemma~\ref{lem:surface-collar-gluing} completes this last case.
+\end{proof}
+
+\begin{remark}\label{rem:surface-cy-recent}
+The elliptic infinite-type step and the unitary-period rational-cycle
+step above use the preprint \cite{CFSTZ2026}, submitted in September
+2026.  They are stated here with that status.  The proof does not
+identify finite Ueda type with smooth semipositivity of $\OO_S(D)$:
+in that case it uses the collar function supplied by Ueda's theorem.
+\end{remark}
+
+\subsection{Elliptic fibrations and vertical boundaries}
+
+\begin{proposition}[The vertical-boundary case]
+\label{prop:surface-elliptic-iitaka}
+Let $f:S\to B$ be a morphism with connected fibers onto a smooth
+projective curve.  Suppose that its general fiber $F$ is a smooth
+elliptic curve and $(K_S+D)\cdot F=0$.  If $X$ admits a continuous
+psh exhaustion, then there is a finite nonempty set $P\subset B$ such
+that
+\[
+ \supp D=f^{-1}(P),\qquad X=f^{-1}(B\setminus P).
+\]
+In particular, $X$ admits a smooth psh exhaustion.  This applies when
+$f$ is the log Iitaka fibration with elliptic general fiber.
+\end{proposition}
+
+\begin{proof}
+Since $F^2=0$ and $g(F)=1$, adjunction gives $K_S\cdot F=0$.
+Thus $D\cdot F=0$, and every irreducible component of $D$ is
+vertical.  Only finitely many fibers meet the boundary.
+
+For a fiber $F_b=\sum_i m_iC_i$, the intersection identity
+\eqref{eq:surface-fiber-intersection-identity} shows that every proper
+principal submatrix is negative definite: its vector extends by zero
+on an omitted component and therefore cannot lie in the kernel spanned
+by the positive multiplicity vector.
+
+If the boundary met $F_b$ without containing its whole support, each
+of its connected boundary subconfigurations in that fiber would have
+negative definite intersection matrix.  Such a connected component
+is prohibited by Proposition~\ref{prop:surface-boundary-matrix}.
+Consequently the boundary contains whole fiber supports.  Multiple
+fibers cause no change, since the conclusion concerns supports.
+The restricted map $f|_X:X\to B\setminus P$ is proper.  Pull back a
+smooth strictly subharmonic exhaustion of the punctured base.
+\end{proof}
+
+\section{Examples and remaining boundary geometry}\label{sec:surface-examples}
+
+\subsection{Smooth exhaustions without holomorphic convexity}
+
+The log general type condition does not force holomorphic convexity of
+the complement.  The following affirmative examples also show that
+ramification of the boundary over an Iitaka base is compatible with a
+smooth exhaustion.
+
+\begin{proposition}\label{prop:surface-branched-flat-examples}
+Let $B$ be a smooth projective curve of genus at least two, and let
+$L\in\operatorname{Pic}^0(B)$ be non-torsion.  Put
+\[
+ S_0=\PP_{\mathrm{lines}}(\OO_B\oplus L),\qquad
+ \pi:S_0\to B,\qquad C_\infty=\PP_{\mathrm{lines}}(L).
+\]
+For an integer $n\ge1$, choose a line bundle $A$ of sufficiently large
+degree that the divisor class
+$H_n=nC_\infty+\pi^*A$ is very ample.  Choose a smooth branch divisor
+$R\in|2H_n|$ transverse to $C_\infty$, let $q:T\to S_0$ be its double
+cover, and put $D=q^{-1}(C_\infty)$.  Then $T$ is smooth projective,
+$D$ is smooth connected with $D^2=0$, and $X=T\setminus D$ admits a
+smooth psh exhaustion but satisfies $\OO(X)=\C$.  Moreover,
+\[
+ \kappa(T,D)=0,\qquad
+ \kappa(T,K_T+D)=
+ \begin{cases}1,&n=1,\\2,&n\ge2.\end{cases}
+\]
+For $n\ge3$, $K_T$ itself is ample.
+\end{proposition}
+
+\begin{proof}
+The curve $C_\infty$ has normal bundle $L^{-1}$ and square zero; it is
+nef.  The ruled-surface canonical bundle formula, with our lines
+convention, is
+\[
+ K_{S_0}\sim-2C_\infty+\pi^*(K_B\otimes L^{-1}).
+\]
+The double cover is defined by the algebra
+$\OO_{S_0}\oplus\OO_{S_0}(-H_n)$ and the chosen section cutting out
+$R$.  Smoothness of $R$ makes $T$ smooth, and transversality makes
+$D$ smooth.  The restriction $D\to C_\infty$ is a double cover
+branched at $R\cap C_\infty$, which has
+$2\deg A>0$ points.  This implies connectedness of $D$.
+The projection formula gives $D^2=2C_\infty^2=0$.
+
+The double-cover canonical bundle formula gives
+\begin{align*}
+ K_T+D&\sim q^*\bigl((n-1)C_\infty+
+       \pi^*(K_B\otimes L^{-1}\otimes A)\bigr),\\
+ K_T&\sim q^*\bigl((n-2)C_\infty+
+       \pi^*(K_B\otimes L^{-1}\otimes A)\bigr).
+\end{align*}
+The base line bundle in these formulas has positive degree.  For
+$n=1$, the log adjoint is pulled back from this ample base bundle and
+has Iitaka dimension one.  For $n\ge2$, the first divisor is ample:
+it has positive intersection with every curve and positive square,
+by nefness of $C_\infty$ and the ruled-surface intersection formulas.
+Nakai--Moishezon and finite pullback give ampleness of $K_T+D$.
+The same argument applies to $K_T$ for $n\ge3$.
+
+There is an identification $S_0\setminus C_\infty=\Tot(L)$.
+Equip $L$ with its unitary flat metric.  The squared norm
+$\rho_0(v)=\|v\|^2$ is a smooth psh exhaustion of this total space.
+The finite map $q|_X$ is proper, so
+\[
+ \rho=\rho_0\circ q|_X
+\]
+is a smooth psh exhaustion of $X$.
+
+To check the absence of holomorphic functions, expand a holomorphic
+function on $\Tot(L)$ in fiber Taylor series.  The coefficient of
+degree $j$ is a global section of $L^{-j}$.  For $j>0$ this bundle is
+nontrivial of degree zero and has no section.  The degree-zero
+coefficient is constant on $B$.  Therefore
+$\OO(\Tot(L))=\C$.  If $f\in\OO(X)$, its trace and norm under the
+finite double cover are holomorphic functions on $\Tot(L)$, hence
+constants $a$ and $b$.  Thus $f^2-af+b=0$.  Connectedness of $X$
+forces $f$ to be constant.
+
+Finally, the ratio of any section of $\OO_T(mD)$ to the canonical
+section $s_D^m$ is holomorphic on $X$.  The preceding argument implies
+that it is constant.  Hence $h^0(T,\OO_T(mD))=1$ for all $m\ge1$,
+and $\kappa(T,D)=0$.
+\end{proof}
+
+\begin{remark}
+For $n=1$, a general fiber of $T\to B$ is a double cover of
+$\PP^1$ branched at two points, hence is rational; removing $D$
+gives $\C^*$.  Nevertheless, $D\to B$ is ramified at
+$R\cap C_\infty$.  Thus a proof of the general rational-fiber
+Iitaka case cannot assume that its boundary multisection is
+unramified merely because a smooth psh exhaustion exists.
+For $n\ge3$ these examples have an ample ordinary canonical bundle
+as well as an ample log adjoint, while their complements are not
+holomorphically convex.  They are examples with smooth exhaustions,
+not counterexamples to any continuous-to-smooth implication.
+\end{remark}
+
+\subsection{Square-zero boundaries with prescribed normal bundle}
+
+The preceding propositions do not prove the smoothing implication
+for every log Iitaka pair with rational general fiber, nor for every
+log general type pair.  The following constructions explain why log
+Kodaira dimension alone does not make the residual boundary geometry
+finite or automatic.  They are numerical test families, not
+counterexamples to the smoothing implication; no continuous exhaustion
+is asserted for arbitrary choices of their parameters.
+
+\begin{proposition}[Square-zero boundaries with arbitrary normal bundle]
+\label{prop:surface-arbitrary-normal}
+Let $S_0=\PP^1\times\PP^1$, and let $C\subset S_0$ be a smooth
+curve of bidegree $(a,b)$, where $a,b\ge2$.  For every
+$N\in\operatorname{Pic}^0(C)$ there are $2ab$ distinct points on
+$C$ such that, after blowing them up and taking the strict transform
+$D$ of $C$, one has
+\[
+ \begin{gathered}
+ D^2=0,\qquad N_{D/S}\simeq N,\qquad D\text{ is nef},\\
+ \OO_S(K_S+D)\simeq\pi^*\OO_{S_0}(a-2,b-2).
+ \end{gathered}
+\]
+If $N$ is non-torsion, then $\kappa(S,D)=0$.
+If $a=2$, $b\ge3$, the pair is log minimal of log Kodaira dimension
+one.  If $a,b\ge3$, it is log minimal of log Kodaira dimension two.
+\end{proposition}
+
+\begin{proof}
+The genus and self-intersection are
+\[
+ g(C)=(a-1)(b-1),\qquad C^2=2ab.
+\]
+The line bundle $\OO_C(C)\otimes N^{-1}$ has degree $2ab$, which
+exceeds $2g(C)$.  It is therefore basepoint-free and a general
+section has $2ab$ distinct zeros.  Let $Z$ be this reduced divisor
+of zeros and let $\pi:S\to S_0$ be the blowup of its points.
+The normal-bundle formula for a strict transform gives
+\[
+ N_{D/S}\simeq\OO_C(C-Z)\simeq N,
+\]
+and $D^2=C^2-\deg Z=0$.  Since $D$ is irreducible, its
+intersections with distinct curves are nonnegative; together with
+$D^2=0$, this proves nefness.
+
+Write $E_j$ for the exceptional curves.  The blowup formulas give
+\[
+ K_S=\pi^*K_{S_0}+\sum_jE_j,\qquad
+ D=\pi^*C-\sum_jE_j.
+\]
+Thus $K_S+D\sim\pi^*(K_{S_0}+C)$, proving the displayed formula.
+For $(a,b)=(2,b)$ with $b\ge3$, this is the pullback of
+$\OO_{\PP^1}(b-2)$ under the second projection.  For $a,b\ge3$
+the corresponding line bundle on $S_0$ is ample.  In both cases its
+pullback is nef and semiample, with the claimed Iitaka dimension.
+
+If $N$ is non-torsion, then $H^0(D,N^{\otimes m})=0$ for every
+$m>0$.  Induction in the sequences
+\[
+ 0\longrightarrow\OO_S((m-1)D)
+ \longrightarrow\OO_S(mD)
+ \longrightarrow N^{\otimes m}\longrightarrow0
+\]
+gives $h^0(S,\OO_S(mD))=1$ for all $m\ge0$.  This is exactly
+$\kappa(S,D)=0$.
+\end{proof}
+
+\begin{remark}[Crepant boundary-point blowups]
+\label{rem:surface-crepant-blowup}
+The exceptional curves in
+Proposition~\ref{prop:surface-arbitrary-normal} satisfy
+$(K_S+D)\cdot E_j=0$.  Thus they are not removed by a negative
+log extremal contraction.  Moreover $E_j\setminus D\simeq\C$
+belongs to the open complement.  Blowing it down sends this open
+curve into a point of the removed boundary and is not a proper
+modification of $S\setminus D$ onto $S_0\setminus C$.  This
+distinguishes these blowups from boundary-node blowups with full
+reduced total transform, which preserve the open complement.
+\end{remark}
+
+\section{Holonomy obstructions and the remaining surface problem}
+\label{sec:surface-remaining}
+
+The previous sections give complete criteria in the nonprojective and
+smooth ruled settings, as well as further affirmative projective
+cases. We now isolate what the neighborhood arguments imply, and what
+is still missing for an arbitrary continuously weakly complete surface.
+
+\subsection{Two obstructions for foliated neighborhoods}
+
+The statements below concern the indicated foliated or suspension neighborhoods.
+They neither assert that an arbitrary plurisubharmonic collar is basic nor
+produce a foliation from the existence of such a collar.
+
+\begin{proposition}[A continuous basic collar linearizes holonomy]
+\label{prop:basic-collar}
+Let $C$ be a compact leaf of a nonsingular holomorphic foliation on a complex
+surface, defined on a neighborhood $U$ of $C$. Suppose that a finite continuous
+function $u:U\setminus C\to\R$ is constant on leaves and tends to
+$+\infty$ as the point approaches $C$. Then the holonomy along $C$ is
+simultaneously holomorphically conjugate to a group of rotations.
+On a possibly smaller neighborhood $V$, the divisor bundle $\OO_V(C)$ is
+unitary flat. In particular, $V\setminus C$ admits a smooth pluriharmonic
+function tending to $+\infty$ along $C$.
+\end{proposition}
+
+\begin{proof}
+Fix a transverse coordinate $w$ with $C=\{w=0\}$, and put $v=u|_{\{w\ne0\}}$.
+Take representatives of finitely many holonomy generators and their inverses.
+Choose $0<r<R$ so that these maps are univalent on a neighborhood of
+$\overline{B_R}$, carry $B_r$ into $B_R$, and preserve $v$ wherever used.
+The closed disk $\overline{B_R}$ is chosen inside the transverse chart.
+Take
+\[
+ t>\max_{r\le |w|\le R}v(w),\qquad
+ E=\{0\}\cup\{w\in B_R\setminus\{0\}:v(w)>t\}.
+\]
+The divergence of $v$ makes $E$ open at $0$, and $E\Subset B_r$.
+Invariance of $v$ gives $h(E)\subset E$ and $h^{-1}(E)\subset E$, hence
+$h(E)=E$, for every chosen generator $h$. The component $D$ of $E$
+containing $0$ is consequently a bounded domain preserved by all these maps.
+
+The isotropy group $G=\operatorname{Aut}(D,0)$ is compact in the compact-open
+topology. This standard normal-family fact can be seen by applying Cauchy's
+estimate to all iterates and their inverses, which gives $|g'(0)|=1$, and then
+taking simultaneous locally uniform limits of automorphisms and their inverses.
+Let $\mu$ be normalized Haar measure on $G$ and define
+\[
+ \psi(w)=\int_G g'(0)^{-1}g(w)\,d\mu(g).
+\]
+This is holomorphic on $D$, satisfies $\psi(0)=0$ and $\psi'(0)=1$, and
+right invariance of Haar measure gives
+\[
+ \psi(h(w))=h'(0)\psi(w)\qquad(h\in G).
+\]
+Thus $\psi$ is a local simultaneous linearizing coordinate and the multipliers
+are unitary. No filling of complementary components of $D$ is required.
+
+Transport this coordinate along finitely many flow boxes covering $C$.
+Path changes give holonomy germs, so, after shrinking, the resulting
+holomorphic first integrals $w_i$ satisfy
+$w_i=\lambda_{ij}w_j$ on connected overlaps, with constant
+$|\lambda_{ij}|=1$. They are local defining functions for $C$.
+Their ratios therefore give unitary-constant transition functions for
+$\OO_V(C)$ and define a smooth flat Hermitian metric on that bundle.
+The functions $-\log|w_i|$ agree, are smooth and pluriharmonic off $C$,
+and diverge along $C$.
+\end{proof}
+
+\begin{proposition}[Cyclic nonlinearizable suspensions have no psh collar]
+\label{prop:cyclic-suspension}
+Let $C$ be a compact connected Riemann surface of genus at least one, let
+$\chi:\pi_1(C)\to\mathbb Z$ be primitive, and let $f$ be a nonlinearizable
+irrationally indifferent holomorphic diffeomorphism germ at $0$.
+Suppose that the germ of a neighborhood of $C$ is the holomorphic suspension
+of $\gamma\mapsto f^{\chi(\gamma)}$.
+There is no finite continuous plurisubharmonic function on a punctured
+neighborhood of $C$ tending to $+\infty$ along $C$.
+\end{proposition}
+
+\begin{proof}
+Choose an oriented nonseparating smooth simple closed curve $a$ whose
+Poincar\'e dual is $\chi$. Cutting along $a$ gives a connected compact
+bordered surface $B$ with two boundary circles. The character $\chi$ vanishes
+on $\pi_1(B)$, and the cyclic cover $C_\chi$ is obtained by chaining copies
+$B_n$, $n\in\mathbb Z$. The suspension is trivial over $B$; its two sides
+are glued using $f$.
+
+We use the following precise dynamical input: in arbitrarily small admissible
+transverse neighborhoods there is a nontrivial compact connected completely
+invariant hedgehog $K$, with $0\in\partial K$, and a point
+$x\in\partial K$ whose forward orbit is dense in $\partial K$.
+The existence and two-sided density are recalled in
+\cite[Theorems~2.1 and~2.3]{KoikeOgawa};
+the passage to forward density uses P\'erez-Marco's recurrence theorem,
+as explicitly explained in \cite[Section~5]{KoikeOgawa}. Forward density is not being
+inferred from two-sided density alone.
+
+Choose $K$ small enough that its compact suspension is contained in the
+neighborhood on which the proposed function $u$ is defined off $C$.
+The point $x$ is nonperiodic, since its orbit closure contains both $0$ and
+other points. The leaf through $x$ is therefore biholomorphic to $C_\chi$.
+Write $w_n=f^n(x)$. Choose the boundary-coordinate convention so that the
+cut preceding $B_n$ has parameter $w_n$, and the interior of $B_n$ is
+the copy of $B$ with transverse parameter $w_n$.
+
+Fix $y\in\partial K\setminus\{0\}$. The lifted cut circle with parameter
+$y$ is compact and disjoint from $C$. Continuity gives a transverse
+neighborhood $V_y$ of $y$ and a real number $M$ such that $u<M$ on all cut
+circles with parameter in $V_y$. Fix a point $b$ in the interior of $B$.
+Divergence along $C$ gives a neighborhood $V_0$ of $0$ for which
+$u(b,w)>M$ whenever $w\in V_0\setminus\{0\}$.
+Every tail of the forward dense orbit is dense: $\partial K$ has no isolated
+points, so deleting finitely many orbit points cannot destroy density.
+We may consequently choose
+\[
+ n_1<n_2<n_3,\qquad
+ w_{n_1},w_{n_3}\in V_y,\qquad w_{n_2}\in V_0.
+\]
+The chain $B_{n_1}\cup\cdots\cup B_{n_3-1}$ is a compact connected
+bordered Riemann surface in this leaf. Its only boundary components are the
+cuts with parameters $w_{n_1}$ and $w_{n_3}$, where $u<M$; the interior
+point $(b,w_{n_2})$ has $u>M$. The restriction of $u$ to the leaf is
+subharmonic, contradicting the maximum principle.
+\end{proof}
+
+\begin{remark}[Scope]
+Subharmonicity is unnecessary in Proposition~\ref{prop:basic-collar}, but
+leafwise constancy is essential to its argument. Proposition~\ref{prop:cyclic-suspension}
+does not require leafwise constancy or a parabolic universal cover; it does
+require the specified holomorphic cyclic suspension. Neither proposition
+upgrades an arbitrary continuous psh collar to a basic one or supplies a
+foliation or holomorphic suspension for a general surface neighborhood.
+Consequently these obstructions do not settle the unrestricted
+continuous-to-smooth implication.
+\end{remark}
+
+
+\begin{remark}[Pseudoconvex neighborhoods are a different condition]
+\label{rem:pseudoconvex-neighborhoods}
+Koike--Takakura \cite[Theorem~1.1]{KoikeTakakura2026} consider a
+holomorphic section of a holomorphic submersion with one-dimensional
+fibers over a compact complex manifold, with unitary flat normal
+bundle. They prove that a fundamental system of locally pseudoconvex
+neighborhoods is equivalent to a holomorphic tubular neighborhood.
+The submersion and the pseudoconvex neighborhood basis are hypotheses
+of that result, not consequences of the collar assumption here.
+In particular, a smooth psh function $u$ tending to $+\infty$ along
+$C$ gives, at regular levels, neighborhoods on the side $\{u>t\}$
+with local defining function $t-u$. Its Levi form on complex tangent
+directions is nonpositive. Thus a divergent psh function on the
+\emph{punctured} neighborhood does not by itself provide the
+pseudoconvex neighborhood basis required in that theorem. We do not
+use it to close the remaining surface argument.
+\end{remark}
+
+\subsection{Necessary conditions in the smooth-boundary case}
+
+\begin{corollary}[Necessary conditions for a smooth-boundary counterexample]
+\label{cor:surface-residual-homology}
+Suppose that $S$ is a smooth projective surface, $C\subset S$ is a smooth connected curve
+with $C^2=0$, and $X=S\setminus C$ has a continuous plurisubharmonic exhaustion but no
+smooth one. Then
+\[
+ \OO(X)=\C,\qquad q(S)<g(C),
+\]
+and
+\[
+ h^0(S,\OO_S(mC))=1\qquad(m\ge1),
+\]
+and the unitary character of $N_{C/S}$ has infinite image on
+$K=\ker(H_1(C,\mathbb Z)\to H_1(S,\mathbb Z))$. Moreover,
+\[
+ \operatorname{rank}K=2\bigl(g(C)-q(S)\bigr)\ge2.
+\]
+The Ueda type is infinite, the neighborhood is not unitary flat, and $N_{C/S}$ is
+non-torsion and fails the Diophantine condition in
+Proposition~\ref{prop:surface-ueda-sufficient}. Using the September 2026 preprint
+\cite[Theorem 1.6]{CFSTZ2026}, one further has $g(C)\ge2$.
+In addition, every continuous psh exhaustion $u$ of $X$ satisfies
+$(a_u,+\infty)\subset u(\Sigma_X^0)$ for some $a_u\in\R$.
+\end{corollary}
+\begin{proof}
+Proposition~\ref{prop:surface-nonconstant-function} gives $\OO(X)=\C$. For every section $s$
+of $\OO_S(mC)$, the quotient $s/s_C^m$ is holomorphic on $X$, hence constant. The canonical
+section $s_C^m$ is nonzero, so $h^0(S,\OO_S(mC))=1$. Corollary~\ref{cor:irregularity} and
+Theorem~\ref{thm:homology} give the homological conditions. If the restriction
+$H^1(S,\OO_S)\to H^1(C,\OO_C)$ were not injective, Proposition~2.7 of \cite{CLPT2018} would
+make $C$ a multiple fiber, again giving a smooth exhaustion. It is therefore injective.
+Hodge decomposition and duality make $H_1(C,\mathbb Q)\to H_1(S,\mathbb Q)$ surjective.
+Their dimensions are $2g(C)$ and $2q(S)$, respectively. Tensoring the integral kernel
+sequence with $\mathbb Q$ proves the stated rank formula, even when the target has torsion.
+The remaining exclusions follow from Proposition~\ref{prop:surface-ueda-sufficient}. The
+minimal-kernel assertion is
+Proposition~\ref{prop:surface-minimal-kernel}. The elliptic exclusion
+uses the stated 2026 preprint; the homological and irregularity criteria
+do not depend on that preprint.
+\end{proof}
+
+
+\subsection{The remaining analytic problem}
+
+\begin{remark}[The remaining smooth-boundary subproblem]
+\label{rem:surface-unproved-collar}
+Even when $C$ is a smooth connected curve in a smooth projective
+surface $S$, with $C^2=0$ and $g(C)\ge2$, the following implication
+has not been proved here:
+\[
+ \begin{gathered}
+ u\in C^0(U\setminus C)\cap\operatorname{PSH}(U\setminus C),
+ \qquad \lim_{x\to C}u(x)=+\infty
+ \\[2pt]
+ \Longrightarrow\quad
+ \exists\,\Phi\in C^\infty(V\setminus C)\cap\operatorname{PSH}(V\setminus C),
+ \qquad \lim_{x\to C}\Phi(x)=+\infty,
+ \end{gathered}
+\]
+where $U$ and $V$ are neighborhoods of $C$.  A smooth collar would
+extend to a smooth exhaustion by Lemma~\ref{lem:surface-collar-gluing}.
+Proposition~\ref{prop:surface-ueda-sufficient} settles finite Ueda
+type, unitary flat neighborhoods, torsion or Diophantine normal bundles,
+the stated monodromy-extension condition, and elliptic boundary curves.
+The homological and irregularity criteria sharpen this class as
+in Corollary~\ref{cor:surface-residual-homology}. The remaining
+smooth-boundary situation has infinite Ueda type and non-torsion
+normal monodromy with infinite image on the homology kernel. Knowing
+only the degree-zero normal bundle does not settle it. The foliated results above do not
+remove the gap: an arbitrary
+continuous psh collar need not have been shown to be basic, and a
+holomorphic suspension is additional geometric structure. This article
+does not prove the unrestricted continuous-to-smooth implication for surfaces.
+
+Reducible weighted square-zero boundaries and singular log endpoints
+with changed boundary coefficients require additional arguments as
+well. Semiampleness of $K_S+D$ provides a map of the compact pair, but
+does not ensure that its restriction to the divisor complement is proper.
+
+In particular, an almost-positive regularization estimate is
+insufficient on its own.  If
+$i\partial\bar\partial u_\varepsilon\ge-\varepsilon\omega$, then
+\[
+ i\partial\bar\partial\chi(u_\varepsilon)
+ =\chi'(u_\varepsilon)i\partial\bar\partial u_\varepsilon
+ +\chi''(u_\varepsilon)i\partial u_\varepsilon
+       \wedge\bar\partial u_\varepsilon.
+\]
+The second term controls only one complex direction.  On
+$\ker\partial u_\varepsilon$, a negative Levi direction can remain.
+Therefore convex composition alone does not turn such estimates into
+the missing semipositive exhaustion.
+\end{remark}
+
+
+\subsection{Conclusion and dependence on recent results}
+
+The threefold counterexamples distinguish continuous weak completeness
+from $C^2$ weak completeness, including in the quasi-projective
+K\"ahler category and after a modification supported over one point.
+In dimension two, the numerical criteria completely settle divisor
+complements with nonprojective compactifier and reduced SNC complements
+in a smooth ruling. The projective residual problem still includes
+connected weighted square-zero boundaries and the smooth-boundary
+class in Corollary~\ref{cor:surface-residual-homology}.
+
+The elliptic and unitary-period rational-cycle arguments explicitly
+use \cite{CFSTZ2026}, a preprint submitted September~22, 2026.
+Section~1.3.1 of that preprint records the construction of a
+type~$(\gamma)$ embedding in a compact complex surface as an open
+problem, and Theorem~1.6 excludes elliptic curves. A smooth-boundary
+counterexample in our residual class would give such a compact
+type~$(\gamma)$ embedding. The converse is not established: such an
+embedding alone would give neither a continuous psh exhaustion of its
+complement nor a proof that every smooth psh exhaustion is impossible.
+Neither the homological criterion nor the all-degree smooth-ruling
+criterion depends on this preprint.
+
+Finally, weak completeness has not supplied a divisorial
+compactification of an arbitrary noncompact surface. Accordingly the
+full dimension-two question remains unresolved by the arguments here,
+both without further assumptions and under the sole additional
+assumption of K\"ahlerness or quasi-projectivity.
+
+\begin{thebibliography}{99}
+\raggedright
+
+\bibitem{Koike2021}
+T.~Koike,
+\emph{Linearization of transition functions of a semi-positive line
+bundle along a certain submanifold},
+Ann. Inst. Fourier \textbf{71} (2021), no.~5, 2237--2271.
+\href{https://doi.org/10.5802/aif.3439}{doi:10.5802/aif.3439}.
+
+\bibitem{Wu2026}
+X.~Wu,
+\emph{Generalized Ueda Obstruction Classes and Applications to
+Non-semi-positivity of Line Bundles},
+preprint (2026), arXiv:2606.22821v1.
+\href{https://arxiv.org/abs/2606.22821v1}{arXiv:2606.22821}.
+
+\bibitem{Zhang2025}
+Y.~Zhang,
+\emph{On the Non-Semipositivity of a Nef and Big Line Bundle on
+Grauert's Example},
+preprint (2025), arXiv:2512.23446v1.
+\href{https://arxiv.org/abs/2512.23446v1}{arXiv:2512.23446}.
+
+\bibitem{Ohsawa1981}
+T.~Ohsawa,
+\emph{Weakly $1$-complete manifold and Levi problem},
+Publ. Res. Inst. Math. Sci. \textbf{17} (1981), no.~1, 153--164.
+\href{https://doi.org/10.2977/PRIMS/1195186709}{doi:10.2977/PRIMS/1195186709}.
+\url{https://ems.press/content/serial-article-files/42043}.
+
+\bibitem{TomassiniVajaitu2008}
+G.~Tomassini and V.~V\^aj\^aitu,
+\emph{Weakly $1$-complete surfaces with singularities and applications},
+Michigan Math. J. \textbf{56} (2008), no.~3, 483--494.
+\href{https://doi.org/10.1307/mmj/1231770355}{doi:10.1307/mmj/1231770355}.
+
+\bibitem{Vajaitu2022}
+V.~V\^aj\^aitu,
+\emph{Holomorphic convexity and pseudoconvex surfaces},
+Ann. Sc. Norm. Super. Pisa Cl. Sci. (5) \textbf{23} (2022),
+no.~4, 1659--1678.
+\href{https://doi.org/10.2422/2036-2145.202011_018}{doi:10.2422/2036-2145.202011\_018}.
+\url{https://journals.sns.it/index.php/annaliscienze/article/view/5700}.
+
+\bibitem{MongodiSlodkowski2020}
+S.~Mongodi and Z.~Slodkowski,
+\emph{Domains with a continuous exhaustion in weakly complete surfaces},
+Math. Z. \textbf{296} (2020), nos.~3--4, 1011--1019.
+\href{https://doi.org/10.1007/s00209-020-02466-z}{doi:10.1007/s00209-020-02466-z}.
+\url{https://arxiv.org/abs/1904.03497}.
+
+\bibitem{Grauert1962}
+H.~Grauert,
+\emph{\"Uber Modifikationen und exzeptionelle analytische Mengen},
+Math. Ann. \textbf{146} (1962), 331--368.
+\href{https://doi.org/10.1007/BF01441136}{doi:10.1007/BF01441136}.
+
+\bibitem{FN2005}
+Y.~Fujimoto and N.~Nakayama,
+\emph{Compact complex surfaces admitting non-trivial surjective endomorphisms},
+Tohoku Math. J. (2) \textbf{57} (2005), no.~3, 395--426.
+\href{https://doi.org/10.2748/tmj/1128703004}{doi:10.2748/tmj/1128703004}.
+\href{https://www.kurims.kyoto-u.ac.jp/preprint/file/RIMS1431.pdf}{Author preprint, Section~2 and Lemma~2.1}.
+
+\bibitem{Enoki}
+I.~Enoki, \emph{Surfaces of class $\mathrm{VII}_0$ with curves}, Tohoku Math. J. (2)
+\textbf{33} (1981), no.~4, 453--492.
+\href{https://doi.org/10.2748/tmj/1178229349}{doi:10.2748/tmj/1178229349}.
+\href{https://www.jstage.jst.go.jp/article/tmj1949/33/4/33_4_453/_pdf/-char/en}{Original article, pp.453--454}.
+
+\bibitem{Fujino2012}
+O.~Fujino,
+\emph{Minimal model theory for log surfaces},
+Publ. Res. Inst. Math. Sci. \textbf{48} (2012), no.~2, 339--371.
+\href{https://doi.org/10.2977/PRIMS/71}{doi:10.2977/PRIMS/71}.
+
+\bibitem{Fujino2021}
+O.~Fujino,
+\emph{Minimal model theory for log surfaces in Fujiki's class $\mathcal C$},
+Nagoya Math. J. \textbf{244} (2021), 256--282.
+\href{https://doi.org/10.1017/nmj.2020.14}{doi:10.1017/nmj.2020.14}.
+
+\bibitem{Ueda1983}
+T.~Ueda,
+\emph{On the neighborhood of a compact complex curve with topologically
+trivial normal bundle},
+J. Math. Kyoto Univ. \textbf{22} (1982/83), no.~4, 583--607.
+\href{https://doi.org/10.1215/kjm/1250521670}{doi:10.1215/kjm/1250521670}.
+
+\bibitem{CLPT2018}
+B.~Claudon, F.~Loray, J.~V.~Pereira and F.~Touzet,
+\emph{Compact leaves of codimension one holomorphic foliations on
+projective manifolds},
+Ann. Sci. \'Ecole Norm. Sup. (4) \textbf{51} (2018), no.~6, 1457--1506.
+\href{https://doi.org/10.24033/asens.2379}{doi:10.24033/asens.2379}.
+\href{https://arxiv.org/abs/1512.06623}{Author preprint, Theorems~1.3, 2.5, 4.4 and Proposition~2.7}.
+
+\bibitem{KoikeNodes2017}
+T.~Koike,
+\emph{Ueda theory for compact curves with nodes},
+Indiana Univ. Math. J. \textbf{66} (2017), no.~3, 845--876.
+\href{https://arxiv.org/abs/1507.00109}{arXiv:1507.00109}.
+
+\bibitem{CFSTZ2026}
+Y.~Chen, S.~Filip, S.~Sun, V.~Tosatti and J.~Zhang,
+\emph{Compact K\"ahler surfaces with semipositive anticanonical bundle},
+preprint (2026), arXiv:2609.26716v1, submitted September~22, 2026.
+\href{https://arxiv.org/abs/2609.26716v1}{arXiv:2609.26716}.
+
+\bibitem{KoikeUeda2025}
+T.~Koike and T.~Ueda,
+\emph{Plurisubharmonic functions on affine line bundles over compact
+K\"ahler manifolds},
+Publ. Res. Inst. Math. Sci. \textbf{61} (2025), no.~1, 139--152.
+\href{https://doi.org/10.4171/PRIMS/61-1-3}{doi:10.4171/PRIMS/61-1-3}.
+
+
+
+\bibitem{KoikeOgawa}
+T.~Koike and N.~Ogawa,
+\emph{On the neighborhood of a torus leaf and dynamics of holomorphic foliations},
+Tohoku Math. J. (2) \textbf{77} (2025), no.~3, 421--443.
+\href{https://doi.org/10.2748/tmj.20231108}{doi:10.2748/tmj.20231108}.
+\href{https://arxiv.org/abs/1808.10219v3}{Author preprint, arXiv:1808.10219v3}.
+The theorem numbering used for the dynamical inputs refers to
+Theorems~2.1, 2.3 and Section~5 of this author-preprint version.
+
+\bibitem{KoikeTakakura2026}
+T.~Koike and M.~Takakura,
+\emph{Rigidity of Pseudoconvex Neighborhoods and Ohsawa--Takegoshi Extension},
+preprint (2026), arXiv:2610.29082v1, submitted October~21, 2026.
+\href{https://arxiv.org/abs/2610.29082v1}{arXiv:2610.29082v1}.
+
+\bibitem{Barlet2015}
+D.~Barlet,
+\emph{Some examples due to H.~Hironaka},
+preprint (2015), arXiv:1501.01129v2, Section~6.
+\href{https://arxiv.org/abs/1501.01129}{arXiv:1501.01129}.
+
+\bibitem{StacksHironaka}
+The Stacks Project Authors,
+\emph{The Stacks Project},
+Lemma~110.67.1, Tag~08J1, ``Being projective is not local on the base.''
+\url{https://stacks.math.columbia.edu/tag/08J1}.
+
+\end{thebibliography}
+\end{document}

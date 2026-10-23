@@ -2,8 +2,8 @@
 
 The local folder is ready to use. It contains the revised manuscript, supplied
 previous version, research catalogue, provenance records, and build workflow.
-A local Git repository has been initialized on `main`, with no remote configured.
-Its first commit is left for your chosen Git name and email.
+For first publication, follow the steps below. If your copy is already connected
+to GitHub, follow **Later updates** to upload revisions to the same repository.
 
 Suggested repository name: **psh-exhaustion**.
 
@@ -46,18 +46,19 @@ this collection is below both limits. See
 ## After uploading
 
 - The repository home page should show the psh exhaustion research collection, with working links to the revised paper, overview, and earlier version.
-- Open **Actions** to see the document checks. They verify file integrity, references, links, and compilation. The workflow has not yet run on your GitHub account.
+- Open **Actions** to see the latest document checks. They verify original archive integrity, active references, links, and compilation. A local successful check does not establish the outcome of a future GitHub run.
 - Suggested topics are `complex-analysis`, `several-complex-variables`, `plurisubharmonic-functions`, `mathematics`, and `latex`.
-- Set authorship and licensing terms when you have decided them. The repository does not infer authorship from an account name or add a license on the author's behalf.
+- The active manuscript and citation name Zhijian Chen and Bo Xiao, as supplied in the edited source. Licensing terms remain for the authors to decide.
 
 ## Later updates
 
-With GitHub Desktop, edit repository documentation, review the **Changes** list,
-commit with a short explanation, and click **Push origin**. Follow
-[BUILDING.md](BUILDING.md) to refresh the overview or compare a fresh paper build
-with the supplied PDF. Preserve the supplied manuscript and archive as the intake
-record; add subsequent mathematical revisions as new versions. Record substantive
-changes in [history.md](history.md).
+With GitHub Desktop, edit the active manuscript under `preprints/` or the overview,
+compile its PDF in your LaTeX editor, review the **Changes** list, commit the source
+and PDF together, and click **Push origin**. See [BUILDING.md](BUILDING.md) for the
+workflow without local Python and the optional scripted build. Preserve the
+original files under `archive/` and `reviews/source/`; their hashes remain fixed.
+Active manuscript edits do not require changing the integrity manifest. Record
+substantive changes in [history.md](history.md).
 
 With browser uploads, replace changed documentation at its existing path and
 record a commit message. Keep each new manuscript version's LaTeX source and PDF

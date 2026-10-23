@@ -18,8 +18,10 @@ On macOS or Linux, the command may be `python3`.
 This checks local Markdown file links, labels and citations in the current
 manuscript and overview, and their PDF headers. It also checks every preserved
 supplied file against the byte count and SHA-256 recorded in
-[source-manifest.json](source-manifest.json). The archived manuscript is not an
-active TeX check or build target; its original bytes are checked instead.
+[source-manifest.json](source-manifest.json). The original manuscript pair is in
+`archive/surface-revision-2026-10-23/`; the older predecessor is in
+`archive/previous_version/`. Both archived versions retain their original bytes.
+The active files under `preprints/` are editable and are not locked to intake hashes.
 
 The checker does not access external websites, check Markdown heading anchors,
 verify mathematical correctness or novelty, confirm bibliographic accuracy, or
@@ -58,27 +60,36 @@ compile only one document. The manuscript has an inline `thebibliography`
 environment; no BibTeX step or external figures are required. The separate
 `citation.bib` records a suggested citation for the manuscript itself.
 
-## Preserve the supplied manuscript and archive
+## Edit locally without Python
 
-The supplied current manuscript, PDF, previous version, and revision records
-are preserved byte for byte. Ordinary builds do not change them. Different TeX
-versions can produce different PDF bytes even when the typeset content agrees;
-the fresh build under `build/paper/` is for comparison with the supplied PDF.
+Open `preprints/001-psh-exhaustion/psh_exhaustion_refereed.tex` in your LaTeX editor,
+edit and save it, then compile with pdfLaTeX until the references settle (usually
+two or three passes). Save the resulting PDF beside the source as
+`psh_exhaustion_refereed.pdf`, replacing the active PDF. For the catalogue, edit
+`overview.tex` and compile it to `overview.pdf` in the repository root.
 
-The repository overview can be refreshed explicitly:
+Inspect the PDFs, then commit the edited sources and their PDFs together in
+GitHub Desktop and click **Push origin**. The remote workflow runs the automated
+checks. No local Python command is required for this editing route. Record
+substantive revisions in [history.md](history.md); keep the original files under
+`archive/` and `reviews/source/` unchanged.
+
+## Optional scripted PDF updates
+
+Ordinary scripted builds leave the active PDFs unchanged. To compile and update
+both active PDFs after every selected build succeeds:
 
 ```text
-python scripts/build.py overview --publish
+python scripts/build.py all --publish
 python scripts/check.py
 ```
 
-The `--publish` option is limited to the overview in this intake snapshot. It
-cannot replace the supplied manuscript PDF or archived files. Future revisions
-are possible: retain the incoming version and its hashes, add the new manuscript
-as a new version, and update the catalogue, integrity manifest, provenance record,
-and active build target together. Any deliberate change to a preserved file must
-be reflected accurately in those records, rather than merely refreshing a hash
-to silence a failed check.
+Use `paper --publish` or `overview --publish` to update only one active PDF.
+Here `--publish` copies files locally; it does not upload to GitHub. Archived PDFs
+are never build targets. TeX versions may produce different PDF bytes even when
+the typeset content agrees, which is why active PDFs are not compared to original
+intake hashes. Ordinary manuscript edits require no change to the integrity
+manifest. That manifest remains a record of the archived original materials.
 
 ## GitHub checks
 

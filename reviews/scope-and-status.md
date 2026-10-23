@@ -2,13 +2,15 @@
 
 ## What this collection contains
 
-The canonical supplied manuscript is `psh_exhaustion_refereed.tex`, paired with a 27-page PDF, in the user's archive `psh_exhaustion_surface_revision.zip`. The title is *Continuous and Smooth Plurisubharmonic Exhaustions: Threefold Counterexamples and Partial Results for Surfaces*. The author and date commands are empty. The archive identifies the surface-section revision date as 23 October 2026.
+The title is *Continuous and Smooth Plurisubharmonic Exhaustions: Threefold Counterexamples and Partial Results for Surfaces*. The active manuscript in `preprints/001-psh-exhaustion/` now names Zhijian Chen and Bo Xiao and is dated 23 October 2026. Its source and PDF may be revised normally.
+
+The original `psh_exhaustion_refereed.tex` and 27-page PDF from the user's `psh_exhaustion_surface_revision.zip` are preserved in [archive/surface-revision-2026-10-23/](../archive/README.md). That original source retains empty author and date commands; the supplied accompanying materials identify its revision date as 23 October 2026.
 
 The revised source and PDF take precedence over the earlier filename `psh_exhaustion.tex` mentioned in the project discussion. The archive also supplies a [Chinese change summary](source/psh_exhaustion_surface_changes_zh.md), a [JSON manifest](source/psh_exhaustion_surface_revision_manifest.json), a patch, a README, and a [previous-version source](../archive/previous_version/psh_exhaustion_refereed.tex)/[PDF](../archive/previous_version/psh_exhaustion_refereed.pdf) pair. Those are a revision trail, not additional current manuscripts.
 
 ## What has and has not been reviewed here
 
-For this catalogue, the complete revised LaTeX source, supplied change summary, manifest, and numbered statements in the supplied PDF were read. The catalogue was checked against those statements for dimensions, regularity, compactification hypotheses, and attribution limits. This is a statement-level consistency review conducted during repository preparation.
+For the initial catalogue, the complete supplied revised LaTeX source, change summary, manifest, and numbered statements in the supplied PDF were read. The catalogue was checked against those statements for dimensions, regularity, compactification hypotheses, and attribution limits. This was a statement-level consistency review conducted during repository preparation. The subsequent metadata and integrity-check repair is not a new proof review.
 
 It is **not** a new independent referee examination of every proof, an exhaustive priority check, or formal verification. No proof-assistant files or machine-checked proofs were supplied. No journal decision or identified external referee report was supplied.
 
@@ -40,7 +42,7 @@ Other bibliography entries likewise remain inherited unless a separate verificat
 
 The supplied manifest records a reduction from 47 to 27 pages, an unchanged Sections 2–4 core, unchanged principal theorem statements, source and PDF hashes, 17 bibliography entries, and clean compilation checks at the time of that revision. The Chinese summary explains that four surface sections were merged into the present Section 5, with narrower claims and explicit recent-source dependencies.
 
-These records support traceability of the supplied revision. File hashes and successful compilation establish integrity and build consistency, not mathematical correctness. Removing material from the earlier version does not by itself imply that the removed statements were false.
+These records support traceability of the supplied revision. Original hashes are validated against the immutable archived copies and inherited records; they do not constrain ordinary revisions of the active source or PDF. The active paper receives structural, reference, and compilation checks. File hashes and successful compilation establish integrity and build consistency, not mathematical correctness. Removing material from the earlier version does not by itself imply that the removed statements were false.
 
 ## Suggested next review
 

@@ -8,7 +8,7 @@ This collection contains one manuscript on the regularity of plurisubharmonic ex
 
 [Paper](preprints/001-psh-exhaustion/psh_exhaustion_refereed.pdf) · [LaTeX](preprints/001-psh-exhaustion/psh_exhaustion_refereed.tex) · [Scope and status](reviews/scope-and-status.md) · [Open directions](notes/open-directions.md)
 
-**Snapshot:** supplied surface-section revision dated 23 October 2026; 27-page PDF. The manuscript's author and date fields are empty. It is catalogued as a supplied research draft. The original filename `psh_exhaustion_refereed` does not establish external peer review; no standalone referee report or formal verification was supplied.
+**Current manuscript:** Zhijian Chen and Bo Xiao; dated 23 October 2026; 28-page PDF. The active source and PDF may be revised. The original 27-page surface-section revision is preserved separately in [the archive](archive/README.md), with its original empty author and date fields. The filename `psh_exhaustion_refereed` does not establish external peer review; no standalone referee report or formal verification was supplied.
 
 Here **psh** means plurisubharmonic; **smooth** means $C^\infty$. An exhaustion is a continuous real-valued function whose sublevel sets are compact. Existence of a locally Lipschitz psh exhaustion is distinguished from existence of **any** $C^2$ psh exhaustion.
 

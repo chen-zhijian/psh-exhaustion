@@ -6,6 +6,6 @@
 - [Original revision manifest](source/psh_exhaustion_surface_revision_manifest.json): source hashes and the prior revision's checks.
 - [Original package README](source/README.txt): instructions and status text as supplied. Its file locations refer to the original ZIP layout; use the repository's [BUILDING.md](../BUILDING.md) for the reorganized layout.
 
-All files under `source/` are unchanged source materials. They describe a previous revision process, not fresh checks conducted when this repository was packaged. The [provenance record](../PROVENANCE.md) and [integrity manifest](../source-manifest.json) distinguish inherited materials from newly prepared documentation.
+All files under `source/` are unchanged source materials. They describe a previous revision process, not fresh checks of subsequent edits to the active paper. Their original source/PDF pairs are preserved in [the archive](../archive/README.md). The [provenance record](../PROVENANCE.md) and [integrity manifest](../source-manifest.json) distinguish those immutable materials from the editable manuscript and newly prepared documentation.
 
 No standalone external referee report was supplied. Neither the inherited filename `refereed` nor the change report establishes journal peer review, a proof-assistant check, or an exhaustive novelty assessment.

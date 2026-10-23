@@ -4,7 +4,7 @@ A **vibemath** research collection on continuous and smooth plurisubharmonic exh
 
 [Read the paper](preprints/001-psh-exhaustion/psh_exhaustion_refereed.pdf) · [Overview](overview.pdf) · [Manuscript map](CONTENTS.md) · [Revision history](history.md)
 
-The collection contains one manuscript, its superseded predecessor, and the supplied surface-revision record. The current paper is **Continuous and Smooth Plurisubharmonic Exhaustions: Threefold Counterexamples and Partial Results for Surfaces** (27 pages).
+The collection contains one active manuscript, two archived source/PDF snapshots, and the supplied surface-revision record. The current paper is **Continuous and Smooth Plurisubharmonic Exhaustions: Threefold Counterexamples and Partial Results for Surfaces**, by **Zhijian Chen and Bo Xiao**, dated 23 October 2026 (28 pages).
 
 | Result in the manuscript | Scope | Location |
 |---|---|---|
@@ -19,7 +19,7 @@ The surface section includes further sufficient conditions. It does **not** reso
 
 - [Overview](overview.pdf) and its [LaTeX source](overview.tex): a short research catalogue.
 - [preprints/](preprints/001-psh-exhaustion/README.md): current source, PDF, and provisional citation.
-- [archive/](archive/README.md): the supplied 47-page predecessor, clearly marked as superseded.
+- [archive/](archive/README.md): the original 27-page surface revision and its 47-page predecessor, preserved as historical snapshots.
 - [reviews/](reviews/README.md): scope and verification notes, the original Chinese revision summary, patch, and revision manifest.
 - [Research summary](reasoning_traces/001-psh-exhaustion.md): an editorial description of the mathematical argument.
 - [Formalization status](lean/README.md): no Lean or other proof-assistant files are included.
@@ -27,14 +27,14 @@ The surface section includes further sufficient conditions. It does **not** reso
 
 ## Verification and attribution
 
-The current and previous manuscript files are preserved byte for byte from the supplied archive. The revision report states that Sections 2–4 and the two principal theorem statements are unchanged; the source comparison confirms this. Repository checks address integrity, links, references, compilation, and layout. Preparing this repository is not a fresh independent proof audit or exhaustive novelty review.
+The eight supplied files are preserved byte for byte in the historical archive and revision records. Their hashes protect those snapshots; the active manuscript in `preprints/` may be revised and rebuilt normally. It is checked for structure, references, and compilation rather than equality to the original hash. The original surface revision retained Sections 2–4 and the two principal theorem statements from its predecessor. Repository checks do not constitute an independent proof audit or exhaustive novelty review.
 
 The paper attributes the ruled-surface obstruction to prior work and identifies its Hironaka, classification, abundance, and neighborhood-theory inputs. The surface revision retains explicit qualifications concerning a September 2026 preprint and incomplete access to Vâjâitu's published full text. See [scope and status](reviews/scope-and-status.md).
 
-The inherited filename `psh_exhaustion_refereed` does not establish external journal review. The supplied source has empty author and date fields. The label **vibemath** identifies the research context named by the repository owner; it is not an author attribution. See [provenance](PROVENANCE.md) and [licensing status](LICENSE-NOTICE.md).
+The inherited filename `psh_exhaustion_refereed` does not establish external journal review. The active source now names Zhijian Chen and Bo Xiao and supplies its date; the original archived surface revision retains its empty author and date fields. The label **vibemath** identifies the research context named by the repository owner; it is not an author attribution. See [provenance](PROVENANCE.md) and [licensing status](LICENSE-NOTICE.md).
 
 ## Build and upload
 
-The PDFs are ready to read. [BUILDING.md](BUILDING.md) explains reproducible local checks; [CONTRIBUTING.md](CONTRIBUTING.md) explains how to record mathematical corrections. [UPLOAD_TO_GITHUB.md](UPLOAD_TO_GITHUB.md) gives GitHub Desktop and browser instructions. This local preparation has no remote configured.
+The PDFs are ready to read. [BUILDING.md](BUILDING.md) explains reproducible local checks; [CONTRIBUTING.md](CONTRIBUTING.md) explains how to record mathematical corrections. [UPLOAD_TO_GITHUB.md](UPLOAD_TO_GITHUB.md) gives GitHub Desktop and browser instructions.
 
 The organization is inspired by [openai/math](https://github.com/openai/math): a catalogue, source/PDF pairs, research summaries, and revision history. This is a separate collection with its own content and verification status.

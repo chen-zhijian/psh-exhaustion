@@ -1,5 +1,11 @@
 # History
 
+## 2026-10-23 — Authorship metadata and editable manuscript checks
+
+The active manuscript now names Zhijian Chen and Bo Xiao and is dated 23 October 2026; its PDF was rebuilt by the owner. The citation and repository documentation now reflect that supplied authorship.
+
+The original 27-page source/PDF pair is preserved in `archive/surface-revision-2026-10-23/`, alongside the existing 47-page predecessor in `archive/previous_version/`. The original integrity manifest now points to those immutable copies. The active paper in `preprints/` is checked structurally and by compilation, without requiring its bytes to match the acquired snapshot. This separates ordinary manuscript revisions from historical integrity checks; no mathematical statement is changed by this repository repair.
+
 ## 2026-10-23 — Initial local repository
 
 Packaged one current manuscript, its predecessor, a research catalogue, an editorial mathematical summary, integrity records, and build/upload instructions. This is a local repository snapshot, not a claim of an earlier public release or publication.

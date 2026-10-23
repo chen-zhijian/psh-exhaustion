@@ -8,14 +8,16 @@ All eight archive members are preserved byte for byte. The [source manifest](sou
 
 | Archive material | Repository location |
 |---|---|
-| Current source and 27-page PDF | [preprints/001-psh-exhaustion/](preprints/001-psh-exhaustion/README.md) |
+| Original surface-revision source and 27-page PDF | [archive/surface-revision-2026-10-23/](archive/README.md) |
 | Previous source and 47-page PDF | [archive/previous_version/](archive/README.md) |
 | Chinese change summary | [reviews/source/psh_exhaustion_surface_changes_zh.md](reviews/source/psh_exhaustion_surface_changes_zh.md) |
 | Unified revision patch | [reviews/source/psh_exhaustion_surface_revision.patch](reviews/source/psh_exhaustion_surface_revision.patch) |
 | Supplied revision manifest | [reviews/source/psh_exhaustion_surface_revision_manifest.json](reviews/source/psh_exhaustion_surface_revision_manifest.json) |
 | Original package README | [reviews/source/README.txt](reviews/source/README.txt) |
 
-The current source, previous source, current PDF, and unchanged Sections 2–4 agree with the hashes in the supplied revision manifest. The previous version is supplied evidence of a revision, not a second independent paper or an earlier public release.
+The original surface-revision source/PDF in `archive/surface-revision-2026-10-23/`, the predecessor in `archive/previous_version/`, and the inherited revision records are immutable copies of the supplied files. Their hashes are checked against the source manifest. Sections 2–4 and the two principal theorem statements were unchanged between those two supplied source versions. These snapshots document revisions of one paper, not separate papers or earlier public releases.
+
+The active source and 28-page PDF in [preprints/001-psh-exhaustion/](preprints/001-psh-exhaustion/README.md) are editable manuscript files. They are not required to match the original snapshot's hash. Structural, reference, and compilation checks apply to the active source; ordinary author edits and PDF rebuilds do not require changing the original integrity hashes.
 
 The inherited source header mentions `psh_exhaustion(1).tex` and a separate referee report. Neither is supplied under that name. The included predecessor is only the one under `previous_version/`, and the change report must not be represented as a missing standalone referee report.
 
@@ -27,7 +29,7 @@ No new mathematical claim is introduced by this packaging step. Neither a fresh 
 
 ## Authorship, review, and licensing
 
-The owner describes human-directed work developed with vibemath. The manuscript has empty author and date fields, so no personal or institutional author is assigned by this repository. The provisional citation omits those fields accordingly.
+The owner describes human-directed work developed with vibemath. The active manuscript now names **Zhijian Chen** and **Bo Xiao**, with author affiliations and the date **October 23, 2026** supplied in the source. The citation reflects those names. The original archived surface revision retains its empty author and date fields; its hashes continue to identify that historical version.
 
 The inherited word `refereed` in the filenames is preserved for traceability. The supplied materials do not identify a journal referee or establish external peer review. No proof-assistant formalization is included. An open-source license has not been selected; see [LICENSE-NOTICE.md](LICENSE-NOTICE.md).
 

@@ -6,13 +6,13 @@
   "files": [
     {
       "archive_path": "psh_exhaustion_refereed.tex",
-      "repository_path": "preprints/001-psh-exhaustion/psh_exhaustion_refereed.tex",
+      "repository_path": "archive/surface-revision-2026-10-23/psh_exhaustion_refereed.tex",
       "sha256": "1df9a09b2d7393af7a097b43ef0b016884a488ee01c0fe0b350dcea101081d16",
       "bytes": 80606
     },
     {
       "archive_path": "psh_exhaustion_refereed.pdf",
-      "repository_path": "preprints/001-psh-exhaustion/psh_exhaustion_refereed.pdf",
+      "repository_path": "archive/surface-revision-2026-10-23/psh_exhaustion_refereed.pdf",
       "sha256": "ed20b6d8baf4a91327ea7d80c8a49a0d14d32c6630dbb7e275dedb378b4f273c",
       "bytes": 536675
     },
@@ -55,7 +55,8 @@
   ],
   "notes": [
     "All eight supplied archive members are preserved byte for byte at the mapped repository locations.",
+    "The original 27-page manuscript source and PDF are archived under archive/surface-revision-2026-10-23/; the active versions in preprints/001-psh-exhaustion/ are editable and are not locked to intake hashes.",
     "Hashes identify the acquired snapshot; they do not establish mathematical correctness or authorship.",
-    "New repository documentation and overview are not archive members."
+    "New repository documentation, overview, and subsequent active manuscript revisions are not archive members."
   ]
 }

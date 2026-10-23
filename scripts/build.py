@@ -84,14 +84,9 @@ def main() -> int:
     parser.add_argument(
         "--publish",
         action="store_true",
-        help="replace overview.pdf after a successful overview build; supplied PDFs are preserved",
+        help="update selected active PDFs after all selected builds succeed; archived PDFs are preserved",
     )
     args = parser.parse_args()
-    if args.publish and args.target != "overview":
-        parser.error(
-            "--publish is available only for the overview in this preserved-source snapshot. "
-            "Use an ordinary paper/all build for comparison; see BUILDING.md for future revisions."
-        )
     engine = shutil.which("pdflatex")
     if engine is None:
         parser.error("pdflatex was not found. Install TeX Live or MiKTeX; see BUILDING.md.")

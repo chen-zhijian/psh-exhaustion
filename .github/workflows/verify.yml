@@ -48,7 +48,7 @@ jobs:
           tlmgr update --self
           tlmgr install \
             amscls amsfonts amsmath lm mathtools microtype enumitem \
-            booktabs tools placeins xcolor hyperref
+            booktabs tools placeins xcolor hyperref geometry
 
       - name: Compile three passes without replacing the published PDF
         run: python verification/scripts/build.py

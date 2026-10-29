@@ -37,7 +37,7 @@ This layout follows [harmonic-direct-images](https://github.com/chen-zhijian/har
 
 ## Build and verify
 
-Install Python 3 and a TeX distribution with pdfLaTeX, AMS classes/fonts, Latin Modern, mathtools, microtype, enumitem, booktabs, tools, placeins, xcolor, and hyperref.
+Install Python 3 and a TeX distribution with pdfLaTeX, AMS classes/fonts, Latin Modern, mathtools, microtype, enumitem, booktabs, tools, placeins, xcolor, hyperref, and geometry. The paper uses 1.15-inch margins; each bibliography entry ends with an upward arrow and linked citation-page numbers.
 
 ```sh
 python verification/scripts/build.py

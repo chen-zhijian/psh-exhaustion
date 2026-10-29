@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *.aux
+*.brf
 *.log
 *.out
 *.toc

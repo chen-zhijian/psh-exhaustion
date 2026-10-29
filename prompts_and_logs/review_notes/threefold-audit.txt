@@ -1,0 +1,88 @@
+Review of the threefold construction (October 29, 2026)
+
+Scope: original revised manuscript, sections 2--4, lines 401--1218.
+Result: no mathematical gap was found in the stated threefold theorems or
+their proofs. The replacement fragment retains all essential calculations.
+The changes here are consolidation and proof clarification, not repairs of
+a disproved theorem. This is a mathematical reading, not formal verification.
+
+Checks performed
+
+1. Geometry and attribution. The six branch points give genus two. Serre
+duality gives H^1(C,K_C)=C; all nonzero extensions have equivalent middle
+terms after scalar changes. The negative section has normal bundle K_C^-1,
+and L=O(Y) tensor pi^*K_C is trivial on Y, nef and big with L^2=2.
+The construction agrees with Koike, Example 4.1; it is not presented as a
+new ruled-surface example.
+
+2. C^2 obstruction. The frame and fiber-coordinate transition signs were
+checked. Positivity plus the zero tangential Levi entry forces the mixed
+entry to vanish. The first normal derivative is C^1 holomorphic; its
+transition law makes the given extension split. Only second derivatives
+are used. The claim excludes C^2 semipositive metrics, not C^1 metrics.
+
+3. Cusp endpoint. In scaled vectors (xi,w nu), the leading Levi form of
+q^a is uniformly positive definite and of order |w|^(2a). The initial
+metric contributes O(|w|). Consequently a large coefficient works at
+a=1/2; shrinking alone is sufficient only below the endpoint. The
+Lipschitz conclusion and removable-singularity step are valid.
+
+4. Global metric. The logarithmic branch has curvature pi^*Theta(K_C)
+off Y. Its strict domination on a collar of q=epsilon validates the
+piecewise maximum. The cusp dominates near Y. The finite positive metric
+and its local Lipschitz regularity therefore follow. Minimal singularities
+follow from the bounded global potential and compactness. Zhang's question
+explicitly includes the modified example; the original Grauert bundle is
+not identified or claimed solved.
+
+5. Radius criterion. Compact-group averaging preserves proper sublevels.
+Convexity in log squared radius and a level above the zero section give
+a unique radius with strictly positive radial derivative. The implicit
+Levi calculation includes the factors 1/2 from Re(zeta). The negative
+radius logarithms transform as metric weights with the correct sign.
+This excludes every C^2 exhaustion, independently of the constructed one.
+
+6. Compact modifications. Truncating above the compact exceptional
+neighborhood avoids unsupported smooth descent of an arbitrary psh
+function. Properness gives compact sublevels in both directions.
+
+7. Hironaka construction. The line and conic meet transversely twice.
+Opposite-order blowups glue over the complement of these points.
+Hausdorffness and properness are local over this base cover. Exceptional
+surfaces are compact even for noncompact X; their rational fiber divisors
+give ordinary homology relations. The local surface blowup verifies
+multiplicity one. The sum of two positive rational curves is null
+homologous, so a Kahler form cannot exist. This agrees with Barlet section
+6 and Stacks Tag 08J1; the compact support over one point comes from placing
+the configuration in the exceptional plane of Bl_x(X).
+
+Editorial changes
+
+- 818 source lines became 379 lines (approximately 14 KB); three sections
+  are retained, with two substantive subsections total.
+- Removed the optional Dolbeault realization, the unused ampleness
+  calculation for 2L-Y, repeated endpoint explanations, repeated scope
+  remarks, and the redundant Hopf-product fivefold example.
+- Preserved the scaled cusp, metric patching, radius Levi identity,
+  compact truncation, Hironaka multiplicity calculation, and all central
+  theorem/proposition labels used by the rest of the paper.
+- The introduction must remove references to prop:compact-product and
+  cor:nonkahler. No claim about C^1 regularity is added.
+- Bibliography entries Wu2026 and BHPV2004 may remain needed elsewhere;
+  this fragment no longer cites them. Koike2021, Zhang2025, Barlet2015 and
+  StacksHironaka remain cited.
+
+Primary sources checked
+
+Koike, Ann. Inst. Fourier 71 (2021), Theorem 1.4 and Example 4.1:
+https://www.numdam.org/item/10.5802/aif.3439.pdf
+
+Zhang, arXiv:2512.23446v1, section 4 (question explicitly includes the
+original or modified Grauert example):
+https://arxiv.org/html/2512.23446v1
+
+Barlet, arXiv:1501.01129v2, section 6:
+https://arxiv.org/html/1501.01129v2
+
+Stacks Project, Tag 08J1 (opposite-order blowups and cycle relations):
+https://stacks.math.columbia.edu/tag/08J1

@@ -1,14 +1,9 @@
-* text=auto
+* text=auto eol=lf
 *.md text eol=lf
 *.tex text eol=lf
-*.bib text eol=lf
 *.py text eol=lf
+*.ps1 text eol=lf
+*.json text eol=lf
 *.yml text eol=lf
-*.yaml text eol=lf
 *.pdf binary
-
-# Keep manuscript source bytes stable and preserve the archived intake copies.
-preprints/001-psh-exhaustion/psh_exhaustion_refereed.tex -text
-archive/surface-revision-2026-10-23/psh_exhaustion_refereed.tex -text
-archive/previous_version/psh_exhaustion_refereed.tex -text
-reviews/source/* -text
+archive/** -text

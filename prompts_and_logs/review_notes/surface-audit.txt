@@ -1,0 +1,49 @@
+Surface-section mathematical review, 2026-10-29
+
+Input: psh-exhaustion-revised/main.tex, original lines 1219--2365.
+Replacement: tmp/revision-20261029/surfaces.tex (four subsections).
+
+Outcome
+No fatal gap or unsupported enlargement was found in the central divisor-complement regularization theorem. In particular, neither its current averaging lemma nor the DNS application requires a foliation or a smooth exhaustion. The proof is retained with its full hypotheses. This is a mathematical review, not formal verification.
+
+Proof checks
+1. The boundary obstruction uses Grauert contraction and boundedness above of a continuous psh function near an isolated puncture of a normal surface. The finite-projection/fiberwise-maximum argument supplies the needed boundedness and does not assume that the given exhaustion extends to the compactifier.
+2. The collar gluing construction is valid for finitely many compact boundary components. Boundary blowups require the full inverse-image boundary. No contraction meeting the open surface is used.
+3. The positive-eigenvalue collar uses ampleness on the reduced SNC curve, extends positive tangential metrics, treats the full Zariski tangent space at nodes, and adds a squared defining-section norm for the missing normal direction. The zero-eigenvalue kernel is positive and rational by Perron--Frobenius plus integrality.
+4. Mongodi--Slodkowski Lemma 2.1 is explicitly stated for arbitrary complex manifolds and CONTINUOUS psh exhaustions. Thus the half-line in the image of the continuous minimal kernel is justified. The proof constructing a strongly psh exhaustion near a level is preserved.
+5. Hahn--Banach separates a linear subspace from an OPEN cone; closedness of the subspace is not necessary. The resulting positive order-zero current is dd^c-closed and supported on that level.
+6. The discrete averaging proof rules out concentration in its weak limit using a uniform Lelong--Jensen bound and oscillation of the CONTINUOUS exhaustion. The open-set Portmanteau inequality has the correct direction. There is no hidden measurable selection or point-dependent weak subsequence.
+7. DNS Theorem 2.2 and Corollary 2.4 apply to arbitrary positive dd^c-closed currents on compact Kähler surfaces. Their hypotheses hold because the positive-Lelong locus is empty. The density mass formula gives alpha_T^2 >= 2 E(T) >= 0, and E(T)=0 iff dT=0. The cohomology class is defined through the smooth closed part of the current decomposition; no de Rham class is assigned prematurely to a nonclosed current.
+8. Orthogonality to every boundary component uses cut-off Poincare--Lelong potentials and dd^c-closedness only. Hodge index excludes positive boundary eigenvalues, then forces the null class and closedness. Positivity of every coefficient of A guarantees divergence at every end, including singular boundary points.
+9. The original proof constructs the flat metric on a neighborhood. The replacement explicitly extends it to a global smooth Hermitian metric via a cutoff relative to a reference metric, retaining flatness on a smaller neighborhood. This supplies a routine omitted step in the global metric wording; it does not change the theorem.
+10. The quasi-projective reduction uses a smooth projective compactification and principalization outside X, including isolated boundary points. Connected components are finite. The non-torsion degree-zero total-space example really has only constant ANALYTIC holomorphic functions, by its fiberwise Taylor expansion.
+11. Nonprojective numerical criterion: checked a=1 verticality and negativity of proper fiber submatrices; checked the blowdown identity 0=(A')^2-b^2 that forces full pullback in a=0; checked the torus/K3 exclusions and the restricted Enoki square-zero-divisor input rather than an unproved complete class-VII classification. The affine bundle has negative linear degree, hence its infinity section has positive square.
+12. Smooth ruling criterion: checked the numerical reduction to a single smooth square-zero multisection, adjunction/Riemann--Hurwitz, the affine harmonic-section Levi matrix, and proper finite-group averaging after splitting the multisection by an etale Galois cover.
+13. Ueda conditions: finite type, convergent flatness, and formal infinite type remain distinct. The extension of a unitary character from an abelian subgroup uses divisibility of U(1). Neeman's theorem is used only in the non-torsion, infinite-type case. The irregularity argument correctly passes through Hodge theory and torsion-freeness of H_1(C,Z). The 2026 elliptic input is valid for compact COMPLEX surfaces, so its use for Hopf surfaces is within its stated scope.
+
+Primary sources directly checked
+- Mongodi--Slodkowski, Lemma 2.1:
+  https://arxiv.org/html/1904.03497v1
+- Dinh--Nguyen--Sibony, Theorem 2.2, Corollary 2.4, Appendix B.1--B.4:
+  https://arxiv.org/html/1811.07450v2
+- Fujimoto--Nakayama, Section 2 and Lemma 2.1:
+  https://www.kurims.kyoto-u.ac.jp/preprint/file/RIMS1431.pdf
+- Claudon--Loray--Pereira--Touzet, Theorems 2.4, 2.5, 4.4 and Proposition 2.7:
+  https://arxiv.org/html/1512.06623
+- Chen--Filip--Sun--Tosatti--Zhang, Theorem 1.6:
+  https://arxiv.org/html/2609.26716v1
+- Vijitu 2022, Theorem 1.1: supplied local PDF extraction tmp/pdfs/Vajaitu2022.txt.
+- Enoki's square-zero-divisor conclusion was crosschecked against the explicit statement in Kosarew--Peternell's primary published correction:
+  https://www.numdam.org/item/CM_1993__86_1_121_0.pdf
+  (Direct retrieval of the Enoki publisher PDF failed during this review.)
+
+Editorial changes, not mathematical repairs
+- Consolidated nine subsections into four.
+- Preserved central regularization theorem, quasi-projective corollary, continuous square-zero collar corollary, numerical nonprojective and smooth-ruling criteria, and Ueda sufficient conditions.
+- Removed the projective affirmative-cases proposition and its proofs because their conditional regularization conclusions are subsumed by the stronger compact Kähler theorem. These were not found false.
+- Removed the classification/status table, repeated explanations of the same scope boundary, and the long parameter-family/Betti-number digression. Retained the decisive non-torsion flat-bundle example.
+- Replaced repetitive prose with identities and implications while retaining the Hahn--Banach, weak-limit, Hodge-index, and logarithmic-potential steps.
+- Kept the 2026 elliptic-neighborhood preprint dependency explicit, separately from the central regularization theorem, which does not need it.
+
+Removed external labels
+The original introduction referred to tab:surface-status; it must be removed during integration. No retained proof needs the removed prop:surface-projective-cases, subsec:projective-cases, or subsec:surface-classification labels. The root editor was notified.

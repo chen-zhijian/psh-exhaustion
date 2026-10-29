@@ -1,0 +1,71 @@
+Curve-fibering section: mathematical review, 29 October 2026
+
+Scope: original psh-exhaustion-revised/main.tex, lines 2366-2695, with
+the corresponding bibliography and locally supplied source papers.
+
+Conclusion: no fatal gap found in the theorem for reduced pure-dimensional
+complex spaces with continuous real-valued psh exhaustion and a holomorphic
+map to C^(n-1) having fibers of dimension at most one. The source's explicit
+dimension and continuity hypotheses must remain. The extension to arbitrary
+singularities of the total space is supported by the cycle argument.
+
+Primary-source checks
+1. Barlet--Magnusson (1998), Chapter I, section 1(b), printed p.816,
+   explicitly gives geometric flatness for equidimensional maps over a normal
+   base, with no properness requirement. The pure one-dimensional fiber
+   condition follows branchwise from the analytic dimension theorem.
+   https://www.numdam.org/item/ASENS_1998_4_31_6_811_0.pdf
+2. Barlet--Magnusson, On nearly smooth complex spaces, Definition 1.1.1 and
+   Remark (ii), author-preprint pp.3-4, independently confirms the same
+   equivalence and points to the book, Chapter IV, Theorem 3.4.1.
+   https://arxiv.org/pdf/1710.08105
+3. Compact-support integration continuity is cited to Barlet--Magnusson
+   (2014), Chapter IV, Proposition 2.3.1. Barlet (2017), Theorem 4.0.7,
+   proof Step 4, author-preprint p.21, explicitly confirms this location.
+   https://arxiv.org/pdf/1707.07962
+4. Barlet (1999), Theorem 1, printed p.26, explicitly states Bishop
+   compactness for any complex analytic space, with fixed compact support
+   and bounded Hermitian volume. Its support-continuity statement also
+   verifies the limit argument retaining the marked point x.
+   https://library.slmath.org/books/Book37/files/barlet.pdf
+5. The complete locally supplied Forum Math. 2022 article (Vijiitu2022.pdf;
+   extracted text tmp/forum2022/Vijiitu2022-full.txt) was checked at printed
+   pp.456-457 and 463-464. Propositions 2.2 and 2.4 and Corollary 2.5 apply
+   to reduced complex spaces. Corollary 4.2 is only needed for the known
+   smooth-source argument; the replacement stability lemma removes this
+   restriction.
+
+Proof checks and clarifications retained
+- Effective geometric fiber multiplicities, not scheme-theoretic flatness,
+  supply the uniform area bound for reduced component cycles.
+- The maximum principle forces compact curves into one fixed compact
+  sublevel before Bishop compactness is applied. No global Kaehler form is
+  required, and the curves may lie wholly in the singular locus.
+- Compact support plus local finiteness makes the central fiber's compact-
+  component exhaustion values locally finite; this provides the collar gap.
+- A compact curve analytic in the open collar is closed and analytic in X,
+  so it is a full component of a pure one-dimensional fiber. The collar's
+  reduced fibers thus contain no compact irreducible components and are Stein.
+- The auxiliary smooth function in the printed proof of Forum Corollary 2.5
+  is not itself an exhaustion of the open domain. The supplied draft already
+  repaired this omission by adding its continuous psh exhaustion. The rewrite
+  preserves that necessary repair and explicitly uses boundedness away from
+  the collar to establish 1-convexity.
+- The Remmert pullback gives a new smooth psh exhaustion, not smooth
+  approximation of the prescribed rho or strict pshness on X. Normality of X
+  and of its Remmert reduction are not claimed.
+- Nontrivial Remmert fibers are finite connected unions of compact fiber
+  curves; the continuous exhaustion rules out infinite connected chains.
+
+Editorial changes in curves.tex
+- Reduced three subsections to two and merged the cycle input catalogue into
+  the area/stability proof.
+- Kept the three external convexity criteria, their exact citations, and the
+  needed exhaustion correction in compact form.
+- Removed repeated lists of permitted singularities, repeated scope remarks,
+  and the closing contrapositive/example discussion.
+- Retained all externally referenced theorem/lemma labels. The removed
+  internal labels curve:ext:* have no references outside this original section.
+- Bibliography entries BarletMagnusson2019 and BarletAlpha2017 are no longer
+  cited in this revised section; remove only if uncited elsewhere.
+- This is a proof audit with verified inputs, not a formal proof certificate.

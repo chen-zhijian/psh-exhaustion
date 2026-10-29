@@ -1,0 +1,38 @@
+{
+  "source": {
+    "path": "papers/src/main.tex",
+    "sha256": "3e060e40123f3fe6402bb55807aafec0b403cac1d61de2e9c34522b81263fba8",
+    "bytes": 59633
+  },
+  "pdf": {
+    "path": "papers/paper_v1.pdf",
+    "sha256": "a2e92724c52f13c311df1205ade7ccced4bdc6bfe0af490e2ad9b5b0fd8a92c2",
+    "bytes": 490669,
+    "pages": 20
+  },
+  "built_at_utc": "2026-10-29T04:26:41+00:00",
+  "compiler": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026)",
+  "passes": 3,
+  "technical_checks": [
+    "source labels and citations",
+    "table of contents",
+    "no unresolved references",
+    "no overfull boxes",
+    "no missing characters"
+  ],
+  "mathematical_verification": "Not performed by this script; see the review notes.",
+  "intake_source": {
+    "path": "archive/revision-intake-2026-10-29/main.tex",
+    "sha256": "496cc87da575252d459066633a1575025adf967b5a8318db37c2467e9bc92776",
+    "bytes": 131547
+  },
+  "revision": {
+    "date": "2026-10-29",
+    "intake_pages": 43,
+    "revised_pages": 20,
+    "sections": 6,
+    "subsections_before": 25,
+    "subsections_after": 8,
+    "visual_review": "All 20 rendered pages inspected; no clipping, overlap, or missing symbols."
+  }
+}

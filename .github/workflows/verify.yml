@@ -1,0 +1,54 @@
+name: Verify paper and preserved archive
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Check out sources
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      - name: Check source, published hashes, local links, and archive
+        run: python verification/scripts/verify.py
+
+      - name: Restore cached TeX installation
+        id: tinytex
+        uses: actions/cache@v5
+        with:
+          path: ~/.TinyTeX
+          key: tinytex-ubuntu24-${{ runner.arch }}-psh-v2-${{ hashFiles('.github/workflows/verify.yml') }}
+
+      - name: Set up TinyTeX on a cache miss
+        if: steps.tinytex.outputs.cache-hit != 'true'
+        uses: r-lib/actions/setup-tinytex@v2
+        env:
+          TINYTEX_INSTALLER: TinyTeX-1
+
+      - name: Add TinyTeX to PATH
+        run: echo "$HOME/.TinyTeX/bin/x86_64-linux" >> "$GITHUB_PATH"
+
+      - name: Install document packages on a cache miss
+        if: steps.tinytex.outputs.cache-hit != 'true'
+        run: |
+          tlmgr update --self
+          tlmgr install \
+            amscls amsfonts amsmath lm mathtools microtype enumitem \
+            booktabs tools placeins xcolor hyperref
+
+      - name: Compile three passes without replacing the published PDF
+        run: python verification/scripts/build.py

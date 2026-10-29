@@ -1,27 +1,8 @@
-# Build products stay outside the published source directories.
 /build/
 __pycache__/
 *.py[cod]
-.venv/
-venv/
-
-# LaTeX intermediates (the current and archived PDFs are tracked).
 *.aux
-*.bbl
-*.bcf
-*.blg
-*.fdb_latexmk
-*.fls
 *.log
 *.out
-*.run.xml
-*.synctex.gz
 *.toc
-
-# Local editor and operating-system metadata.
-.DS_Store
-Thumbs.db
-Desktop.ini
-.vscode/
-.idea/
-*~
+*.synctex.gz

@@ -1,4 +1,10 @@
-# Mathematical and editorial review — 29 October 2026
+# Mathematical and editorial reviews
+
+## 30 October 2026 — version 2
+
+The [dated revision audit](revision-2026-10-30.txt) records the four-line abstract, expanded proof details, and removal of redundant qualifications. All 29 formal statements are unchanged after whitespace normalization. The 24-page PDF passed compilation and visual checks, and the published source/PDF hashes are recorded in the build manifest. The previous release's metadata and PDF are preserved.
+
+## 29 October 2026 — version 1
 
 The supplied 43-page revision was reviewed section by section and condensed into six sections with eight subsections and a table of contents. The audit found no substantive mathematical flaw requiring a principal theorem to be withdrawn or weakened. This records the reviewers' findings, not a proof certificate or external journal review.
 

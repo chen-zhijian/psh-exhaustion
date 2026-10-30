@@ -1,4 +1,4 @@
-% The source was compiled and checked against the supplied 28-page PDF.
+% Revised October 30, 2026: expanded proofs and shortened abstract.
 \documentclass[11pt]{amsart}
 
 \usepackage[margin=1.15in]{geometry}
@@ -50,7 +50,7 @@ Threefold Counterexamples and Surface Regularization}
 \author{Bo Xiao}
 \address{School of Mathematical Sciences, University of Chinese Academy of Sciences, Beijing, China}
 \email{xb1994@amss.ac.cn}
-\date{October 29, 2026}
+\date{October 30, 2026}
 \subjclass[2020]{Primary 32F17; Secondary 32Q15, 32L05, 32U40}
 \keywords{Plurisubharmonic exhaustion, K\"ahler manifold, semipositive line bundle,
 ruled surface, Hironaka modification, Ueda theory, class VII surface, boundary divisor, positive current}
@@ -59,20 +59,11 @@ ruled surface, Hironaka modification, Ueda theory, class VII surface, boundary d
 \begin{document}
 
 \begin{abstract}
-We construct smooth K\"ahler and non-K\"ahler threefolds with locally
-Lipschitz plurisubharmonic exhaustions but no $C^2$ plurisubharmonic
-exhaustion. The K\"ahler example is quasi-projective and arises from
-a continuous semipositive metric on Koike's modified Grauert example;
-a radius criterion excludes every $C^2$ exhaustion. In dimension two,
-we prove continuous-to-smooth regularization for divisor complements
-in compact K\"ahler surfaces, hence for smooth quasi-projective
-surfaces. The proof combines level averaging of positive
-$dd^c$-closed currents with the surface current theorem and Hodge
-index. We also give boundary existence criteria and prove holomorphic
-convexity for reduced pure $n$-dimensional spaces with a continuous
-psh exhaustion and a holomorphic map to $\C^{n-1}$ whose fibers all
-have dimension at most one. The general noncompact surface problem
-remains open here.
+We construct K\"ahler and non-K\"ahler threefolds with locally Lipschitz
+psh exhaustions but no $C^2$ psh exhaustion; the K\"ahler example is
+quasi-projective. We prove smooth regularization for divisor complements
+in compact K\"ahler surfaces and give a holomorphic convexity criterion
+for weakly complete spaces fibered by curves over affine space.
 \end{abstract}
 \maketitle
 \tableofcontents
@@ -156,7 +147,6 @@ $A=\sum a_iD_i$, $a_i\in\mathbb Z_{>0}$, satisfies
 \OO_S(A)\text{ is unitary flat near }D.
 \]
 Its canonical section yields a pluriharmonic logarithmic collar.
-No normal-crossing or minimality hypothesis is imposed on $S,D$.
 Section~\ref{sec:surfaces} also gives separate numerical and
 neighborhood criteria for existence of an exhaustion.
 
@@ -170,21 +160,17 @@ has every nonempty fiber of dimension at most one, then $X$ is
 holomorphically convex and admits a smooth psh exhaustion.
 \end{theorem}
 
-The fiber bound includes exceptional fibers. Neither properness of
-$F$ nor normality of $X$ nor a restriction on $\operatorname{Sing}X$
-is required. Analytic fiber cycles and Bishop compactness establish
+The fiber bound includes exceptional fibers. Analytic fiber cycles
+and Bishop compactness establish
 the stability needed for V\^{\i}j\^{\i}itu's convexity criteria
 \cite{VijituForum2022}. For irreducible surfaces, convexity already
 follows from \cite[Theorem~1.1]{Vajaitu2022}.
 
-These regularization results assert existence of a smooth exhaustion,
-not approximation of the prescribed one. They do not settle the
-problem for arbitrary noncompact complex surfaces. Within smooth
+Regularization here means existence of a smooth exhaustion. The
+problem for arbitrary noncompact complex surfaces remains open. Within smooth
 quasi-projective manifolds, Theorems~\ref{thm:main}
 and~\ref{thm:surface-introduction} place the least possible
-counterexample dimension at three. The separate elliptic-neighborhood
-criterion uses the September 2026 preprint \cite{CFSTZ2026}; the main
-surface theorem does not depend on that input.
+counterexample dimension at three.
 
 \paragraph{Conventions.}\label{sec:conventions}
 We use
@@ -230,7 +216,15 @@ $L=\OO_S(Y)\otimes\pi^*K$,
  N_{Y/S}\simeq\operatorname{Hom}(K,V/K)\simeq K^{-1},\qquad
  Y^2=-2,\qquad L|_Y\simeq\OO_Y.
 \end{equation}
-The last trivialization is induced by $K^{-1}\otimes K$.
+The normal-bundle identification sends the derivative of a varying
+line through $K_z\subset V_z$ to its linear map
+$K_z\to V_z/K_z$. The last trivialization in
+\eqref{eq:restriction} is the evaluation map
+$K^{-1}\otimes K\to\OO_C$. Since
+$Y\cdot\pi^*K=\deg K=2$ and $(\pi^*K)^2=0$, one has
+\[
+ L^2=Y^2+2Y\cdot\pi^*K+(\pi^*K)^2=-2+4=2.
+\]
 If $F$ is a fiber and $D\ne Y$ is an irreducible horizontal curve,
 \[
  L\cdot Y=0,\quad L\cdot F=1,\quad L^2=2,\quad
@@ -244,8 +238,19 @@ with
 \[
  k_j=g_{ij}k_i,\qquad v_j=v_i+c_{ij}k_i.
 \]
-In the coordinates $[k_i+w_iv_i]$ near $Y$, and the frames
-$\ell_i=d_i\otimes\pi^*k_i$ with $s_Y=w_id_i$, one obtains
+Use the coordinate maps
+\[
+ (z,w_i)\longmapsto [k_i(z)+w_iv_i(z)]\in S
+\]
+near $Y$. Equality of the lines represented in charts $i,j$ means
+\[
+ k_i+w_iv_i=\lambda\bigl((g_{ij}+c_{ij}w_j)k_i+w_jv_i\bigr).
+\]
+Comparing coefficients gives
+$w_i=w_j/(g_{ij}+c_{ij}w_j)$. Let $d_i$ be the frame of
+$\OO_S(Y)$ determined by $s_Y=w_id_i$, and put
+$\ell_i=d_i\otimes\pi^*k_i$. Since $w_id_i=w_jd_j$,
+the coordinate and frame changes are
 \begin{equation}\label{eq:L-transition}
  w_j=\frac{g_{ij}w_i}{1-c_{ij}w_i},\qquad
  \ell_j=(1-c_{ij}w_i)\ell_i.
@@ -256,20 +261,37 @@ The line bundle $L$ has no $C^2$ semipositive Hermitian metric.
 \end{proposition}
 \begin{proof}
 Suppose its local weights $\varphi_i$ are $C^2$ and psh.
-Their restrictions to $Y$ agree and are subharmonic, hence constant.
-After rescaling, $\varphi_i(z,0)=0$. Positivity of the Levi matrix and
-$\varphi_{i,z\bar z}(z,0)=0$ imply
-$\varphi_{i,w\bar z}(z,0)=0$. Thus
-$a_i(z)=\varphi_{i,w}(z,0)$ is holomorphic. Differentiating the metric
-transition law gives
+The frame changes in \eqref{eq:L-transition} equal $1$ on $Y$,
+so $\varphi_i|_Y$ define a global subharmonic function on the
+compact connected curve $Y$. This function is constant; rescale the
+metric to obtain $\varphi_i(z,0)=0$. At $(z,0)$ the Levi matrix is
+positive semidefinite, and therefore
 \[
- \varphi_j(z,w_j)=\varphi_i(z,w_i)-\log|1-c_{ij}w_i|^2
- \quad\Longrightarrow\quad g_{ij}a_j=a_i+c_{ij}.
+ |\varphi_{i,w\bar z}(z,0)|^2
+ \le \varphi_{i,z\bar z}(z,0)\varphi_{i,w\bar w}(z,0)=0.
 \]
-Consequently $v_i-a_ik_i$ glue to a holomorphic lift of $1$, splitting
-the chosen extension. This contradiction is the first-order
-obstruction of \cite[Theorem~1.4]{Koike2021}; the calculation explicitly
-uses only $C^2$ regularity.
+Consequently the $C^1$ function $a_i(z)=\varphi_{i,w}(z,0)$
+satisfies $\bar\partial a_i=0$ and is holomorphic. The metric
+transition law is
+\[
+ \varphi_j(z,w_j)=\varphi_i(z,w_i)-\log|1-c_{ij}w_i|^2.
+\]
+Differentiate with respect to $w_i$ at $w_i=0$. Since
+$\partial w_j/\partial w_i=g_{ij}$ there, this gives
+\[
+ g_{ij}a_j=a_i+c_{ij},\qquad
+ v_j-a_jk_j=v_i+(c_{ij}-g_{ij}a_j)k_i=v_i-a_ik_i.
+\]
+Thus the maps
+\[
+ s_i:\OO_C|_{U_i}\longrightarrow V|_{U_i},\qquad
+ f\longmapsto f(v_i-a_ik_i)
+\]
+glue to a holomorphic map $s:\OO_C\to V$. Its composition with
+$V\to\OO_C$ is the identity, contradicting the nonsplitting of
+\eqref{eq:extension-intro}. This is the first-order obstruction of
+\cite[Theorem~1.4]{Koike2021}; the calculation uses only $C^2$
+regularity.
 \end{proof}
 
 \subsection{Cusp correction and a global metric}\label{sec:cusp}
@@ -289,9 +311,12 @@ $a<\tfrac12$; a sufficiently large $\Lambda$ works when
 $a=\tfrac12$.
 \end{lemma}
 \begin{proof}
-The required metrics exist because negative degree gives a negative
-curvature metric on $N_{D/X}$, and metrics on restricted bundles
-extend by extending their logarithmic ratios to fixed smooth metrics.
+Negative degree gives a negative curvature metric on
+$N_{D/X}=\OO_X(D)|_D$. To extend a prescribed metric from $D$,
+fix any smooth metric $\widehat h$ on the ambient line bundle,
+write the prescribed metric as $\widehat h|_D e^{-f}$, extend the
+smooth real function $f$ to a neighborhood, and use
+$\widehat h e^{-\widetilde f}$. This constructs both required metrics.
 In a finite coordinate cover of $D$, write
 \[
  D=\{w=0\},\quad q=|w|^2e^{\beta(z,w)},\quad
@@ -305,13 +330,35 @@ For $w\ne0$ and $v=(\xi,w\nu)$,
    +a^2|\nu+\beta_z(z,0)\xi|^2
    +O(|w|)(|\xi|^2+|\nu|^2).
 \end{align}
-The leading form is positive definite. Compactness and
-$q^a\asymp|w|^{2a}$ therefore give, uniformly near $D$,
+The terms in \eqref{eq:scaled-cusp} follow from
+\[
+ \begin{split}
+ \partial\tau(\xi,w\nu)
+ &=\beta_z\xi+(1+w\beta_w)\nu,\\
+ \Levi_\tau(\xi,w\nu)
+ &=\beta_{z\bar z}|\xi|^2
+   +2\operatorname{Re}(\beta_{z\bar w}\xi\overline{w\nu})
+   +\beta_{w\bar w}|w\nu|^2.
+ \end{split}
+\]
+The leading form in \eqref{eq:scaled-cusp} is positive definite:
+its vanishing first forces $\xi=0$, and then $\nu=0$.
+On a finite cover by relatively compact coordinate sets, its smallest
+eigenvalue has a positive lower bound. Bound the remainder by
+$C_1|w|(|\xi|^2+|\nu|^2)$ and shrink the neighborhood so that
+this bound is at most half the leading lower bound.
+Since $q^a\asymp|w|^{2a}$, there is then a uniform $c>0$ with
 \[
  \Levi_{q^a}(\xi,w\nu)\ge c|w|^{2a}(|\xi|^2+|\nu|^2).
 \]
-Flatness of $h_0|_D$ gives $\varphi_{0,z\bar z}(z,0)=0$;
-smoothness then yields
+Flatness of $h_0|_D$ gives $\varphi_{0,z\bar z}(z,0)=0$.
+Taylor's formula and boundedness of the remaining second derivatives
+give
+\[
+ |\varphi_{0,z\bar z}(z,w)|\le C_2|w|,\qquad
+ |\varphi_{0,z\bar w}|+|\varphi_{0,w\bar w}|\le C_2.
+\]
+Using $2|\xi\nu|\le |\xi|^2+|\nu|^2$ and $|w|\le1$, we obtain
 \[
  |\Levi_{\varphi_0}(\xi,w\nu)|
  \le C|w|(|\xi|^2+|\nu|^2).
@@ -321,12 +368,22 @@ Hence
  \Levi_{\varphi_0+\Lambda q^a}(\xi,w\nu)
  \ge (\Lambda c|w|^{2a}-C|w|)(|\xi|^2+|\nu|^2).
 \end{equation}
-For $a<\tfrac12$, shrink the neighborhood with $\Lambda=1$;
-for $a=\tfrac12$, choose $\Lambda>C/c$. This proves strict positivity
-off $D$. Since $q^a=|w|^{2a}e^{a\beta}$ is locally $C^{0,2a}$,
-the weights extend continuously across $D$; the removable singularity
-theorem makes the extension psh. The correction is globally defined,
-so the metric transition law is preserved.
+For $a<\tfrac12$, take $\Lambda=1$ and choose $\delta>0$ such
+that $C\delta^{1-2a}<c$; the coefficient in
+\eqref{eq:cusp-coefficient} is then positive for $0<|w|<\delta$.
+For $a=\tfrac12$, take $\Lambda>C/c$.
+Every tangent vector off $D$ can be written as $(\xi,w\nu)$,
+so this proves strict positivity there.
+For $\gamma=2a\le1$, the inequality
+\[
+ \bigl||w|^\gamma-|w'|^\gamma\bigr|\le |w-w'|^\gamma
+\]
+and smoothness of $e^{a\beta}$ show that
+$q^a=|w|^{2a}e^{a\beta}$ is locally $C^{0,2a}$.
+The weights extend continuously across $D$; the removable singularity
+theorem for locally bounded psh functions makes this extension psh.
+The correction is a global function, so it preserves the metric
+transition law.
 \end{proof}
 
 \label{sec:global}
@@ -362,23 +419,39 @@ On $S\setminus Y$, Poincar\'e--Lelong gives
 \begin{equation}\label{eq:log-curvature}
  \theta_0+\ddc\log q=\pi^*\Theta_{h_K}(K)\ge0.
 \end{equation}
-On $\{0<q<\varepsilon\}$ the weights are maxima of the psh cusp
-and logarithmic branches. The logarithmic branch strictly dominates
-on $\{q\ge\varepsilon\}$ and on a collar of its boundary, so
-\eqref{eq:log-curvature} proves positivity there. Near $Y$ only the
-cusp branch is active. Thus the weights are continuous and psh
-everywhere. They are $C^{0,2a}$ near $Y$ and maxima of smooth
-functions away from $Y$.
+Indeed, $\theta_0=\Theta_{h_Y}+\pi^*\Theta_{h_K}$ and
+$\ddc\log q=-\Theta_{h_Y}$ away from $Y$.
+On $\{0<q<\varepsilon\}$ a local weight of $h$ is
+\[
+ \varphi_0+\chi(q)
+ =\max\{\varphi_0+\Lambda q^a,\,
+          \varphi_0+\log q+B\},
+\]
+the maximum of two psh functions. The strict inequality defining
+$B$ gives $\log t+B>\Lambda t^a$ for
+$\varepsilon\le t\le Q$. By continuity this also holds on
+$(\varepsilon-\eta,\varepsilon]$ for some $\eta>0$.
+Thus every point with $q\ge\varepsilon$ has a neighborhood on
+which only the logarithmic branch is active, and
+\eqref{eq:log-curvature} proves positivity there.
+Finally, $\log t+B\to-\infty$ and $\Lambda t^a\to0$ as
+$t\downarrow0$, so only the cusp branch is active near $Y$.
+These neighborhoods cover $S$ and prove continuity and
+semipositivity. Near $Y$ the weights are $C^{0,2a}$ by
+Lemma~\ref{lem:cusp}; away from $Y$ they are locally Lipschitz,
+since they are maxima of two smooth functions.
 \end{proof}
 
 \begin{remark}\label{rem:minimal}
 For $a=\tfrac12$, $T=\theta_0+\ddc\chi(q)$ has locally Lipschitz
 potentials and minimal singularities. Indeed, any positive current
 $\theta_0+\ddc v\in c_1(L)$ has a global quasi-psh potential $v$,
-and compactness gives $v\le\chi(q)+C_v$. This answers the
-bounded-potential question of \cite[Section~4]{Zhang2025} for
-Koike's modified example; no identification with Grauert's original
-line bundle is asserted.
+and compactness gives
+\[
+ v-\chi(q)\le\sup_Sv-\inf_S\chi(q)<+\infty.
+\]
+This answers the bounded-potential question of
+\cite[Section~4]{Zhang2025} for Koike's modified example.
 \end{remark}
 
 \section{Exhaustions and the radius criterion}\label{sec:radius}
@@ -395,11 +468,28 @@ For $v=\lambda_i e_i^*$ and $\|e_i\|_h^2=e^{-\varphi_i}$,
 \begin{equation}\label{eq:local-norm}
  \rho=|\lambda_i|^2e^{\varphi_i}.
 \end{equation}
-Off the zero section, $\log\rho$ is psh, hence so is its exponential.
-Continuity and removability extend this across the zero section.
-Compactness of $Z$ makes $\rho$ comparable to a fixed smooth squared
-norm; its closed sublevels are therefore compact disk subsets.
-The regularity follows from \eqref{eq:local-norm}.
+On overlaps, $\lambda_j=g_{ij}\lambda_i$ and
+$\varphi_j=\varphi_i-\log|g_{ij}|^2$, hence
+$|\lambda_j|^2e^{\varphi_j}=|\lambda_i|^2e^{\varphi_i}$.
+This verifies that \eqref{eq:local-norm} defines a global function.
+Off the zero section,
+\[
+ \log\rho=\log|\lambda_i|^2+\varphi_i
+\]
+is psh, and composition with the convex increasing exponential
+preserves this property. The resulting locally bounded psh function
+extends across the zero section to its continuous value $0$.
+
+Fix a smooth Hermitian metric $k$ on $A^{-1}$. Compactness of $Z$
+and positivity of the ratio of the two fiber norms give constants
+$0<m\le M<\infty$ such that
+\[
+ m\|v\|_k^2\le\rho(v)\le M\|v\|_k^2.
+\]
+Thus $\{\rho\le c\}$ is a closed subset of the compact disk
+bundle $\{\|v\|_k^2\le c/m\}$ for $c\ge0$; it is empty
+for $c<0$. The local expression \eqref{eq:local-norm} also proves
+the asserted regularity.
 \end{proof}
 
 \begin{lemma}[Compact-group averaging]\label{lem:average}
@@ -410,14 +500,25 @@ Averaging over a smooth holomorphic compact Lie group action
 preserves $C^r$ plurisubharmonicity, $r\in\{2,\infty\}$.
 \end{lemma}
 \begin{proof}
-For $K_c=\{F\le c\}$,
+The function $\overline F$ is continuous by continuity of the
+action and integration over the compact group. For
+$K_c=\{F\le c\}$,
 \[
  \{\overline F\le c\}\subset G\cdot K_c.
 \]
-Indeed, outside the compact saturation the orbitwise minimum of
-$F$ exceeds $c$. The left side is closed, hence compact.
-Differentiation under the integral and averaging Levi forms prove
-the remaining assertions.
+Indeed, if $x\notin G\cdot K_c$, then $F(gx)>c$ for all $g$;
+compactness of $G$ gives $\min_gF(gx)>c$, so
+$\overline F(x)>c$. The saturation $G\cdot K_c$ is the continuous
+image of the compact set $G\times K_c$. The displayed sublevel is
+closed and therefore compact.
+
+For a smooth holomorphic action write $a_g(x)=gx$.
+Differentiation under the integral on compact coordinate sets gives
+the $C^r$ regularity, and
+\[
+ \Levi_{\overline F,x}(\xi)
+ =\int_G\Levi_{F,gx}\bigl(d a_g(\xi)\bigr)\,dg\ge0.\qedhere
+\]
 \end{proof}
 
 \begin{proposition}[Radius criterion]\label{prop:radius}
@@ -427,42 +528,83 @@ $r\in\{2,\infty\}$, then $A$ admits a $C^r$ semipositive
 Hermitian metric.
 \end{proposition}
 \begin{proof}
-Average the exhaustion over fiberwise circle rotations. In a local
-frame the resulting invariant function has the form
+Let $F_0$ be the given exhaustion and define
+\[
+ F(v)=\frac1{2\pi}\int_0^{2\pi}F_0(e^{i\theta}v)\,d\theta.
+\]
+By Lemma~\ref{lem:average}, $F$ is a $C^r$ psh exhaustion.
+For a local frame $e_i$ of $A$, define
+\[
+ U_i(z,t)=F(z,e^{t/2}e_i^*),\qquad
+ \Phi_i(z,\zeta)=(z,e^{\zeta/2}e_i^*).
+\]
+Circle invariance and holomorphicity of $\Phi_i$ give
 \[
  F(z,\lambda_i)=U_i(z,t),\quad t=\log|\lambda_i|^2,
- \qquad V_i(z,\zeta)=U_i(z,\operatorname{Re}\zeta)=F(z,e^{\zeta/2}).
+ \qquad V_i=F\circ\Phi_i=U_i(z,\operatorname{Re}\zeta).
 \]
-The function $V_i$ is psh; thus $U_{i,tt}\ge0$. For each $z$,
+The function $V_i$ is psh, and
+$V_{i,\zeta\bar\zeta}=U_{i,tt}/4\ge0$. For each fixed $z$,
 \[
  U_i(z,-\infty)=F(z,0),\qquad U_i(z,+\infty)=+\infty.
 \]
-Convexity implies $U_{i,t}\ge0$, and $U_{i,t}>0$ whenever
-$U_i>F(z,0)$: a zero derivative forces constancy on the preceding
-half-line. Fix $c>\max_ZF|_Z$. There is a unique $C^r$ function
-$\sigma_i$ such that
+The first limit follows by continuity at the zero section. For the
+second, the ray $e^{t/2}e_i^*$ leaves every compact subset of the
+fiber as $t\to+\infty$, whereas the sublevels of $F$ are compact.
+Convexity and the finite limit at $-\infty$ imply $U_{i,t}\ge0$:
+if $U_{i,t}(z,t_0)<0$, the supporting-line inequality would force
+$U_i(z,t)\to+\infty$ as $t\to-\infty$.
+Moreover, if $U_{i,t}(z,t_0)=0$, monotonicity of the derivative gives
+$U_{i,t}(z,t)=0$ for $t\le t_0$, and hence
+$U_i(z,t_0)=F(z,0)$.
+
+Choose $c>\max_ZF|_Z$. For each $z$, the intermediate value
+theorem and the preceding strict-derivative statement give exactly
+one solution $t=\sigma_i(z)$ of $U_i(z,t)=c$.
+The implicit function theorem makes $\sigma_i$ a $C^r$ function,
+with
 \begin{equation}\label{eq:implicit-radius}
  U_i(z,\sigma_i(z))=c,\qquad U_{i,t}(z,\sigma_i(z))>0.
 \end{equation}
-Twice differentiating gives
+The first derivatives are
+\[
+ U_{i,z_j}+U_{i,t}\sigma_{i,z_j}=0.
+\]
+Differentiating this identity with respect to $\bar z_k$ gives
 \begin{align*}
  0={}&U_{i,z_j\bar z_k}+U_{i,z_jt}\sigma_{i,\bar z_k}
  +U_{i,t\bar z_k}\sigma_{i,z_j}
  +U_{i,tt}\sigma_{i,z_j}\sigma_{i,\bar z_k}
  +U_{i,t}\sigma_{i,z_j\bar z_k}.
 \end{align*}
-Since the $\zeta$ derivatives of $V_i$ introduce factors $1/2$,
+All derivatives here are evaluated at $(z,\sigma_i(z))$.
+Put $b=\partial\sigma_i(\xi)=\sum_j\sigma_{i,z_j}\xi_j$.
+The identities
+$V_{i,z_j\bar\zeta}=U_{i,z_jt}/2$ and
+$V_{i,\zeta\bar\zeta}=U_{i,tt}/4$ give
+\[
+ \Levi_{V_i}(\xi,2b)
+ =\sum_{j,k}U_{i,z_j\bar z_k}\xi_j\bar\xi_k
+  +2\operatorname{Re}\!\left(\sum_jU_{i,z_jt}\xi_j\bar b\right)
+  +U_{i,tt}|b|^2.
+\]
+Contracting the twice-differentiated identity with
+$\xi_j\bar\xi_k$ therefore yields
 \begin{equation}\label{eq:radius-Levi}
  0\le\Levi_{V_i}(\xi,2\partial\sigma_i(\xi))
  =-U_{i,t}\Levi_{\sigma_i}(\xi).
 \end{equation}
 Thus $\psi_i=-\sigma_i$ is psh. If $e_j=g_{ij}e_i$, then
-$\lambda_j=g_{ij}\lambda_i$, whence
+$\lambda_j=g_{ij}\lambda_i$. The same level set $F=c$ has local
+squared radii $e^{\sigma_i}$ and $e^{\sigma_j}$, so
 \[
  \sigma_j=\sigma_i+\log|g_{ij}|^2,\qquad
  \psi_j=\psi_i-\log|g_{ij}|^2.
 \]
-The weights $\psi_i$ define the required metric.
+Consequently the formulas
+$\|e_i\|_h^2=e^{-\psi_i}=e^{\sigma_i}$ agree on overlaps and
+define a $C^r$ Hermitian metric on $A$, with
+$\Theta_h(A)=\ddc\psi_i\ge0$.
 \end{proof}
 
 \begin{corollary}\label{cor:criterion}
@@ -477,8 +619,16 @@ manifold,
 \]
 \end{corollary}
 \begin{proof}
-Combine Proposition~\ref{prop:radius} with
-\eqref{eq:local-norm}.
+The forward implication is Proposition~\ref{prop:radius}.
+Conversely, a $C^r$ semipositive metric gives the $C^r$ exhaustion
+\eqref{eq:local-norm} by Lemma~\ref{lem:norm}. For $C^2$ weights,
+its Levi form can also be checked directly, including at $\lambda=0$:
+\[
+ \Levi_{|\lambda|^2e^\varphi}(\xi,\eta)
+ =e^\varphi\left(
+    |\eta+\lambda\partial\varphi(\xi)|^2
+    +|\lambda|^2\Levi_\varphi(\xi)\right)\ge0.
+\]
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}]\label{sec:conclusion}
@@ -488,7 +638,12 @@ The total space has the projective compactification
  \setminus\PP_{\mathrm{lines}}(L^{-1}),\qquad
  v\longmapsto[(1,v)].
 \end{equation}
-It is therefore smooth, quasi-projective and K\"ahler. With
+The inverse map on the displayed complement sends a line
+$[(a,b)]$, with $a\ne0$, to $b/a\in L^{-1}$.
+Since $S$ is projective and $L$ is algebraic, the projective bundle
+in \eqref{eq:compactification} is projective. Its open subset $M$
+is therefore a smooth quasi-projective threefold, and restriction
+of a projective K\"ahler form makes it K\"ahler. With
 $p:M\to S$, the metric of Proposition~\ref{prop:continuous-metric}
 gives the exhaustion
 \begin{equation}\label{eq:explicit-exhaustion}
@@ -509,21 +664,50 @@ $K\subset X$. For $r\in\{0,2,\infty\}$, $X'$ admits a $C^r$ psh
 exhaustion if and only if $X$ does.
 \end{proposition}
 \begin{proof}
-Pullback preserves psh, regularity and compact sublevels.
-Conversely, let $F$ exhaust $X'$, choose $K\subset U\Subset X$ and
-$c>\max_{f^{-1}(\overline U)}F$, and take a smooth convex
-nondecreasing $\chi$ vanishing on $(-\infty,c]$ and tending to
-infinity. Then
+If $u$ is a $C^r$ psh exhaustion of $X$, then $u\circ f$ is
+$C^r$ and psh, and
 \[
- G=\chi\circ F\circ f^{-1}\quad\text{on }X\setminus K,
+ \{u\circ f\le a\}=f^{-1}(\{u\le a\})
+\]
+is compact by properness.
+
+Conversely, let $F$ be a $C^r$ psh exhaustion of $X'$.
+Assume $K\ne\varnothing$, choose an open neighborhood
+$K\subset U\Subset X$, and take
+$c>\max_{f^{-1}(\overline U)}F$. Define
+\[
+ \chi(t)=
+ \begin{cases}
+  0,&t\le c,\\[2pt]
+  \displaystyle\int_c^t e^{-1/(s-c)}\,ds,&t>c.
+ \end{cases}
+\]
+This function is smooth, convex and nondecreasing, with
+$\chi(t)\to+\infty$ as $t\to+\infty$.
+Let $j:X\setminus K\to X'\setminus f^{-1}(K)$ be the
+holomorphic inverse of $f$. Then
+\[
+ G=\chi\circ F\circ j\quad\text{on }X\setminus K,
  \qquad G=0\quad\text{on }K
 \]
-is $C^r$ and psh, since it vanishes on $U$. For each $a\ge0$, choose
-$b$ with $\chi(t)\le a\Rightarrow t\le b$. The closed set
+vanishes throughout $U$, because $F<c$ on $f^{-1}(U)$.
+It is therefore $C^r$ across $K$. On $X\setminus K$, convex
+increasing composition preserves psh; for $r\ge2$ this is the
+identity
+\[
+ \Levi_{\chi\circ F}(\xi)
+ =\chi'(F)\Levi_F(\xi)+\chi''(F)|\partial F(\xi)|^2\ge0.
+\]
+On $U$ the function $G$ is constant, so it is psh on all of $X$.
+For each $a\ge0$, choose $b$ such that
+$\chi(t)\le a\Rightarrow t\le b$. If $x\notin K$ and
+$G(x)\le a$, then $F(j(x))\le b$. Hence
 \[
  \{G\le a\}\subset K\cup f(\{F\le b\})
 \]
-is compact. The case $K=\varnothing$ is immediate.
+is a closed subset of a compact set and is compact. Negative
+sublevels are empty. If $K=\varnothing$, $f$ is a biholomorphism
+and the inverse pullback gives the conclusion directly.
 \end{proof}
 
 \begin{proposition}\label{prop:point-modification}
@@ -542,36 +726,84 @@ In $E$, the curves
  A=\{w=0\},\qquad B=\{uv=w^2\}
 \]
 meet transversely at $p=[1:0:0]$ and $q=[0:1:0]$.
-Over $W\setminus\{q\}$ blow up $A$ and then the strict transform
-of $B$; over $W\setminus\{p\}$ use the reverse order. On the
-overlap the centers are disjoint, so the two blowups commute
-canonically. Gluing gives $\nu:N\to W$ and $\mu=b\circ\nu$.
-All centers are smooth. Points with distinct images separate in
-$W$; points with the same image lie in a common Hausdorff chart
-over one of the two base opens. Thus $N$ is a smooth Hausdorff
-manifold. Properness is local on the target, the charts are connected
-and overlap, and all centers lie over $x$.
+Set $W_p=W\setminus\{q\}$ and $W_q=W\setminus\{p\}$.
+On $W_p$ and $W_q$ respectively, form
+\[
+ \begin{split}
+ N_p&=\Bl_{\widetilde{B\cap W_p}}
+             \bigl(\Bl_{A\cap W_p}W_p\bigr),\\
+ N_q&=\Bl_{\widetilde{A\cap W_q}}
+             \bigl(\Bl_{B\cap W_q}W_q\bigr).
+ \end{split}
+\]
+Here a tilde denotes strict transform. Over
+$W_p\cap W_q=W\setminus\{p,q\}$ the two centers are disjoint.
+The two blowup orders have a canonical isomorphism there, agreeing
+with the identity off $A\cup B$. Glue by this isomorphism to
+obtain $N$, with maps
+\[
+ \nu:N\longrightarrow W,\qquad \mu=b\circ\nu:N\longrightarrow X.
+\]
+All centers, including their strict transforms, are smooth.
+Two points of $N$ with distinct images have disjoint neighborhoods
+pulled back from $W$. Two points over the same image lie together
+in $N_p$ or $N_q$, where they can be separated. Thus $N$ is a
+smooth Hausdorff manifold. The map $\nu$ is proper because its
+restrictions over the open cover $W_p,W_q$ are compositions of
+proper blowups. Hence $\mu$ is proper as well. The two connected
+blowup charts overlap, so $N$ is connected. Every center lies in
+$E=b^{-1}(x)$; therefore $\mu$ is biholomorphic over
+$X\setminus\{x\}$.
 
 We verify the non-K\"ahler obstruction, as in
 \cite[Section~6]{Barlet2015} and \cite[Tag~08J1]{StacksHironaka}.
-Let $D_A,D_B$ be the exceptional surfaces dominating $A,B$, and let
-$\alpha,\beta\in H_2(N,\R)$ be their general fiber classes.
-These surfaces are compact and smooth; locally they are ruled
-surfaces or their blowups at a point. Their fiber divisors are
-linearly equivalent because $A\simeq B\simeq\PP^1$.
-Over $p$ and $q$ the respective orders give
+Let $D_A,D_B$ be the exceptional surfaces dominating $A,B$, with
+the induced maps
+\[
+ f_A:D_A\longrightarrow A,\qquad f_B:D_B\longrightarrow B.
+\]
+They are smooth compact surfaces: near either crossing they are
+ruled surfaces or the blowup of a ruled surface at one point, and
+they are closed in the proper inverse image of $A\cup B$.
+Let $\alpha,\beta\in H_2(N,\R)$ be their general fiber classes.
+For any two points $a,a'\in A\simeq\PP^1$, choose a rational
+function $r$ with $\operatorname{div}(r)=[a]-[a']$. Then
+\[
+ \operatorname{div}(r\circ f_A)=f_A^*[a]-f_A^*[a'].
+\]
+Thus all fiber divisors of $f_A$ are linearly equivalent and
+represent $\alpha$; the analogous assertion holds for $f_B$ and
+$\beta$.
+
+We compute the special fibers, including their multiplicities.
+Near $p$, take coordinates with
+$A=\{y=z=0\}$ and $B=\{x=z=0\}$.
+The first blowup has a chart
+\[
+ (x,y,t)\longmapsto(x,y,z=yt).
+\]
+Its exceptional divisor is $y=0$, and the strict transform of
+$B$ is $x=t=0$. A chart of the second blowup is
+\[
+ (r,y,t)\longmapsto(x=rt,y,t).
+\]
+On the strict transform $D_A=\{y=0\}$, the map $f_A$ is
+$(r,t)\mapsto x=rt$. Its fiber over $p$ is therefore
+\[
+ \operatorname{div}(rt)=\{r=0\}+\{t=0\}=R_p+T_p.
+\]
+The closures of these two components are respectively the strict
+transform of the first exceptional fiber and the exceptional curve
+of its surface blowup. Both are smooth rational curves, and the
+factorization $rt$ gives multiplicity one. The second exceptional
+surface $D_B$ has fiber $T_p$ over $p$. Interchanging $A$ and $B$
+in the same calculation at $q$ gives
 \[
  \alpha=[R_p]+[T_p],\quad\beta=[T_p],\qquad
- \beta=[R_q]+[T_q],\quad\alpha=[T_q],
+ \beta=[R_q]+[T_q],\quad\alpha=[T_q].
 \]
-where every displayed component is a smooth rational curve of
-multiplicity one. To check the multiplicities at $p$, use
-$A=\{y=z=0\}$, $B=\{x=z=0\}$. In the first blowup chart $z=yt$,
-the first exceptional divisor is $y=0$ and the second center is
-$x=t=0$. The second blowup restricts to the surface blowup of
-$(x,t)=(0,0)$; the pullback of the fiber $x=0$ consists of its
-strict transform and the exceptional curve, each once.
-Consequently
+Subtracting the first pair and the second pair yields
+$[R_p]=\alpha-\beta$ and $[R_q]=\beta-\alpha$, hence
 \begin{equation}\label{eq:hironaka-zero-cycle}
  [R_p]+[R_q]=0\quad\text{in }H_2(N,\R).
 \end{equation}
@@ -624,50 +856,102 @@ When $S$ is projective, $A$ is nef.
 \begin{proof}
 For \textup{(i)}, Grauert's theorem
 \cite[\S4, subsection~8(e)]{Grauert1962} contracts the component to
-a point $p$ of a normal surface. A continuous psh function on the
-punctured neighborhood is bounded above near $p$: choose a local
-finite projection to a bidisc with $p$ the only point over $0$.
-Its fiberwise maximum is continuous and psh on the punctured bidisc;
-across the branch locus this follows by local boundedness and
-removability. The maximum on
-$\{|z_1|\le r,\ |z_2|=r\}$ bounds the function on vertical discs
-with $z_1\ne0$, and continuity gives the same bound at $z_1=0$
-away from the origin. This contradicts divergence at $p$.
+a point $p$ of a normal surface $Z$. Write the contraction as
+$q:W\to Z$; its restriction $W\setminus E\to Z\setminus\{p\}$
+is a biholomorphism. An exhaustion $\rho$ on $X$ would therefore give
+$u=\rho\circ(q|_{W\setminus E})^{-1}$, psh and divergent at $p$.
+Choose a finite local projection
+\[
+ \pi:V\longrightarrow\Delta^2,\qquad \pi^{-1}(0)=\{p\},
+ \qquad v(z)=\max_{y\in\pi^{-1}(z)}u(y).
+\]
+The function $v$ is continuous on $\Delta^2\setminus\{0\}$.
+Off the branch locus it is a finite maximum of psh functions.
+Properness of $\pi$ gives local boundedness at each remaining point
+away from $0$, so removability makes $v$ psh there as well.
+Fix $0<r<1$ and set
+\[
+ M_r=\max_{\{|z_1|\le r,\ |z_2|=r\}}v<\infty.
+\]
+For $0<|z_1|<r$, the subharmonic maximum principle on the vertical
+disc gives $v(z_1,z_2)\le M_r$ for $|z_2|<r$. Continuity gives the
+same bound when $z_1=0$ and $z_2\ne0$. Hence $u\le M_r$ near $p$,
+contradicting its divergence.
 
 For \textup{(ii)}, choose disjoint neighborhoods $W_E$ of the
-boundary components, with closures inside the collar domains.
+boundary components so that each collar $\Phi_E$ is defined on a
+neighborhood of $\overline W_E\setminus E$.
 Choose $T_E>\sup_{\partial W_E}\Phi_E$ and a smooth convex
-nondecreasing $\chi_E$, zero on $(-\infty,T_E]$ and unbounded
-above. Extend $\chi_E(\Phi_E)$ by zero outside $W_E$ and sum.
-The sum is smooth, psh, and proper.
+nondecreasing $\chi_E$, zero on $(-\infty,T_E]$ and tending to
+$+\infty$. Define
+\[
+ \rho_E(x)=
+ \begin{cases}\chi_E(\Phi_E(x)),&x\in W_E\setminus E,\\
+ 0,&x\notin W_E.
+ \end{cases}
+\]
+The two formulas agree on a neighborhood of $\partial W_E$, and
+\[
+ \Levi_{\chi_E\circ\Phi_E}(\xi)
+ =\chi_E'(\Phi_E)\Levi_{\Phi_E}(\xi)
+  +\chi_E''(\Phi_E)|\partial\Phi_E(\xi)|^2\ge0.
+\]
+Thus $\rho=\sum_E\rho_E$ is smooth and psh. Every sequence leaving
+compact subsets of $X$ approaches $D$ along a subsequence, where the
+corresponding summand tends to infinity. This proves properness.
 
 For \textup{(iii)}, Perron--Frobenius applied to $I+c\mathrm{Id}$
 shows that $\lambda$ is simple and has a strictly positive
-eigenvector. When $\lambda>0$, rational approximation gives
-$A=\sum a_iE_i$ with $a_i>0$ and $A\cdot E_i>0$ for all $i$.
+eigenvector $v$. When $\lambda>0$, both $v>0$ and $Iv>0$ persist
+under small perturbations. Approximate $v$ by a rational vector and
+clear denominators to obtain
+$A=\sum a_iE_i$ with $a_i\in\mathbb Z_{>0}$ and
+$A\cdot E_i>0$ for all $i$.
 Thus $\OO_S(A)|_E$ is ample. A projective embedding by a power
 gives a Fubini--Study metric on this restriction. Extend its weights
 locally to $S$ and patch them relative to a reference metric.
 The extensions have positive tangential curvature along $E$;
-near a node use the embedding sections themselves, whose
-differentials span the ambient cotangent space, so the curvature
-is positive in both directions there. Patching can be chosen to
-keep these metrics near the nodes. If $q=\|s_E\|^2$ for any smooth
-metric on $\OO_S(E)$, then $\ddc q$ is positive in the normal
-direction at every smooth point of $E$. Adding $Cq$ to the
-weights, with $C\gg1$, gives a metric $h$ of positive curvature
-near all of $E$. Hence $-\log\|s_A\|_h^2$ is the required collar.
-For $\lambda=0$, the positive kernel has a rational generator;
+near a node, lift the embedding sections from $E$ to a coordinate
+neighborhood in $S$. Their ratios have differentials spanning the
+two-dimensional Zariski cotangent space of the node, and hence the
+ambient cotangent space. Their Fubini--Study weights have positive
+curvature in both directions. Keep these weights on smaller node
+neighborhoods when patching. The other extensions agree along $E$,
+so the patched metric retains positive tangential curvature at its
+smooth points.
+
+Let $q=\|s_E\|^2$ for a smooth metric on $\OO_S(E)$.
+At a smooth point of $E=\{w=0\}$, write $q=|w|^2e^{-\gamma}$.
+Then
+\[
+ \partial\bar\partial q|_E
+   =e^{-\gamma}|_E\,dw\wedge d\bar w.
+\]
+Away from the node neighborhoods the curvature matrix of the
+patched metric has the form
+$\left(\begin{smallmatrix}a&b\\\bar b&d\end{smallmatrix}\right)$
+in tangential and normal directions, with $a\ge\varepsilon>0$.
+Adding $Cq$ to its weights replaces $d$ by
+$d+Ce^{-\gamma}$ along $E$; compactness permits one $C$ for which
+$a(d+Ce^{-\gamma})>|b|^2$. At the nodes $\ddc q=0$, and at other
+points of $E$ it is semipositive, so positivity is preserved there.
+Continuity now gives a metric $h$ of positive curvature near all
+of $E$. On the complement,
+\[
+ \ddc\bigl(-\log\|s_A\|_h^2\bigr)=\Theta_h(\OO_S(A))>0,
+\]
+and $a_i>0$ gives uniform divergence. For $\lambda=0$, every other
+eigenvalue is negative. Since $I$ has integer entries and rank one
+less than its size, its positive kernel has a rational generator;
 clearing denominators proves \eqref{eq:surface-null-boundary}.
 Effectiveness gives $A\cdot C\ge0$ for every curve $C\not\subset E$,
 which proves nefness in the projective case.
 \end{proof}
 
-Boundary resolution preserves $X$ when the new boundary is the
-full reduced inverse image. Interior blowups preserve both exhaustion
-properties by Proposition~\ref{prop:compact-modification}. Contracting
-a curve meeting but not contained in the boundary need not give a
-proper map of complements; no such reduction will be used.
+For a boundary resolution $p:\widetilde S\to S$, the restriction
+$\widetilde S\setminus p^{-1}(\supp D)\to X$ is a biholomorphism.
+Interior blowups preserve both exhaustion properties by
+Proposition~\ref{prop:compact-modification}.
 
 \begin{proposition}\label{prop:surface-nonconstant-function}
 A connected noncompact complex surface with a continuous psh
@@ -675,8 +959,14 @@ exhaustion and $\OO(X)\ne\C$ has a smooth psh exhaustion.
 \end{proposition}
 \begin{proof}
 V\^{\i}j\^{\i}itu's theorem \cite[Theorem~1.1]{Vajaitu2022} gives
-holomorphic convexity. Pull back a smooth strictly psh exhaustion
-of the Stein Remmert reduction under its proper reduction map.
+holomorphic convexity. Let $r:X\to Y$ be the proper Remmert
+reduction and let $\tau$ be a smooth strictly psh exhaustion of the
+Stein space $Y$. Then
+\[
+ \rho=\tau\circ r,\qquad
+ \{\rho\le c\}=r^{-1}(\{\tau\le c\})\Subset X
+\]
+is a smooth psh exhaustion.
 \end{proof}
 
 \begin{proposition}\label{cor:curve-total-space}
@@ -692,10 +982,21 @@ For a line bundle $A$ on a compact Riemann surface $B$,
 \begin{proof}
 For $d=\deg A\ge0$, choose an area form $\omega$ of integral one
 and solve $\ddc f=d\omega-\theta_0$, where $\theta_0$ is the
-curvature of a reference metric. The resulting metric has curvature
-$d\omega$, and Lemma~\ref{lem:norm} applies. If $d<0$, the infinity
-section of $\PP_{\mathrm{lines}}(\OO_B\oplus A^{-1})$ has normal
-bundle $A$ and negative square, contradicting
+curvature of a reference metric $h_0$. The right-hand side has
+integral zero, so the equation is solvable on the compact curve.
+The metric $h=e^{-f}h_0$ satisfies
+\[
+ \Theta_h(A)=\theta_0+\ddc f=d\omega\ge0,
+\]
+and Lemma~\ref{lem:norm} applies. The map
+$v\mapsto\C(1,v)$ embeds $\Tot(A^{-1})$ into
+$\PP_{\mathrm{lines}}(\OO_B\oplus A^{-1})$, with complement
+$Y_\infty=\PP(A^{-1})$. Its normal bundle is
+\[
+ N_{Y_\infty/\PP(\OO_B\oplus A^{-1})}
+ =\operatorname{Hom}(A^{-1},\OO_B)=A.
+\]
+If $d<0$, this is a negative-square boundary, contradicting
 Lemma~\ref{lem:surface-boundary-tools}\textup{(i)}.
 \end{proof}
 
@@ -733,8 +1034,9 @@ of all continuous psh exhaustions. By
 \end{equation}
 for some $t_0$. For $t>t_0$, no smooth strictly psh function exists
 near $K_t=\{\rho=t\}$. Indeed, if $v$ were such a function,
-choose $\delta>0$ with $\{t-\delta\le\rho\le t+\delta\}$ contained
-in its domain, and normalize $0<v<1$ there. For
+properness permits $\delta>0$ with the compact shell
+$\{t-\delta\le\rho\le t+\delta\}$ contained in its domain.
+After scaling and adding a constant, arrange $0<v<1$ there. For
 $0<\eta<1$, $0<\varepsilon<\eta\delta/2$, set
 $g(s)=s+\eta|s-t|$. The function
 \[
@@ -744,22 +1046,44 @@ $g(s)=s+\eta|s-t|$. The function
  g(\rho),& |\rho-t|\ge\delta
  \end{cases}
 \]
-is a continuous psh exhaustion, strongly psh near $K_t$, contrary
-to \eqref{eq:kernel-halfline}.
+is well defined: near $|\rho-t|=\delta$,
+$g(\rho)-\rho=\eta|\rho-t|>\varepsilon v$, so the formulas agree.
+Both entries of the maximum are psh, and $g$ is convex and
+increasing. On $K_t$ the second entry strictly dominates, so
+$\psi=\rho+\varepsilon v$ is strongly psh near $K_t$.
+Finally $\psi\ge g(\rho)$ makes $\psi$ an exhaustion. This
+contradicts $K_t\cap\Sigma_X^0\ne\varnothing$.
 
-In the Banach space of continuous real $(1,1)$-forms on $K_t$,
-the linear subspace $\{\ddc f|_{K_t}:f\in C^\infty(S,\R)\}$
-is therefore disjoint from the open cone of positive definite forms.
-A local function extends by a cutoff, so this global formulation
-loses nothing. Hahn--Banach separation gives a nonzero positive
-functional annihilating the subspace. As a current, after mass
-normalization it satisfies
+Let $\mathcal B_t$ be the Banach space of continuous real
+$(1,1)$-forms on $K_t$, with the uniform norm induced by $\omega$.
+Consider the subspace and open cone
+\[
+ V_t=\{\ddc f|_{K_t}:f\in C^\infty(S,\R)\},\qquad
+ P_t=\{\eta\in\mathcal B_t:\eta>0\text{ on }K_t\}.
+\]
+If $V_t\cap P_t$ were nonempty, continuity would make the
+corresponding $f$ strictly psh on a neighborhood of $K_t$.
+Conversely, such a local function extends to $S$ after multiplication
+by a cutoff equal to one near $K_t$. Hahn--Banach separation thus
+gives a nonzero continuous functional $\ell_t$ with
+\[
+ \ell_t|_{V_t}=0,\qquad \ell_t(\eta)\ge0\quad(\eta\ge0).
+\]
+The second assertion follows by applying the separating inequality
+to $\eta+\varepsilon\omega$ and letting $\varepsilon\downarrow0$.
+Moreover $\ell_t(\omega)>0$: otherwise
+$-C\omega\le\eta\le C\omega$ would force $\ell_t(\eta)=0$ for
+every $\eta$. Define the current explicitly by
+\[
+ \langle T_t,\eta\rangle
+   =\frac{\ell_t(\eta|_{K_t})}{\ell_t(\omega|_{K_t})}.
+\]
+Its positivity, support, and normalization are immediate; and
+$\langle\ddc T_t,f\rangle=\langle T_t,\ddc f\rangle=0$ gives
 \begin{equation}\label{eq:level-current}
  T_t\ge0,\qquad \ddc T_t=0,\qquad
  \supp T_t\subset K_t,\qquad \int_S T_t\wedge\omega=1.
 \end{equation}
-No closedness of the separated subspace is needed, since the
-positive cone is open.
 
 Fix $t_0<a<b$ and choose
 \[
@@ -768,7 +1092,12 @@ Fix $t_0<a<b$ and choose
 \]
 These currents have mass one and support in the fixed compact shell
 $K=\rho^{-1}([a,b])\Subset X$. A subsequence converges weakly to a
-positive $dd^c$-closed current $T$ of mass one supported in $K$.
+positive current $T$. Testing against $\omega$, against $\ddc f$,
+and against forms supported outside $K$ respectively gives
+\[
+ \int_S T\wedge\omega=1,\qquad \ddc T=0,
+ \qquad\supp T\subset K.
+\]
 
 Fix a coordinate ball $B(x,2R)\Subset X$, and put
 $\beta=\ddc|z|^2$. Lelong--Jensen monotonicity for positive
@@ -778,25 +1107,35 @@ uniformly in $t$, for $0<r<R$,
  r^{-2}\int_{B(x,r)}T_t\wedge\beta
  \le R^{-2}\int_{B(x,R)}T_t\wedge\beta\le C_R.
 \end{equation}
-Only the levels in
-$[\inf_{B(x,r)}\rho,\sup_{B(x,r)}\rho]$ can contribute. Counting
-grid points yields
+Indeed, $\beta\le c_R\omega$ on $B(x,R)$, so one may take
+$C_R=c_R/R^2$, independently of $t$. Put
+$m_r=\inf_{B(x,r)}\rho$ and $M_r=\sup_{B(x,r)}\rho$.
+Since $\supp T_t\subset\{\rho=t\}$, only indices with
+$t_{n,j}\in[m_r,M_r]$ contribute. Their number $N_n(r)$ satisfies
+\[
+ N_n(r)\le\frac{n(M_r-m_r)}{b-a}+2.
+\]
+Summing \eqref{eq:uniform-lelong-bound} over these indices gives
 \begin{equation}\label{eq:grid-oscillation-bound}
  r^{-2}\int_{B(x,r)}T_n\wedge\beta
  \le C_R\left(\frac{\operatorname{osc}_{B(x,r)}\rho}{b-a}
                   +\frac2n\right).
 \end{equation}
 Multiply $\beta$ by a cutoff equal to one on $B(x,R)$. The
-corresponding positive measures converge weakly, and the open-set
-inequality gives
+corresponding positive measures $\mu_n$ converge weakly to $\mu$.
+For the open ball, the Portmanteau inequality and
+\eqref{eq:grid-oscillation-bound} give
+\[
+ \mu(B(x,r))\le\liminf_n\mu_n(B(x,r))
+ \le\frac{C_Rr^2}{b-a}(M_r-m_r).
+\]
+Consequently,
 \begin{equation}\label{eq:limit-oscillation-bound}
  r^{-2}\int_{B(x,r)}T\wedge\beta
  \le\frac{C_R}{b-a}\operatorname{osc}_{B(x,r)}\rho
  \longrightarrow0\qquad(r\downarrow0).
 \end{equation}
 Thus $\nu(T,x)=0$ on $X$; outside $X$, $T$ vanishes locally.
-The fixed weak limit works for every ball, so no point-dependent
-subsequence or measurable selection is required.
 \end{proof}
 
 \begin{lemma}\label{lem:surface-current-inequality}
@@ -819,9 +1158,17 @@ The decomposition \cite[\S2.1 and Lemma~B.2]{DNS22}
  T=\Omega+\partial R+\bar\partial\overline R
                   +i\partial\bar\partial u
 \]
-has $\Omega$ smooth, real, and closed. Integration by parts gives
-\eqref{eq:current-class-pairing} with $\alpha_T=[\Omega]$;
-nondegeneracy of the intersection pairing makes this class canonical.
+has $\Omega$ smooth, real, and closed, $R$ of bidegree $(0,1)$,
+and $u$ a real distribution. For $d\eta=0$, its pure bidegree
+implies $\partial\eta=\bar\partial\eta=0$. Thus
+\[
+ \langle\partial R,\eta\rangle
+ =\langle\bar\partial\overline R,\eta\rangle
+ =\langle i\partial\bar\partial u,\eta\rangle=0,
+\]
+which proves \eqref{eq:current-class-pairing} with
+$\alpha_T=[\Omega]$. The nondegenerate intersection pairing on
+$H^{1,1}(S,\R)$ makes the class independent of the decomposition.
 The density formula \cite[Theorem~2.2(2), Corollary~2.4]{DNS22} gives
 \[
  \alpha_T^2=\|\vartheta\|+2E(T),\qquad
@@ -832,23 +1179,26 @@ Here $\vartheta$ is the positive measure on the diagonal determined
 by a tangent current of $T\otimes T$, and
 $E(T)=\int_S\bar\partial R\wedge\partial\overline R$ is the
 current energy, independent of the chosen decomposition.
-Its mass hypotheses hold because the positive-Lelong-number locus
-is empty; no foliation hypothesis is used. This proves
+The mass hypotheses hold because the positive-Lelong-number locus
+is empty. This proves
 \eqref{eq:DNS-inequality}.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:divisor-regularization}]
-The Stein-modification case follows by proper pullback of a smooth
-psh exhaustion. Otherwise the preceding lemmas give $T$, supported
+If $r:X\to Y$ is a proper modification of a Stein space, the
+composition of $r$ with a smooth strictly psh exhaustion of $Y$
+is the required exhaustion. Otherwise the preceding lemmas give $T$, supported
 in $K\Subset X$, and $\alpha=\alpha_T$ with
 \begin{equation}\label{eq:alpha-basic}
  \alpha\cdot[\omega]=1,\qquad \alpha^2\ge0,
  \qquad dT\ne0\Longrightarrow\alpha^2>0.
 \end{equation}
 For each component $D_i$, choose a metric of curvature $\theta_i$
-and canonical section $s_i$. Cut off $\log\|s_i\|^2$ to a smooth
-function $f_i$ on $S$ agreeing with it near $K$. Poincar\'e--Lelong
-and $dd^c$-closedness give
+and canonical section $s_i$. Choose $\chi\in C_c^\infty(X)$ equal
+to one near $K$, and extend
+$f_i=\chi\log\|s_i\|^2$ by zero to $S$.
+Since $s_i$ is nonvanishing near $K$, Poincar\'e--Lelong gives
+$\ddc f_i=-\theta_i$ there. Therefore
 \begin{equation}\label{eq:alpha-boundary-orthogonality}
  \alpha\cdot[D_i]=\int_S T\wedge\theta_i
           =-\langle T,\ddc f_i\rangle=0.
@@ -858,7 +1208,9 @@ For a connected boundary component $E$, let $\lambda_E$ be the
 largest eigenvalue of its intersection matrix $I_E$.
 Lemma~\ref{lem:surface-boundary-tools}\textup{(i)} excludes
 $\lambda_E<0$. If $\lambda_E>0$, rational approximation gives an
-integral divisor $B$ supported on $E$ with $B^2>0$.
+integral divisor $B=\sum b_iD_i$, with all $b_i>0$ and
+$B\cdot D_i>0$ on $E$. In particular,
+$B^2=\sum b_i(B\cdot D_i)>0$.
 Then $\alpha\cdot[B]=0$, and Hodge index forces $\alpha^2<0$,
 contrary to \eqref{eq:alpha-basic}. Therefore $\lambda_E=0$.
 Perron--Frobenius gives a one-dimensional positive rational kernel
@@ -867,13 +1219,19 @@ of $I_E$. Choose a positive integral generator for each $E$ and sum:
  A=\sum_i a_iD_i,\qquad a_i>0,\qquad
  \supp A=D,\qquad A\cdot D_i=A^2=0.
 \end{equation}
-These matrix arguments do not require smoothness or normal crossings
-of the components.
+Here distinct irreducible curves have nonnegative intersection, and
+connectedness makes each matrix irreducible; these are the only
+properties of the components used in the matrix argument.
 
-Since $[A]\ne0$ is isotropic, Hodge index makes $[A]^\perp$
-negative semidefinite with radical $\R[A]$. Using
-\eqref{eq:alpha-basic}--\eqref{eq:alpha-boundary-orthogonality},
-we obtain
+Set $c=(\int_A\omega)^{-1}$ and $v=\alpha-c[A]$.
+Effectiveness gives $\int_A\omega>0$, while
+\eqref{eq:alpha-basic}--\eqref{eq:alpha-boundary-orthogonality} give
+\[
+ v\cdot[\omega]=0,\qquad v\cdot[A]=0,\qquad v^2=\alpha^2\ge0.
+\]
+Hodge index is negative definite on $[\omega]^\perp$, so $v=0$
+and $\alpha^2=0$. The strict inequality in
+\eqref{eq:alpha-basic} then forces $dT=0$. We have proved
 \begin{equation}\label{eq:closed-current-null-class}
  dT=0,\qquad [T]=\alpha=c[A],\qquad
  c=\left(\int_A\omega\right)^{-1}>0.
@@ -882,25 +1240,46 @@ The $dd^c$-lemma for currents now supplies a real distribution $u$ with
 \begin{equation}\label{eq:global-log-potential}
  \ddc u=T-c[A].
 \end{equation}
-On a neighborhood $U$ of $D$ disjoint from $K$, a local defining
-function $f_A$ gives $\ddc(u+c\log|f_A|^2)=0$. Elliptic regularity
+Choose a neighborhood $U$ of $D$ disjoint from $K$.
+On a trivializing chart $U_i\subset U$, write
+$s_A=f_i e_i$. Poincar\'e--Lelong and
+\eqref{eq:global-log-potential} give the distributional identity
+\[
+ \ddc\bigl(u+c\log|f_i|^2\bigr)
+ =-c[A]+c[A]=0.
+\]
+Elliptic regularity
 for pluriharmonic distributions yields
 \begin{equation}\label{eq:local-log-collar}
- u=-c\log|f_A|^2+h,
- \qquad h\text{ smooth and pluriharmonic}.
+ u=-c\log|f_i|^2+h_i,
+ \qquad h_i\text{ smooth and pluriharmonic on }U_i.
 \end{equation}
-Thus $u$ is smooth pluriharmonic on $U\setminus D$ and diverges
-uniformly at $D$, including singular points, because every $a_i>0$.
+Indeed, taking a local trace gives a harmonic distribution, hence a
+smooth function, and the original $\partial\bar\partial$ equation
+then makes it pluriharmonic. The functions $-c\log|f_i|^2+h_i$
+agree on overlaps off $D$, since they represent the same distribution $u$.
+They therefore define a smooth pluriharmonic function on
+$U\setminus D$. In a finite relatively compact chart cover of $D$,
+each $h_i$ is bounded and $f_i$ tends to zero along $D$. Since
+every $a_i>0$, this proves uniform divergence, including at singular
+points of the boundary.
 Lemma~\ref{lem:surface-boundary-tools}\textup{(ii)} gives the exhaustion.
 
-For the metric statement, write $s_A=f_i e_i$ and set
-$b_i=u/c+\log|f_i|^2$ on $U$. These functions extend smoothly
-and pluriharmonically across $D$. If $e_j=g_{ij}e_i$, then
-$b_j=b_i-\log|g_{ij}|^2$; hence $\|e_i\|^2=e^{-b_i}$ defines
-a flat Hermitian metric and $-\log\|s_A\|^2=u/c$.
-Patch it with any global smooth metric using a cutoff equal to one
-on a smaller neighborhood of $D$. This gives the claimed global
-metric with curvature zero near $D$.
+For the metric statement, set
+$b_i=u/c+\log|f_i|^2=h_i/c$ on $U_i$.
+If $e_j=g_{ij}e_i$, then $f_j=g_{ij}^{-1}f_i$ and
+\[
+ b_j=b_i-\log|g_{ij}|^2,\qquad \ddc b_i=0.
+\]
+Thus $\|e_i\|_{h_{\rm flat}}^2=e^{-b_i}$ defines a smooth flat
+Hermitian metric on $\OO_S(A)|_U$, with
+$-\log\|s_A\|_{h_{\rm flat}}^2=u/c$.
+For a global smooth metric $h_0$ with weights $b_i^0$, the
+differences $b_i-b_i^0$ define a single smooth function $b$ on $U$.
+Choose a cutoff $\chi$ supported in $U$ and equal to one on a
+smaller neighborhood of $D$. The global metric
+$h=e^{-\chi b}h_0$ agrees with $h_{\rm flat}$ there, proving the
+claimed curvature statement.
 \end{proof}
 
 \begin{corollary}\label{cor:quasiprojective-regularization}
@@ -910,9 +1289,11 @@ psh exhaustion has a smooth psh exhaustion.
 \begin{proof}
 Resolve a projective closure and principalize the complement ideal,
 with centers outside $X$ \cite[Theorems~1.0.1--1.0.2]{Wlodarczyk05}.
-This realizes $X$ as the complement of an SNC divisor in a smooth
-projective surface; the full inverse image includes any isolated
-boundary points. Apply Theorem~\ref{thm:divisor-regularization}.
+The resulting morphism $p:S\to\overline X$ is an isomorphism over
+$X$, and $D=(p^{-1}(\overline X\setminus X))_{\rm red}$ is SNC.
+Thus $p$ identifies $S\setminus D$ with $X$, including when the
+original boundary had isolated points. Apply
+Theorem~\ref{thm:divisor-regularization} to each noncompact component.
 Compact components need only constant functions, and there are
 finitely many components.
 \end{proof}
@@ -931,17 +1312,23 @@ a Stein modification, $\OO_S(C)$ is unitary flat near $C$ and admits
 a pluriharmonic divergent collar.
 \end{corollary}
 \begin{proof}
-Take the maximum of the given collar and a sufficiently large
-constant near the boundary of a smaller neighborhood, and extend
-by that constant. This gives a continuous exhaustion. In
+Let $\Phi$ be the collar, choose a neighborhood $W$ of $C$ such that
+$\Phi$ is defined near $\overline W\setminus C$,
+and take $M>\sup_{\partial W}\Phi$. Set
+\[
+ \rho(x)=
+ \begin{cases}\max\{\Phi(x),M\},&x\in W\setminus C,\\
+ M,&x\notin W.
+ \end{cases}
+\]
+The formulas agree near $\partial W$, and divergence at $C$ makes
+$\rho$ a continuous psh exhaustion. In
 Theorem~\ref{thm:divisor-regularization}, the single-component kernel
 generator can be chosen to be $1$, so $A=C$.
 \end{proof}
 
-The theorem asserts existence of a new exhaustion, not approximation
-of the given one. For reducible $D$, flatness concerns $\OO_S(A)$,
-not necessarily $\OO_S(D)$. No divisor compactification is asserted
-for an arbitrary noncompact surface.
+For reducible $D$, the flat metric is on the weighted bundle
+$\OO_S(A)$; the kernel multiplicities need not all equal one.
 
 \subsection{Numerical existence criteria}\label{sec:surface-nonprojective}
 \begin{theorem}\label{thm:nonprojective}
@@ -961,35 +1348,60 @@ The classification facts used below are recalled in
 \cite[\S2]{FN2005}. If $a(S)=1$, the algebraic reduction is a
 holomorphic elliptic fibration $f:S\to B$ with connected fibers,
 and every curve is vertical. For a fiber $F=\sum m_iC_i$,
+the identities $F\cdot C_i=0$ imply
+$m_iC_i^2=-\sum_{j\ne i}m_j(C_i\cdot C_j)$. Substitution gives
 \begin{equation}\label{eq:surface-fiber-intersection-identity}
  x^{\mathsf T}Ix=-\sum_{i<j}(C_i\cdot C_j)m_im_j
        \left(\frac{x_i}{m_i}-\frac{x_j}{m_j}\right)^2,
  \qquad I=(C_i\cdot C_j).
 \end{equation}
-Every proper principal submatrix is negative definite. Hence the
-boundary contains each fiber support it meets, and
+The right-hand side vanishes precisely when all $x_i/m_i$ are
+equal, since the fiber is connected. Extend a vector on a proper
+subset of the components by zero; equality then forces the entire
+vector to vanish. Thus every proper principal submatrix is negative
+definite. Condition \textup{(iii)} implies that the boundary contains
+each fiber support it meets, and
 $X=f^{-1}(B\setminus P)$ for a finite nonempty $P$.
-Pull back a smooth subharmonic exhaustion of $B\setminus P$.
+For a smooth subharmonic exhaustion $\tau$ of $B\setminus P$,
+$\tau\circ f$ is psh and
+$\{\tau\circ f\le c\}=f^{-1}(\{\tau\le c\})$ is compact.
 
 Suppose $a(S)=0$. By \cite[Lemma~2.1]{FN2005}, $c_1(L)^2\le0$
 for every line bundle $L$. Perron--Frobenius and \textup{(iii)}
 therefore give an effective $A$ of full boundary support with
-$A^2=0$. At a blowdown $q:T\to T'$, write
-$A=q^*A'+bE$. Then
+$A^2=0$. Indeed, a positive largest eigenvalue would give an
+effective divisor of positive square, and a negative one is excluded
+by \textup{(iii)}. At a blowdown $q:T\to T'$ with exceptional curve
+$E$, put $A'=q_*A$ and write $A=q^*A'+bE$. Since
+$q^*A'\cdot E=0$ and $E^2=-1$,
 \[
  0=A^2=(A')^2-b^2,\qquad (A')^2\le0,
 \]
-so $b=0$. On the minimal model $p:S\to S_0$ we obtain
+so $b=0$ and $A=q^*A'$. In particular $A'$ cannot vanish unless
+$A=0$. Iterating to the minimal model $p:S\to S_0$ gives
 $A=p^*A_0\ne0$, $A_0^2=0$, and
-$\supp A=p^{-1}(\supp A_0)$. The map of complements is proper,
-so an exhaustion downstairs suffices.
+$\supp A=p^{-1}(\supp A_0)$. The restriction
+\[
+ p:S\setminus\supp A\longrightarrow S_0\setminus\supp A_0
+\]
+is proper because the deleted set is the full inverse image of
+$\supp A_0$. Pullback therefore preserves an exhaustion.
 
 If $S_0$ is K\"ahler, it is a torus or K3 of algebraic dimension
-zero. Such a torus has no curves: an irreducible curve would have
-square zero and elliptic normalization, hence be a translate of an
-elliptic subtorus and give a nonconstant meromorphic function by the
-quotient. On a K3, Riemann--Roch gives
-$h^0(\OO(A_0))\ge2$. Both contradict $a(S_0)=0$.
+zero. On a torus, translating an irreducible curve shows its square
+is nonnegative, hence zero. Adjunction then gives arithmetic genus
+one. A rational normalization is impossible, since any map from
+$\PP^1$ lifts to $\C^2$ and is constant. The curve is therefore a
+smooth elliptic curve, and a translate is an elliptic subtorus.
+The quotient onto the one-dimensional torus gives a nonconstant
+meromorphic function. On a K3, $h^0(\OO(-A_0))=0$ because $A_0$
+is effective and nonzero, while Riemann--Roch and Serre duality give
+\[
+ h^0(\OO(A_0))-h^1(\OO(A_0))
+ =2+\tfrac12 A_0^2=2.
+\]
+Two independent sections have a nonconstant meromorphic ratio.
+Both possibilities contradict $a(S_0)=0$.
 
 Otherwise $S_0$ is of class~VII. If $b_2(S_0)=n>0$, Enoki's
 square-zero-divisor theorem \cite[Main Theorem, p.~454]{Enoki}
@@ -1000,9 +1412,11 @@ its $\PP^1$-bundle completion has square $n>0$, so
 Lemma~\ref{lem:surface-boundary-tools} gives an exhaustion.
 If $b_2(S_0)=0$, a minimal class~VII surface containing a curve is
 elliptic or Hopf \cite[p.~453]{Enoki}; $a(S_0)=0$ leaves Hopf.
-Its curves are disjoint smooth elliptic curves: adjunction gives
-arithmetic genus one, and rational normalizations are impossible
-because maps $\PP^1\to S_0$ lift to $\C^2\setminus\{0\}$.
+Since $b_2=0$, every curve has square zero and distinct curves have
+intersection zero. Adjunction gives arithmetic genus one, while
+rational normalizations are impossible because maps
+$\PP^1\to S_0$ lift to $\C^2\setminus\{0\}$ and are constant.
+Thus the curves are disjoint smooth elliptic curves.
 Finite Ueda type gives a smooth strictly psh collar
 \cite[Theorem~2.5]{CLPT2018}. Infinite type gives a unitary flat
 neighborhood by \cite[Theorem~1.6]{CFSTZ2026}, hence a
@@ -1020,49 +1434,105 @@ Necessity and positive-eigenvalue boundary components are handled
 by Lemma~\ref{lem:surface-boundary-tools}. For a connected component
 $E$ with zero largest eigenvalue, choose its positive kernel divisor
 $A$. If $E$ is vertical, it is a whole fiber, and the punctured-base
-construction applies. Otherwise $A\cdot F>0$ excludes vertical
-components. The ruling is projective; choose a section $C_0$ with
-$C_0^2=-e$. From
-$A\equiv aC_0+bF$, $A^2=0$, and $A\cdot E_i=0$ one obtains
+construction applies. Otherwise $a=A\cdot F>0$. A vertical
+component would be a fiber and have intersection $a$ with $A$,
+contradicting $A\cdot E_i=0$. Thus every $E_i$ is horizontal.
+The ruling is projective; choose a section $C_0$ with $C_0^2=-e$.
+Write
+\[
+ A\equiv aC_0+bF,\qquad E_i\equiv d_iC_0+b_iF,
+ \qquad d_i=E_i\cdot F>0.
+\]
+Using $C_0\cdot F=1$ and $F^2=0$, compute
+\[
+ 0=A^2=-ea^2+2ab,\qquad
+ 0=A\cdot E_i=a b_i+d_i b-ea d_i.
+\]
+Since $a>0$, these identities give
 \[
  b=ae/2,\qquad E_i\equiv d_i(C_0+(e/2)F),\qquad
  E_i^2=E_i\cdot E_j=0\quad(i\ne j).
 \]
-Thus $E=C$ is one smooth square-zero curve. For $d=C\cdot F$,
-adjunction gives $2g(C)-2=d(2g(B)-2)$, so $C\to B$ is finite
-\'etale by Riemann--Hurwitz.
+Distinct components are therefore disjoint, and connectedness makes
+$E=C$ a single curve, smooth by the SNC hypothesis. For
+$d=C\cdot F$, the canonical class formula
+\[
+ K_S\equiv-2C_0+(2g(B)-2-e)F
+\]
+and adjunction give $2g(C)-2=(K_S+C)\cdot C=d(2g(B)-2)$.
+The nonconstant map $f|_C:C\to B$ is finite of degree $d$.
+Riemann--Hurwitz now gives degree zero for its effective ramification
+divisor, so it is \'etale.
 
 For $d=1$, the complement is an affine-line bundle with degree-zero
-linear bundle. The construction of \cite[Proposition~2.1]{KoikeUeda2025}
-can be written in unitary flat frames as follows. Choose a smooth
-section whose $\bar\partial$ is harmonic. Local antiholomorphic
-primitives $g_i$, followed by holomorphic translations of the affine
-coordinates, give
+linear bundle. In unitary flat frames, initially write the affine
+transitions as $w_i=a_{ij}w_j+b_{ij}(z)$ with $|a_{ij}|=1$.
+The construction of \cite[Proposition~2.1]{KoikeUeda2025} gives
+pluriharmonic functions $h_i$ with
+$h_i=a_{ij}h_j+b_{ij}$. On simply connected charts split
+$h_i=f_i+g_i$, with $f_i$ holomorphic and $g_i$ antiholomorphic.
+The coordinate changes $w_i\mapsto w_i-f_i$ replace $b_{ij}$ by
+\[
+ c_{ij}=b_{ij}+a_{ij}f_j-f_i=g_i-a_{ij}g_j.
+\]
+This expression is both holomorphic and antiholomorphic, hence
+constant. In the new coordinates,
 \[
  w_i=a_{ij}w_j+c_{ij},\qquad g_i=a_{ij}g_j+c_{ij},
- \qquad |a_{ij}|=1,
+ \qquad |a_{ij}|=1.
 \]
-with $a_{ij},c_{ij}$ constant. The functions $|w_i-g_i|^2$ agree;
-their Levi matrices in $(z,w_i)$ are
-$\operatorname{diag}(|(g_i)_{\bar z}|^2,1)$.
-They give a smooth psh exhaustion over compact $B$.
+The identity $w_i-g_i=a_{ij}(w_j-g_j)$ makes
+$\rho=|w_i-g_i|^2$ global. Since $g_i$ is antiholomorphic,
+\[
+ \rho_{z\bar z}=|(g_i)_{\bar z}|^2,\qquad
+ \rho_{z\bar w_i}=\rho_{w_i\bar z}=0,\qquad
+ \rho_{w_i\bar w_i}=1.
+\]
+Thus $\rho$ is smooth and psh. On a finite relatively compact
+trivializing cover of the compact base, the $g_i$ are bounded, so
+$\rho\le c$ bounds each fiber coordinate. Its sublevels are compact.
 
-For $d\ge2$, a finite \'etale Galois base change splits $C$ into
-$d$ disjoint square-zero sections. If $d=2$, the complement is
-$L^\times$ with $\deg L=0$, exhausted by
-$(\log\|v\|^2)^2$ for a unitary flat metric. If $d\ge3$, three
-sections trivialize the ruling. The others are constant maps into
-$\PP^1\setminus\{0,1,\infty\}$, so the complement is
-$B'\times(\PP^1\setminus Q)$. Pull back an exhaustion of the
-punctured fiber. Averaging a nonnegative exhaustion over the finite
-deck group preserves properness and descends smoothly. Restrict the
-result to a collar at $E$ and glue the boundary collars.
+For $d\ge2$, let $B'\to B$ be the finite \'etale Galois cover
+associated to the kernel of the permutation monodromy
+$\pi_1(B)\to\mathfrak S_d$ of $C\to B$. Form
+\[
+ S'=S\times_B B',\qquad p:S'\to S,\qquad
+ C'=p^{-1}(C)=C_1\sqcup\cdots\sqcup C_d.
+\]
+The $C_i$ are sections with square zero: their normal bundles are
+pullbacks of $N_{C/S}$ along finite covers. If $d=2$, these sections
+identify the ruling with $\PP(\OO_{B'}\oplus L)$, where
+$\deg L=0$, and $S'\setminus C'=L^\times$. For a unitary flat
+metric, put $t(v)=\log\|v\|^2$. Then $\ddc t=0$ on $L^\times$,
+and
+\[
+ \Levi_{t^2}(\xi)=2|\partial t(\xi)|^2\ge0,\qquad
+ \{t^2\le c\}=\{e^{-\sqrt c}\le\|v\|^2\le e^{\sqrt c}\}
+\]
+is compact. Hence $t^2$ is a smooth psh exhaustion.
+
+If $d\ge3$, the unique fiberwise M\"obius map sending
+$C_1,C_2,C_3$ to $0,1,\infty$ identifies $S'$ with
+$B'\times\PP^1$. Every remaining section is a holomorphic map
+$B'\to\PP^1\setminus\{0,1,\infty\}$; it is constant by the
+maximum principle. Thus $S'\setminus C'=B'\times(\PP^1\setminus Q)$
+for a finite set $Q$, and an exhaustion of the punctured fiber pulls
+back to one of the product.
+
+In either case let $\rho'\ge0$ be the exhaustion and $G$ the deck
+group. The function
+\[
+ \widehat\rho=\frac1{|G|}\sum_{g\in G}\rho'\circ g
+\]
+is smooth, psh, and $G$-invariant. Since
+$\widehat\rho\ge\rho'/|G|$, its sublevels are compact.
+It descends under the finite \'etale map $p$ to a smooth psh
+exhaustion of $S\setminus C$. Restrict this function to a collar
+at $E$ and apply Lemma~\ref{lem:surface-boundary-tools}\textup{(ii)}
+to glue all boundary collars.
 \end{proof}
 
-This criterion uses the actual smooth ruling. Theorem~\ref{thm:divisor-regularization}
-gives regularization on arbitrary projective compactifiers, but does
-not assert this numerical existence criterion for them.
-
+\begin{samepage}
 \subsection{Square-zero curves}\label{subsec:smooth-boundary}
 For a smooth square-zero curve, infinite Ueda type is a formal
 condition. A unitary flat neighborhood requires convergent defining
@@ -1087,25 +1557,52 @@ $\operatorname{dist}(N^m,\OO_C)\ge c m^{-\tau}$ for some
 $c,\tau>0$ and all $m\ge1$. Only the elliptic-curve condition uses
 \cite[Theorem~1.6]{CFSTZ2026}.
 \end{proposition}
+\end{samepage}
 \begin{proof}
 Finite type gives a smooth strictly psh collar
-\cite[Theorem~2.5]{CLPT2018}; a flat neighborhood gives
-$-\log|w_i|^2$. In infinite type, Ueda's convergence theorem
-\cite[Theorem~3]{Ueda1983} handles torsion or Diophantine $N$.
-If $\rho(K)$ is finite, some $\rho^k$ factors through the image of
-$H_1(C,\mathbb Z)$ in $H_1(S,\mathbb Z)$ and extends to the latter
-group because $\Uone$ is divisible. In the remaining non-torsion,
-infinite-type case, \cite[Theorem~4.4]{CLPT2018} gives an effective
-$E$ disjoint from $C$ and cohomologous to $mC$.
-A flat metric on $\OO_S(mC-E)$ and its canonical meromorphic
-section $\sigma$ give the collar $-m^{-1}\log\|\sigma\|^2$.
+\cite[Theorem~2.5]{CLPT2018}. In a unitary flat neighborhood,
+$w_i=t_{ij}w_j$ with $|t_{ij}|=1$, so the functions
+$-\log|w_i|^2$ agree and form a pluriharmonic divergent collar.
+In infinite type, Ueda's convergence theorem
+\cite[Theorem~3]{Ueda1983} supplies such a neighborhood when $N$
+is torsion or Diophantine.
+
+Suppose $\rho(K)$ is finite, and let $k$ annihilate this finite
+group. Write $j_*:H_1(C,\mathbb Z)\to H_1(S,\mathbb Z)$ for
+the inclusion map. The formula
+\[
+ \rho_0(j_*\gamma)=\rho(\gamma)^k
+\]
+defines a character on $\operatorname{im}j_*$, because two lifts
+differ by an element of $K$. Divisibility of $\Uone$ extends it
+to a character $\widetilde\rho:H_1(S,\mathbb Z)\to\Uone$, with
+$\widetilde\rho\circ j_*=\rho^k$. For non-torsion $N$ of infinite
+type, \cite[Theorem~4.4]{CLPT2018} then gives an effective divisor
+$E$ disjoint from $C$ with $[E]=m[C]$ for some $m>0$.
+The line bundle $\OO_S(mC-E)$ has zero real Chern class and hence
+a unitary flat metric on the compact K\"ahler surface. Its canonical
+meromorphic section $\sigma=s_C^m/s_E$ satisfies
+\[
+ \operatorname{div}(\sigma)=mC-E,\qquad
+ \ddc\log\|\sigma\|^2=m[C]-[E].
+\]
+On a neighborhood of $C$ disjoint from $E$, the function
+$-m^{-1}\log\|\sigma\|^2$ is therefore pluriharmonic off $C$ and
+equals $-\log|w|^2$ plus a smooth function. It is the required
+divergent collar.
 
 For $q(S)\ge g(C)$, if
 $r:H^1(S,\OO_S)\to H^1(C,\OO_C)$ is not injective,
 \cite[Proposition~2.7]{CLPT2018} makes a multiple of $C$ a fiber,
 and the punctured-base construction applies. Otherwise $r$ is an
-isomorphism. Hodge theory gives an isomorphism on rational first
-homology; since $H_1(C,\mathbb Z)$ is torsion-free, $K=0$.
+isomorphism: its domain has dimension $q(S)\ge g(C)$, and
+injectivity forces equality. Hodge decomposition and complex
+conjugation then give an isomorphism
+$H^1(S,\mathbb Q)\to H^1(C,\mathbb Q)$, whose dual is
+$j_*\otimes\mathbb Q$. Consequently $K\otimes\mathbb Q=0$.
+As a subgroup of the free abelian group $H_1(C,\mathbb Z)$, $K$
+is torsion-free, hence $K=0$, and the preceding character argument
+applies.
 Finally, if $g(C)=1$, \cite[Theorem~1.6]{CFSTZ2026} rules out
 infinite type without a unitary flat neighborhood. Apply
 Lemma~\ref{lem:surface-boundary-tools}\textup{(ii)} in all cases.
@@ -1129,23 +1626,35 @@ then $X$ is holomorphically convex and admits a smooth psh exhaustion.
 
 For smooth $X$, the convexity argument follows
 \cite[Corollary~4.2 and pp.~463--464]{VijituForum2022}.
-The cycle argument below allows arbitrary singularities of $X$.
+We establish the required stability on a singular $X$ by using fiber
+cycles and a uniform area bound.
 
 \subsection{Compact fiber components}
-The analytic dimension theorem gives
+Write $F=(f_1,\ldots,f_{n-1})$. On each local irreducible branch of
+$X$ at $x$, the fiber through $x$ is defined by the $n-1$ equations
+$f_k=f_k(x)$. The analytic dimension theorem therefore gives
 \[
  \dim_x F^{-1}(F(x))\ge n-(n-1)=1.
 \]
-Applied on each local irreducible branch, it shows that every nonempty
-fiber is pure one-dimensional. Since the base is normal, $F$ has
-analytic weighted fiber cycles $\mathcal F_z$ satisfying
+Together with the fiber bound, this proves that every nonempty fiber
+is pure one-dimensional, also after restriction to a local branch.
+Consider the graph and its projection
 \[
- |\mathcal F_z|=F^{-1}(z),
- \qquad\mathcal F_z=\sum_jm_j(z)[C_j(z)],\qquad m_j(z)\in\mathbb N_{>0};
+ \iota:X\longrightarrow\Gamma_F\subset\C^{n-1}\times X,
+ \qquad x\longmapsto(F(x),x),\qquad
+ p:\Gamma_F\longrightarrow\C^{n-1}.
 \]
-see \cite[Chapter~I, \S1(b), p.~816]{BarletMagnusson1998}.
-This assertion concerns geometric cycles and requires neither
-properness nor flatness of the local rings.
+The map $\iota$ is an isomorphism and $p\circ\iota=F$. The reduced
+graph, with multiplicity one on its components, defines an analytic
+family of geometric fiber cycles over the normal base
+\cite[Chapter~I, \S1(b), p.~816]{BarletMagnusson1998}:
+\begin{equation}\label{eq:curve-fiber-cycles}
+ \mathcal F_z=\sum_jm_j(z)[C_j(z)],\qquad
+ m_j(z)\in\mathbb N_{>0},\qquad
+ |\mathcal F_z|=F^{-1}(z).
+\end{equation}
+Empty fibers correspond to the zero cycle. These cycles are locally
+finite; their components need not be compact.
 
 \begin{lemma}[Uniform area]\label{curve:lem:area}
 Fix a Hermitian metric $h$ on $X$. Given compact $L\subset X$ and
@@ -1157,14 +1666,23 @@ such that
 for every compact irreducible component $C\subset L$ of a fiber over $B$.
 \end{lemma}
 \begin{proof}
-Choose $\chi\in C_c^\infty(X)$ with $\chi\ge0$ and $\chi=1$ near $L$.
-Integration of a compactly supported continuous form is continuous
+Choose $\chi\in C_c^\infty(X)$ with $0\le\chi\le1$ and $\chi=1$
+near $L$. The map
+\[
+ I:\C^{n-1}\longrightarrow\R_{\ge0},\qquad
+ I(z)=\int_{\mathcal F_z}\chi h
+\]
+is continuous by integration of compactly supported continuous forms
 on an analytic family of cycles
 \cite[Chapter~IV, Proposition~2.3.1]{BarletMagnusson2014}.
-Consequently, after shrinking $B$,
+The integral is finite because $\chi$ has compact support.
+Choose $B$ so that $I(z)<I(z_0)+1$ on $B$ and set $A=I(z_0)+1$.
+If $C=C_j(z)\subset L$, its multiplicity in
+\eqref{eq:curve-fiber-cycles} is at least one, and positivity gives
 \[
- \int_C h=\int_{[C]}\chi h
- \le\int_{\mathcal F_z}\chi h\le A\qquad(z\in B).
+ \int_C h=\int_C\chi h
+ \le m_j(z)\int_C\chi h
+ \le\sum_km_k(z)\int_{C_k(z)}\chi h=I(z)\le A.
 \]
 \end{proof}
 
@@ -1174,26 +1692,42 @@ $F^{-1}(z_0)$ meeting $K$ is noncompact, the same holds for all
 fibers over a neighborhood of $z_0$.
 \end{lemma}
 \begin{proof}
-Otherwise choose $z_j\to z_0$, compact irreducible components
-$C_j\subset F^{-1}(z_j)$, and $x_j\in C_j\cap K$, with $x_j\to x\in K$.
-The maximum principle on the normalization of $C_j$ makes $\rho|_{C_j}$
-constant. Hence
+Suppose the conclusion fails. There are $z_j\to z_0$, compact
+irreducible components $C_j\subset F^{-1}(z_j)$, and
+$x_j\in C_j\cap K$. After taking a subsequence, $x_j\to x\in K$.
+Let $\nu_j:\widetilde C_j\to C_j$ be the normalization. The function
+$\rho\circ\nu_j$ is subharmonic on the compact connected Riemann
+surface $\widetilde C_j$, so it is constant. Thus, with
+$R=\max_K\rho$,
 \[
- C_j\subset L:=\{\rho\le\max_K\rho\}\Subset X.
+ \rho|_{C_j}=\rho(x_j)\le R,\qquad
+ C_j\subset L:=\{\rho\le R\}\Subset X.
 \]
-Lemma~\ref{curve:lem:area} bounds their areas. Bishop compactness for
-cycles on complex spaces \cite[Theorem~1]{Barlet1999} gives, after
-passing to a subsequence, a compact effective one-cycle
+Lemma~\ref{curve:lem:area} bounds $\int_{C_j}h$ for all sufficiently
+large $j$. Bishop compactness for cycles on complex spaces
+\cite[Theorem~1]{Barlet1999} yields a convergent subsequence
 \[
- [C_j]\longrightarrow T,\qquad x\in|T|\subset F^{-1}(z_0).
+ [C_j]\longrightarrow T\quad\text{in the space of compact
+ effective one-cycles of }X.
 \]
-Indeed, upper continuity of compact supports prevents the limit from
-losing $x$, and local convergence of integration currents puts its
-support in the central fiber. An irreducible component of $|T|$
-through $x$ is a compact analytic curve in a pure one-dimensional
-fiber, hence a full irreducible component of that fiber. This
-contradicts the hypothesis. The cases $K=\varnothing$ or
-$F^{-1}(z_0)\cap K=\varnothing$ are immediate.
+We verify the support statements used below. First, $x\in|T|$:
+otherwise choose an open neighborhood $W$ of $x$ with
+$\overline W\cap|T|=\varnothing$. Upper continuity of compact
+cycle supports would give $C_j\subset X\setminus\overline W$
+for large $j$, whereas $x_j\in W$ for large $j$.
+Next, local convergence of integration currents gives $|T|\subset L$,
+since every test form supported in $X\setminus L$ has zero integral
+on every $C_j$. If $y\notin F^{-1}(z_0)$, choose a neighborhood $W_y$
+such that $z_j\notin F(W_y)$ for large $j$. Then
+$C_j\cap W_y=\varnothing$, and the same current convergence gives
+$|T|\cap W_y=\varnothing$. Consequently,
+\[
+ x\in|T|\subset L\cap F^{-1}(z_0).
+\]
+An irreducible component of $|T|$ through $x$ is a compact analytic
+curve in the pure one-dimensional fiber $F^{-1}(z_0)$. It is a full
+irreducible component of that fiber: a proper analytic subset of an
+irreducible curve has dimension zero. This contradicts the hypothesis.
 \end{proof}
 
 \subsection{Convexity and reduction}
@@ -1209,14 +1743,52 @@ $D\subset M$ is pseudoconvex, then $D$ is holomorphically convex
 provided $\overline D^{\,M}\to S$ is proper and a neighborhood
 of $\partial_M D$ has Stein reduced fibers.
 \end{enumerate}
-In \textup{(iii)}, the auxiliary smooth function $h$ constructed in the
-cited proof must be supplemented by an exhaustion $\eta_D$ of $D$.
-Over a sufficiently small relatively compact base neighborhood,
-$h$ is bounded on $\overline D$ and strictly psh in a boundary collar.
-Thus $\eta_D+h$ is a vertical exhaustion and is strictly psh above
-a constant: outside the collar it is bounded on a compact subset of
-$D$. This supplies the required $1$-convex map, to which
-\cite[Theorem~2.3]{VijituForum2022} applies.
+Here pseudoconvexity means the existence of a continuous psh
+exhaustion, and local holomorphic convexity over $S$ means that
+every point of $S$ has a neighborhood $V$ whose inverse image is
+holomorphically convex.
+
+For criterion~\textup{(iii)}, we record the exhaustion step in the
+cited proof. After shrinking a base neighborhood $V\Subset S$, its
+finite Stein-neighborhood construction gives smooth functions $h_j$
+and nonnegative base cutoffs $\tau_j$ for which
+\[
+ h_0=\sum_j(\tau_j\circ\pi)h_j,\qquad
+ h=h_0+M\phi\circ\pi
+\]
+is strictly psh on a collar $W$ of the boundary over $\overline V$;
+here $\phi$ is strictly psh on the base. To see the role of the last
+term, the product rule and the Cauchy--Schwarz inequality on the
+finitely many local embeddings give constants $a,b,c>0$ such that
+\[
+ \Levi_{h_0}(\xi)\ge a\|\xi\|^2-b\|d\pi(\xi)\|^2,
+ \qquad
+ \Levi_{\phi\circ\pi}(\xi)\ge c\|d\pi(\xi)\|^2.
+\]
+Taking $Mc\ge b$ gives full strict plurisubharmonicity on the collar.
+The functions are smooth on a neighborhood of
+$\overline D\cap\pi^{-1}(\overline V)$. Let $\eta_D$ be a continuous
+psh exhaustion of $D$ and put
+\[
+ \psi=\eta_D+h\quad\text{on }D\cap\pi^{-1}(V).
+\]
+The set
+\[
+ H=\bigl(\overline D\cap\pi^{-1}(\overline V)\bigr)\setminus W
+\]
+is a compact subset of $D$. Choose a constant $A$ larger than
+$\max_H\psi$ when $H$ is nonempty. Then $\{\psi>A\}\subset W$,
+where $\psi$ is strictly psh. For every compact $T\subset V$, the
+function $h$ has a lower bound $m_T$ on
+$\overline D\cap\pi^{-1}(T)$, and
+\[
+ \{\psi\le t\}\cap\pi^{-1}(T)
+ \subset\{\eta_D\le t-m_T\}\cap\pi^{-1}(T)\Subset D.
+\]
+The set on the left is closed in the compact set on the right.
+Thus $\psi$ is a vertical exhaustion and defines a $1$-convex map.
+Theorem~2.3 and Proposition~2.4 of \cite{VijituForum2022} give
+criterion~\textup{(iii)}.
 
 \begin{lemma}\label{curve:lem:neighborhood}
 For every $\lambda\in\R$ and $z_0\in\C^{n-1}$, there are $c>\lambda$
@@ -1230,58 +1802,87 @@ are holomorphically convex.
 \end{lemma}
 \begin{proof}
 Let $S_0$ be the set of constant $\rho$-values on compact irreducible
-components of $F^{-1}(z_0)$. Local finiteness of fiber components
-and compactness of $\{\rho\le R\}$ imply
+components of $F^{-1}(z_0)$. For each $R$, every component whose
+value is at most $R$ lies in the compact set $\{\rho\le R\}$.
+The locally finite family of irreducible components of the central
+fiber has only finitely many members meeting this set. Therefore
 \[
- \#\bigl(S_0\cap(-\infty,R]\bigr)<\infty\qquad(R\in\R).
+ \#\bigl(S_0\cap(-\infty,R]\bigr)<\infty.
 \]
-Choose $\lambda<a<c<b$ with $[a,b]\cap S_0=\varnothing$.
-Lemma~\ref{curve:lem:stability}, applied to
-$K=\{a\le\rho\le b\}$, provides a ball $B=B_r(z_0)$ such that no
-compact irreducible component of a fiber over $B$ meets $K$.
-Set
+Choose $\lambda<a<c<b$ with $[a,b]\cap S_0=\varnothing$ and put
+$K=\{a\le\rho\le b\}$. This is compact, and no compact component
+of $F^{-1}(z_0)$ meets it. Lemma~\ref{curve:lem:stability} gives a
+ball $B=B_r(z_0)$ such that no compact component of a fiber over
+$B$ meets $K$. Set
 \[
  M=F^{-1}(B),\qquad D=M\cap\{\rho<c\},\qquad
  U=M\cap\{a<\rho<b\}.
 \]
-Then $\partial_M D\subset U$. A compact irreducible component of a
-reduced $U$-fiber would be a compact analytic curve in $X$, hence
-a full component of the corresponding full fiber meeting $K$.
-Thus all reduced $U$-fibers are Stein, by the Stein criterion for
-curves without compact irreducible components
+Continuity of $\rho$ gives
+$\partial_M D\subset\{\rho=c\}\cap M\subset U$.
+If a reduced fiber of $F|_U$ had a compact irreducible component $C$,
+then $C$ would be closed and analytic in $X$: it is analytic in $U$,
+and each point of $X\setminus C$ has a neighborhood disjoint from $C$.
+Its dimension would force it to be a full component of the
+corresponding $F$-fiber. This is impossible because $C$ meets $K$.
+Hence every reduced $U$-fiber is Stein by the criterion for curves
+without compact irreducible components
 \cite[\S3, p.~1663]{Vajaitu2022}.
 
-The function
+On $D$, define
 \[
  \eta=\max\left\{\frac1{c-\rho},
-              \frac1{r^2-\|F-z_0\|^2}\right\}
+                  \frac1{r^2-\|F-z_0\|^2}\right\}.
 \]
-is a continuous psh exhaustion of $D$: for $t>0$,
+For $\alpha\in\R$, the function $g_\alpha(t)=(\alpha-t)^{-1}$
+on $t<\alpha$ satisfies
+\[
+ g_\alpha'(t)=(\alpha-t)^{-2}>0,\qquad
+ g_\alpha''(t)=2(\alpha-t)^{-3}>0.
+\]
+Both terms defining $\eta$ are consequently continuous psh functions,
+as is their maximum. For $t>0$, the exact sublevel identity is
 \[
  \{\eta\le t\}
  =\{\rho\le c-1/t\}\cap
- F^{-1}\{\|z-z_0\|^2\le r^2-1/t\}\Subset D.
+ F^{-1}\{\|z-z_0\|^2\le r^2-1/t\}\Subset D;
 \]
-Moreover, $\overline D^{\,M}\to B$ is proper, since its inverse
-image over compact $T\subset B$ is closed in
-$\{\rho\le c\}\cap F^{-1}(T)$.
-Criterion~\textup{(iii)} makes $D$ holomorphically convex;
-\textup{(i)} applied to $\rho|_D$ gives the second assertion.
+for $t\le0$ the sublevel is empty. This proves that $D$ is
+pseudoconvex. Furthermore, for compact $T\subset B$,
+\[
+ \overline D^{\,M}\cap F^{-1}(T)
+ \subset\{\rho\le c\}\cap F^{-1}(T).
+\]
+The left side is closed in the compact set on the right, so
+$\overline D^{\,M}\to B$ is proper. Criterion~\textup{(iii)} now
+gives holomorphic convexity of $D$. Since $\lambda<c$,
+\[
+ F^{-1}(B)\cap\{\rho<\lambda\}
+ =\{x\in D:\rho(x)<\lambda\},
+\]
+and criterion~\textup{(i)} gives the second assertion.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:curve-fiber-convexity}]
-For $X(\lambda)=\{\rho<\lambda\}$, Lemma~\ref{curve:lem:neighborhood}
-makes $F|_{X(\lambda)}$ locally holomorphically convex over
-$\C^{n-1}$. The function $(\lambda-\rho)^{-1}$ exhausts $X(\lambda)$,
-so criterion~\textup{(ii)} makes $X(\lambda)$ holomorphically convex.
-Criterion~\textup{(i)} now gives holomorphic convexity of $X$.
-For its proper Remmert reduction $q:X\to Z$, pull back a smooth
-strictly psh exhaustion $u$ of the Stein space $Z$:
+For $X(\lambda)=\{\rho<\lambda\}$,
+Lemma~\ref{curve:lem:neighborhood} makes
+$F|_{X(\lambda)}:X(\lambda)\to\C^{n-1}$ locally holomorphically
+convex. The continuous psh function
+$\eta_\lambda=(\lambda-\rho)^{-1}$ exhausts $X(\lambda)$, since
+\[
+ \{\eta_\lambda\le t\}=\{\rho\le\lambda-1/t\}
+ \Subset X(\lambda)\qquad(t>0).
+\]
+Criterion~\textup{(ii)} makes every $X(\lambda)$ holomorphically
+convex, and criterion~\textup{(i)} then applies to $\rho$ on $X$.
+Let $q:X\to Z$ be the proper Remmert reduction onto its Stein
+space $Z$, and let $u$ be a smooth strictly psh exhaustion of $Z$.
+Holomorphic pullback preserves smoothness in local embeddings and
+plurisubharmonicity, while properness gives
 \[
  u\circ q\in C^\infty(X)\cap\operatorname{PSH}(X),\qquad
- \{u\circ q\le t\}=q^{-1}(\{u\le t\})\Subset X.
+ \{u\circ q\le t\}=q^{-1}(\{u\le t\})\Subset X.\qedhere
 \]
-This also proves Theorem~\ref{thm:curve-fiber-introduction}.
 \end{proof}
 
 \begin{corollary}[Simultaneous contraction]\label{cor:curve-contraction}
@@ -1291,14 +1892,31 @@ $\widetilde F:Z\to\C^{n-1}$. Its nontrivial fibers are exactly the
 maximal connected unions of compact irreducible fiber curves of $F$.
 \end{corollary}
 \begin{proof}
-The sheaf identity makes every component of $F$ descend.
-A nontrivial $q$-fiber is therefore a compact connected analytic
-subset of a one-dimensional $F$-fiber, hence a finite connected
-union of its compact irreducible components. Conversely, every
-compact irreducible curve maps to a point of $Z$. A connected union
-of such curves has constant $\rho$, lies in a compact sublevel,
-and is finite by local finiteness of the components of its $F$-fiber.
-It is consequently contained in a $q$-fiber, proving maximality.
+The sheaf identity identifies $\OO(Z)$ with $\OO(X)$ by pullback.
+For each coordinate $f_k$ of $F$, let $\widetilde f_k\in\OO(Z)$
+be its unique preimage. Then
+\[
+ \widetilde F=(\widetilde f_1,\ldots,\widetilde f_{n-1}),\qquad
+ f_k=\widetilde f_k\circ q,
+ \qquad F=\widetilde F\circ q.
+\]
+Every $q$-fiber is therefore a compact connected analytic subset of
+an $F$-fiber. If it is not a point, the dimension bound and local
+finiteness make it a finite connected union of compact irreducible
+components of that $F$-fiber.
+
+Conversely, $q$ contracts each compact irreducible curve: its image
+is a compact analytic subset of the Stein space $Z$, hence is finite
+and, by connectedness, a point. Consider a connected union $E$ of
+compact irreducible components of one $F$-fiber. The normalization
+maximum principle makes $\rho$ constant on each component.
+Intersecting components have the same value; local finiteness and
+connectedness connect all components by finite chains of intersections.
+Thus $\rho|_E=a$ for one $a\in\R$, so $E\subset\{\rho\le a\}$.
+Only finitely many fiber components meet this compact set. Hence
+$E$ is a finite connected union and $q$ is constant on $E$.
+It follows that the maximal such unions are precisely the nontrivial
+$q$-fibers.
 \end{proof}
 
 \begin{thebibliography}{99}

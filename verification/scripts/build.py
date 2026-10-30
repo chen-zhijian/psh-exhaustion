@@ -19,7 +19,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / "papers/src/main.tex"
-PUBLISHED = ROOT / "papers/paper_v1.pdf"
+PUBLISHED = ROOT / "papers/paper_v2.pdf"
 MANIFEST = ROOT / "verification/build_manifest.json"
 OUTPUT = ROOT / "build"
 
@@ -80,7 +80,7 @@ def run_engine(engine: str) -> tuple[Path, dict]:
                              stderr=subprocess.STDOUT, encoding="utf-8", errors="replace", check=True)
     version_lines = version.stdout.splitlines()
     page_match = re.search(r"Output written on[^\n]*(?:\n[^\n]*)?\((\d+) pages?[,)]", log)
-    pdf_record = digest(generated, "papers/paper_v1.pdf")
+    pdf_record = digest(generated, "papers/paper_v2.pdf")
     if page_match:
         pdf_record["pages"] = int(page_match.group(1))
     record = {
@@ -131,7 +131,7 @@ def main() -> int:
             manifest_temp.write_text(json.dumps(existing, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
             os.replace(pdf_temp, PUBLISHED)
             os.replace(manifest_temp, MANIFEST)
-            print("Published papers/paper_v1.pdf and verification/build_manifest.json.")
+            print("Published papers/paper_v2.pdf and verification/build_manifest.json.")
         else:
             print("Compilation checked. Published files were not changed.")
         return 0

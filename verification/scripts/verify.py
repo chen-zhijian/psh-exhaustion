@@ -16,7 +16,7 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_REL = "papers/src/main.tex"
-PDF_REL = "papers/paper_v1.pdf"
+PDF_REL = "papers/paper_v2.pdf"
 ARCHIVE = ROOT / "archive/repository-2026-10-23"
 
 

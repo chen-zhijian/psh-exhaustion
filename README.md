@@ -1,9 +1,9 @@
 # Continuous and Smooth Plurisubharmonic Exhaustions
 
 **Threefold Counterexamples and Surface Regularization**  
-**Zhijian Chen and Bo Xiao** · Revised 29 October 2026
+**Zhijian Chen and Bo Xiao** · Revised 30 October 2026
 
-[Read the paper](papers/paper_v1.pdf) · [LaTeX source](papers/src/main.tex) · [Personal website](https://chen-zhijian.github.io/)
+[Read the paper (v2)](papers/paper_v2.pdf) · [LaTeX source](papers/src/main.tex) · [Previous version](papers/paper_v1.pdf) · [Personal website](https://chen-zhijian.github.io/)
 
 The paper constructs smooth Kähler and non-Kähler threefolds with locally Lipschitz plurisubharmonic exhaustions but no $C^2$ plurisubharmonic exhaustion. It proves continuous-to-smooth regularization for divisor complements in compact Kähler surfaces, hence for smooth quasi-projective surfaces, and holomorphic convexity for continuously exhausted reduced pure-dimensional spaces admitting a map to $\mathbb C^{n-1}$ with all fibers of dimension at most one.
 
@@ -20,6 +20,7 @@ The paper constructs smooth Kähler and non-Kähler threefolds with locally Lips
 ```text
 papers/
   paper_v1.pdf
+  paper_v2.pdf
   src/main.tex
 prompts_and_logs/
   README.md
@@ -34,6 +35,8 @@ archive/
 ```
 
 This layout follows [harmonic-direct-images](https://github.com/chen-zhijian/harmonic-direct-images). The complete previously tracked repository is preserved in [the archive](archive/README.md), including its manuscripts, original review records, and provenance. The current source is self-contained and has an embedded bibliography and table of contents.
+
+Version 2 has a four-line abstract and expanded proofs with explicit maps, identities, and estimates. All 29 theorem, proposition, lemma, and corollary statements are unchanged. The [30 October review](prompts_and_logs/review_notes/revision-2026-10-30.txt) records the audit and validation of the 24-page revision; the version 1 PDF is retained unchanged.
 
 ## Build and verify
 

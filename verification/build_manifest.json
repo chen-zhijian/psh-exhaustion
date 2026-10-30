@@ -1,16 +1,16 @@
 {
   "source": {
     "path": "papers/src/main.tex",
-    "sha256": "bad0b794aa7d2d489450d13ae2d29dfa84c915d72961a0db308bfbbd4d46abf7",
-    "bytes": 59901
+    "sha256": "3c0bd2fcbf33127b712c92fe745b639c19f58bfa8d7896501ded79f669fbf0c1",
+    "bytes": 81646
   },
   "pdf": {
-    "path": "papers/paper_v1.pdf",
-    "sha256": "737e3d55ba2f3b51b4b7d744f5c8e7b4496952b7091d08850247ce5866d07adb",
-    "bytes": 492773,
-    "pages": 17
+    "path": "papers/paper_v2.pdf",
+    "sha256": "4867e7a7f0a091d6b9d035185a014f3d31c336687624beb12591b9292b0bace6",
+    "bytes": 549085,
+    "pages": 24
   },
-  "built_at_utc": "2026-10-29T04:36:36+00:00",
+  "built_at_utc": "2026-10-30T07:28:00+00:00",
   "compiler": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026)",
   "passes": 3,
   "technical_checks": [
@@ -27,16 +27,67 @@
     "bytes": 131547
   },
   "revision": {
-    "date": "2026-10-29",
-    "intake_pages": 43,
-    "revised_pages": 17,
+    "date": "2026-10-30",
+    "version": 2,
+    "input_source_commit": "4e2454f3e368dfe5cabdd9d0a306e8aff4b2fa1e",
+    "intake_pages": 17,
+    "revised_pages": 24,
     "sections": 6,
-    "subsections_before": 25,
+    "subsections_before": 8,
     "subsections_after": 8,
-    "visual_review": "All 17 rendered pages inspected; no clipping, overlap, or missing symbols."
+    "abstract_typeset_lines": 4,
+    "preserved_mathematical_statements": 29,
+    "visual_review": "All 24 pages reviewed; three pagination issues corrected and all affected pages rechecked.",
+    "audit_note": "prompts_and_logs/review_notes/revision-2026-10-30.txt"
   },
   "layout": {
     "margins": "1.15in",
     "bibliography_backreferences": "Upward arrow followed by linked unique citation-page numbers."
-  }
+  },
+  "previous_releases": [
+    {
+      "source": {
+        "path": "papers/src/main.tex",
+        "sha256": "bad0b794aa7d2d489450d13ae2d29dfa84c915d72961a0db308bfbbd4d46abf7",
+        "bytes": 59901
+      },
+      "pdf": {
+        "path": "papers/paper_v1.pdf",
+        "sha256": "737e3d55ba2f3b51b4b7d744f5c8e7b4496952b7091d08850247ce5866d07adb",
+        "bytes": 492773,
+        "pages": 17
+      },
+      "built_at_utc": "2026-10-29T04:36:36+00:00",
+      "compiler": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026)",
+      "passes": 3,
+      "technical_checks": [
+        "source labels and citations",
+        "table of contents",
+        "no unresolved references",
+        "no overfull boxes",
+        "no missing characters"
+      ],
+      "mathematical_verification": "Not performed by this script; see the review notes.",
+      "intake_source": {
+        "path": "archive/revision-intake-2026-10-29/main.tex",
+        "sha256": "496cc87da575252d459066633a1575025adf967b5a8318db37c2467e9bc92776",
+        "bytes": 131547
+      },
+      "revision": {
+        "date": "2026-10-29",
+        "intake_pages": 43,
+        "revised_pages": 17,
+        "sections": 6,
+        "subsections_before": 25,
+        "subsections_after": 8,
+        "visual_review": "All 17 rendered pages inspected; no clipping, overlap, or missing symbols."
+      },
+      "layout": {
+        "margins": "1.15in",
+        "bibliography_backreferences": "Upward arrow followed by linked unique citation-page numbers."
+      },
+      "version": 1,
+      "source_commit": "4e2454f3e368dfe5cabdd9d0a306e8aff4b2fa1e"
+    }
+  ]
 }

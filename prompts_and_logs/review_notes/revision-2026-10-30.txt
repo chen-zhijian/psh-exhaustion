@@ -1,0 +1,40 @@
+MATHEMATICAL AND EDITORIAL AUDIT - 30 OCTOBER 2026
+
+Version 2: papers/paper_v2.pdf (24 pages)
+Matching source: papers/src/main.tex
+
+The author requested a four-line abstract, expanded technical proof steps,
+explicit maps, identities and estimates, and removal of redundant qualifications.
+No mathematical error requiring a principal result to be weakened was found.
+All 29 theorem, proposition, lemma and corollary statements were compared
+with the version 1 source and are unchanged after whitespace normalization.
+
+The revision expands the bundle coordinate and splitting maps, cusp estimates,
+metric gluing, radius criterion, convex truncation and Hironaka blowup charts;
+the level-current functional, normalization, averaging estimates, Hodge-index
+argument and flat-metric construction; and the fiber-cycle, area, compactness,
+convexity and Remmert-reduction arguments. Repeated qualifications were removed
+while the actual hypotheses and unresolved questions were retained.
+
+Independent readings checked the radius-Levi factors, the blowup charts and
+homology identities, and the central surface current/Hodge-index argument.
+The cited primary inputs were compared with their uses in the manuscript.
+Enoki's original pages 453-454 could not be reopened during this audit; the
+Kosarew-Peternell addendum corroborates the square-zero-divisor classification
+and affine-bundle complement, while the degree remains supported by the
+existing Enoki citation. The exact Barlet-Magnusson (2014), Chapter IV,
+Proposition 2.3.1 locator was retained without direct reinspection of the book;
+the author preprint arXiv:1707.07962 corroborates the fiber-integration input.
+
+Validation of the supplied release artifacts:
+- Three successful pdfLaTeX passes; 83 unique labels and 20 bibliography entries.
+- No unresolved references, overfull boxes or missing characters.
+- Exactly four typeset abstract lines and 24 PDF pages.
+- All 24 rendered pages inspected; three pagination issues corrected and the
+  affected pages rechecked.
+- The exact validated source and PDF were copied into the publication package.
+- Version 1 remains byte-identical. Its release metadata is retained in
+  verification/build_manifest.json, alongside the current artifact hashes.
+
+These are editorial and mathematical audit findings, not an external journal
+review or a machine-checked proof.

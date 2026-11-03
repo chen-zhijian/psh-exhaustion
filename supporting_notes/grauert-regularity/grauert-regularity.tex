@@ -1,0 +1,2184 @@
+% Standalone version assembled from the modular manuscript.
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1.08in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,citecolor=green!35!black,
+ urlcolor=blue!55!black,pdftitle={Grauert's ruled surfaces and semipositive metrics: Lipschitz existence and a C1 obstruction},pdfauthor={}}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\renewcommand{\P}{\mathbb P}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\ddc}{dd^{c}}
+\newcommand{\cOne}{c_1}
+\newcommand{\wt}{\widetilde}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\PSH}{PSH}
+\DeclareMathOperator{\Null}{Null}
+\DeclareMathOperator{\Bs}{Bs}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Div}{div}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Rea}{Re}
+\DeclareMathOperator{\Ima}{Im}
+\setlist{itemsep=3pt,topsep=5pt}
+\setlength{\emergencystretch}{2em}
+\title{Grauert's ruled surfaces and semipositive metrics:\\
+ Lipschitz existence and a \texorpdfstring{$C^1$}{C1} obstruction}
+\author{}
+\date{3 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $B$ be a smooth projective complex curve of genus at least two, let
+$F$ be a positive-degree line bundle on $B$, and let $0\ne\xi\in H^1(B,F)$.
+The affine $F$-torsor defined by $\xi$ has a projective completion
+$q:X=\P_{\mathrm{lines}}(E)\to B$, where
+$0\to F\to E\to\OO_B\to0$ represents $\xi$. Its infinity section
+$C=\P_{\mathrm{lines}}(F)$ has negative normal bundle. We give a detailed
+account of this construction and of the distinguished line bundle
+$L_0=\OO_X(C)\otimes q^*F$. We prove that $L_0$ is nef and big, has null
+locus $C$, and is not semiample. We then prove two regularity statements:
+$L_0$ admits a Hermitian metric with locally Lipschitz weights and positive
+curvature current, smooth with strictly positive curvature away from $C$;
+but it admits no such semipositive metric of class $C^1$, even near $C$.
+The existence proof uses a quantitatively controlled cusp in the norm of a
+defining section of $C$ and a regularized maximum. The obstruction uses
+holomorphic graph tests for first derivatives of plurisubharmonic weights.
+The resulting bounded potentials have minimal singularities and answer,
+for both the original and modified examples, the bounded-potential question
+recorded in Zhang's December 2025 preprint. All regularity arguments are
+proved here. The account distinguishes them from Grauert's contraction
+construction, Koike's smooth first-obstruction theorem, and Zhang's
+calculation for the original example; it makes no claim about publication
+priority of the arguments presented here.
+\end{abstract}
+\tableofcontents
+
+\section{Introduction and principal results}\label{sec:introduction}
+Grauert's construction in \cite[\S4,8(d), pp.~365--366]{Grauert1962}
+exhibits a smooth projective ruled surface containing a negative section
+whose analytic contraction is not projective. The construction is governed
+by an additive cohomology class, not just by the numerical data of the
+section. This distinction is visible in the positivity of a particular
+line bundle on the ruled surface. Filip and Tosatti singled out this
+example in \cite[Problem~2.2, p.~2989]{FilipTosatti2018}. Koike's
+first-obstruction theorem and his modified example appear in
+\cite[Theorem~1.4 and Example~4.1]{Koike2021}. Zhang treats the original
+degree-one construction in \cite[Theorem~3.2]{Zhang2025} and asks in
+\cite[\S4]{Zhang2025} whether its distinguished class, or that of the
+modified example, has a positive current with bounded potentials and
+minimal singularities.
+
+This manuscript works with the following data throughout its geometric
+applications. Let $B$ be a smooth connected projective complex curve of
+genus $g\ge2$, let $F$ be a line bundle of degree $d>0$, and choose
+$0\ne\xi\in H^1(B,F)$. Let
+\begin{equation}\label{eq:main-extension}
+0\longrightarrow F\longrightarrow E\longrightarrow\OO_B\longrightarrow0
+\end{equation}
+be the extension represented by $\xi$, and put
+\begin{equation}\label{eq:main-data}
+ X=\P_{\mathrm{lines}}(E),\qquad C=\P_{\mathrm{lines}}(F),\qquad
+ L_0=\OO_X(C)\otimes q^*F.
+\end{equation}
+Here projectivization parametrizes lines in each vector space $E_b$.
+The notation $F,E$ is used for vector bundles and for their sheaves of
+holomorphic sections; the affine torsor itself is denoted by $T$.
+The construction and every transition convention are specified in
+Section~\ref{sec:geometry}.
+
+\begin{theorem}\label{main:regularity}
+For the data in \eqref{eq:main-extension}--\eqref{eq:main-data} the following
+statements hold.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item The surface $X$ is smooth and projective, $C\cong B$, and
+$N_{C/X}\cong F^{-1}$. In particular $C^2=-d$.
+\item The bundle $L_0$ is nef and big,
+\[
+L_0^2=d,\qquad L_0\cdot C=0,\qquad
+L_0|_C\cong\OO_C,\qquad \Null(L_0)=C.
+\]
+Every section of every positive tensor power of $L_0$ vanishes along $C$;
+in particular $L_0$ is not semiample.
+\item There exists a positive definite Hermitian metric on $L_0$ with
+locally Lipschitz weights and semipositive curvature in the sense of
+currents. The metric can be chosen smooth with strictly positive curvature
+on $X\setminus C$. Its curvature has bounded local potentials and minimal
+singularities.
+\item No neighborhood of $C$ carries a $C^1$ Hermitian metric on $L_0$
+whose curvature is a positive current. In particular there is no
+$C^2$ or smooth semipositive Hermitian metric on $L_0$.
+\end{enumerate}
+\end{theorem}
+
+The proof is distributed as follows. The geometric statements and the
+absence of sections on the affine torsor are proved in
+Section~\ref{sec:geometry}. The obstruction in (iv) is
+Theorem~\ref{obs:c1-obstruction}. The metric in (iii) is constructed in
+Theorem~\ref{met:lipschitz-global}, and its application to $L_0$ is given in
+Corollary~\ref{con:application}. This organization makes the existence and
+nonexistence arguments independent: neither is deduced by a regularization
+or limiting argument from the other.
+
+The contrast in Theorem~\ref{main:regularity} concerns the regularity of local
+metric weights. It is not a claim that every notion of differentiability
+between Lipschitz continuity and $C^1$ has been classified. In particular,
+existence of a Lipschitz metric does not supply a semipositive $C^1$
+approximation in the same class.
+
+\paragraph{Scope of self-containedness.}
+All local analytic lemmas, the curvature inequalities, the first-jet
+obstruction, the metric gluing, and the minimal-singularity comparison are
+proved in detail. For the surrounding algebraic and analytic geometry we
+use standard foundational results: curve Riemann--Roch and Serre duality,
+solvability of the Poisson equation on a compact curve, the algebraic--analytic
+comparison for projective varieties, the Nakai--Moishezon criterion,
+the Hilbert polynomial of an ample line bundle, Grauert's contraction
+criterion, the Leray--Hirsch theorem, and the compact K\"ahler
+$\partial\bar\partial$-lemma. Each use is stated with its needed hypotheses
+and cited. These background theorems are not presented as new results or
+silently replaced by an appeal to a stronger assertion. In particular,
+the metric existence and obstruction proofs do not invoke a holomorphic
+tubular neighborhood theorem or a smooth semipositivity theorem.
+
+% Begin preliminaries.tex
+\section{Conventions and elementary analytic tools}\label{sec:preliminaries}
+
+\subsection{Metric weights, curvature, and regularity}
+Let $L$ be a holomorphic line bundle on a complex manifold $S$. A positive
+definite Hermitian metric $h$ has, in a nowhere vanishing holomorphic frame
+$e_i$, a real weight $\varphi_i$ defined by
+\[
+ |e_i|_h^2=e^{-\varphi_i}.
+\]
+If $e_i=g_{ij}e_j$, where $g_{ij}$ is holomorphic and nowhere zero, then
+\begin{equation}\label{eq:pre-weight-transition}
+ \varphi_i=\varphi_j-\log|g_{ij}|^2.
+\end{equation}
+The second term is smooth and pluriharmonic. Consequently continuity,
+local Lipschitz continuity, and membership in $C^k$ of the weights are
+independent of the chosen holomorphic frames. For a continuous positive
+metric, its local positive norm functions and its weights have the same
+local Lipschitz or $C^k$ regularity: on each relatively compact chart the
+norm is bounded above and bounded away from zero, and the logarithm and
+exponential have bounded derivatives on the corresponding ranges.
+
+We fix the normalization
+\[
+ d^c=\frac{i}{4\pi}(\bar\partial-\partial),\qquad
+ \ddc=\frac{i}{2\pi}\partial\bar\partial.
+\]
+For a smooth metric, $c_1(L,h)=\ddc\varphi_i$ is a global real closed
+$(1,1)$-form representing $c_1(L)$. More generally, a locally integrable
+weight defines the curvature current by the same formula. The metric is
+\emph{semipositive in the sense of currents} when its local weights are
+plurisubharmonic. For continuous weights, this is equivalent to positivity
+of their distributional complex Hessians. A singular metric may have
+weights with value $-\infty$; a continuous positive definite metric in this
+paper always has finite weights.
+
+Fix a smooth reference metric $h_0$ and write
+$\theta=c_1(L,h_0)$. A global function $u$ changes the squared metric by
+$h=h_0e^{-u}$ and changes the local weights by
+$\varphi_i=\varphi_{0,i}+u$. We write
+\[
+ \PSH(S,\theta)=\{u:\ \varphi_{0,i}+u\text{ is plurisubharmonic
+ on every local frame chart}\}.
+\]
+Equivalently $\theta+\ddc u\ge0$ in currents, with the usual upper
+semicontinuous representative. This notation makes sense on an open
+subset as well as on a compact manifold.
+
+For matrix computations, if a real $(1,1)$-form is written
+\[
+ \beta=\frac{i}{2\pi}\sum_{j,k}\beta_{j\bar k}
+ dz_j\wedge d\bar z_k,
+\]
+we denote its associated Hermitian form by
+$\beta_{V\bar W}=\sum_{j,k}\beta_{j\bar k}V^j\overline{W^k}$.
+This notation removes the factor $i/(2\pi)$ and does not mean the literal
+evaluation of the alternating two-form on $(V,\bar W)$. Positivity of
+$\beta$ is positivity of this Hermitian form. The frame used to evaluate
+it may be smooth rather than holomorphic.
+
+\subsection{Subharmonic limits, maxima, and removable sets}
+We record the elementary tools used below. They can also be found in the
+general treatments \cite[Chapter~I, \S5]{DemaillyCADG} and
+\cite{Demailly2012}.
+
+\begin{lemma}\label{pre:subharmonic-limits}
+A locally uniform limit of continuous subharmonic functions is
+subharmonic. If both a continuous real function and its negative are
+subharmonic, the function is harmonic. A continuous subharmonic function
+on a compact connected Riemann surface is constant.
+\end{lemma}
+\begin{proof}
+For a closed Euclidean disc contained in a coordinate domain, the
+submean inequality for each approximating function passes to the limit
+because convergence is uniform on the closed disc and its boundary.
+The limit is continuous and satisfies the submean inequality on every
+such disc, which is the characterization of subharmonicity for continuous
+functions. If the same inequality holds for a function and its negative,
+both inequalities are equalities. The function has the mean-value
+property and is harmonic. For completeness, convolving with a radial
+smooth approximate identity on a smaller disc leaves a function with
+the mean-value property unchanged: the convolution is a weighted average
+of its circular means. The convolution is smooth, so the function is
+smooth and its Laplacian is zero. Finally, a continuous function on a
+compact surface attains its maximum. The maximum principle for the
+submean inequality makes a subharmonic function constant on a
+neighborhood of a maximum point; the same argument and connectedness
+make it constant on the whole surface.
+\end{proof}
+
+\begin{lemma}\label{pre:removable}
+Let $D$ be a smooth complex hypersurface in a complex manifold and let
+$v$ be continuous on a neighborhood of $D$. If $v$ is plurisubharmonic
+off $D$, then it is plurisubharmonic everywhere on that neighborhood.
+\end{lemma}
+\begin{proof}
+It suffices to work in a polydisc with coordinates $(z,w)$ in which
+$D=\{w=0\}$. A restriction to an affine complex line not contained in
+$D$ is subharmonic outside at most one point and is continuous at that
+point. Such a point is removable. One direct verification is to take
+a small disc around it, let $H$ be the harmonic function with the
+continuous boundary values of the restricted function, and apply the
+maximum principle on punctured annuli to
+$v-H+\varepsilon\log(|\zeta|/R)$. This expression is negative on the
+inner boundary for small enough inner radius, and is zero on the outer
+boundary. It is therefore nonpositive on the annulus. Let the inner
+radius tend to zero, then let $\varepsilon$ decrease to zero. This
+proves the harmonic comparison inequality on the full disc, hence
+subharmonicity across its center.
+
+For a complex line contained in $D$, translate that line by a sequence
+of small nonzero constants in the $w$ coordinate. On each relatively
+compact disc the restrictions of $v$ to the translated lines converge
+uniformly to its restriction to the original line, by continuity of $v$.
+The limit is subharmonic by Lemma~\ref{pre:subharmonic-limits}. Thus the
+restriction to every affine complex line is subharmonic. The
+line-restriction characterization of a continuous plurisubharmonic
+function proves the assertion. This proof also shows that the removable
+extension takes the original continuous values on $D$.
+\end{proof}
+
+\begin{lemma}\label{pre:regularized-max}
+For every $\varepsilon>0$ there exists a smooth convex function
+$\mathcal M_\varepsilon:\R^2\to\R$ with the following properties:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item it is nondecreasing in each variable;
+\item $\mathcal M_\varepsilon(x+a,y+a)=a+\mathcal M_\varepsilon(x,y)$;
+\item it equals $\max\{x,y\}$ whenever $|x-y|\ge\varepsilon$;
+\item if $u,v$ are continuous plurisubharmonic functions, then
+$\mathcal M_\varepsilon(u,v)$ is plurisubharmonic;
+\item the maximum and the regularized maximum of two locally Lipschitz
+functions are locally Lipschitz.
+\end{enumerate}
+The same operations preserve $\theta$-plurisubharmonicity when the two
+potentials are measured relative to the same smooth form $\theta$.
+\end{lemma}
+\begin{proof}
+Choose an even nonnegative smooth function $\chi$ supported in
+$(-\varepsilon,\varepsilon)$ with integral one and put
+\[
+ \rho_\varepsilon(t)=\int_{\R}|t-a|\chi(a)\,da,
+ \qquad
+ \mathcal M_\varepsilon(x,y)=\frac{x+y+\rho_\varepsilon(x-y)}2.
+\]
+Convolution makes $\rho_\varepsilon$ smooth. Convexity of the absolute
+value makes it convex, and $|\rho_\varepsilon'|\le1$. When
+$|t|\ge\varepsilon$, every $t-a$ has the sign of $t$, and evenness of
+$\chi$ gives $\int a\chi(a)\,da=0$. Hence
+$\rho_\varepsilon(t)=|t|$ there. These facts prove (i)--(iii): the two
+first partial derivatives are
+$(1+\rho_\varepsilon')/2$ and $(1-\rho_\varepsilon')/2$, and the Hessian
+is a nonnegative multiple of
+$\left(\begin{smallmatrix}1&-1\\-1&1\end{smallmatrix}\right)$.
+
+To prove (iv), restrict to a complex disc. The submean inequalities for
+$u,v$, monotonicity in each variable, and Jensen's inequality for the
+convex function $\mathcal M_\varepsilon$ give the submean inequality for
+$\mathcal M_\varepsilon(u,v)$. The function is continuous, so it is
+subharmonic on the disc. All disc restrictions have this property, which
+proves plurisubharmonicity. The proof for the ordinary maximum follows
+either from its submean inequality or by letting $\varepsilon$ tend to
+zero locally uniformly.
+
+For (v), the first derivatives of $\mathcal M_\varepsilon$ lie in $[0,1]$
+and sum to one. The fundamental theorem of calculus along a segment
+therefore gives
+\[
+ |\mathcal M_\varepsilon(x_1,y_1)-\mathcal M_\varepsilon(x_2,y_2)|
+ \le |x_1-x_2|+|y_1-y_2|.
+\]
+The same inequality holds for the maximum. Composing this inequality
+with local Lipschitz bounds for $u,v$ proves (v).
+
+For the last assertion, add a local smooth potential $\varphi_0$ for
+$\theta$. Translation invariance gives
+\[
+ \varphi_0+\mathcal M_\varepsilon(u,v)
+ =\mathcal M_\varepsilon(\varphi_0+u,\varphi_0+v).
+\]
+The right-hand side is plurisubharmonic by (iv). The same identity holds
+for the ordinary maximum, proving the assertion on all frame charts.
+\end{proof}
+
+\begin{remark}\label{pre:strict-max}
+If the two inputs are smooth and strictly plurisubharmonic on a region,
+their regularized maximum is smooth and strictly plurisubharmonic there.
+Indeed, its complex Hessian is the sum of the two input Hessians with
+nonnegative coefficients adding to one, plus a positive semidefinite
+quadratic term from the Hessian of $\mathcal M_\varepsilon$. The weighted
+sum is positive definite at every point. The same conclusion holds for
+strictly $\theta$-plurisubharmonic inputs after adding a local potential
+of $\theta$.
+\end{remark}
+
+\subsection{Bounded potentials and minimal singularities}
+\begin{definition}\label{pre:minimal-definition}
+Let $S$ be compact and $\theta$ a smooth closed real $(1,1)$-form.
+A function $u\in\PSH(S,\theta)$ has \emph{minimal singularities} if for
+every $v\in\PSH(S,\theta)$, $v\not\equiv-\infty$, there exists a constant
+$C_v$ such that $v\le u+C_v$ on $S$. The corresponding current
+$\theta+\ddc u$ is said to have minimal singularities.
+\end{definition}
+This is the usual comparison of singularities; see
+\cite[Definition~1.4 and Theorem~1.5]{DPS2001} and
+\cite[\S1.4]{BEGZ2010}. It does not require that $u$ equal a specially
+normalized envelope.
+
+\begin{lemma}\label{pre:bounded-minimal}
+Every bounded $u\in\PSH(S,\theta)$ on a compact connected manifold has
+minimal singularities. In particular every continuous such $u$ has
+minimal singularities and defines a current with bounded local potentials.
+\end{lemma}
+\begin{proof}
+A $\theta$-plurisubharmonic function $v\not\equiv-\infty$ is locally
+bounded above: add a local smooth potential of $\theta$ and use the local
+upper boundedness of a plurisubharmonic function. A finite relatively
+compact coordinate cover of the compact space gives $\sup_Sv<\infty$.
+If $u$ is bounded below, then for every point $x$,
+\[
+ v(x)\le\sup_Sv
+ \le u(x)+\sup_Sv-\inf_Su.
+\]
+This is the defining inequality with $C_v=\sup_Sv-\inf_Su$.
+Continuity on the compact space implies boundedness. A local potential
+of the current is $\varphi_0+u$; it is bounded on each relatively compact
+frame chart because $\varphi_0$ is smooth and $u$ is bounded.
+\end{proof}
+
+% End preliminaries.tex
+% Begin geometry.tex
+\section{The geometry of Grauert's example}\label{geo:section}\label{sec:geometry}
+
+We describe the construction with a positive line bundle of arbitrary
+degree.  The original example in \cite[\S4, paragraph 8(d)]{Grauert1962}
+uses a curve of genus two and a line bundle of degree one.  Throughout
+this section, the projectivization of a vector bundle parametrizes
+\emph{lines} in its fibers.
+
+\begin{assumption}\label{geo:data}
+Let $B$ be a connected compact Riemann surface of genus $g\geq 2$.
+Let $F$ be a holomorphic line bundle on $B$ of degree $d>0$, and choose
+a nonzero class
+\[
+  \xi\in H^1(B,F).
+\]
+Here and below, $H^1(B,F)$ means cohomology of the sheaf of holomorphic
+sections of $F$.
+\end{assumption}
+
+The condition $H^1(B,F)\ne 0$ is an additional hypothesis; positivity
+of $F$ alone does not imply it.  The following choice provides the
+degree-one examples needed here.
+
+\begin{lemma}\label{geo:degree-one-choice}
+For any $b_0\in B$, the line bundle $F=\OO_B(b_0)$ has degree one and
+\[
+  h^1(B,F)=g-1>0.
+\]
+\end{lemma}
+
+\begin{proof}
+A section of $\OO_B(b_0)$ is a meromorphic function on $B$ with no
+poles except possibly a simple pole at $b_0$.  If such a function were
+nonconstant, it would define a holomorphic map $B\to\P^1$ of degree
+one, because the degree equals the total pole order.  A degree-one
+map between smooth compact curves is an isomorphism.  This would
+contradict $g\geq2$.  Thus $h^0(B,F)=1$.  Riemann--Roch on $B$ now
+gives
+\[
+  h^0(B,F)-h^1(B,F)=\deg F+1-g=2-g,
+\]
+and the asserted formula follows.
+\end{proof}
+
+\subsection{The affine bundle and its projective completion}
+
+Choose a sufficiently fine open cover $\{U_i\}$ of $B$ on which $F$
+is trivial, with nowhere-vanishing holomorphic frames $m_i$.  Write
+\[
+  m_j=g_{ij}m_i
+\]
+on $U_i\cap U_j$, where the $g_{ij}$ are nowhere-vanishing holomorphic
+functions.  Thus fiber coordinates for the total space of $F$ obey
+$t_i=g_{ij}t_j$.  Represent $\xi$ by a cocycle
+$\{a_{ij}m_i\}$, with $a_{ij}$ holomorphic on $U_i\cap U_j$.  The
+cocycle relations are
+\begin{equation}\label{geo:cocycle-relations}
+  g_{ik}=g_{ij}g_{jk},\qquad
+  a_{ik}=a_{ij}+g_{ij}a_{jk}.
+\end{equation}
+
+Glue the products $U_i\times\C$ by the affine transformations
+\begin{equation}\label{geo:affine-transition}
+  t_i=g_{ij}t_j+a_{ij}.
+\end{equation}
+The result is a holomorphic affine-line bundle $T\to B$.  It is also
+called the $F$-torsor associated with $\xi$.  The linear part of its
+transition functions is the one defining $F$, while the translation
+part records the cohomology class $\xi$.
+
+\begin{lemma}\label{geo:no-section}
+The affine bundle $T\to B$ has no holomorphic section.
+\end{lemma}
+
+\begin{proof}
+A holomorphic section would be represented by holomorphic functions
+$s_i$ on $U_i$ satisfying
+\[
+  s_i=g_{ij}s_j+a_{ij}.
+\]
+Equivalently,
+\[
+  a_{ij}m_i=s_im_i-s_jm_j.
+\]
+This expresses the cocycle representing $\xi$ as a coboundary, contrary
+to $\xi\ne0$.  Conversely, a coboundary would give such a section.
+\end{proof}
+
+The affine transformations extend to automorphisms of $\P^1$ fixing
+the point at infinity.  Adding this point to each fiber gives a smooth
+compact surface
+\[
+  q:X\longrightarrow B.
+\]
+Its infinity section is denoted by $C$.  Thus $C\cong B$ and
+$X\setminus C=T$.  One can identify this completion with a projective
+bundle, including its holomorphic extension data, as follows.
+
+\begin{proposition}\label{geo:projective-bundle}
+The surface $X$ is the projective bundle $\P_B(E)$ of lines in a
+rank-two vector bundle $E$ fitting into the nonsplit exact sequence
+\begin{equation}\label{geo:extension}
+  0\longrightarrow F\longrightarrow E\longrightarrow\OO_B
+    \longrightarrow0.
+\end{equation}
+Its extension class is $\xi$, up to the harmless sign convention for
+identifying extension classes with \v{C}ech cocycles.  The section $C$ is
+$\P_B(F)\subset\P_B(E)$.  In particular, $X$ is a smooth projective
+surface.
+\end{proposition}
+
+\begin{proof}
+Define $E$ by identifying vector coordinates according to
+\[
+  \begin{pmatrix}u_i\\v_i\end{pmatrix}
+  =
+  \begin{pmatrix}g_{ij}&a_{ij}\\0&1\end{pmatrix}
+  \begin{pmatrix}u_j\\v_j\end{pmatrix}.
+\]
+The relations \eqref{geo:cocycle-relations} imply the matrix cocycle
+condition.  The first coordinate axis defines the subbundle $F$,
+and the second coordinate gives a quotient map $E\to\OO_B$.
+A splitting would provide a lift of $1\in\OO_B$ with coordinates
+$(s_i,1)$; its transition rule would be the one excluded in
+Lemma~\ref{geo:no-section}.  Hence the extension is nonsplit.
+
+On the chart $v_i\ne0$ of the projectivized bundle, the coordinate
+$t_i=u_i/v_i$ satisfies \eqref{geo:affine-transition}.  The complement
+of these charts is the section $v_i=0$, namely $\P_B(F)$.  This
+identifies the projectivization with the stated completion.
+
+For projectivity, we use two standard algebraic facts explicitly.
+A compact Riemann surface is a smooth projective algebraic curve;
+and GAGA algebraizes every holomorphic vector bundle on a projective
+complex variety \cite{Serre1956}.  Thus $E$ is an algebraic vector
+bundle on the projective curve $B$.  Its projective bundle is
+projective over $B$, and hence projective over $\C$
+\cite{Hartshorne1977}.  Smoothness follows already from its local
+description as $U_i\times\P^1$.
+\end{proof}
+
+\subsection{The negative section and the distinguished line bundle}
+
+Near $C$, use the fiber coordinate $w_i=1/t_i=v_i/u_i$.  The affine
+transition rule becomes
+\begin{equation}\label{geo:normal-transition}
+  w_i=\frac{w_j}{g_{ij}+a_{ij}w_j},\qquad
+  w_j=\frac{g_{ij}w_i}{1-a_{ij}w_i}.
+\end{equation}
+All these formulas are understood on sufficiently small overlap
+neighborhoods of $C$, where the denominators are nonzero.
+
+\begin{proposition}\label{geo:normal-and-L}
+The infinity section has normal bundle and self-intersection
+\[
+  N_{C/X}\cong F^{-1},\qquad C^2=-d.
+\]
+The distinguished line bundle
+\begin{equation}\label{geo:L-definition}
+  L_0:=\OO_X(C)\otimes q^*F
+\end{equation}
+restricts holomorphically trivially to $C$.  With the lines convention
+for projectivization, $\OO_X(C)\cong\OO_{\P_B(E)}(1)$.
+\end{proposition}
+
+\begin{proof}
+Let $I_C$ be the ideal sheaf of $C$.  The class of $w_i$ generates
+$I_C/I_C^2$ on $U_i$.  Modulo $I_C^2$, the first formula in
+\eqref{geo:normal-transition} reads
+\[
+  w_i=g_{ij}^{-1}w_j.
+\]
+This is the same transition rule as $m_i=g_{ij}^{-1}m_j$.
+Consequently $I_C/I_C^2\cong F$ under the identification $C\cong B$.
+Dualizing gives $N_{C/X}\cong F^{-1}$.  For a smooth divisor in a
+smooth surface, its self-intersection equals the degree of its normal
+bundle, so $C^2=-d$.
+
+The quotient $E\to\OO_B$ in \eqref{geo:extension}, composed with the
+tautological inclusion $\OO_{\P_B(E)}(-1)\to q^*E$, is a section of
+$\OO_{\P_B(E)}(1)$.  Its zero divisor is exactly $\P_B(F)=C$, with
+multiplicity one.  This proves the assertion about $\OO_X(C)$.
+Finally, restriction of a divisor line bundle to its smooth divisor
+is the normal bundle.  Therefore
+\[
+  L_0|_C
+   \cong N_{C/X}\otimes F
+   \cong F^{-1}\otimes F
+   \cong\OO_C.
+\]
+\end{proof}
+
+For later use, the trivialization on $C$ can be made completely
+explicit.  Write $s_C$ for the canonical section of $\OO_X(C)$ and
+choose local frames $\sigma_i$ near $C$ with
+$s_C=w_i\sigma_i$.  The frames
+\[
+  \ell_i:=\sigma_i\otimes q^*m_i
+\]
+of $L_0$ satisfy
+\begin{equation}\label{geo:L-transition}
+  \frac{\ell_i}{\ell_j}
+   =\frac{w_j}{w_i}\,g_{ij}^{-1}
+   =1+\frac{a_{ij}}{g_{ij}}w_j
+   =\frac{1}{1-a_{ij}w_i}.
+\end{equation}
+In particular, the frames $\ell_i|_C$ agree on overlaps.  The
+translation cocycle disappears upon restriction to $C$ but persists
+in the first normal term of the transition functions.
+
+\subsection{Intersection numbers, nefness, and bigness}
+
+We use additive notation for tensor products when computing divisor
+classes.  Let $f$ denote a fiber of $q$.  The relevant elementary
+intersection identities are
+\begin{equation}\label{geo:intersection-table}
+  C^2=-d,\quad C\cdot f=1,\quad
+  C\cdot q^*F=d,\quad (q^*F)^2=0,\quad q^*F\cdot f=0.
+\end{equation}
+Indeed, $q|_C$ is an isomorphism, the pullback of a line bundle from
+the base has degree zero on a fiber, and two classes pulled back from
+a curve have zero intersection on the surface.
+More explicitly, $C$ meets each fiber transversely once, and
+$q^*F$ is trivial on that fiber. Thus
+$L_0|_f\cong\OO_{\P^1}(1)$.
+
+\begin{proposition}\label{geo:nef-big-ample}
+The line bundle $L_0$ is nef and big.  Its numerical invariants are
+\[
+  L_0^2=d,\qquad L_0\cdot C=0,\qquad L_0\cdot f=1.
+\]
+Moreover, $L_0\cdot D>0$ for every irreducible curve $D\ne C$.
+The line bundle
+\begin{equation}\label{geo:A-definition}
+  A:=L_0^{\otimes2}\otimes\OO_X(-C)
+    =\OO_X(C)\otimes q^*F^2
+\end{equation}
+is ample and satisfies $A^2=3d$ and $A\cdot C=d$.
+\end{proposition}
+
+\begin{proof}
+The displayed invariants follow from
+$L_0=C+q^*F$ and \eqref{geo:intersection-table}.  To check every
+curve, let $D\ne C$ be irreducible.  The local intersection
+multiplicities of two distinct curves on a smooth surface are
+nonnegative, so $C\cdot D\geq0$.
+
+If $q(D)$ is a point, then $D$ is a fiber, since each fiber is an
+irreducible copy of $\P^1$.  In this case $L_0\cdot D=1$.
+Otherwise, the induced map from the normalization of $D$ to $B$
+has a positive degree $n$.  Pullback of a degree-$d$ line bundle has
+degree $nd$, and hence
+\[
+  L_0\cdot D=C\cdot D+nd>0.
+\]
+Together with $L_0\cdot C=0$, this proves nefness, using the
+intersection characterization of nef line bundles on projective
+varieties.  It also proves that the null locus, defined here as the
+union of curves having zero intersection with $L_0$, is exactly $C$.
+
+For $A=C+2q^*F$, the same calculation gives
+\[
+  A^2=3d>0,\qquad A\cdot C=d>0,\qquad A\cdot f=1.
+\]
+For a horizontal irreducible curve $D\ne C$ of degree $n$ over $B$,
+one has $A\cdot D=C\cdot D+2nd>0$.  We now apply the
+Nakai--Moishezon criterion in its surface form: a line bundle on a
+projective surface is ample if its square is positive and its
+intersection with every irreducible curve is positive
+\cite{Hartshorne1977,Lazarsfeld2004}.  The hypotheses have all been
+checked, so $A$ is ample.
+
+For completeness, bigness can be verified directly from growth of
+sections, without appealing to the general nef-and-positive-square
+criterion.  Multiplication by $s_C^k$ gives an injection
+\[
+  H^0(X,A^{\otimes k})
+    \longrightarrow H^0(X,L_0^{\otimes 2k}),
+\]
+because $A^{\otimes k}\otimes\OO_X(kC)=L_0^{\otimes2k}$ and $s_C$
+does not vanish identically on any open set.  The Hilbert polynomial
+and Serre vanishing for an ample line bundle on a projective surface
+give
+\[
+  h^0(X,A^{\otimes k})=\frac{A^2}{2}k^2+O(k)
+                       =\frac{3d}{2}k^2+O(k).
+\]
+Consequently
+\[
+  \limsup_{m\to\infty}
+    \frac{h^0(X,L_0^{\otimes m})}{m^2}\geq\frac{3d}{8}>0.
+\]
+This is the section-growth definition of a big line bundle.
+\end{proof}
+
+\begin{remark}\label{geo:FT-choice}
+The formula in \cite[discussion preceding Problem 2.2]{FilipTosatti2018}
+can be matched with an actual line bundle, not merely a numerical
+class.  Taking the ample bundle $A$ of \eqref{geo:A-definition}, one
+has, in additive notation,
+\[
+  A-\frac{A\cdot C}{C^2}C=A+C=2L_0.
+\]
+Thus the displayed construction in that paper includes
+$L_0^{\otimes2}$.  The bundle $L_0$ itself is a convenient
+distinguished choice on the same numerical ray.
+\end{remark}
+
+\subsection{The trace argument and failure of semiampleness}
+
+\begin{lemma}\label{geo:no-compact-curves}
+The affine bundle $T=X\setminus C$ contains no compact complex
+analytic curve.
+\end{lemma}
+
+\begin{proof}
+Suppose there were such a curve.  Passing to the reduced structure
+and then to an irreducible component, choose a compact irreducible
+curve $D\subset T$.  Let $\nu:\widetilde D\to D$ be its
+normalization.  The resulting map
+\[
+  p:=q\circ\nu:\widetilde D\longrightarrow B
+\]
+cannot be constant.  Otherwise $D$ would lie in one affine fiber
+$q^{-1}(b)\cap T\cong\C$; its affine coordinate would pull back to
+a holomorphic function on the compact connected Riemann surface
+$\widetilde D$, hence would be constant, forcing $D$ to be a point.
+
+A nonconstant holomorphic map between compact connected Riemann
+surfaces is surjective and finite.  Let its degree be $n\geq1$.
+Away from the finitely many branch values of $p$, define on $U_i$
+\begin{equation}\label{geo:trace-section}
+  s_i(b)=\frac{1}{n}
+          \sum_{x\in p^{-1}(b)}t_i(\nu(x)).
+\end{equation}
+There are $n$ points in this sum over an unbranched fiber.  Locally
+they vary holomorphically.  Permuting the sheets does not change
+their sum, so $s_i$ is a single-valued holomorphic function away
+from the branch values.
+
+We spell out why branching causes no problem.  Around a branch
+value $b_1\in U_i$, choose a small closed disk contained in $U_i$.
+Its inverse image in $\widetilde D$ is compact.  The holomorphic
+function $t_i\circ\nu$ is bounded there, so the averages in
+\eqref{geo:trace-section} remain bounded as $b$ approaches $b_1$.
+The removable-singularity theorem extends $s_i$ holomorphically
+across $b_1$.  This proves that $s_i$ is holomorphic on all of $U_i$.
+
+On an unbranched fiber over $U_i\cap U_j$, summing
+\eqref{geo:affine-transition} over its $n$ points gives
+\[
+  s_i=g_{ij}s_j+a_{ij}.
+\]
+The identity extends across branch values by holomorphicity.  Thus
+the $s_i$ define a holomorphic section of $T\to B$, contradicting
+Lemma~\ref{geo:no-section}.
+\end{proof}
+
+\begin{proposition}\label{geo:not-semiample}
+For every integer $m>0$, every global section of $L_0^{\otimes m}$
+vanishes identically on $C$.  In particular, $L_0$ is not semiample.
+Its stable base locus is exactly $C$.
+\end{proposition}
+
+\begin{proof}
+Since $L_0|_C\cong\OO_C$, the restriction of a section
+$s\in H^0(X,L_0^{\otimes m})$ is a constant in the fixed
+trivialization.  If this constant were nonzero, $s$ would be
+nowhere zero on $C$.  Its zero divisor would therefore be disjoint
+from $C$.
+
+That zero divisor is nonempty.  Indeed, every fiber meets $C$ in
+one point, so the restriction of $s$ to any fiber would be a
+nonzero section of $\OO_{\P^1}(m)$.  Such a section has zeros
+because $m>0$.  A nonzero holomorphic section of a line bundle
+on a smooth surface has a divisor of zeros; here this is a
+nonempty compact curve in $X\setminus C$.  This contradicts
+Lemma~\ref{geo:no-compact-curves}.  Hence $s|_C=0$ for every $s$.
+
+No positive tensor power of $L_0$ is globally generated, which is
+precisely the failure of semiampleness.  On the other hand,
+$A^{\otimes k}$ is globally generated for all sufficiently large
+$k$, since $A$ is ample.  For each $x\notin C$, choose a section of
+$A^{\otimes k}$ nonzero at $x$ and multiply it by $s_C^k$.
+The resulting section of $L_0^{\otimes2k}$ is nonzero at $x$.
+Thus no point outside $C$ belongs to the stable base locus, while
+the first part shows that every point of $C$ does.
+\end{proof}
+
+\subsection{The canonical bundle and the contraction}
+
+\begin{proposition}\label{geo:canonical}
+The canonical bundle of $X$ is
+\begin{equation}\label{geo:canonical-formula}
+  K_X\cong\OO_X(-2C)\otimes q^*(K_B\otimes F^{-1}).
+\end{equation}
+In particular,
+\[
+  K_X\cdot C=2g-2+d>0,
+\]
+and $H^0(X,K_X^{\otimes m})=0$ for every $m>0$.  The smooth
+surface $X$ therefore has Kodaira dimension $-\infty$.
+\end{proposition}
+
+\begin{proof}
+Let $S=\OO_{\P_B(E)}(-1)$ be the tautological subbundle of $q^*E$.
+The quotient $Q=q^*E/S$ has rank one.  Since $\det E=F$, taking
+determinants gives $Q\cong q^*F\otimes S^{-1}$.  The relative
+ tangent bundle of a projective bundle parametrizes first-order
+deformations of a line in its fixed ambient fiber.
+At a line $\ell\subset E_b$, a first-order deformation is the graph
+of a linear map $\ell\to E_b/\ell$. These identifications vary
+holomorphically, giving
+\[
+  T_{X/B}\cong\Hom(S,Q)
+            \cong\OO_X(2C)\otimes q^*F.
+\]
+Dualizing and tensoring with $q^*K_B$ proves
+\eqref{geo:canonical-formula}.  Intersecting with $C$ gives
+$2d+(2g-2-d)=2g-2+d$, also in agreement with adjunction.
+
+On every fiber $f\cong\P^1$, one has
+$K_X^{\otimes m}|_f\cong\OO_{\P^1}(-2m)$, which has no nonzero
+holomorphic sections.  Every global pluricanonical section
+therefore vanishes on every fiber, hence on all of $X$.
+\end{proof}
+
+The next existence statement uses Grauert's analytic contraction
+theorem as a classical background result, rather than an algebraic
+base-point-free theorem.  In the local form needed here, that
+theorem says that a connected compact curve in a smooth complex
+surface whose intersection matrix is negative definite has a
+neighborhood admitting a proper holomorphic contraction onto a
+normal complex surface.  The curve is mapped to one point and the
+map is biholomorphic off the curve
+\cite{Grauert1962,BHPV2004}.
+
+\begin{proposition}\label{geo:contraction}
+There is a proper holomorphic map
+\[
+  \pi:X\longrightarrow Y
+\]
+onto a normal compact complex surface such that
+$\pi(C)=\{y\}$ and $\pi$ is biholomorphic from $X\setminus C$
+onto $Y\setminus\{y\}$.  The point $y$ is singular, and it is the
+only singular point of $Y$.  The surface $Y$ is not projective.
+\end{proposition}
+
+\begin{proof}
+The intersection matrix of the single curve $C$ is the negative
+one-by-one matrix $(-d)$, so Grauert's theorem applies.  Let
+$\pi_U:U\to V$ be its local contraction, with $V$ normal and
+$\pi_U(C)=\{y\}$.  Glue $V$ to $X\setminus C$ using the
+biholomorphism $U\setminus C\cong V\setminus\{y\}$.
+Topologically the resulting space is the quotient obtained by
+collapsing the compact closed subset $C$ to a point.  The proper
+local contraction induces the quotient topology near that point.
+This quotient is Hausdorff and compact, and its two indicated
+charts supply a complex-space structure.  Normality holds near
+$y$ by the local theorem and elsewhere because $X\setminus C$
+is smooth.  The induced map $\pi$ is holomorphic and proper;
+properness also follows directly from compactness of $X$ and
+the Hausdorff property of $Y$.
+
+We verify that $y$ cannot be smooth.  If it were, choose local
+coordinates $z_1,z_2$ near $y$.  The pulled-back two-form
+\[
+  \eta=\pi^*(dz_1\wedge dz_2)
+\]
+would be a holomorphic section of $K_X$ over the inverse image
+of that coordinate neighborhood.  It is nowhere zero off $C$,
+since $\pi$ is biholomorphic there.  It vanishes on $C$, because
+$\pi|_C$ is constant and therefore $d\pi$ annihilates its tangent
+direction.  Its divisor is consequently $aC$ for an integer
+$a\geq1$.  Restricting the corresponding line-bundle identity to
+$C$ gives
+\[
+  K_X\cdot C=aC^2=-ad<0.
+\]
+This contradicts Proposition~\ref{geo:canonical}, or directly
+the adjunction identity $K_X\cdot C=2g-2+d$.  Thus $y$ is singular.
+All other points are smooth by the stated biholomorphism.
+
+Finally, suppose $Y$ were projective.  In a projective embedding,
+choose a hyperplane that avoids $y$ and does not contain $Y$.
+Its intersection with the projective surface $Y$ is a nonempty
+compact curve, disjoint from $y$.  The inverse image of that
+curve under $\pi$ is a compact curve in $X\setminus C=T$,
+contradicting Lemma~\ref{geo:no-compact-curves}.  Therefore $Y$
+is not projective.
+\end{proof}
+
+\begin{remark}\label{geo:scope-singular}
+The surface $Y$ is bimeromorphic to the projective surface $X$,
+and hence is Moishezon.  The preceding argument establishes its
+nonprojectivity directly.  We do not infer non-K\"ahlerness from a
+general assertion about singular Moishezon spaces.  A separate
+argument using the metric obstruction will establish that property
+later.  Likewise, the Kodaira-dimension statement above concerns
+the smooth ruled surface $X$; no assertion about reflexive powers
+of the canonical sheaf on the singular space $Y$ is needed here.
+\end{remark}
+
+% End geometry.tex
+% Begin obstruction.tex
+\section{The obstruction to continuously differentiable potentials}
+\label{obs:section}
+
+We now prove that the regularity of the metric constructed in
+Section~\ref{sec:metrics} cannot be
+improved to $C^1$.  The argument is local near the infinity section, although
+the compactness of that section is essential.  Its analytic ingredient is a
+first-derivative property of plurisubharmonic functions.  In particular, we
+will not differentiate a $C^1$ weight twice or assume that its curvature has
+continuous coefficients.
+
+\subsection{Regularity and the first normal derivative}
+
+For a positive Hermitian metric $h$ on a holomorphic line bundle, write
+\[
+   |e|_h^2=e^{-\varphi}
+\]
+in a local holomorphic frame $e$.  We say that $h$ is of class $C^1$ if its
+local weights $\varphi$ are of class $C^1$ as real-valued functions.  If
+$e'=G e$, where $G$ is a nowhere-vanishing holomorphic function, then
+\[
+   \varphi'=\varphi-\log|G|^2.
+\]
+The change of weight is smooth, so this definition is independent of the
+holomorphic frame.  The regularity of the metric coefficients is also
+unchanged under a smooth change of frame.  Plurisubharmonicity of the
+weights, however, is asserted in holomorphic frames.  A $C^1$ semipositive
+metric means that these weights are plurisubharmonic, or equivalently that
+their distributional $\ddc$ is positive.
+
+We use the Wirtinger derivatives
+\[
+  \partial_z=\frac12(\partial_x-\sqrt{-1}\partial_y),
+  \qquad
+  \partial_{\bar z}=\frac12(\partial_x+\sqrt{-1}\partial_y),
+  \qquad \Delta=4\partial_z\partial_{\bar z}.
+\]
+
+\begin{lemma}[Holomorphicity of the first normal derivative]
+\label{obs:first-jet}
+Let $D\subset\C$ be a disc, let $\Omega\subset\C^2$ be an open
+neighborhood of $D\times\{0\}$, and let
+$\varphi\in C^1(\Omega)\cap\PSH(\Omega)$ be real-valued.  Suppose that
+$\varphi(z,0)$ is constant on $D$.  Then
+\[
+                  b(z):=\partial_w\varphi(z,0)
+\]
+is holomorphic on $D$.
+\end{lemma}
+
+\begin{proof}
+Subtracting a constant, we may assume that $\varphi(z,0)=0$.  The function
+$b$ is initially only known to be continuous.  We first record carefully
+the uniformity of the first-order expansion.  Let $K\subset D$ be compact
+and choose $\rho>0$ such that a neighborhood of
+$K\times\{|w|\leq\rho\}$ is contained in $\Omega$.  The fundamental theorem
+of calculus, applied to the real parameter $s$, gives
+\begin{align*}
+ \varphi(z,w)
+ &=\int_0^1\frac{d}{ds}\varphi(z,sw)\,ds\\
+ &=2\operatorname{Re}\left(
+       w\int_0^1\partial_w\varphi(z,sw)\,ds\right).
+\end{align*}
+Here we used that $\varphi$ is real-valued.  Consequently
+\begin{equation}
+\label{obs:uniform-expansion}
+ \varphi(z,w)=2\operatorname{Re}\bigl(b(z)w\bigr)+R(z,w),
+ \qquad
+ \sup_{z\in K}|R(z,w)|\leq 2|w|\omega_K(|w|),
+\end{equation}
+where one may take
+\[
+ \omega_K(\varepsilon)=
+ \sup_{\substack{z\in K\\ |v|\leq\varepsilon}}
+ \bigl|\partial_w\varphi(z,v)-\partial_w\varphi(z,0)\bigr|.
+\]
+Continuity of the first derivative on a compact neighborhood implies
+$\omega_K(\varepsilon)\longrightarrow0$ as $\varepsilon\downarrow0$.
+Thus the remainder is $o(|w|)$ locally uniformly in the base variable.
+
+Let $f$ be holomorphic on $D$, and work first on a relatively compact
+subdisc $D'\Subset D$.  For all sufficiently small real $t>0$, the two maps
+\[
+      z\longmapsto (z,t f(z)),\qquad
+      z\longmapsto (z,-t f(z))
+\]
+take a neighborhood of $\overline{D'}$ into $\Omega$ and are holomorphic.
+The functions
+\[
+       u_t^+(z)=\frac{\varphi(z,t f(z))}{t},
+       \qquad
+       u_t^-(z)=\frac{\varphi(z,-t f(z))}{t}
+\]
+are therefore subharmonic on that neighborhood.  The denominator is
+positive in both expressions; no multiplication of a subharmonic function
+by a negative constant is being used.  Estimate
+\eqref{obs:uniform-expansion} proves the locally uniform limits
+\begin{equation}
+\label{obs:graph-limits}
+       u_t^+\longrightarrow 2\operatorname{Re}(bf),
+       \qquad
+       u_t^-\longrightarrow-2\operatorname{Re}(bf).
+\end{equation}
+For example, on a compact subset where $|f|\leq A$, the error in either
+limit is bounded by $2A\omega_K(tA)$.
+
+For completeness, these limits are subharmonic directly from the
+submean inequality.  If a closed disc lies in $D'$, the inequality for
+$u_t^\pm$ compares its value at the center with its circular mean.
+Uniform convergence on that disc and its boundary permits passage to
+the limit.  The resulting functions are continuous and satisfy the same
+inequality on every such disc, hence are subharmonic.  It follows from
+\eqref{obs:graph-limits} that both
+$\operatorname{Re}(bf)$ and its negative are subharmonic.
+
+We also recall why this implies ordinary harmonicity, with no regularity
+assumption beyond continuity.  Applying the submean inequality to a
+continuous function and to its negative gives equality with every
+sufficiently small circular mean.  Convolution with a smooth radial
+mollifier is a weighted average of these circular means and therefore
+equals the function wherever the convolution is defined.  The function
+is consequently smooth there.  Its circular-mean identity, expanded to
+second order, then gives $\Delta h=0$.  Thus
+$\operatorname{Re}(bf)$ is harmonic on $D'$, and hence on $D$ because
+$D'$ was arbitrary.
+
+Take successively $f=1$, $f=\sqrt{-1}$, $f=z$, and
+$f=\sqrt{-1}z$.  The first two choices show that the real and imaginary
+parts of $b$ are harmonic; the last two show the same for $zb$.  In
+particular $b$ is smooth and
+\[
+                    \Delta b=0,\qquad \Delta(zb)=0.
+\]
+The product rule for Wirtinger derivatives gives the exact identity
+\[
+   \Delta(zb)
+     =4\partial_z\bigl(z\partial_{\bar z}b\bigr)
+     =4\partial_{\bar z}b+z\Delta b.
+\]
+Hence $\partial_{\bar z}b=0$, which proves that $b$ is holomorphic.
+\end{proof}
+
+\begin{remark}
+\label{obs:c2-comparison}
+There is a shorter proof when $\varphi$ is $C^2$.  Its complex Hessian at
+$(z,0)$ is a positive semidefinite Hermitian matrix, and its
+$z\bar z$ entry vanishes because $\varphi(z,0)=0$.  Positivity of a
+two-by-two Hermitian matrix with one zero diagonal entry forces the
+corresponding mixed entries to vanish.  Thus
+$\varphi_{w\bar z}(z,0)=0$, and
+$\partial_{\bar z}b=0$.  Lemma~\ref{obs:first-jet} replaces this Hessian
+argument when only one continuous derivative is available.
+\end{remark}
+
+\subsection{The transition calculation on the infinity section}
+
+We spell out the conventions needed for the application.  Let
+$q:X\longrightarrow B$ be the ruled surface obtained by compactifying the
+affine line bundle associated with a nonzero class
+$\xi\in H^1(B,F)$, and let $C\subset X$ be its infinity section.  Choose
+local holomorphic frames $m_i$ of $F$ and affine fiber coordinates $t_i$
+over open sets $U_i\subset B$, with transition formulas
+\begin{equation}
+\label{obs:affine-transitions}
+       m_j=g_{ij}m_i,
+       \qquad t_i=g_{ij}t_j+a_{ij}.
+\end{equation}
+The functions $g_{ij}$ are nowhere vanishing and holomorphic, the
+functions $a_{ij}$ are holomorphic, and the cocycle
+$\{a_{ij}m_i\}$ represents $\xi$.  Base points are suppressed in these
+formulas; a function on $U_j$ is understood to be restricted to the
+overlap and expressed in the chosen base coordinate there.
+
+A holomorphic section of the affine line bundle would be given by
+holomorphic functions $s_i$ satisfying
+\begin{equation}
+\label{obs:section-equation}
+                    s_i=g_{ij}s_j+a_{ij}.
+\end{equation}
+Multiplying this identity by $m_i$ gives
+$s_i m_i-s_jm_j=a_{ij}m_i$.  Thus such functions would express the
+cocycle as a coboundary.  Since $\xi\ne0$, no such section exists.
+
+Put
+\[
+                  L_0=\OO_X(C)\otimes q^*F.
+\]
+Near $C$, use $w_i=1/t_i$ as the transverse coordinate, so that
+$C=\{w_i=0\}$.  Formula~\eqref{obs:affine-transitions} becomes
+\begin{equation}
+\label{obs:normal-transitions}
+   w_i=\frac{w_j}{g_{ij}+a_{ij}w_j},
+   \qquad
+   w_j=\frac{g_{ij}w_i}{1-a_{ij}w_i}.
+\end{equation}
+All expressions here are considered on sufficiently small overlapping
+neighborhoods of $C$, where their denominators do not vanish.  If
+$\sigma_C$ is the canonical section of $\OO_X(C)$, choose its natural
+local frames $v_i$ by
+\[
+                        \sigma_C=w_i v_i.
+\]
+The identity $w_i v_i=w_jv_j$ and
+\eqref{obs:normal-transitions} imply
+\[
+                  v_j=\frac{1-a_{ij}w_i}{g_{ij}}v_i.
+\]
+Consequently the holomorphic frames
+$e_i=q^*m_i\otimes v_i$ of $L_0$ satisfy the exact formula
+\begin{equation}
+\label{obs:line-transitions}
+                         e_j=(1-a_{ij}w_i)e_i.
+\end{equation}
+In particular, their restrictions agree on $C$ and define a global
+nowhere-vanishing holomorphic section of $L_0|_C$.
+
+\begin{theorem}[Nonexistence of a $C^1$ semipositive metric]
+\label{obs:c1-obstruction}
+Assume that the affine extension class $\xi\in H^1(B,F)$ is nonzero.
+Then $L_0$ admits no $C^1$ Hermitian metric with semipositive curvature
+current on any open neighborhood of $C$ in $X$.
+\end{theorem}
+
+\begin{proof}
+Suppose that such a metric $h$ exists on a neighborhood $N$ of $C$.
+Shrink the local coordinate neighborhoods used above so that they lie
+in $N$, and write
+\[
+                        |e_i|_h^2=e^{-\varphi_i}.
+\]
+The functions $\varphi_i$ are $C^1$ and plurisubharmonic.  The exact
+transformation law~\eqref{obs:line-transitions} gives
+\begin{equation}
+\label{obs:weight-transitions}
+ \varphi_j(z,w_j)
+    =\varphi_i(z,w_i)-\log|1-a_{ij}(z)w_i|^2,
+ \qquad
+ w_j=\frac{g_{ij}(z)w_i}{1-a_{ij}(z)w_i}.
+\end{equation}
+Here the same notation $z$ denotes the base point on the overlap; any
+change between base coordinate charts depends only on that base point.
+
+At $w_i=w_j=0$, the logarithmic term vanishes.  Thus the restrictions
+$\varphi_i|_C$ glue to a global continuous real-valued function on $C$.
+The restriction of a finite plurisubharmonic function to a holomorphic
+curve is subharmonic.  Since $C$ is compact and connected, the maximum
+principle implies that this global function is constant.  Subtracting
+the same constant from all weights, we arrange that
+\begin{equation}
+\label{obs:zero-restriction}
+                         \varphi_i(z,0)=0.
+\end{equation}
+This normalization does not change curvature or regularity.
+
+Set
+\[
+                       b_i(z)=\partial_{w_i}\varphi_i(z,0).
+\]
+Lemma~\ref{obs:first-jet}, applied on coordinate discs in $U_i$, proves
+that every $b_i$ is holomorphic.  We may differentiate
+\eqref{obs:weight-transitions} once in $w_i$, because the weights are
+$C^1$.  At $w_i=0$, the derivative of $w_j$ with respect to $w_i$ is
+$g_{ij}$, and its antiholomorphic counterpart contributes nothing to
+the Wirtinger derivative.  Moreover,
+\[
+ \left.\partial_{w_i}\log|1-a_{ij}w_i|^2\right|_{w_i=0}
+                  =-a_{ij}.
+\]
+We therefore obtain
+\begin{equation}
+\label{obs:first-jet-transition}
+                    g_{ij}b_j=b_i+a_{ij},
+                    \qquad b_i=g_{ij}b_j-a_{ij}.
+\end{equation}
+Equivalently, one can substitute the locally uniform expansions from
+\eqref{obs:uniform-expansion} into
+\eqref{obs:weight-transitions} and compare the real linear terms in
+$w_i$; this gives the same identity.
+
+Now put $s_i=-b_i$.  The functions $s_i$ are holomorphic, and
+\eqref{obs:first-jet-transition} becomes precisely
+\[
+                         s_i=g_{ij}s_j+a_{ij}.
+\]
+They define the forbidden affine section from
+\eqref{obs:section-equation}.  Explicitly,
+\[
+                  b_jm_j-b_im_i=a_{ij}m_i
+\]
+expresses the cocycle representing $\xi$ as a coboundary.  This
+contradicts $\xi\ne0$ and proves the theorem.
+\end{proof}
+
+\begin{corollary}
+\label{obs:powers}
+For every integer $m\geq1$, the line bundle $L_0^{\otimes m}$ admits
+no $C^1$ semipositive Hermitian metric on a neighborhood of $C$.
+Equivalently, relative to any smooth reference metric on
+$L_0^{\otimes m}$, no semipositive metric potential can be $C^1$ on a
+neighborhood of $C$.
+\end{corollary}
+
+\begin{proof}
+A positive metric on $L_0^{\otimes m}$ has a unique positive $m$th root
+as a metric on the already given line bundle $L_0$.  In the frames
+$e_i^{\otimes m}$ and $e_i$, this simply divides every local weight by
+$m$.  It preserves $C^1$ regularity and plurisubharmonicity, contradicting
+Theorem~\ref{obs:c1-obstruction}.  Subtracting the smooth local weight
+of a reference metric does not change whether a potential is $C^1$.
+\end{proof}
+
+\subsection{Relation with the first obstruction class}
+
+\begin{remark}
+\label{obs:obstruction-class}
+The calculation also identifies the first obstruction in the
+transition-function approach.  With the convention that this
+obstruction is represented by the coefficient of $w_i$ in $e_j/e_i$,
+formula~\eqref{obs:line-transitions} gives
+\[
+     u_1(C,X,L_0)
+        =\bigl[\{-a_{ij}\,dw_i\}\bigr]
+           \in H^1(C,N_{C/X}^{-1}).
+\]
+Along $C$, formula~\eqref{obs:normal-transitions} yields
+$dw_j=g_{ij}dw_i$.  Hence the identification
+$N_{C/X}^{-1}\simeq F$ sending $dw_i$ to $m_i$ identifies this class
+with $-\xi$.  Reversing the convention for the transition cocycle
+changes the sign but not its nonvanishing.  For a tensor power, the
+expansion
+\[
+       \frac{e_j^{\otimes m}}{e_i^{\otimes m}}
+           =(1-a_{ij}w_i)^m
+           =1-ma_{ij}w_i+O(w_i^2)
+\]
+identifies the corresponding class with $-m\xi$.
+
+Koike's line-bundle obstruction theory~\cite{Koike2021} extends the
+transition-function viewpoint originating in Ueda's neighborhood
+theory~\cite{Ueda1983}.  Zhang computes the nonzero first obstruction
+for the original Grauert construction and applies the smooth
+semipositivity obstruction~\cite{Zhang2025}.  The proof above is given
+independently: its additional analytic ingredient is
+Lemma~\ref{obs:first-jet}, and it establishes nonexistence for $C^1$
+weights without invoking a theorem that assumes a smooth metric.
+\end{remark}
+
+\begin{remark}[What the regularity conclusion means]
+\label{obs:regularity-meaning}
+The obstruction is to continuous first derivatives, not to bounded or
+Lipschitz local weights.  A Lipschitz function need not possess the
+uniform real-linear first-order expansion
+\eqref{obs:uniform-expansion} along $C$.  In particular, the transverse
+model $|w|$ is Lipschitz but is not differentiable at $w=0$.  This is
+exactly the type of regularity permitted by the norm-of-section
+potential in the construction.  Thus Lipschitz existence and
+Theorem~\ref{obs:c1-obstruction} are compatible.  Together they give
+the precise endpoint statement used here: Lipschitz semipositive
+potentials exist, whereas $C^1$ semipositive potentials do not.  No
+classification of other, weaker differentiability notions is asserted.
+\end{remark}
+
+% End obstruction.tex
+% Begin metrics.tex
+\section{Constructing a Lipschitz semipositive metric}
+\label{sec:metrics}
+
+The construction in this section applies more generally than to a ruled
+surface. Its local input is a negative smooth curve and a line bundle
+whose restriction to that curve is flat. The global input is an exact
+ample twist by the curve. We prove the local estimates and the gluing
+separately, using the same smooth reference metric throughout.
+
+\subsection{Reference metrics near a negative curve}
+
+Let $S$ be a smooth complex surface and let $C\subset S$ be a smooth,
+compact, connected complex curve with $C^2<0$. Let $L$ be a holomorphic
+line bundle on a neighborhood of $C$. Assume that $L|_C$ has a smooth
+Hermitian metric of zero curvature. In our application $L|_C$ is
+holomorphically trivial, so the constant metric in a global nonvanishing
+frame has this property.
+
+We explain two choices of smooth metrics. First choose a smooth metric
+$h_0$ on $L$ whose restriction is the specified flat metric. To do this,
+start with any smooth metric $h'_0$. The logarithm of the ratio of the
+desired metric to $h'_0|_C$ is a smooth real function on $C$. Extend that
+function smoothly to a neighborhood of $C$, and multiply $h'_0$ by its
+exponential. Smooth extension is available from a smooth tubular
+neighborhood, or from smooth coordinate extensions and a partition of
+unity. No holomorphic tubular neighborhood is used. With
+\[
+                  \theta=\cOne(L,h_0),
+\]
+we have $\theta|_{TC}=0$.
+
+Second, choose a smooth Hermitian metric $k$ on $\OO_S(C)$ such that
+\begin{equation}\label{met:negative-metric}
+       \eta:=-\cOne(\OO_S(C),k)
+       \quad\hbox{is strictly positive on }TC.
+\end{equation}
+Here is why such a choice is possible. The restriction
+$\OO_S(C)|_C=N_{C/S}$ has degree $C^2<0$. On a compact Riemann surface,
+a line bundle of negative degree has a smooth metric with strictly
+negative curvature. In detail, fix a positive area form $\omega_C$ of
+integral one and any metric with curvature $\gamma$. The form
+$C^2\omega_C-\gamma$ has integral zero. The Poisson equation on the
+compact curve gives a smooth real function $v$ with
+$\ddc v=C^2\omega_C-\gamma$. Multiplying the metric by $e^{-v}$
+gives curvature $C^2\omega_C$. The Poisson solvability used here is the
+usual compact-surface statement: the Laplacian has constants as kernel
+and has as range the smooth functions of integral zero
+\cite{DemaillyCADG}. Extend this metric from $C$ to $\OO_S(C)$ by the
+smooth ratio construction just described. Its negative curvature has
+the required positive restriction.
+
+Let $s_C$ be the canonical section of $\OO_S(C)$ and set
+\begin{equation}\label{met:r-s}
+                    r=|s_C|_k^2,\qquad s=r^{1/2}.
+\end{equation}
+Thus $r$ is a smooth nonnegative function, with zero set $C$. In a
+holomorphic coordinate chart $(z,w)$ with $C=\{w=0\}$, choose a frame
+$v$ of $\OO_S(C)$ such that $s_C=w v$ and put
+$|v|_k^2=e^{\lambda}$. Then
+\begin{equation}\label{met:r-coordinates}
+       r=|w|^2e^{\lambda},\qquad
+       s=|w|e^{\lambda/2},\qquad \eta=\ddc\lambda.
+\end{equation}
+In particular, $s$ is locally Lipschitz, including on $C$, and is smooth
+off $C$. Indeed, $w\mapsto|w|$ is Lipschitz, and $e^{\lambda/2}$ is
+smooth with bounded first derivatives on every relatively compact
+coordinate chart; their product is Lipschitz there.
+
+On $S\setminus C$ one has
+\begin{equation}\label{met:log-r}
+                       \ddc\log r=\eta.
+\end{equation}
+This is an identity on the complement only. As currents across $C$,
+the correct identity is
+\begin{equation}\label{met:PL-r}
+                       \ddc\log r=[C]+\eta.
+\end{equation}
+It follows from $\ddc\log|w|^2=[w=0]$ with our normalization. This
+distinction will be essential for the global auxiliary metric.
+
+\subsection{A frame adapted to the level sets of the norm}
+
+We will estimate Hermitian coefficient matrices as in
+Section~\ref{sec:preliminaries}: a real $(1,1)$-form is written as
+$(\sqrt{-1}/2\pi)\sum T_{\alpha\bar\beta}
+ dz_\alpha\wedge d\bar z_\beta$, and positivity is tested on
+$(T_{\alpha\bar\beta})$. All coefficients below use this convention.
+
+Shrink a relatively compact coordinate chart until
+$|w\lambda_w|\le1/2$. Define two smooth $(1,0)$ vector fields
+\begin{equation}\label{met:adapted-frame}
+ H=\partial_z-\frac{w\lambda_z}{1+w\lambda_w}\partial_w,
+ \qquad V=\partial_w.
+\end{equation}
+They form a frame because the coefficient of $\partial_z$ in $H$ is
+one. Its change-of-frame matrix is triangular with determinant one.
+It extends smoothly to $w=0$, where $H=\partial_z$.
+On $w\ne0$, direct substitution gives
+\begin{align}
+ \partial\log r(H)
+ &=\lambda_z-
+   \frac{w\lambda_z}{1+w\lambda_w}
+                    \left(\frac1w+\lambda_w\right)=0,
+                    \label{met:H-log}\\
+ \partial\log r(V)&=\frac1w+\lambda_w.
+                    \label{met:V-log}
+\end{align}
+The vector fields need not be holomorphic. We use them only to
+\emph{evaluate} tensors computed in the holomorphic coordinates.
+In particular, none of the formulas below replaces a Hessian coefficient
+by a repeated derivative along the nonholomorphic field $H$.
+
+For $\delta>0$, differentiating $r^\delta=e^{\delta\log r}$ on the
+complement of $C$ gives the exact formula
+\begin{equation}\label{met:power-hessian}
+ \ddc r^\delta
+   =\delta r^\delta\eta+
+     \delta^2r^\delta\frac{\sqrt{-1}}{2\pi}
+                     \partial\log r\wedge\bar\partial\log r.
+\end{equation}
+In the frame $(H,V)$ this reads
+\begin{align}
+ (\ddc r^\delta)_{H\bar H}
+      &=\delta r^\delta\eta_{H\bar H},\label{met:HH-exact}\\
+ (\ddc r^\delta)_{H\bar V}
+      &=\delta r^\delta\eta_{H\bar V},\label{met:HV-exact}\\
+ (\ddc r^\delta)_{V\bar V}
+      &=\delta r^\delta\eta_{V\bar V}
+       +\delta^2r^\delta\left|\frac1w+\lambda_w\right|^2.
+          \label{met:VV-exact}
+\end{align}
+The cancellation in \eqref{met:HV-exact} is why we use the adapted
+frame. Estimating entries independently in the original frame would
+hide the useful rank-one structure of the second term in
+\eqref{met:power-hessian}.
+
+\begin{lemma}[Uniform estimates for the square-root cusp]
+\label{met:cusp-estimates}
+There are a neighborhood $U$ of $C$, finitely many charts covering
+$U$, and constants $a,b,K>0$ with the following properties on
+$U\setminus C$. In each chart, using the frame
+\eqref{met:adapted-frame},
+\begin{align}
+ (\ddc s)_{H\bar H}&\ge a s,&
+ (\ddc s)_{V\bar V}&\ge \frac b{s},&
+ |(\ddc s)_{H\bar V}|&\le K s,\label{met:cusp-bounds}\\
+ \theta_{H\bar H}&\ge-Ks,&
+ \theta_{V\bar V}&\ge-K,&
+ |\theta_{H\bar V}|&\le K.\label{met:theta-bounds}
+\end{align}
+All constants are independent of the point and of the chart in this
+finite covering.
+\end{lemma}
+
+\begin{proof}
+Choose finitely many relatively compact charts around $C$ and smaller
+charts whose intersections with $C$ still cover it. Work on these
+smaller charts, so all smooth functions and their needed derivatives
+have bounds supplied by the larger charts. After shrinking in the
+normal direction, $|w\lambda_w|\le1/2$ holds on every chart. Since
+$H|_C=\partial_z$ and $\eta|_{TC}>0$, continuity and the finite cover
+give a number $\mu>0$ such that
+$\eta_{H\bar H}\ge\mu$ on a common smaller neighborhood. There is
+also a common $A\ge1$ such that
+\[
+ |\eta_{H\bar V}|\le A,\qquad |\eta_{V\bar V}|\le A,
+ \qquad A^{-1}\le e^\lambda\le A.
+\]
+Put $\delta=1/2$ in \eqref{met:HH-exact}--\eqref{met:VV-exact}.
+The $H\bar H$ and $H\bar V$ formulas immediately give
+\[
+ (\ddc s)_{H\bar H}\ge\frac\mu2 s,
+ \qquad |(\ddc s)_{H\bar V}|\le\frac A2s.
+\]
+The bound $|w\lambda_w|\le1/2$ implies
+\[
+ \left|\frac1w+\lambda_w\right|
+   =\frac{|1+w\lambda_w|}{|w|}\ge\frac{1}{2|w|}.
+\]
+Using $s^2=|w|^2e^\lambda$, we obtain
+\begin{align*}
+ (\ddc s)_{V\bar V}
+ &\ge-\frac A2s+\frac{s}{16|w|^2}
+  =-\frac A2s+\frac{e^\lambda}{16s}\\
+ &\ge-\frac A2s+\frac{1}{16A s}.
+\end{align*}
+Shrink the neighborhood so that $s^2\le1/(16A^2)$.
+Then $(A/2)s\le1/(32A s)$, and the last expression is at least
+$1/(32A s)$. We may take $a=\mu/2$ and $b=1/(32A)$.
+
+For the reference form, $\theta_{H\bar H}$ is a smooth real function
+on the entire chart, including $w=0$. Its value there is zero because
+$H|_C=\partial_z$ and $\theta|_{TC}=0$. The real mean-value estimate
+in the two normal variables therefore gives
+$|\theta_{H\bar H}(z,w)|\le A_1|w|$ for a uniform constant $A_1$.
+For example, integrate its first normal derivative along the segment
+$t\mapsto(z,tw)$, $0\le t\le1$, in a product subchart. Since
+$|w|\le A^{1/2}s$, this is at most $A_1A^{1/2}s$. The other two
+coefficients of $\theta$ in the smooth frame are uniformly bounded.
+Enlarge $K$ to dominate those bounds, $A_1A^{1/2}$, and $A/2$.
+The displayed inequalities follow on the common neighborhood.
+\end{proof}
+
+\subsection{Fixing the coefficient before shrinking the neighborhood}
+
+\begin{theorem}[Local Lipschitz existence]
+\label{met:lipschitz-local}
+Let $C$ and $L$ satisfy the assumptions at the beginning of this
+section. There exist a neighborhood $U$ of $C$ and $M>0$ such that
+\begin{equation}\label{met:local-current}
+                    T_M=\theta+M\ddc s
+\end{equation}
+is a positive current on $U$ and a smooth strictly positive
+$(1,1)$-form on $U\setminus C$. The metric
+$h_{\mathrm{loc}}=h_0e^{-Ms}$ is positive definite with locally
+Lipschitz weights on $U$.
+\end{theorem}
+
+\begin{proof}
+Choose $a,b,K$ as in Lemma~\ref{met:cusp-estimates}. First choose one
+constant $M>0$ satisfying
+\begin{equation}\label{met:choose-M}
+       Ma-K>0,\qquad
+       (Ma-K)\frac{Mb}{2}>(K+1)^2.
+\end{equation}
+Such a choice exists: the left side of the second inequality is a
+quadratic polynomial in $M$ with positive leading coefficient
+$ab/2$. This choice is made before any further shrinking.
+
+With this $M$ fixed, shrink $U$ until
+\begin{equation}\label{met:shrink-after-M}
+              Ks\le\frac{Mb}{2},\qquad MKs\le1
+\end{equation}
+throughout $U$. This is possible because $s$ is continuous and zero
+on the compact set $C$. The estimates in the preceding lemma now give
+\begin{align*}
+ (T_M)_{H\bar H}&\ge(Ma-K)s,\\
+ (T_M)_{V\bar V}&\ge\frac{Mb}{s}-K
+                         \ge\frac{Mb}{2s},\\
+ |(T_M)_{H\bar V}|&\le K+MKs\le K+1.
+\end{align*}
+Both diagonal coefficients are strictly positive for $s>0$. Moreover,
+\begin{align*}
+ \det (T_M)_{(H,V)}
+ &= (T_M)_{H\bar H}(T_M)_{V\bar V}
+                         -|(T_M)_{H\bar V}|^2\\
+ &\ge (Ma-K)\frac{Mb}{2}-(K+1)^2>0.
+\end{align*}
+The two-by-two Hermitian matrix is therefore positive definite.
+Because $(H,V)$ is a frame, this is positivity of the form itself.
+This proves strict positivity on $U\setminus C$.
+
+Let $e$ be any local holomorphic frame of $L$ and write
+$|e|_{h_0}^2=e^{-\varphi_0}$. The weight
+$\varphi_0+Ms$ is smooth and strictly plurisubharmonic off $C$ and
+is continuous across $C$. The removable lemma
+Lemma~\ref{pre:removable} makes it plurisubharmonic on the whole chart.
+Its distributional $\ddc$ is thus positive on that chart, including
+on $C$. These local statements give positivity of $T_M$ as a current
+on $U$. Finally, $\varphi_0$ is smooth and $s$ is locally Lipschitz
+by \eqref{met:r-coordinates}, so the weight has the asserted regularity.
+It is finite everywhere; its exponential defines a positive definite
+Hermitian metric, not a metric degenerating to zero or infinity on $C$.
+\end{proof}
+
+\begin{remark}\label{met:exponent-remark}
+The coefficient choice in \eqref{met:choose-M} is particularly useful
+at the Lipschitz exponent $s=r^{1/2}$. At that exponent the product of
+the leading tangential and normal lower bounds is of constant order,
+so merely shrinking the neighborhood need not dominate a fixed mixed
+coefficient. Increasing $M$ first supplies that domination. This is
+also why an argument that only says that the normal coefficient tends
+to infinity would not suffice: positivity requires the determinant
+inequality, not just the two diagonal inequalities.
+\end{remark}
+
+\subsection{The global auxiliary metric and its exact singularity}
+
+For global existence, suppose now that $S$ is compact and projective,
+$L$ is defined on $S$, and there are integers $m,a_0>0$ such that
+\begin{equation}\label{met:ample-twist}
+                     A=L^{\otimes m}\otimes\OO_S(-a_0C)
+                     \quad\hbox{is ample}.
+\end{equation}
+All line-bundle identities in what follows are holomorphic identities,
+not only numerical equivalences. Choose $h_0$ and $k$ globally with
+the restrictions used above. Global extensions of the prescribed
+metrics can again be made by a smooth extension and a cut-off equal
+to one near $C$.
+
+An ample bundle has a smooth strictly positive metric $h_A$. Explicitly,
+some $A^{\otimes N}$ is very ample and gives an embedding into
+projective space. Pull back the Fubini--Study metric on $\OO(1)$
+and take its $N$th root. Its curvature is
+$\omega_A=N^{-1}\iota^*\omega_{\mathrm{FS}}>0$.
+
+The singular divisor metric $h_{[C]}$ on $\OO_S(C)$ is characterized
+by $|s_C|_{h_{[C]}}^2=1$ away from $C$. If $s_C=w v$, its local
+weight in the frame $v$ is $\log|w|^2$, so its curvature current is
+$[C]$. Relative to $k$ it satisfies
+\[
+                         h_{[C]}=k e^{-\log r}.
+\]
+Using the isomorphism $L^{\otimes m}=A\otimes\OO_S(a_0C)$,
+form the singular metric
+\[
+                         h_*^m=h_A\otimes h_{[C]}^{a_0}.
+\]
+This defines a metric on $L$: the positive $m$th root of the squared
+norm on $L^{\otimes m}$ is independent of the choice of frame.
+Its curvature current is
+\begin{equation}\label{met:auxiliary-current}
+            \cOne(L,h_*)=\frac1m\omega_A+\frac{a_0}{m}[C].
+\end{equation}
+
+For the gluing we need a \emph{global function} relative to $h_0$.
+Define a smooth real function $F_0$ on $S$ by the ratio of two smooth
+metrics on the same line bundle:
+\[
+                       h_A\otimes k^{a_0}=h_0^m e^{-F_0}.
+\]
+The ratio is a globally defined positive smooth function, so its
+negative logarithm $F_0$ is globally well-defined. Then
+\begin{equation}\label{met:psi}
+   h_*=h_0e^{-\psi},\qquad
+   \psi=\frac{a_0}{m}\log r+\frac{F_0}{m},\qquad
+   \theta+\ddc\psi=\frac1m\omega_A+\frac{a_0}{m}[C].
+\end{equation}
+In particular, $\psi$ is smooth on $S\setminus C$, tends to $-\infty$
+uniformly on approach to $C$, and is strictly $\theta$-plurisubharmonic
+off $C$. The coefficient of its logarithmic singularity is positive.
+
+\subsection{Gluing by a regularized maximum}
+
+\begin{theorem}[Global Lipschitz existence]
+\label{met:lipschitz-global}
+Let $S$ be a smooth projective surface, let $C\subset S$ be a smooth
+connected curve with $C^2<0$, and let $L$ be a holomorphic line bundle.
+Suppose $L|_C$ admits a smooth flat Hermitian metric and
+\eqref{met:ample-twist} holds for some positive integers $m,a_0$.
+Then $L$ admits a positive definite Hermitian metric with locally
+Lipschitz weights and semipositive curvature current. The metric can
+be chosen smooth with strictly positive curvature on $S\setminus C$.
+Its curvature has bounded local potentials and minimal singularities
+in $\cOne(L)$.
+\end{theorem}
+
+\begin{proof}
+Use Theorem~\ref{met:lipschitz-local} to choose $U$ and $M$ so that
+\[
+                         u_{\mathrm{loc}}=Ms
+\]
+has the asserted positivity on $U$. Choose a small number $b>0$
+such that $\{r\le2b\}\subset U$. This is possible because $S$ is
+compact, $r$ is continuous with zero set exactly $C$, and the compact
+set $S\setminus U$ has a positive minimum of $r$ whenever it is
+nonempty. Decrease $b$ further if necessary. Construct $\psi$ as in
+\eqref{met:psi}, and fix a regularization size $\varepsilon>0$.
+
+On the compact shell $\{b/2\le r\le b\}$ the functions $\psi$ and
+$u_{\mathrm{loc}}$ are smooth. Choose a real constant $N$ such that
+\begin{equation}\label{met:outer-collar}
+                 \psi+N>u_{\mathrm{loc}}+2\varepsilon
+                     \quad\hbox{on }\{b/2\le r\le b\}.
+\end{equation}
+For instance, any $N>2\varepsilon+
+\max_{b/2\le r\le b}(u_{\mathrm{loc}}-\psi)$ works; if the shell
+is empty the requirement is vacuous. The boundedness of $F_0$ and
+the positive coefficient of $\log r$ imply that $\psi+N$ tends
+uniformly to $-\infty$ as $r\downarrow0$. Since
+$u_{\mathrm{loc}}\ge0$, there exists $a$ with $0<a<b/4$ such that
+\begin{equation}\label{met:inner-collar}
+                 \psi+N<u_{\mathrm{loc}}-2\varepsilon
+                         \quad\hbox{on }\{0<r\le2a\}.
+\end{equation}
+For complete uniformity, if $D_0=\max_S F_0/m+N$, it suffices to
+choose $a<b/4$ so that
+$(a_0/m)\log(2a)+D_0<-2\varepsilon$.
+
+Let $\mathcal M_\varepsilon$ be the smooth regularized maximum from
+Lemma~\ref{pre:regularized-max}. Define a real function on $S$ by
+\begin{equation}\label{met:global-potential}
+ u(x)=
+ \begin{cases}
+    u_{\mathrm{loc}}(x),& r(x)\le a,\\
+    \mathcal M_\varepsilon
+             \bigl(u_{\mathrm{loc}}(x),\psi(x)+N\bigr),
+                                    &a<r(x)<b,\\
+    \psi(x)+N,&r(x)\ge b.
+ \end{cases}
+\end{equation}
+On a whole collar of the inner interface $r=a$, condition
+\eqref{met:inner-collar} makes the middle expression equal to
+$u_{\mathrm{loc}}$. On a whole collar of the outer interface $r=b$,
+condition \eqref{met:outer-collar} makes it equal to $\psi+N$.
+Consequently the three pieces agree in neighborhoods of their
+interfaces. No regularity of the level hypersurfaces is needed for
+this pasting assertion.
+
+We check positivity in local holomorphic frames of $L$. Let
+$\varphi_0$ be the weight of $h_0$. On the annulus, translation
+invariance of the regularized maximum gives
+\begin{align*}
+ \varphi_0+
+ \mathcal M_\varepsilon(u_{\mathrm{loc}},\psi+N)
+ =\mathcal M_\varepsilon
+        (\varphi_0+u_{\mathrm{loc}},\varphi_0+\psi+N).
+\end{align*}
+Both input functions are smooth and strictly plurisubharmonic there:
+the first by the local theorem and the second by
+\eqref{met:auxiliary-current} off $C$. By
+Lemma~\ref{pre:regularized-max} and Remark~\ref{pre:strict-max}, their regularized maximum
+is smooth and strictly plurisubharmonic on the annulus. On the inner
+region positivity follows from the local theorem. On the outer
+region it follows from \eqref{met:auxiliary-current}. The collars
+show these assertions fit together, proving that
+$\theta+\ddc u$ is positive globally and strictly positive away
+from $C$.
+
+Near $C$, the function $u$ equals $Ms$, hence is locally Lipschitz.
+On the complement it is smooth, including at both interfaces by the
+collar equalities. Thus $u$ is a globally defined, locally Lipschitz,
+finite function on compact $S$, and is bounded. The metric
+$h=h_0e^{-u}$ is positive definite with locally Lipschitz weights;
+it is smooth off $C$ and has curvature $\theta+\ddc u$.
+Finally, Lemma~\ref{pre:bounded-minimal} proves minimal singularities and
+bounded local potentials. This last step is a comparison with all
+$\theta$-plurisubharmonic potentials, not a consequence of nefness
+alone.
+\end{proof}
+
+\begin{remark}\label{met:no-partition}
+The gluing combines potentials relative to the same $\theta$ and uses
+the holomorphic identity \eqref{met:ample-twist}. A partition of unity
+applied directly to plurisubharmonic weights would introduce uncontrolled
+derivative terms. Likewise, a merely numerical equality with an ample
+class would not by itself justify the metric identity used to define
+$F_0$. Both issues are avoided by the explicit construction above.
+\end{remark}
+
+% End metrics.tex
+% Begin consequences.tex
+\section{Applications to the original and modified examples}
+\label{sec:consequences}
+
+\begin{corollary}\label{con:application}
+For the ruled surface and the line bundle $L_0$ of
+Assumption~\ref{geo:data}, there exists a positive definite Hermitian metric
+on $L_0$ with locally Lipschitz weights and semipositive curvature
+current. The metric is smooth and has strictly positive curvature
+on $X\setminus C$, and its curvature has bounded local potentials
+and minimal singularities. No neighborhood of $C$ admits a $C^1$
+semipositive Hermitian metric on $L_0$.
+\end{corollary}
+
+\begin{proof}
+The surface $X$ is smooth and projective by
+Proposition~\ref{geo:projective-bundle}. The curve $C$ is smooth and connected,
+and $C^2=-d<0$, by Proposition~\ref{geo:normal-and-L}. That proposition also
+provides the holomorphic trivialization $L_0|_C\cong\OO_C$; its
+constant Hermitian metric is flat. Finally,
+Proposition~\ref{geo:nef-big-ample} proves that the actual holomorphic line
+bundle
+\[
+                A=L_0^{\otimes2}\otimes\OO_X(-C)
+\]
+is ample. These are all the hypotheses of
+Theorem~\ref{met:lipschitz-global}, with $S=X$, $L=L_0$, $m=2$, and
+$a_0=1$. That theorem proves the asserted existence and all its
+regularity and minimality properties. The class $\xi$ is nonzero
+by assumption, so Theorem~\ref{obs:c1-obstruction} gives nonexistence at
+the $C^1$ level, even on a neighborhood of $C$.
+\end{proof}
+
+\begin{proof}[Completion of the proof of Theorem~\ref{main:regularity}]
+Part (i) is Propositions~\ref{geo:projective-bundle} and \ref{geo:normal-and-L}.
+The intersection, nefness, bigness, and null-locus assertions in
+part (ii) are Proposition~\ref{geo:nef-big-ample}, and the statement about all
+positive powers is Proposition~\ref{geo:not-semiample}.
+Parts (iii) and (iv) are precisely Corollary~\ref{con:application}.
+\end{proof}
+
+\subsection{The degree-one choice and the canonical-bundle choice}
+
+For an entirely specified degree-one instance, let $B$ have genus
+two, choose $b_0\in B$, and put $F=\OO_B(b_0)$.
+Lemma~\ref{geo:degree-one-choice} gives
+$H^1(B,F)\cong\C$, so choose any nonzero element. If
+$f_{b_0}=q^{-1}(b_0)$ denotes the actual fiber divisor, then
+\begin{equation}\label{con:degree-one}
+ L_0=\OO_X(C+f_{b_0}),\qquad C^2=-1,\qquad L_0^2=1.
+\end{equation}
+The line-bundle equality in this display uses $F=\OO_B(b_0)$.
+For a general degree-one line bundle $F$, replacing $q^*F$ by a
+single fiber is only a numerical equivalence unless a corresponding
+holomorphic isomorphism has been chosen. Also, a general degree-one
+bundle on a genus-two curve need not have nonzero $H^1$.
+The choice just made avoids both qualifications.
+
+For Koike's modified example, take again a genus-two curve and set
+$F=K_B$. Its degree is two. Serre duality on the curve gives
+\[
+ H^1(B,K_B)\cong H^0(B,\OO_B)^*\cong\C
+\]
+because $B$ is compact and connected
+\cite[Chapter III, \S7]{Hartshorne1977}. A nonzero element therefore
+gives another nonsplit extension of the required form. In this case
+\begin{equation}\label{con:degree-two}
+ L_0=\OO_X(C)\otimes q^*K_B,\qquad C^2=-2,\qquad L_0^2=2.
+\end{equation}
+Consequently Corollary~\ref{con:application} applies to both the original
+degree-one example and this degree-two example. Their numerical
+invariants differ; they are not being identified as the same ruled
+surface.
+
+\subsection{The bounded-potential question}
+
+The question in \cite[\S4]{Zhang2025} concerns the existence of a
+positive current with bounded potentials and minimal singularities
+in the distinguished class for either example. We spell out exactly
+what the construction supplies. Fix a smooth metric $h_0$ on $L_0$
+and set $\theta=\cOne(L_0,h_0)$. The global function $u$ constructed
+in \eqref{met:global-potential} is bounded and satisfies
+\[
+                      T=\theta+\ddc u\ge0 .
+\]
+In a holomorphic frame, $T=\ddc(\varphi_0+u)$, and
+$\varphi_0+u$ is bounded on each relatively compact chart.
+For any other $v\in\PSH(X,\theta)$, compactness gives
+$\sup_Xv<\infty$ unless $v\equiv-\infty$, in which case the
+comparison below is automatic. Since $u$ is bounded below,
+\[
+                v\le u+\bigl(\sup_Xv-\inf_Xu\bigr).
+\]
+Thus $T$ has minimal singularities by the defining comparison.
+These are exactly the two requested properties. Moreover its
+potentials are locally Lipschitz, a stronger continuity assertion.
+The construction provides an affirmative answer for the data of
+\eqref{con:degree-one} and \eqref{con:degree-two}.
+
+This conclusion is an implication of the proofs in this manuscript;
+it is not attributed to Grauert, Koike, or Zhang. In particular,
+Zhang's December 2025 version is cited as posing the question, not
+as already proving the bounded-potential statement. No assertion
+about publication priority of the present elementary construction
+is needed for this implication.
+
+The assertion concerns existence of a representative with this
+regularity. Any two potentials with minimal singularities differ
+by a bounded function, by applying the defining comparison in both
+directions. Bounded difference alone does not imply that every
+minimal potential is continuous or Lipschitz; no such conclusion
+is made here.
+
+\subsection{Why the contracted surface is not K\"ahler}
+
+The analytic contraction from Proposition~\ref{geo:contraction} is compatible
+with the existence of the Lipschitz current on $X$. In particular,
+one should not infer that the current supplies a K\"ahler form on
+the singular surface $Y$. The following argument establishes the
+opposite conclusion directly.
+
+\begin{proposition}\label{con:nonkahler}
+The normal compact surface $Y$ obtained by contracting $C$ is not
+K\"ahler in the usual sense for complex spaces: it has no K\"ahler
+form locally given by smooth strictly plurisubharmonic potentials
+in ambient holomorphic embeddings.
+\end{proposition}
+
+\begin{proof}
+Suppose such a K\"ahler form $\omega_Y$ exists. Pull it back along
+$\pi:X\to Y$. The result is a smooth real closed semipositive
+$(1,1)$-form $\beta$ on $X$. To justify smoothness even on $C$,
+embed a neighborhood in $Y$ into a domain in $\C^N$ and represent
+$\omega_Y$ there by $\ddc\Phi$, with $\Phi$ a smooth strictly
+plurisubharmonic ambient function. Its pullback is
+$\ddc(\Phi\circ\pi)$, where the composition uses the holomorphic
+map into that ambient domain. This is a smooth form on $X$.
+These local pullbacks agree, and they are semipositive by the
+chain rule for the complex Hessian. They are strictly positive
+away from $C$, since $\pi$ is biholomorphic there. Along $TC$,
+the form vanishes because $\pi|_C$ is constant. Therefore
+\begin{equation}\label{con:beta-intersections}
+                    \int_C\beta=0,\qquad \int_f\beta>0
+\end{equation}
+for every fiber $f$ of $q$. For the second inequality, $f\setminus C$
+is nonempty and $\beta$ is strictly positive on its tangent line;
+its restriction to all of $f$ is nonnegative.
+
+We next identify its real cohomology class. The needed instance
+of the Leray--Hirsch theorem says that, for a $\P^1$-bundle and
+a class restricting to the generator of $H^2(\P^1,\R)$,
+the cohomology of the total space is a free module over that of
+the base with basis that class and $1$
+\cite[Theorem 5.11]{BottTu1982}. Here $\cOne(L_0)$ restricts to
+that generator because $L_0|_f=\OO_{\P^1}(1)$.
+Choose $\tau\in H^2(B,\R)$ with $\int_B\tau=1$. In degree two
+the theorem gives the direct-sum description
+\[
+ H^2(X,\R)=
+        \R\,\cOne(L_0)\ \oplus\ \R\,q^*\tau .
+\]
+Hence $[\beta]=a\cOne(L_0)+bq^*\tau$ for real numbers $a,b$.
+Pairing with $C$ gives $b=0$, since
+$L_0\cdot C=0$ and $\int_Cq^*\tau=1$. Pairing with $f$ then
+gives $a=\int_f\beta>0$. Thus
+$[\beta/a]=\cOne(L_0)$.
+
+The smooth projective surface $X$ is compact K\"ahler.
+The $\partial\bar\partial$-lemma on a compact K\"ahler manifold
+says that a real closed $(1,1)$-form with zero real de Rham
+class is $\ddc$ of a smooth real function
+\cite[Chapter VI, Lemma 8.6]{DemaillyCADG}.
+Apply it to $\beta/a-\theta$, where $\theta$ is the curvature
+of any smooth Hermitian metric $h_0$ on $L_0$. There is a smooth
+real function $v$ such that
+\[
+                    \beta/a-\theta=\ddc v .
+\]
+The metric $h_0e^{-v}$ on $L_0$ is smooth and has semipositive
+curvature $\beta/a$. This contradicts
+Theorem~\ref{obs:c1-obstruction}. Hence $\omega_Y$ cannot exist.
+\end{proof}
+
+\begin{remark}\label{con:regularity-meaning}
+The metric constructed here has near $C$ a weight of the form
+$\varphi_0+M|w|e^{\lambda/2}$. Its failure to be $C^1$ is visible
+on a real normal line $w=t$: the two one-sided derivatives of its
+cusp term at $t=0$ are $Me^{\lambda(z,0)/2}$ and
+$-Me^{\lambda(z,0)/2}$. Adding the smooth function $\varphi_0$
+does not remove this jump. The obstruction theorem says much
+more than this observation about our formula: no different
+semipositive metric can have $C^1$ weights near $C$.
+Conversely, the non-K\"ahlerness of $Y$ does not contradict the
+positive current on $X$: the latter is not a smooth K\"ahler
+form near $C$, and the construction gives no smooth strictly
+plurisubharmonic potentials descending to the contracted point.
+\end{remark}
+
+% End consequences.tex
+% Begin history.tex
+\section{Historical context and the scope of the conclusion}
+\label{hist:context}
+
+The geometric construction, the obstruction to smooth semipositivity, and the
+bounded-potential question arose at different times.  We distinguish these
+statements, and also distinguish Grauert's degree-one example from Koike's
+degree-two modification.  In the notation used here,
+\[
+  0\longrightarrow F\longrightarrow E\longrightarrow\mathcal O_B
+     \longrightarrow0,\qquad
+  X=\mathbb P_{\mathrm{lines}}(E),\qquad C=\mathbb P_{\mathrm{lines}}(F),
+  \qquad L_0=\mathcal O_X(C)\otimes q^*F,
+\]
+where $q:X\to B$ is the projection, $\deg F=d>0$, and the extension class
+$\xi\in H^1(B,F)$ is nonzero.  These conventions identify the normal bundle
+as $N_{C/X}=F^{-1}$ and give $C^2=-d$.
+
+\subsection{Grauert's construction and the degree-one choice}
+\label{hist:grauert}
+
+Grauert's example occurs in \cite[\S4, paragraph~8(d), pp.~365--366]{Grauert1962}.
+Its starting data are a genus-two curve $B$, a degree-one line bundle $F$, and
+a nontrivial affine-line bundle modeled on $F$.  The affine bundle is an
+$F$-torsor: differences of local sections are sections of $F$, but its
+transition functions also contain translations.  Compactifying each affine
+fiber by one point gives the ruled surface above; the added section is $C$.
+Thus the affine bundle itself is not a locally free sheaf, whereas $E$ is a
+rank-two locally free sheaf.
+
+The cohomological hypothesis $H^1(B,F)\ne0$ is essential.  It does not follow
+merely from $\deg F=1$.  One explicit valid choice is
+$F=\mathcal O_B(b)$ for a point $b\in B$: here $h^0(B,F)=1$, and
+Riemann--Roch gives $h^1(B,F)=1$.  For comparison, a degree-one bundle outside
+the effective locus has both groups zero.  The qualification concerning
+$H^1(B,F)$ is also recorded in note~T28 of the supplied English translation
+of Grauert's paper.  Choosing $\mathcal O_B(b)$ resolves it without altering
+the intended example.
+
+Since $C^2=-1$, Grauert's contraction theorem produces a proper holomorphic
+map from $X$ to a normal compact complex surface, contracting precisely $C$
+to one point.  The relevant contraction results are proved in
+\cite[\S3 and \S4, paragraph~8(e)]{Grauert1962}; a modern surface treatment is
+\cite[Chapter~III, \S2]{BHPV2004}.  The contracted point is singular, despite
+$C^2=-1$, because $C$ has genus two.  Grauert proves that the target is not
+projective: a hyperplane section avoiding the contracted point would lift
+to a compact multisection of the affine bundle, and the fiberwise average
+of its points would give a section of the nontrivial torsor.  In particular,
+Grauert's original argument concerns analytic contraction and
+nonprojectivity; it does not establish an obstruction to continuous
+semipositive metrics.
+
+\subsection{The questions of Filip--Tosatti and the obstruction of Koike}
+\label{hist:ft-koike}
+
+Filip--Tosatti revisit this surface in
+\cite[\S2, especially Problem~2.2, p.~2989]{FilipTosatti2018}.  For an ample
+line bundle $A$ they consider, in additive divisor notation,
+\[
+  A-\frac{A\cdot C}{C^2}\,C.
+\]
+Its intersection with $C$ is zero, while the class is nef and big.  Their
+question asks for the failure of \emph{Hermitian semipositivity}, meaning the
+existence of a smooth Hermitian metric with semipositive curvature.  When
+$C^2=-1$ this displayed expression is integral.  If the construction is
+written with $C^2=-d$ for general $d$, it is initially a rational divisor
+class; denominators must be cleared before it is treated as a line bundle.
+This issue does not arise for the explicitly defined integral bundle $L_0$.
+Filip--Tosatti also explain that the contracted surface is non-K\"ahler,
+referring to \cite{Moishezon1975}.  That assertion is not needed for the
+metric construction in the present manuscript.
+
+Koike develops first-order obstructions to linearizing a line bundle along
+a compact submanifold in \cite{Koike2021}.  His Theorem~1.4 shows that a
+nonzero class
+\[
+  u_1(C,X,L)\in H^1(C,N_{C/X}^{-1})
+\]
+precludes smooth semipositivity when $C$ is compact K\"ahler and $L|_C$ is
+topologically trivial.  This extends an obstruction-theoretic viewpoint
+originating in Ueda's study of curves with topologically trivial normal
+bundle \cite{Ueda1983}.  The normal bundle of the present curve is negative,
+so Ueda's original hypotheses are not themselves the hypotheses of the
+application here.
+
+In \cite[Example~4.1, pp.~2262--2263]{Koike2021}, Koike takes a genus-two curve
+and $F=K_B$.  Thus his explicit model has $d=2$, $C^2=-2$, and
+$L_0^2=2$.  A cocycle obtained from the hyperbolic metric represents a
+nonzero class in $H^1(B,K_B)$, and the first-order obstruction of $L_0$ is
+nonzero.  This proves that this modified Grauert example is nef and big
+but has no smooth semipositive metric.  It is important not to identify
+its degree-two data with Grauert's original degree-one data.
+
+\subsection{Zhang's formulation and the conclusion proved here}
+\label{hist:zhang}
+
+In \cite{Zhang2025}, Zhang returns to the degree-one construction and to
+the precise line bundle $L_0=q^*F\otimes\mathcal O_X(C)$.  The calculation
+in \S3 identifies its first obstruction with the nontrivial affine-bundle
+class and applies Koike's theorem to exclude a smooth semipositive metric.
+Section~4 asks whether the first Chern class on the original or modified
+Grauert example admits a positive current with minimal singularities and
+bounded local potentials.  The version cited here is arXiv:2512.23446v1,
+submitted on 29 December 2025; this formulation is attributed to that
+specific version.
+
+Theorem~\ref{main:regularity} and the global construction in
+Theorem~\ref{met:lipschitz-global} give an affirmative answer for the data treated
+here: $L_0$ has a positive-curvature Hermitian metric with locally Lipschitz
+weights.  This includes both the original degree-one case and the
+degree-two canonical-bundle case, and more generally every positive-degree
+$F$ and nonzero extension class satisfying the stated hypotheses.
+Theorem~\ref{obs:c1-obstruction} also excludes a metric with
+$C^1$ weights and semipositive curvature.  These regularity conclusions
+are deductions proved in this manuscript; they are not statements being
+attributed to Grauert, Filip--Tosatti, Koike, or Zhang.  No claim of
+bibliographic priority is intended.
+
+Boundedness implies minimal singularities in this situation for an
+elementary reason.  Fix a smooth reference metric and write a
+positive-curvature metric as a global quasi-plurisubharmonic weight
+$\varphi$.  Every competing such weight $\psi$ is bounded above on the
+compact surface.  If $\varphi$ is bounded below, then
+$\psi\leq\varphi+O(1)$, which is the defining comparison for minimal
+singularities.  This terminology and its general framework are developed
+in \cite[\S1]{DPS2001} and \cite{BEGZ2010}.  Thus the bounded-potential
+conclusion concerns the same metric and class, without a separate
+existence theorem for minimal singularities.
+
+\subsection{What the standard tools do and do not supply}
+\label{hist:tools}
+
+The projectivity of $X$ follows by algebraizing the extension on the
+projective curve using GAGA \cite{Serre1956}.  The projective-bundle and
+ruled-surface calculations are standard
+\cite[Chapters~II and~V]{Hartshorne1977}; here the convention of
+parametrizing lines is fixed explicitly.  Ampleness of the auxiliary bundle
+used in the construction is checked by the surface numerical criterion
+\cite{Nakai1963,Lazarsfeld2004}.  These algebraic facts provide a smooth
+positive metric away from the exceptional-curve difficulty; they do not
+give smooth semipositivity of $L_0$.
+
+The analytic patching uses maxima of plurisubharmonic functions and
+removable singularities for locally bounded-above plurisubharmonic
+functions.  Suitable precise versions are
+\cite[Chapter~I, Lemma~5.17 and Theorem~5.24]{DemaillyCADG}; regularized
+maxima and their preservation of Levi lower bounds appear in
+\cite[Chapter~I, Lemma~5.18]{DemaillyCADG}, within the regularization theory
+of \cite{Richberg1968}.  The decisive local estimate and the $C^1$
+obstruction are supplied in the present proofs.  In particular, these
+regularization results do not authorize smoothing the final metric
+across $C$ while preserving its semipositive curvature.
+
+There is no general implication from nefness to bounded semipositive
+weights.  The nonsplit extension over an elliptic curve in
+\cite[Example~1.7]{DPS1994} gives a nef, non-big tautological bundle;
+\cite[Corollary~4.1 and Example~4.2]{Koike2015} explains its unbounded
+minimal-metric behavior and a related nef and big threefold example.
+Koike's positive results for negative curves in that paper impose, among
+other conditions, a holomorphic tubular-neighborhood hypothesis.  Such a
+hypothesis is not assumed here and cannot be silently substituted for the
+nontrivial affine transitions.
+
+% End history.tex
+
+\begin{thebibliography}{BHPV04}
+
+\bibitem[BEGZ10]{BEGZ2010}
+S{\'e}bastien Boucksom, Philippe Eyssidieux, Vincent Guedj, and Ahmed Zeriahi.
+\newblock {Monge--Amp\`ere} equations in big cohomology classes.
+\newblock {\em Acta Mathematica}, 205(2):199--262, 2010.
+\newblock \href{https://doi.org/10.1007/s11511-010-0054-7}{doi:\nolinkurl{10.1007/s11511-010-0054-7}}.
+
+\bibitem[BHPV04]{BHPV2004}
+Wolf~P. Barth, Klaus Hulek, Chris A.~M. Peters, and Antonius {Van de Ven}.
+\newblock {\em Compact Complex Surfaces}, volume~4 of {\em Ergebnisse der Mathematik und ihrer Grenzgebiete, 3. Folge}.
+\newblock Springer-Verlag, Berlin, second enlarged edition, 2004.
+\newblock \href{https://doi.org/10.1007/978-3-642-57739-0}{doi:\nolinkurl{10.1007/978-3-642-57739-0}}.
+
+\bibitem[BT82]{BottTu1982}
+Raoul Bott and Loring~W. Tu.
+\newblock {\em Differential Forms in Algebraic Topology}, volume~82 of {\em Graduate Texts in Mathematics}.
+\newblock Springer-Verlag, New York, 1982.
+\newblock \href{https://doi.org/10.1007/978-1-4757-3951-0}{doi:\nolinkurl{10.1007/978-1-4757-3951-0}}.
+
+\bibitem[Dem12a]{Demailly2012}
+Jean-Pierre Demailly.
+\newblock {\em Analytic Methods in Algebraic Geometry}, volume~1 of {\em Surveys of Modern Mathematics}.
+\newblock International Press and Higher Education Press, Somerville, MA and Beijing, 2012.
+\newblock \href{https://intlpress.com/site/pub/files/preview/bookpubs/00000371.pdf}{Publisher's preview}.
+
+\bibitem[Dem12b]{DemaillyCADG}
+Jean-Pierre Demailly.
+\newblock {\em Complex Analytic and Differential Geometry}.
+\newblock Institut Fourier, Universit{\'e} de Grenoble, 2012.
+\newblock Online monograph, version of 21 June 2012; \href{https://www-fourier.univ-grenoble-alpes.fr/~demailly/manuscripts/agbook.pdf}{author's PDF}.
+
+\bibitem[DPS94]{DPS1994}
+Jean-Pierre Demailly, Thomas Peternell, and Michael Schneider.
+\newblock Compact complex manifolds with numerically effective tangent bundles.
+\newblock {\em Journal of Algebraic Geometry}, 3(2):295--345, 1994.
+\newblock \href{https://eref.uni-bayreuth.de/id/eprint/59615/}{Institutional record}.
+
+\bibitem[DPS01]{DPS2001}
+Jean-Pierre Demailly, Thomas Peternell, and Michael Schneider.
+\newblock Pseudo-effective line bundles on compact {K\"ahler} manifolds.
+\newblock {\em International Journal of Mathematics}, 12(6):689--741, 2001.
+\newblock \href{https://doi.org/10.1142/S0129167X01000861}{doi:\nolinkurl{10.1142/S0129167X01000861}}.
+
+\bibitem[FT18]{FilipTosatti2018}
+Simion Filip and Valentino Tosatti.
+\newblock Smooth and rough positive currents.
+\newblock {\em Annales de l'Institut Fourier}, 68(7):2981--2999, 2018.
+\newblock \href{https://doi.org/10.5802/aif.3234}{doi:\nolinkurl{10.5802/aif.3234}}.
+
+\bibitem[Gra62]{Grauert1962}
+Hans Grauert.
+\newblock {{\"U}ber Modifikationen und exzeptionelle analytische Mengen}.
+\newblock {\em Mathematische Annalen}, 146(4):331--368, 1962.
+\newblock \href{https://doi.org/10.1007/BF01441136}{doi:\nolinkurl{10.1007/BF01441136}}.
+
+\bibitem[Har77]{Hartshorne1977}
+Robin Hartshorne.
+\newblock {\em Algebraic Geometry}, volume~52 of {\em Graduate Texts in Mathematics}.
+\newblock Springer-Verlag, New York--Heidelberg, 1977.
+\newblock \href{https://doi.org/10.1007/978-1-4757-3849-0}{doi:\nolinkurl{10.1007/978-1-4757-3849-0}}.
+
+\bibitem[Koi15]{Koike2015}
+Takayuki Koike.
+\newblock On minimal singular metrics of certain class of line bundles whose section ring is not finitely generated.
+\newblock {\em Annales de l'Institut Fourier}, 65(5):1953--1967, 2015.
+\newblock \href{https://doi.org/10.5802/aif.2978}{doi:\nolinkurl{10.5802/aif.2978}}.
+
+\bibitem[Koi21]{Koike2021}
+Takayuki Koike.
+\newblock Linearization of transition functions of a semi-positive line bundle along a certain submanifold.
+\newblock {\em Annales de l'Institut Fourier}, 71(5):2237--2271, 2021.
+\newblock \href{https://doi.org/10.5802/aif.3439}{doi:\nolinkurl{10.5802/aif.3439}}.
+
+\bibitem[Laz04]{Lazarsfeld2004}
+Robert Lazarsfeld.
+\newblock {\em Positivity in Algebraic Geometry {I}: Classical Setting: Line Bundles and Linear Series}, volume~48 of {\em Ergebnisse der Mathematik und ihrer Grenzgebiete, 3. Folge}.
+\newblock Springer-Verlag, Berlin, 2004.
+\newblock \href{https://doi.org/10.1007/978-3-642-18808-4}{doi:\nolinkurl{10.1007/978-3-642-18808-4}}.
+
+\bibitem[Moi75]{Moishezon1975}
+Boris~G. Moishezon.
+\newblock Singular {K\"ahlerian} spaces.
+\newblock In {\em Manifolds---Tokyo 1973: Proceedings of the International Conference on Manifolds and Related Topics in Topology, Tokyo, 1973}, pages 343--351. University of Tokyo Press, Tokyo, 1975.
+
+\bibitem[Nak63]{Nakai1963}
+Yoshikazu Nakai.
+\newblock A criterion of an ample sheaf on a projective scheme.
+\newblock {\em American Journal of Mathematics}, 85(1):14--26, 1963.
+\newblock \href{https://doi.org/10.2307/2373180}{doi:\nolinkurl{10.2307/2373180}}.
+
+\bibitem[Ric68]{Richberg1968}
+Rolf Richberg.
+\newblock {Stetige streng pseudokonvexe Funktionen}.
+\newblock {\em Mathematische Annalen}, 175:257--286, 1968.
+\newblock \href{https://doi.org/10.1007/BF02063212}{doi:\nolinkurl{10.1007/BF02063212}}.
+
+\bibitem[Ser56]{Serre1956}
+Jean-Pierre Serre.
+\newblock G{\'e}om{\'e}trie alg{\'e}brique et g{\'e}om{\'e}trie analytique.
+\newblock {\em Annales de l'Institut Fourier}, 6:1--42, 1956.
+\newblock \href{https://doi.org/10.5802/aif.59}{doi:\nolinkurl{10.5802/aif.59}}.
+
+\bibitem[Ued83]{Ueda1983}
+Tetsuo Ueda.
+\newblock On the neighborhood of a compact complex curve with topologically trivial normal bundle.
+\newblock {\em Journal of Mathematics of Kyoto University}, 22(4):583--607, 1983.
+\newblock \href{https://doi.org/10.1215/kjm/1250521670}{doi:\nolinkurl{10.1215/kjm/1250521670}}.
+
+\bibitem[Zha25]{Zhang2025}
+Yangyang Zhang.
+\newblock On the non-semipositivity of a nef and big line bundle on {Grauert's} example, 2025.
+\newblock \href{https://arxiv.org/abs/2512.23446v1}{arXiv:2512.23446v1}, submitted 29 December 2025.
+
+\end{thebibliography}
+
+\end{document}

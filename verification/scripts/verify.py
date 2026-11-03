@@ -16,7 +16,7 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_REL = "papers/src/main.tex"
-PDF_REL = "papers/paper_v2.pdf"
+PDF_REL = "papers/paper_v3.pdf"
 ARCHIVE = ROOT / "archive/repository-2026-10-23"
 
 
@@ -140,6 +140,37 @@ def check_archive(errors: list[str]) -> int:
     return checked
 
 
+def check_release_files(errors: list[str]) -> int:
+    manifest = read_json(ROOT / "verification/build_manifest.json", errors)
+    if not isinstance(manifest, dict):
+        return 0
+    records = list(manifest.get("supporting_files", []))
+    for release in manifest.get("previous_releases", []):
+        records.append(release["pdf"])
+        # Earlier source records may refer to a historical commit at the
+        # current source path; check sources archived under distinct paths.
+        if release.get("source", {}).get("path", "").startswith("archive/"):
+            records.append(release["source"])
+    checked = 0
+    for record in records:
+        relative = record.get("path", "")
+        if (not relative or relative.startswith("/") or "\\" in relative
+                or ":" in relative or ".." in relative.split("/")):
+            errors.append(f"Invalid release-file path: {relative!r}")
+            continue
+        path = (ROOT / relative).resolve()
+        if not path.is_relative_to(ROOT) or not path.is_file():
+            errors.append(f"Missing release file: {relative}")
+            continue
+        data = path.read_bytes()
+        if hashlib.sha256(data).hexdigest() != record.get("sha256"):
+            errors.append(f"Release-file SHA-256 mismatch: {relative}")
+        if len(data) != record.get("bytes"):
+            errors.append(f"Release-file byte-count mismatch: {relative}")
+        checked += 1
+    return checked
+
+
 def without_markdown_code(text: str) -> str:
     lines, fence = [], None
     for line in text.splitlines():
@@ -218,6 +249,7 @@ def main() -> int:
         labels, citations = check_tex(errors)
         check_manifest(errors)
         archived = check_archive(errors)
+        releases = check_release_files(errors)
         links = check_links(errors)
     except (OSError, ValueError, TypeError) as exc:
         errors.append(f"Verification could not complete: {exc}")
@@ -226,7 +258,8 @@ def main() -> int:
             print(f"ERROR: {error}", file=sys.stderr)
         return 1
     print(f"Verified {labels} labels, {citations} bibliography keys, {links} local links, "
-          f"source/PDF hashes, and {archived} unchanged archived files.")
+          f"source/PDF hashes, {releases} release/supporting files, "
+          f"and {archived} unchanged archived files.")
     print("Technical consistency checks passed; mathematical arguments are not mechanically verified.")
     return 0
 

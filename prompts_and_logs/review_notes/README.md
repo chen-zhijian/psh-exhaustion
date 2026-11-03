@@ -1,5 +1,11 @@
 # Mathematical and editorial reviews
 
+## 3 November 2026 — version 3
+
+The [dated revision audit](revision-2026-11-03.txt) records integration of the Grauert regularity and radius-criterion notes, the strengthened $C^1$ obstruction, the regularity criterion for differentiable, local Hölder, and real analytic classes, and the direct check of Enoki's 1981 article. A final editorial review unified notation and removed repetition while retaining the detailed deductions. All 32 numbered statements and 99 labels were preserved during that final pass; version 3 changes the mathematical content of version 2.
+
+The 30-page PDF passed compilation, cross-reference, and visual checks. The bibliography uses alphabetic labels matching the Grauert note. Earlier PDFs and review records remain unchanged; the version 2 source and build manifest are also archived. The [supporting notes](../../supporting_notes/) record the supplied revision inputs, while the integrated manuscript states the current results.
+
 ## 30 October 2026 — version 2
 
 The [dated revision audit](revision-2026-10-30.txt) records the four-line abstract, expanded proof details, and removal of redundant qualifications. All 29 formal statements are unchanged after whitespace normalization. The 24-page PDF passed compilation and visual checks, and the published source/PDF hashes are recorded in the build manifest. The previous release's metadata and PDF are preserved.

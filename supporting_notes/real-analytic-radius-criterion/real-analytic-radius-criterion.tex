@@ -1,0 +1,894 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1.1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,mathtools,microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Tot}{\operatorname{Tot}}
+\newcommand{\PSH}{\operatorname{PSH}}
+\newcommand{\Levi}{\mathcal L}
+\newcommand{\loc}{\mathrm{loc}}
+\newcommand{\ddc}{dd^c}
+\newcommand{\barp}{\bar\partial}
+\newcommand{\Reg}{\mathcal R}
+
+\title[The real analytic radius criterion]{The Radius Criterion in Real Analytic
+and Lower Regularity:\\ An Expanded Proof and Audit}
+\date{November 2, 2026}
+
+\begin{document}
+\begin{abstract}
+For a holomorphic line bundle $A$ over a compact complex manifold,
+the total space of $A^{-1}$ admits a real analytic plurisubharmonic
+exhaustion if and only if $A$ admits a real analytic Hermitian metric
+with semipositive curvature. We prove the equivalence, together with
+its continuous, differentiable, and local H\"older versions. The proof
+includes the uniform analyticity estimate needed for circle averaging,
+a derivative-free positivity argument for the logarithmic radius,
+and a separate verification of every regularity class. We also correct
+one inference about regularity inclusions in the preceding discussion.
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\section{Statement, conventions, and scope}
+
+The answer to the real analytic question is \emph{yes}. The relevant
+equivalence is at the \emph{same} regularity on both sides; it does not
+assert that a smooth exhaustion or metric can be replaced by a real
+analytic one. The following statement extends Proposition~3.3 and
+Corollary~3.4 of the manuscript \cite{CX} and incorporates the
+low-regularity argument discussed in the chat entitled
+\emph{``Generalizing Corollary 3.4''} (the title translated from Chinese).
+% Original chat title: 推广推论3.4
+
+\begin{theorem}[Radius criterion at each regularity]\label{thm:main}
+Let $Z$ be a compact complex manifold, let $A\to Z$ be a holomorphic
+line bundle, and put $M=\Tot(A^{-1})$. Choose any one of the classes
+\begin{equation}\label{eq:classes}
+\Reg\in\bigl\{C^r:r\in\mathbb Z_{\ge0}\cup\{\infty\}\bigr\}
+\ \cup\ \bigl\{C^{k,\alpha}_{\loc}:k\in\mathbb Z_{\ge0},\ 0<\alpha\le1\bigr\}
+\ \cup\ \{C^\omega\}.
+\end{equation}
+Then the following are equivalent:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $M$ admits a real-valued plurisubharmonic exhaustion of class $\Reg$.
+\item $A$ admits a positive definite Hermitian metric of class $\Reg$
+whose local weights are plurisubharmonic.
+\end{enumerate}
+In particular,
+\begin{equation}\label{eq:analytic-equivalence}
+\begin{gathered}
+\Tot(A^{-1})\text{ admits a real analytic psh exhaustion}
+\\\Longleftrightarrow\\
+A\text{ admits a real analytic semipositive Hermitian metric}.
+\end{gathered}
+\end{equation}
+No K\"ahler or projectivity hypothesis on $Z$ is needed.
+\end{theorem}
+
+An \emph{exhaustion} here is a continuous real-valued function $F$
+such that $\{F\le a\}$ is compact for every $a\in\R$. We use
+\[
+d^c=\frac{i}{4\pi}(\barp-\partial),\qquad
+\ddc=\frac{i}{2\pi}\partial\barp.
+\]
+For a holomorphic frame $e_i$ of $A$ over $B_i\subset Z$, write
+\begin{equation}\label{eq:weights}
+\|e_i\|_h^2=h_i=e^{-\psi_i}>0.
+\end{equation}
+The metric is \emph{semipositive} if $\psi_i\in\PSH(B_i)$.
+Below $C^2$ regularity this means $\ddc\psi_i\ge0$ as a current;
+it does not require pointwise second derivatives. The positivity of
+$h_i$ in \eqref{eq:weights} refers to the fiber norm, whereas
+semipositivity refers to its curvature.
+
+All regularity is local in real coordinates underlying holomorphic
+charts. For $0<\alpha\le1$, $f\in C^{k,\alpha}_{\loc}(\Omega)$ means
+$f\in C^k(\Omega)$ and, for each compact $K\Subset\Omega$,
+\[
+|D^\beta f(x)-D^\beta f(y)|\le C_K|x-y|^\alpha
+\quad(x,y\in K,\ |\beta|=k).
+\]
+In particular, $C^{0,1}_{\loc}$ means locally Lipschitz. At integer
+orders $C^r$ has its classical meaning; $C^{k,1}_{\loc}$ is not
+identified with $C^{k+1}$. If a real noninteger index is desired, our
+convention is $C^{k+\alpha}=C^{k,\alpha}_{\loc}$ for $0<\alpha<1$.
+Real analyticity, denoted $C^\omega$, means representability by a
+convergent power series in the real coordinates near every point.
+No single analytic radius or H\"older constant on all of $M$ is required.
+
+The metric coefficients $h_i$, their reciprocals $h_i^{-1}$, and the
+weights $-\log h_i$ have the same membership in each of the classes in
+\eqref{eq:classes}. Indeed, on every sufficiently small relatively
+compact chart, $h_i$ is bounded away from zero, and composition with
+$\log$, $\exp$, or $s\mapsto1/s$ preserves the indicated regularity.
+For the analytic class these functions are themselves real analytic
+on their domains.
+
+\section{Circle averaging, including real analyticity}
+
+Let $R_\theta(v)=e^{i\theta}v$ be the fiberwise circle action and let
+$F_0$ be an exhaustion as in Theorem~\ref{thm:main}(i). Define
+\begin{equation}\label{eq:average}
+F(v)=\frac1{2\pi}\int_0^{2\pi}F_0(R_\theta v)\,d\theta.
+\end{equation}
+
+\begin{lemma}\label{lem:average}
+The function $F$ is a circle-invariant psh exhaustion. It belongs
+to every class in \eqref{eq:classes} to which $F_0$ belongs.
+\end{lemma}
+
+\begin{proof}[Proof of continuity, invariance, positivity, and properness]
+For a compact set $K\subset M$, the orbit set $S^1\cdot K$ is compact.
+The continuous integrand in \eqref{eq:average} is uniformly continuous
+on compact coordinate neighborhoods times $S^1$; hence its integral
+is continuous. Changing the variable $\theta$ shows
+$F(R_\eta v)=F(v)$.
+
+Every $R_\theta$ is holomorphic. For a holomorphic disc $f$ defined
+on a neighborhood of $\overline\Delta$ in $M$, the submean inequality
+for $F_0\circ R_\theta\circ f$, integrated in $\theta$, gives
+\[
+F(f(0))\le\frac1{2\pi}\int_0^{2\pi}F(f(e^{is}))\,ds.
+\]
+The interchange of integrals is valid because the integrand is
+continuous on a compact set. This proves that $F$ is psh.
+
+Put $K_a=\{F_0\le a\}$. If $F(v)\le a$, at least one point of its
+circle orbit lies in $K_a$: otherwise the continuous function
+$\theta\mapsto F_0(R_\theta v)$ would have minimum strictly larger
+than $a$, contrary to its average. Therefore
+\begin{equation}\label{eq:saturation}
+\{F\le a\}\subset S^1\cdot K_a.
+\end{equation}
+The right side is compact, being the continuous image of
+$S^1\times K_a$. The left side is closed, so it is compact as well.
+Thus $F$ is an exhaustion.
+\end{proof}
+
+\begin{proof}[Proof of finite, smooth, and H\"older regularity]
+In a bundle chart use real coordinates $x=(z,\lambda)$, with complex
+coordinates regarded as pairs of real coordinates. Rotation is the
+linear map $T_\theta(z,\lambda)=(z,e^{i\theta}\lambda)$, whose matrix
+entries and operator norm are uniformly bounded in $\theta$.
+For $F_0\in C^r$ and $|\beta|\le r$,
+\begin{equation}\label{eq:diff-average}
+D^\beta F(x)=\frac1{2\pi}\int_0^{2\pi}
+D_x^\beta(F_0\circ T_\theta)(x)\,d\theta.
+\end{equation}
+The derivatives of the integrand are jointly continuous and uniformly
+bounded on the relevant compact sets. Difference quotients and
+dominated convergence justify \eqref{eq:diff-average}. Its right side
+is continuous. Applying this for every finite $r$ proves the
+$C^\infty$ assertion as well.
+
+For $F_0\in C^{k,\alpha}_{\loc}$, the chain rule for the linear maps
+$T_\theta$ and the local H\"older estimates on the compact orbit set
+give, on a smaller compact coordinate neighborhood,
+\[
+\bigl|D^\beta(F_0\circ T_\theta)(x)
+-D^\beta(F_0\circ T_\theta)(y)\bigr|
+\le C|x-y|^\alpha,\qquad |\beta|=k,
+\]
+with $C$ independent of $\theta$. A finite neighborhood cover of the
+orbit set supplies such a uniform constant; pairs of points not close
+enough to lie in one of these neighborhoods are handled by boundedness
+of the derivatives. Integrating the estimate proves the same H\"older
+bound for $D^\beta F$. This also applies when $k=0$ or $\alpha=1$.
+\end{proof}
+
+\begin{lemma}[Analytic integration over a compact parameter]\label{lem:analytic-integral}
+Suppose $G(x,\theta)$ is jointly real analytic on a neighborhood of
+$\{x_0\}\times S^1$, where $x\in\R^m$. Then
+\[
+I(x)=\frac1{2\pi}\int_0^{2\pi}G(x,\theta)\,d\theta
+\]
+is real analytic near $x_0$.
+\end{lemma}
+
+\begin{proof}
+Use a real angular coordinate near each point of $S^1$. The convergent
+real power series of $G$ in $(x,\theta)$ extends holomorphically to
+the complexified variables on a smaller polydisc. After shrinking
+that polydisc, its extension is bounded there. Consequently, for each
+angular point there is an arc $J$, a number $R_J>0$, and a bound $M_J$
+such that, for every real $\theta\in J$, the function
+$x\mapsto G(x,\theta)$ has a bounded holomorphic extension to
+\[
+|x_j-x_{0,j}|<2R_J,\qquad 1\le j\le m.
+\]
+Compactness of $S^1$ supplies finitely many such arcs. Taking a smaller
+common radius and the largest of the finitely many bounds, Cauchy's
+estimates give constants $R,M>0$ such that
+\begin{equation}\label{eq:analytic-estimate}
+\left|\frac{D_x^\beta G(x_0,\theta)}{\beta!}\right|
+\le M R^{-|\beta|}
+\quad\text{for every multi-index $\beta$ and every $\theta$.}
+\end{equation}
+Each local extension has the given real function as its restriction,
+so its Taylor coefficients in $x$ are precisely those in
+\eqref{eq:analytic-estimate}. No choice of a global complexification
+in the angular variable is needed.
+
+For $|x-x_0|_\infty<R$, the Taylor series
+\[
+G(x,\theta)=\sum_{\beta\in\mathbb Z_{\ge0}^m}
+\frac{D_x^\beta G(x_0,\theta)}{\beta!}(x-x_0)^\beta
+\]
+converges uniformly in $\theta$ on every smaller polydisc. Indeed,
+if $|x-x_0|_\infty\le r<R$, the sum of the absolute bounds is at most
+\[
+M\sum_\beta(r/R)^{|\beta|}=M(1-r/R)^{-m}<\infty.
+\]
+Termwise integration is therefore justified and yields the convergent
+power series
+\[
+I(x)=\sum_\beta\left(
+\frac1{2\pi}\int_0^{2\pi}
+\frac{D_x^\beta G(x_0,\theta)}{\beta!}\,d\theta\right)(x-x_0)^\beta.
+\]
+Thus $I$ is real analytic near $x_0$.
+\end{proof}
+
+\begin{proof}[Analytic case of Lemma~\ref{lem:average}]
+In a bundle chart the function
+\[
+G(x,\theta)=F_0(T_\theta x)
+\]
+is jointly real analytic: the rotation
+matrix has analytic entries $\sin\theta$ and $\cos\theta$, and
+$F_0$ is real analytic. Apply Lemma~\ref{lem:analytic-integral} at
+each $x_0$. This proves $F\in C^\omega$, including at the zero section.
+\end{proof}
+
+\begin{remark}
+Differentiating the integral to every order proves smoothness, but
+does not by itself prove analyticity. The uniform convergence radius,
+or equivalently the factorial estimates \eqref{eq:analytic-estimate},
+is the additional ingredient. There is also no appeal to approximation
+of smooth psh functions by analytic ones.
+\end{remark}
+
+\section{Logarithmic radii from a continuous exhaustion}
+
+Fix a holomorphic frame $e_i$ of $A$ on a coordinate neighborhood
+$B_i$. Write vectors of $A^{-1}$ as $v=\lambda_i e_i^*(z)$ and set
+\begin{equation}\label{eq:UV}
+U_i(z,t)=F\bigl(e^{t/2}e_i^*(z)\bigr),\qquad
+V_i(z,w)=F\bigl(e^{w/2}e_i^*(z)\bigr).
+\end{equation}
+The map $(z,w)\mapsto e^{w/2}e_i^*(z)$ is holomorphic. Consequently
+$V_i$ is psh on $B_i\times\C$, and circle invariance gives
+\begin{equation}\label{eq:real-part}
+V_i(z,w)=U_i(z,\operatorname{Re}w).
+\end{equation}
+
+\subsection{Convexity without classical second derivatives}
+
+For fixed $z$, write $u(t)=U_i(z,t)$ and $w=t+is$.
+Subharmonicity of $u(\operatorname{Re}w)$ implies, as distributions,
+\[
+\Delta_w\bigl(u(t)\bigr)=u''(t)\ge0.
+\]
+To read this as an inequality on the real line, test against a product
+$\eta(t)\chi(s)$ with $\eta,\chi\ge0$ and $\int\chi=1$; the term
+involving $\chi''$ integrates to zero. Thus
+$\langle u'',\eta\rangle\ge0$.
+Convolve $u$ on compact subintervals with a nonnegative smooth
+approximate identity. The resulting smooth functions satisfy
+$u_\varepsilon''\ge0$ and are convex. They converge locally uniformly
+to the continuous function $u$. Passing to the limit in the convexity
+inequality proves that $u$ is convex.
+
+Moreover,
+\begin{equation}\label{eq:limits}
+\lim_{t\to-\infty}U_i(z,t)=F(0_z),\qquad
+\lim_{t\to+\infty}U_i(z,t)=+\infty.
+\end{equation}
+The first limit is continuity at the zero vector. If the second failed,
+there would be a sequence $t_\nu\to+\infty$ along which $U_i(z,t_\nu)$
+is bounded above. Its corresponding vectors would lie in one compact
+sublevel of $F$, although their fiber coordinates tend to infinity.
+This is impossible.
+
+\begin{lemma}[Unique upper-level radius]\label{lem:convex}
+Let $u:\R\to\R$ be continuous and convex, with
+$\lim_{t\to-\infty}u(t)=\ell\in\R$ and
+$\lim_{t\to+\infty}u(t)=+\infty$. Then $u$ is nondecreasing.
+For every $c>\ell$ there is a unique $s\in\R$ such that $u(s)=c$,
+and
+\[
+u(t)<c\ \Longleftrightarrow\ t<s,\qquad
+u(t)\le c\ \Longleftrightarrow\ t\le s.
+\]
+If $u$ is differentiable at $s$, then $u'(s)>0$.
+\end{lemma}
+
+\begin{proof}
+If $u(b)<u(a)$ for some $a<b$, let
+$d=(u(b)-u(a))/(b-a)<0$. The monotonicity of secant slopes for convex
+functions implies, for $x<a$,
+\[
+\frac{u(a)-u(x)}{a-x}\le d,
+\qquad u(x)\ge u(a)-d(a-x)\longrightarrow+\infty
+\quad(x\to-\infty),
+\]
+contradicting the finite limit. Hence $u$ is nondecreasing, and $u\ge\ell$.
+The intermediate value theorem supplies a point at level $c$.
+If $u(s)=u(t)=c$ with $s<t$, monotonicity gives
+$u(x)\le c$ for $x<s$, while convexity gives
+\[
+0\le\frac{u(s)-u(x)}{s-x}\le
+\frac{u(t)-u(s)}{t-s}=0.
+\]
+Thus $u(x)=c$ for all $x<s$, contradicting $\ell<c$.
+Uniqueness together with monotonicity gives both stated equivalences.
+Finally, for any $a<s$, the supporting-slope inequality gives
+\begin{equation}\label{eq:positive-derivative}
+u'(s)\ge\frac{u(s)-u(a)}{s-a}
+=\frac{c-u(a)}{s-a}>0.
+\end{equation}
+\end{proof}
+
+\subsection{Choice and continuity of the radius}
+
+Since the zero section is compact, choose once and for all
+\begin{equation}\label{eq:c}
+c>\max_{z\in Z}F(0_z).
+\end{equation}
+Lemma~\ref{lem:convex} provides a unique function $\sigma_i:B_i\to\R$
+such that
+\begin{equation}\label{eq:radius-equation}
+U_i(z,\sigma_i(z))=c.
+\end{equation}
+For nonzero vectors, $t=\log|\lambda_i|^2$, so
+\begin{equation}\label{eq:disc-bundle}
+\{F<c\}\cap A^{-1}|_{B_i}
+=\{(z,\lambda_i):|\lambda_i|^2<e^{\sigma_i(z)}\}.
+\end{equation}
+The zero vectors belong to both sides by \eqref{eq:c}. Thus
+$e^{\sigma_i(z)/2}$ is exactly the fiber radius of this sublevel set.
+
+Continuity does not require an implicit function theorem. Fix $z_0$,
+write $s_0=\sigma_i(z_0)$, and take $\varepsilon>0$. The strict
+inequalities
+\[
+U_i(z_0,s_0-\varepsilon)<c<U_i(z_0,s_0+\varepsilon)
+\]
+persist for $z$ near $z_0$ by continuity of $U_i$. The unique level root
+must then lie between $s_0-\varepsilon$ and $s_0+\varepsilon$.
+Therefore $\sigma_i$ is continuous.
+
+\section{Positivity of the negative logarithmic radius}
+
+\begin{proposition}\label{prop:psh-radius}
+For the continuous radii constructed above, $\psi_i=-\sigma_i$ is psh.
+\end{proposition}
+
+\begin{proof}
+Let $f$ be a holomorphic map from a neighborhood of $\overline\Delta$
+to $B_i$. The function
+$\varphi(e^{i\theta})=\sigma_i(f(e^{i\theta}))$ is continuous on
+$\partial\Delta$. Its Poisson integral is
+\begin{equation}\label{eq:poisson}
+H(re^{it})=\frac1{2\pi}\int_0^{2\pi}
+\frac{1-r^2}{1-2r\cos(t-\theta)+r^2}
+\varphi(e^{i\theta})\,d\theta,\qquad 0\le r<1.
+\end{equation}
+The Poisson kernel is nonnegative, has integral $2\pi$, and
+concentrates at its boundary point as $r\uparrow1$. Uniform continuity
+of $\varphi$ therefore gives a continuous extension of $H$ to
+$\overline\Delta$, equal to $\varphi$ on the boundary.
+The Poisson kernel is harmonic in the interior variable, so $H$ is
+harmonic and smooth on $\Delta$. In particular,
+\begin{equation}\label{eq:mean-H}
+H(0)=\frac1{2\pi}\int_0^{2\pi}\sigma_i(f(e^{i\theta}))\,d\theta.
+\end{equation}
+
+Writing the disc coordinate as $x+iy$, the function $H_x-iH_y$ is
+holomorphic because $H_{xx}+H_{yy}=0$. Since $\Delta$ is simply
+connected, it has a holomorphic primitive $g$. Adjusting the real
+constant of integration gives $\operatorname{Re}g=H$.
+The map
+\[
+\zeta\longmapsto e^{g(\zeta)/2}e_i^*(f(\zeta))
+\]
+is holomorphic on $\Delta$. Hence
+\begin{equation}\label{eq:q}
+q(\zeta)=F\bigl(e^{g(\zeta)/2}e_i^*(f(\zeta))\bigr)
+=U_i(f(\zeta),H(\zeta))
+\end{equation}
+is subharmonic there. The second expression is continuous on
+$\overline\Delta$, and its boundary value is
+\[
+U_i\bigl(f(\zeta),\sigma_i(f(\zeta))\bigr)=c.
+\]
+The maximum principle yields $q\le c$. By Lemma~\ref{lem:convex},
+this is equivalent to
+\[
+H(\zeta)\le\sigma_i(f(\zeta)).
+\]
+At the center, using \eqref{eq:mean-H} and multiplying by $-1$, we get
+\[
+-\sigma_i(f(0))\le\frac1{2\pi}\int_0^{2\pi}
+-\sigma_i(f(e^{i\theta}))\,d\theta.
+\]
+Applying the same argument to every smaller disc proves the
+submean inequalities for $-\sigma_i\circ f$. Since $-\sigma_i$ is
+continuous, the holomorphic-disc criterion proves it is psh.
+\end{proof}
+
+\begin{remark}\label{rem:conjugate}
+The harmonic conjugate of continuous boundary data need not extend
+continuously to the boundary. The proof does not assume this:
+$q=U_i(f,H)$ has the required continuous extension even when $g$
+does not. Circle invariance is precisely what removes the imaginary
+part of $g$ from this boundary argument.
+\end{remark}
+
+\subsection{Gluing and the sign of the curvature}
+
+On an overlap, suppose $e_j=g_{ij}e_i$, with $g_{ij}$ nowhere-vanishing
+and holomorphic. Then $e_j^*=g_{ij}^{-1}e_i^*$, and equality of the
+two descriptions of a vector gives
+\[
+\lambda_i e_i^*=\lambda_j e_j^*,\qquad
+\lambda_j=g_{ij}\lambda_i.
+\]
+At the level $F=c$, \eqref{eq:disc-bundle} therefore gives
+\begin{equation}\label{eq:transition}
+e^{\sigma_j}=|g_{ij}|^2e^{\sigma_i},\quad
+\sigma_j=\sigma_i+\log|g_{ij}|^2,\quad
+\psi_j=\psi_i-\log|g_{ij}|^2.
+\end{equation}
+Consequently
+\begin{equation}\label{eq:constructed-metric}
+\|e_i\|_h^2=e^{-\psi_i}=e^{\sigma_i}
+\end{equation}
+defines a positive definite continuous Hermitian metric on $A$.
+Its curvature is $\ddc\psi_i\ge0$. The curvature currents agree
+because $\log|g_{ij}|^2$ is pluriharmonic locally. This completes the
+continuous forward implication, with no differentiation of $F$.
+
+\section{Recovering precisely the original regularity}
+
+Composition in \eqref{eq:UV} preserves every class in
+\eqref{eq:classes}, since $(z,t)\mapsto e^{t/2}e_i^*(z)$ is real
+analytic. We now recover the regularity of $\sigma_i$ from the
+level equation. The three cases below require different justifications.
+
+\subsection{Classical \texorpdfstring{$C^r$}{C-r} and real analytic regularity}
+
+Suppose first that $U_i$ is $C^1$. At each level root,
+Lemma~\ref{lem:convex} gives
+\begin{equation}\label{eq:transversality}
+\partial_tU_i(z,\sigma_i(z))>0.
+\end{equation}
+For any finite $r\ge1$, the $C^r$ implicit function theorem applied
+to $U_i(z,t)-c=0$ therefore gives $\sigma_i\in C^r$ when $U_i\in C^r$.
+The local solution agrees with the previously constructed continuous
+radius by uniqueness. Applying this for every finite $r$ gives the
+$C^\infty$ conclusion.
+
+When $U_i\in C^\omega$, the \emph{real analytic} implicit function
+theorem applies. More explicitly, take real base coordinates
+$x\in\R^{2\dim_\C Z}$ near $z_0$ and put $t_0=\sigma_i(z_0)$.
+Complexify the convergent power series of $U_i(x,t)-c$ near
+$(x_0,t_0)$. The resulting holomorphic function
+$\widetilde U(X,T)-c$ satisfies
+$\partial_T\widetilde U(x_0,t_0)\ne0$. The holomorphic map
+\[
+(X,T)\longmapsto (X,\widetilde U(X,T)-c)
+\]
+has invertible Jacobian there. Its local holomorphic inverse, restricted
+to the second coordinate $0$, supplies a holomorphic function
+$T=S(X)$ solving the level equation. The complexified series is real
+on real inputs; uniqueness, or conjugation of this equation, implies
+that $S(x)$ is real for real $x$ near $x_0$. Thus its restriction is
+real analytic and equals $\sigma_i$ by uniqueness. Formula
+\eqref{eq:constructed-metric} now makes $h$ real analytic.
+
+\begin{remark}
+No regular-value selection by Sard's theorem is needed. Every
+$c>\max_ZF(0_z)$ has the required positive radial derivative. In the
+$C^1$ case, this also implies that $F=c$ is a regular level: along
+$s\mapsto e^s v$ its derivative is $2U_{i,t}>0$ at such a point.
+\end{remark}
+
+\subsection{The \texorpdfstring{$C^{0,\alpha}$}{C-(0,alpha)} case, including Lipschitz regularity}
+
+The implicit function theorem is unavailable at this regularity.
+Fix $z_0$ and abbreviate $U=U_i$, $\sigma=\sigma_i$. Choose
+\[
+a<b<\sigma(z_0)<d,\qquad U(z_0,b)>U(z_0,a).
+\]
+Such $a,b$ exist: by continuity there is a $b<\sigma(z_0)$ with
+$U(z_0,b)>F(0_{z_0})$, and then the limit at $-\infty$ supplies $a<b$
+with the strict inequality. Continuity of $U$ and $\sigma$ permits
+shrinking the base neighborhood so that
+\begin{equation}\label{eq:secant}
+b<\sigma(z)<d,\qquad
+\frac{U(z,b)-U(z,a)}{b-a}\ge m>0
+\end{equation}
+throughout it, with one constant $m$. Ordered secant slopes of a
+convex function now imply
+\begin{equation}\label{eq:strong-increase}
+U(z,t)-U(z,s)\ge m(t-s),\qquad b\le s\le t\le d.
+\end{equation}
+
+Assume $\sigma(z)\ge\sigma(w)$. Since both radii lie in $(b,d)$,
+\begin{align*}
+m|\sigma(z)-\sigma(w)|
+&\le U(z,\sigma(z))-U(z,\sigma(w))\\
+&=U(w,\sigma(w))-U(z,\sigma(w))\\
+&\le C|z-w|^\alpha.
+\end{align*}
+The last estimate follows from the $C^{0,\alpha}$ bound for $U$ on
+a compact product of a smaller base neighborhood with $[b,d]$.
+If the two radii have the opposite order, interchange $z,w$. Hence
+\begin{equation}\label{eq:holder-radius}
+|\sigma(z)-\sigma(w)|\le(C/m)|z-w|^\alpha.
+\end{equation}
+This proves the same H\"older exponent for the radius, including
+$\alpha=1$. Taking its exponential preserves that exponent for $h$.
+
+\subsection{The \texorpdfstring{$C^{k,\alpha}$}{C-(k,alpha)} case for \texorpdfstring{$k\ge1$}{k at least 1}}
+
+For completeness, one can obtain the H\"older version of the implicit
+function theorem here directly. The classical theorem first gives
+$\sigma\in C^k$. On a small convex real coordinate neighborhood,
+$\sigma$ is Lipschitz because its first derivatives are bounded.
+Write $x$ for the real base variables. Differentiating $U(x,\sigma(x))=c$
+once yields
+\begin{equation}\label{eq:first-derivative}
+D_{x_j}\sigma(x)=-\frac{U_{x_j}(x,\sigma(x))}{U_t(x,\sigma(x))}.
+\end{equation}
+The denominator has a positive lower bound after shrinking the
+neighborhood, by \eqref{eq:transversality}. For $k=1$, the first
+derivatives of $U$ are $\alpha$-H\"older, and composition with the
+Lipschitz map $x\mapsto(x,\sigma(x))$ preserves this property.
+Products and reciprocals of bounded H\"older functions with nonzero
+denominator preserve it as well. Thus $D\sigma$ is $\alpha$-H\"older.
+
+For $k\ge2$, differentiating the level equation $k$ times gives,
+for each multi-index $\beta$ of length $k$,
+\begin{equation}\label{eq:higher-derivative}
+U_t(x,\sigma(x))D^\beta\sigma(x)=-P_\beta(x).
+\end{equation}
+Here $P_\beta$ is a finite sum of products of derivatives of $U$ of
+order at most $k$, evaluated at $(x,\sigma(x))$, and derivatives of
+$\sigma$ of order at most $k-1$. This form follows inductively from
+the chain and product rules: the only term involving a derivative of
+$\sigma$ of order $k$ is the displayed $U_tD^\beta\sigma$.
+Derivatives of $\sigma$ of order at most $k-1$ are locally Lipschitz
+since $\sigma\in C^k$. Derivatives of $U$ of order less than $k$ are
+locally Lipschitz, and those of order $k$ are $\alpha$-H\"older.
+Their compositions with $(x,\sigma(x))$ therefore have the same bounds.
+All factors of $P_\beta$ are bounded and $\alpha$-H\"older on the
+smaller neighborhood, so $P_\beta$ is $\alpha$-H\"older. Division by
+$U_t$ in \eqref{eq:higher-derivative} proves that $D^\beta\sigma$ is
+$\alpha$-H\"older. This argument works unchanged at $\alpha=1$.
+
+Together with the continuous construction, these arguments prove
+Theorem~\ref{thm:main}(i)$\Rightarrow$(ii) for every listed class.
+
+\section{From a semipositive metric to an exhaustion}
+
+Let $h$ be a metric as in Theorem~\ref{thm:main}(ii), with local
+weights $\psi_i$. Define the squared dual norm
+\begin{equation}\label{eq:rho}
+\rho(v)=\|v\|_{h^{-1}}^2.
+\end{equation}
+Since $\|e_i^*\|_{h^{-1}}^2=1/\|e_i\|_h^2=e^{\psi_i}$, its local
+formula is
+\begin{equation}\label{eq:rho-local}
+\rho(z,\lambda_i)=|\lambda_i|^2e^{\psi_i(z)}.
+\end{equation}
+Under the frame changes \eqref{eq:transition},
+\[
+|\lambda_j|^2e^{\psi_j}
+=|g_{ij}\lambda_i|^2e^{\psi_i-\log|g_{ij}|^2}
+=|\lambda_i|^2e^{\psi_i}.
+\]
+Thus these formulas agree on overlaps.
+
+\subsection{Regularity, including the zero section}
+
+The function $|\lambda_i|^2$ is a polynomial in the real fiber
+coordinates. Composition of $\psi_i$ with the exponential and
+multiplication by this polynomial preserve $C^r$, $C^{k,\alpha}_{\loc}$,
+and $C^\omega$. Therefore $\rho$ has the stated regularity on the
+entire bundle chart, including $\lambda_i=0$. There is no division
+by $\lambda_i$ or logarithmic singularity in \eqref{eq:rho-local}.
+For example, for bounded H\"older functions the elementary estimate
+\[
+|a(x)b(x)-a(y)b(y)|
+\le\|a\|_\infty|b(x)-b(y)|+\|b\|_\infty|a(x)-a(y)|
+\]
+gives the product bound; applying the product and chain rules gives
+the higher-order versions. On this noncompact total space, the
+result is local regularity, not a uniform global H\"older bound.
+
+\subsection{Plurisubharmonicity with no loss at zero}
+
+Away from the zero section,
+\[
+\log\rho=\log|\lambda_i|^2+\psi_i(z)
+\]
+is psh, because the first summand is pluriharmonic there. The
+exponential is increasing and convex, so $\rho$ is psh there.
+Indeed, for a subharmonic function $u$, its submean inequality and
+Jensen's inequality give
+\[
+e^{u(0)}\le e^{\frac1{2\pi}\int u(e^{it})dt}
+\le\frac1{2\pi}\int e^{u(e^{it})}\,dt.
+\]
+The same argument on holomorphic discs proves the psh assertion.
+
+Here is an explicit local proof across the zero section, avoiding
+any regularity assumption on second derivatives of $\psi_i$.
+For $\varepsilon>0$ set, on a fixed bundle chart,
+\[
+\rho_\varepsilon(z,\lambda_i)
+=(|\lambda_i|^2+\varepsilon)e^{\psi_i(z)}.
+\]
+The function
+$\log\rho_\varepsilon=\log(|\lambda_i|^2+\varepsilon)+\psi_i(z)$
+is psh, since
+\[
+\frac{\partial^2}{\partial\lambda_i\partial\bar\lambda_i}
+\log(|\lambda_i|^2+\varepsilon)
+=\frac{\varepsilon}{(|\lambda_i|^2+\varepsilon)^2}\ge0.
+\]
+Thus $\rho_\varepsilon$ is psh by convex composition.
+Moreover $\rho_\varepsilon\to\rho$ locally uniformly, since
+$\rho_\varepsilon-\rho=\varepsilon e^{\psi_i}$ and $\psi_i$ is
+continuous. Passing to the limit in the disc submean inequalities
+shows that $\rho$ is psh throughout the chart. These auxiliary
+$\rho_\varepsilon$ need not agree on overlaps: they are used only
+to prove the local property of the globally defined $\rho$.
+
+Equivalently, one may use the removable-singularity theorem for
+locally bounded psh functions across the zero section. The local
+argument above verifies directly that the extension has value zero.
+
+\subsection{Compactness of the sublevels}
+
+Choose any smooth reference Hermitian metric $k$ on $A^{-1}$.
+Since the fibers are one-dimensional, the ratio
+\[
+a(z)=\frac{\|v\|_{h^{-1}}^2}{\|v\|_k^2},\qquad 0\ne v\in A^{-1}_z,
+\]
+is independent of the choice of $v$. It is a positive continuous
+function on compact $Z$. Hence there are constants $0<m\le M<\infty$
+such that
+\begin{equation}\label{eq:comparison}
+m\|v\|_k^2\le\rho(v)\le M\|v\|_k^2.
+\end{equation}
+The closed disk bundle $\{\|v\|_k^2\le R\}$ over a compact base is
+compact. To check this explicitly, cover $Z$ by finitely many compact
+sets $K_j$ each contained in a bundle chart. On $K_j$, the positive
+coefficient of $k$ has a positive minimum, so the indicated disk
+bundle lies in $K_j\times\{|\lambda|\le C_j\}$ and is closed there.
+Each such piece is compact, and their finite union is compact.
+
+For $b\ge0$, \eqref{eq:comparison} places the closed set
+$\{\rho\le b\}$ inside the compact disk bundle
+$\{\|v\|_k^2\le b/m\}$. For $b<0$ the sublevel is empty.
+Thus $\rho$ is an exhaustion. This proves
+Theorem~\ref{thm:main}(ii)$\Rightarrow$(i), and completes the theorem.
+
+\begin{remark}[Geometric normalization]
+If $h$ was obtained from a circle-averaged exhaustion and a level $c$,
+then $\psi_i=-\sigma_i$, so
+\[
+\rho(z,\lambda_i)=|\lambda_i|^2e^{-\sigma_i(z)},\qquad
+\{\rho<1\}=\{F<c\}.
+\]
+The new exhaustion need not equal $F$; it is the squared Hermitian
+gauge of this one complete circular sublevel set.
+\end{remark}
+
+\section{The classical Levi calculations, written out}
+
+The preceding proof establishes positivity at continuous regularity.
+For comparison with the original Proposition~3.3, we verify its
+$C^2$ calculation, including the sign and the factor $2$.
+
+\subsection{Levi form of the radius}
+
+Assume $U$ and $\sigma$ are $C^2$ and omit the chart index. All
+derivatives of $U$ below are evaluated at $(z,\sigma(z))$.
+Differentiating $U(z,\sigma(z))=c$ gives
+\[
+U_{z_j}+U_t\sigma_{z_j}=0
+\]
+and then
+\begin{equation}\label{eq:second-radius}
+0=U_{z_j\bar z_k}+U_{z_jt}\sigma_{\bar z_k}
++U_{t\bar z_k}\sigma_{z_j}
++U_{tt}\sigma_{z_j}\sigma_{\bar z_k}
++U_t\sigma_{z_j\bar z_k}.
+\end{equation}
+For $\xi\in T_z^{1,0}Z$, put $b=\partial\sigma(\xi)$.
+Since $V(z,w)=U(z,\operatorname{Re}w)$,
+\[
+V_{z_j\bar w}=\tfrac12U_{z_jt},\qquad
+V_{w\bar z_k}=\tfrac12U_{t\bar z_k},\qquad
+V_{w\bar w}=\tfrac14U_{tt}.
+\]
+At the point $(z,w=\sigma(z))$ this gives
+\begin{align*}
+\Levi_V(\xi,2b)
+&=\sum_{j,k}U_{z_j\bar z_k}\xi_j\bar\xi_k
++2\operatorname{Re}\left(\sum_jU_{z_jt}\xi_j\bar b\right)
++U_{tt}|b|^2\\
+&=-U_t\Levi_\sigma(\xi),
+\end{align*}
+where the last equality is \eqref{eq:second-radius} contracted with
+$\xi_j\bar\xi_k$. Because $V$ is psh and $U_t>0$,
+\begin{equation}\label{eq:Levi-radius}
+\Levi_{-\sigma}(\xi)=\frac{\Levi_V(\xi,2\partial\sigma(\xi))}{U_t}
+\ge0.
+\end{equation}
+The plus sign in the vector $(\xi,2\partial\sigma(\xi))$ is correct.
+
+\subsection{Levi form of the squared dual norm}
+
+For $\rho=|\lambda|^2e^\psi$, direct differentiation yields
+\begin{align*}
+\rho_{z_j\bar z_k}
+&=|\lambda|^2e^\psi(\psi_{z_j\bar z_k}
++\psi_{z_j}\psi_{\bar z_k}),\\
+\rho_{z_j\bar\lambda}&=\lambda e^\psi\psi_{z_j},\qquad
+\rho_{\lambda\bar z_k}=\bar\lambda e^\psi\psi_{\bar z_k},\qquad
+\rho_{\lambda\bar\lambda}=e^\psi.
+\end{align*}
+Contracting with $(\xi,\eta)$ and completing the square gives
+\begin{equation}\label{eq:Levi-norm}
+\Levi_\rho(\xi,\eta)
+=e^\psi\left(
+|\eta+\lambda\partial\psi(\xi)|^2
++|\lambda|^2\Levi_\psi(\xi)\right)\ge0.
+\end{equation}
+At $\lambda=0$ this reduces to $e^\psi|\eta|^2$, so it also explicitly
+checks positivity on the zero section in the analytic and $C^2$ cases.
+
+\section{Audit of the earlier discussion}
+
+The continuous radius argument and its H\"older extension are valid.
+The following qualifications distinguish the established conclusions
+from stronger statements that do not follow from this proof.
+
+\begin{enumerate}[label=\textup{\arabic*.},leftmargin=*]
+\item \textbf{Analytic averaging.}
+The compactness estimate in Lemma~\ref{lem:analytic-integral} supplies
+uniform Taylor convergence. Smooth differentiation under the integral
+alone is insufficient. With this addition, the analytic implicit
+function theorem proves the requested real analytic equivalence.
+
+\item \textbf{Low-regularity positivity is not a Hessian computation.}
+For merely continuous or $C^1$ data, Proposition~\ref{prop:psh-radius}
+proves the psh property by harmonic comparison. Curvature is interpreted
+as a positive current. The second-derivative identity
+\eqref{eq:Levi-radius} is used only when those derivatives exist.
+
+\item \textbf{There is no hidden boundary assumption on a harmonic conjugate.}
+Only $H$ and the expression $U_i(f,H)$ must extend continuously to the
+closed disc; $g$ need not do so. See Remark~\ref{rem:conjugate}.
+
+\item \textbf{H\"older regularity at order zero uses an inverse estimate.}
+The strictly positive uniform secant slope in \eqref{eq:secant}, not
+an unavailable differentiable implicit function theorem, is what
+preserves $C^{0,\alpha}$ and Lipschitz regularity. For $k\ge1$,
+\eqref{eq:first-derivative}--\eqref{eq:higher-derivative} verify the
+H\"older conclusion, including the endpoint $\alpha=1$.
+
+\item \textbf{An equivalence at stronger regularity does not descend by inclusion alone.}
+Let $E_{\Reg}$ denote existence of an exhaustion of class $\Reg$, and
+$H_{\Reg}$ existence of a metric of that class. If
+$\Reg_s\subset\Reg_t$, then
+\[
+E_{\Reg_s}\Longrightarrow E_{\Reg_t},\qquad
+H_{\Reg_s}\Longrightarrow H_{\Reg_t}.
+\]
+Even together with $E_{\Reg_s}\Longleftrightarrow H_{\Reg_s}$, these
+arrows do not imply $E_{\Reg_t}\Longleftrightarrow H_{\Reg_t}$:
+the two weaker existence properties may enlarge independently.
+The earlier chat's claim that the weaker equivalence follows
+automatically by inclusion must therefore be removed. The direct
+proof above establishes the equivalence separately at every class.
+
+\item \textbf{The H\"older inclusions themselves need the stated endpoint convention.}
+For $0<\alpha<\beta\le1$,
+$C^{k,\beta}_{\loc}\subset C^{k,\alpha}_{\loc}$, since on a compact
+set of diameter $D$,
+\[
+|x-y|^\beta\le D^{\beta-\alpha}|x-y|^\alpha.
+\]
+Bounded first derivatives on smaller coordinate balls also imply
+\[
+C^{k+1}\subsetneq C^{k,1}_{\loc}\subset C^{k,\alpha}_{\loc}
+\quad(0<\alpha<1).
+\]
+For the strict first inclusion, use $|x|$ when $k=0$; for $k\ge1$,
+take a $k$-fold antiderivative of $|x|$, whose $k$th derivative is
+Lipschitz but not differentiable at zero. The example
+$|x|^{3/2}\in C^{1,1/2}\setminus C^2$ illustrates a different
+endpoint issue and does not by itself prove
+$C^{k+1}\subsetneq C^{k,1}_{\loc}$. For noninteger orders, the usual
+ordering by $k+\alpha$ is valid; integer differentiability and
+Lipschitz endpoints must remain distinct.
+
+\item \textbf{Existence at every regularity is not asserted.}
+For each class, the theorem equates two existence questions for a
+fixed bundle. It does not assert that any of them has a positive
+answer, nor that $C^\infty$ semipositivity implies $C^\omega$
+semipositivity. Likewise, nonexistence of a $C^2$ metric rules out
+$C^2$, smooth, and analytic exhaustions, but does not alone rule out
+$C^1$ or locally Lipschitz exhaustions. In the particular example of
+\cite[Theorem~1.1]{CX}, the $C^2$ obstruction already rules out the
+analytic class; the lower-regularity threshold requires its own argument.
+
+\item \textbf{The hypotheses and signs are essential to the construction.}
+Compactness of $Z$ supplies one level above the whole zero section
+and compact norm disk bundles. The object constructed is a metric
+on $A$, while the exhaustion lives on $A^{-1}$. With the convention
+$\|e_i\|_h^2=e^{-\psi_i}$, the psh weight is $-\sigma_i$, and the
+metric coefficient is $e^{\sigma_i}$. These signs and the factor $2$
+in \eqref{eq:Levi-radius} agree with the original $C^2$ proof.
+\end{enumerate}
+
+\begin{corollary}[Replacement for Corollary 3.4]\label{cor:replacement}
+Let $A\to Z$ be a holomorphic line bundle over a compact complex
+manifold. For each $r\in\mathbb Z_{\ge0}\cup\{\infty,\omega\}$,
+$\Tot(A^{-1})$ admits a $C^r$ psh exhaustion if and only if $A$
+admits a $C^r$ Hermitian metric with psh local weights. The same
+equivalence holds with $C^r$ replaced on both sides by
+$C^{k,\alpha}_{\loc}$, for every $k\in\mathbb Z_{\ge0}$ and $0<\alpha\le1$.
+Here $C^\omega$ means real analytic, and below $C^2$ semipositivity
+is understood in the sense of currents.
+\end{corollary}
+
+\paragraph{Source and scope note.}
+The audit concerns the radius criterion and the regularity discussion
+in the referenced chat, not the other geometric arguments in the
+manuscript. The proofs of the averaging, radius, and regularity steps
+are supplied in this note. Standard background on psh functions,
+holomorphic pullback, convex composition, and removable singularities
+can be found in \cite[Chapter~I, \S5]{Demailly}; in that chapter see
+Definition~5.1 and Theorems~5.6, 5.11, and 5.24.
+
+\begin{thebibliography}{9}
+\bibitem{CX}
+Z.~Chen and B.~Xiao,
+\emph{Continuous and Smooth Plurisubharmonic Exhaustions:
+Threefold Counterexamples and Surface Regularization},
+manuscript, October 30, 2026, \S3, especially Proposition~3.3 and
+Corollary~3.4. The version consulted is the local source
+\texttt{10-30-revision/psh-exhaustion.tex}.
+
+\bibitem{Demailly}
+J.-P.~Demailly,
+\emph{Complex Analytic and Differential Geometry},
+open-content book, Chapter~I, \S5.
+\href{https://www-fourier.univ-grenoble-alpes.fr/~demailly/manuscripts/agbook.pdf}
+{Author's PDF}.
+\end{thebibliography}
+\end{document}

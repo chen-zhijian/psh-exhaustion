@@ -1,0 +1,108 @@
+VERSION 3 — MATHEMATICAL AND EDITORIAL REVISION
+3 November 2026
+
+Scope of this record
+
+This is a factual summary of the revision and review work. It is not a
+conversation transcript, proof-assistant certificate, or external journal
+review. The current self-contained source is papers/src/main.tex and the
+current manuscript is papers/paper_v3.pdf. The previous PDFs and dated
+review records are retained.
+
+Integration and principal changes
+
+The revision integrates the supplied grauert-regularity.pdf and
+real-analytic-radius-criterion.pdf into the manuscript. The supporting
+notes and their available sources are preserved separately as revision
+inputs; the integrated manuscript gives the current statements and proofs.
+
+The introductory threefold theorem states existence of a connected smooth
+quasi-projective Kähler threefold with a locally Lipschitz psh exhaustion
+and no C^1 psh exhaustion. Its construction and proof appear in the body.
+The non-Kähler example retains the same exhaustion regularity gap.
+
+The ruled-surface argument uses nonzero extensions of the trivial line
+bundle by a positive-degree line bundle. It proves the C^1 obstruction by
+restriction to holomorphic graphs and a resulting splitting contradiction.
+The quantitative cusp construction and metric gluing provide locally
+Lipschitz semipositive metrics, smooth with strictly positive curvature off
+the negative section.
+
+The former Corollary 3.4 is Theorem 3.4, “Regularity criterion.” For a line
+bundle over a compact complex manifold, existence of a semipositive metric
+is equivalent to existence of a psh exhaustion on the dual total space in
+each of the following classes: C^r for nonnegative integer r or r=infinity;
+local C^{k,alpha} for nonnegative integer k and 0<alpha<=1; and real analytic.
+No Kähler or projectivity hypothesis on the base is imposed.
+
+Mathematical audit
+
+The C^1 proof explicitly fixes a compact test disc and a uniform normal
+tube before choosing the graph parameter. It obtains smoothness from
+harmonicity of the real and imaginary parts before differentiating the
+normal coefficient. The cusp construction states the psh removability
+argument at the divisor.
+
+The regularity proof retains compact-group averaging, a common complex
+polydisc and uniform factorial estimates for analytic averaging, convex
+radial profiles, a holomorphic-disc proof of positivity, the inverse
+secant estimate for local Hölder data, and implicit-function arguments for
+higher and real analytic regularity. The Hölder bounds use one constant
+on a compact base-and-radius cylinder, including the Lipschitz endpoint.
+The proof distinguishes C^{k,1} from C^{k+1}.
+
+The modification, surface, and curve-fibering arguments were also reviewed.
+The surface theorem and its general noncompact-surface limitation remain
+as stated. The curve-fibering proof retains its assumptions on every fiber
+and the detailed support and uniform-area arguments for singular spaces.
+The review found no remaining gap requiring withdrawal or weakening of
+the revised principal results. This records the review findings, not an
+independent formal verification of the mathematics.
+
+Enoki source check
+
+The file supplied as Enoki1980.pdf contains Enoki's article published in
+Tohoku Mathematical Journal 33 (1981), pages 453–492; the 1980 dates concern
+receipt and revision. The bibliography correctly uses 1981.
+
+The source check covered the introductory classification on page 453,
+the Main Theorem on page 454, the affine-bundle degree convention in
+Section 2 on page 457, and Proposition 3.5(iii) on page 460. The argument
+now explicitly records A_0=m C_E with m>0 and supp A_0=C_E, and identifies
+the complement as an affine-line bundle with linearization Q of degree -n.
+In reciprocal fiber coordinates, the infinity section has normal bundle
+Q^{-1}; its self-intersection is n>0. This supplies the positive boundary
+collar used in the exhaustion argument. The supplied third-party PDF is
+not included in this repository; the article is cited in the manuscript.
+
+Final editorial pass
+
+Notation and terminology were unified; unnamed bases, chart domains,
+boundary components, and fibers were made explicit. Repeated regularity
+definitions and class lists were consolidated. The second occurrence of
+the canonical-bundle existence calculation was replaced by a reference
+to its full earlier derivation. The detailed C^1, analytic, Hölder, Enoki,
+and Bishop compactness deductions were retained.
+
+An independent comparison of the final editorial changes found no omitted
+proof steps or unintended changes to the results. All 32 numbered theorem,
+proposition, lemma, and corollary statements and all 99 labels were retained
+during this pass. This does not assert invariance from version 2, which had
+29 numbered statements and the weaker C^2 obstruction.
+
+The references now use alphabetic labels and bibliography formatting
+matching the Grauert regularity note, with no citation-page back-references.
+
+Validation and release data
+
+The final editorial manuscript compiled in three pdfLaTeX passes to 30
+pages. Its 99 labels and all citation keys resolved; there were no overfull
+or underfull boxes or missing-character warnings. All pages were inspected
+in rendered contact sheets, with individual inspection of the introduction,
+analytic averaging, Hölder estimates, regularity criterion, Enoki argument,
+and convexity proof. The bibliography contains 20 entries, 19 cited.
+
+The publication build and source/PDF checksums are recorded in
+verification/build_manifest.json. Repository verification checks links,
+references, published-file hashes, and the historical archive. Compilation
+and consistency checks do not themselves verify the mathematical proofs.

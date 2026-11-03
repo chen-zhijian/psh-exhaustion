@@ -1,0 +1,35 @@
+{
+  "labels": 99,
+  "bibliography_entries": 20,
+  "cited_entries": 19,
+  "unresolved_references": [],
+  "unresolved_citations": [],
+  "environment_sequence_preserved": true,
+  "bibliography_unchanged": true,
+  "numbered_statements": 32,
+  "pages": 30,
+  "source_sha256": "7c8c9e8e8199a28d13d9da335778f9214bb2ba6f67150583dac3ddf4bb564fe6",
+  "pdf_sha256": "2fadc78886ba19caa0e896d500046d591268581e1606506a73c2d07ea420f917",
+  "compilation_passes": 3,
+  "layout_warnings": [],
+  "unresolved_cross_references": [],
+  "independent_editorial_review": "No unintended mathematical changes or omitted proof steps found.",
+  "visual_check": "All 30 pages checked in contact sheets; introduction, analytic averaging, Holder estimates, criterion, Enoki, and convexity pages inspected individually.",
+  "date": "2026-11-03",
+  "version": 3,
+  "source": "papers/src/main.tex",
+  "pdf": "papers/paper_v3.pdf",
+  "scope": "Checks performed during the final editorial pass; statement preservation compares the audited v3 draft before and after that pass, not v2 against v3.",
+  "Enoki_source_check": {
+    "publication_year": 1981,
+    "printed_pages_checked": [
+      453,
+      454,
+      457,
+      459,
+      460
+    ],
+    "result": "The main theorem, reduced cycle, affine-bundle linearization degree and Proposition 3.5(iii) agree with the revised argument.",
+    "publisher_pdf_bundled": false
+  }
+}

@@ -7,3 +7,5 @@
 *.yml text eol=lf
 *.pdf binary
 archive/** -text
+# Keep the supplied supporting documents byte-for-byte.
+supporting_notes/** -text whitespace=cr-at-eol

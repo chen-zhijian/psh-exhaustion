@@ -93,4 +93,16 @@ $$
 
 which supplies the positive boundary collar. The general regularization problem for noncompact complex surfaces remains open.
 
+## Applications to earlier problems
+
+The revised abstract and introduction identify the historical implications of the results:
+
+- A negative answer to Nakano’s smoothing question in dimension three and higher, and an affirmative result for divisor complements in compact Kähler surfaces.
+- Locally Lipschitz potentials answering Tosatti’s bounded-potential question, recorded by Zhang, for the original and modified Grauert examples; Filip–Tosatti’s earlier non-semipositivity problem and Zhang’s solution are credited separately.
+- A $C^1$ strengthening of Koike’s obstruction for the Grauert examples considered here.
+- An extension of Vîjîitu’s curve-fibering argument to singular spaces under the stated bound on every fiber, giving a higher-dimensional analogue of Ohsawa’s surface theorem.
+- The line-bundle converse discussed by Ohsawa, with the same regularity on both sides of the criterion.
+
+The new subsection supplies the original references and distinguishes these conclusions from broader affine-bundle or unrestricted surface questions. The forced page break after the table of contents is removed. See the [introduction revision record](prompts_and_logs/review_notes/introduction-2026-11-03.txt).
+
 See Sections 2–3 of the [manuscript](papers/paper_v3.pdf) for the two main advances, the [supporting notes](supporting_notes/) for the revision inputs, and the [dated review](prompts_and_logs/review_notes/revision-2026-11-03.txt) for the mathematical audit and editorial checks.

@@ -1,0 +1,57 @@
+VERSION 3 — ABSTRACT AND INTRODUCTION REVISION
+3 November 2026
+
+This record describes an editorial and historical-attribution update to
+Version 3. It does not constitute a new mathematical audit or a
+proof-assistant certificate. Earlier version PDFs and review records remain
+unchanged.
+
+The abstract is replaced by the concise text approved by the authors. An
+applications subsection in the introduction explains five connections:
+Nakano's smoothing question; Filip–Tosatti's non-semipositivity problem and
+Tosatti's bounded-potential question recorded by Zhang; Koike's obstruction;
+Ohsawa's and Vîjîitu's holomorphic-convexity results; and the seminegative
+line-bundle converse discussed by Ohsawa. Original references are supplied.
+
+Attribution and scope
+
+Nakano's question is Problem 1, page 162, in the 1980 Sugaku collection
+edited by Wakabayashi. The unrestricted surface question is not claimed
+to be settled. The negative answer extends from dimension three to higher
+dimensions by taking a product with affine space; restriction to a closed
+slice preserves the obstruction to a C^1 psh exhaustion.
+
+The original non-semipositivity problem is attributed jointly to Filip
+and Tosatti. The bounded-potential question is described as suggested by
+Tosatti and recorded in Section 4 of Zhang's paper. The constructed
+potentials are locally Lipschitz, hence bounded, and have minimal
+singularities; their curvature is smooth and strictly positive off the
+negative section.
+
+The C^1 strengthening of Koike's obstruction is stated for the Grauert
+examples proved in this manuscript. It is not presented as an extension
+of every case of Koike's arbitrary-dimensional theorem.
+
+The curve-fibering result is compared with Vîjîitu's argument under the
+bound on every nonempty fiber. The singular-space extension is identified
+explicitly; no unqualified generalization of his full rank theorem is
+claimed. The irreducible surface case is credited to his surface theorem.
+
+Ohsawa's seminegative converse is located after Proposition 6.1 in Section
+6 of his RIMS Kokyuroku 2175 article. It is described as a discussed
+converse, not a numbered conjecture. The manuscript establishes the linear
+line-bundle case over compact complex bases, not arbitrary affine torsors.
+
+Layout and publication
+
+The forced page break between the table of contents and the introduction
+and the extra amsart post-contents skip are removed. The README remains concise and points readers to the paper
+and Changes in Version 3 for details.
+
+The revised source compiles in three passes without unresolved references,
+overfull or underfull boxes, or missing characters. All 31 pages were
+reviewed in contact sheets, and the introduction and bibliography were
+inspected individually. Sections 2–6 match the preceding source textually.
+The current source and PDF hashes, page count, and review details are
+recorded in verification/build_manifest.json. Repository integrity checks
+are run before publication.

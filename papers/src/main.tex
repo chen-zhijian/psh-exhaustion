@@ -6,7 +6,7 @@
 \usepackage{lmodern}
 \usepackage{amssymb,mathtools}
 \usepackage{microtype}
-\usepackage{enumitem}
+\usepackage{enumitem,etoolbox}
 \usepackage{booktabs,tabularx,placeins}
 \usepackage{xcolor}
 \usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=green!35!black,urlcolor=blue!55!black]{hyperref}
@@ -50,21 +50,29 @@ Threefold Counterexamples and Surface Regularization}
 ruled surface, Hironaka modification, Ueda theory, class VII surface, boundary divisor, positive current}
 
 \setcounter{tocdepth}{1}
+% Retain normal section spacing after the contents, without amsart's extra skip.
+\makeatletter
+\patchcmd{\@starttoc}{\addvspace{32\p@\@plus14\p@}}{}{}%
+  {\PackageError{psh-exhaustion}{Cannot adjust contents spacing}{}}
+\makeatother
 \begin{document}
 
 \begin{abstract}
-We construct K\"ahler and non-K\"ahler threefolds with locally Lipschitz
-psh exhaustions but no $C^1$ psh exhaustion; the K\"ahler example is
-quasi-projective. For line bundles over compact complex manifolds,
-the equivalence between semipositive metrics and psh exhaustions
-of the dual total space preserves $C^r$, local H\"older, and real
-analytic regularity. We also prove smooth regularization for divisor
-complements in compact K\"ahler surfaces and a holomorphic convexity
-criterion for weakly complete spaces fibered by curves over affine space.
+We construct quasi-projective and non-K\"ahler threefolds with locally
+Lipschitz plurisubharmonic (psh) exhaustions but no $C^1$ psh exhaustion,
+answering Nakano's smoothing question negatively in dimensions at least
+three. We prove an affirmative result for divisor complements in compact
+K\"ahler surfaces. For line bundles over compact complex manifolds, we
+characterize the existence of psh exhaustions of the dual total space by
+semipositive metrics of the same $C^r$, H\"older, or real analytic
+regularity, establishing the seminegative converse discussed by Ohsawa.
+We also prove a holomorphic convexity criterion for reduced complex
+spaces fibered by curves over affine space, extending
+V\^{\i}j\^{\i}itu's curve-fibering argument to singular spaces and giving
+a higher-dimensional analogue of Ohsawa's surface theorem.
 \end{abstract}
 \maketitle
 \tableofcontents
-\newpage
 
 \section{Introduction and main results}\label{sec:intro}
 
@@ -82,21 +90,17 @@ exhaustion.
 
 The construction uses Grauert's ruled surfaces
 \cite[\S4, 8(d)]{Grauert1962}, including Koike's modified example
-\cite[Example~4.1]{Koike2021}. For their distinguished nef and big
-line bundles, we construct locally Lipschitz semipositive metrics,
-smooth with strictly positive curvature off the negative section,
-and prove that no semipositive $C^1$ metric exists near that section.
-The proof strengthens the smooth first-order obstruction
-\cite[Theorem~1.4]{Koike2021} by testing $C^1$ weights on holomorphic
-graphs. The regularity criterion
+\cite[Example~4.1]{Koike2021}. Their distinguished nef and big line
+bundles admit locally Lipschitz semipositive metrics but no $C^1$
+semipositive metric near the negative section. The regularity criterion
 (Theorem~\ref{cor:criterion}) then gives, for every line bundle $A$
 over a compact complex manifold,
 \[
-\begin{gathered}
-\Tot(A^{-1})\text{ has a psh exhaustion of class }\mathcal R
-\\\Longleftrightarrow\\
+\begin{aligned}
+&\Tot(A^{-1})\text{ has a psh exhaustion of class }\mathcal R
+\\&\qquad\Longleftrightarrow\quad
 A\text{ has a semipositive metric of class }\mathcal R,
-\end{gathered}
+\end{aligned}
 \]
 Here $\mathcal R$ is any of the $C^r$,
 $C^{k,\alpha}_{\mathrm{loc}}$, or $C^\omega$ classes
@@ -152,10 +156,8 @@ holomorphically convex and admits a smooth psh exhaustion.
 \end{theorem}
 
 The fiber bound includes exceptional fibers. Analytic fiber cycles
-and Bishop compactness establish
-the stability needed for V\^{\i}j\^{\i}itu's convexity criteria
-\cite{VijituForum2022}. For irreducible surfaces, convexity already
-follows from \cite[Theorem~1.1]{Vajaitu2022}.
+and Bishop compactness establish the stability needed for the convexity
+argument.
 
 Regularization here means existence of a smooth exhaustion. The
 problem for arbitrary noncompact complex surfaces remains open. Among smooth
@@ -163,7 +165,106 @@ quasi-projective manifolds, Theorems~\ref{thm:main}
 and~\ref{thm:surface-introduction} place the least possible
 counterexample dimension at three.
 
-\paragraph{Conventions.}\label{sec:conventions}
+\subsection{Applications to earlier problems}\label{subsec:applications}
+
+\paragraph{Nakano's smoothing question.}
+Nakano asked whether every Lelong-pseudoconvex manifold, namely one
+admitting a continuous psh exhaustion, admits a smooth psh exhaustion
+\cite[\S I.1, Problem~1, p.~162]{Wakabayashi1980}.
+Theorem~\ref{thm:main} answers this negatively in dimension three.
+Choose a locally Lipschitz psh exhaustion $\rho\ge0$ on $M$.
+For each $n>3$, the product $M\times\C^{n-3}$ is quasi-projective and
+admits the locally Lipschitz psh exhaustion
+\[
+ \rho_n(x,z)=\rho(x)+\|z\|^2.
+\]
+A $C^1$ psh exhaustion on this product would restrict to one on the
+closed slice $M\times\{0\}$, contradicting Theorem~\ref{thm:main}.
+Thus the answer is negative in every dimension at least three.
+Theorem~\ref{thm:surface-introduction} gives an affirmative answer for
+surfaces with a divisorial compactification in a compact K\"ahler
+surface, including smooth quasi-projective surfaces. No nonconstant
+holomorphic function is assumed in this surface result.
+
+\paragraph{Filip--Tosatti and the bounded-potential question.}
+Filip and Tosatti asked to prove that the distinguished nef and big
+line bundle in Grauert's ruled-surface example is not smoothly
+semipositive \cite[Problem~2.2, p.~2989]{FilipTosatti2018}.
+Zhang proved this for the original example using Koike's first
+obstruction class \cite[Theorem~1.2]{Zhang2025}.
+He also recorded a question suggested by Tosatti: for the original
+or modified Grauert example, does $c_1(L)$ contain a closed positive
+current with bounded local potentials and minimal singularities
+\cite[\S4]{Zhang2025}?
+Proposition~\ref{prop:continuous-metric} and
+Remark~\ref{rem:minimal} answer this affirmatively in both cases.
+The constructed metric has locally Lipschitz weights and is smooth
+with strictly positive curvature on $S\setminus Y$. In the notation
+of \eqref{eq:main-line}, the two examples have
+\[
+ (Y^2,L^2)=(-1,1),\qquad (Y^2,L^2)=(-2,2),
+\]
+respectively. Write its curvature as $T=\theta+\ddc u\ge0$, with
+$\theta$ a smooth representative of $c_1(L)$. Boundedness of
+$u$ on compact $S$ gives, for every $\theta$-psh
+$v\not\equiv-\infty$,
+\[
+ v\le u+\sup_Sv-\inf_Su.
+\]
+Hence $T$ has minimal singularities as well as bounded local potentials.
+
+\paragraph{Koike's first obstruction at $C^1$ regularity.}
+Koike extended Ueda's obstruction theory to line bundles. His
+Theorem~1.4 excludes smooth semipositivity when the first obstruction
+class is nonzero, and Example~4.1 applies this to the modified Grauert
+example \cite{Koike2021}.
+For the Grauert triples considered here, the nonzero extension class
+$\xi$ in \eqref{eq:extension-intro} gives
+\[
+ u_1(Y,S,L)=-\xi\ne0
+ \quad\text{in }H^1(Y,N_{Y/S}^{-1})\simeq H^1(B,F).
+\]
+Proposition~\ref{prop:no-metric} shows that no neighborhood of $Y$
+carries a $C^1$ Hermitian metric on $L$ with psh weights; the same
+holds for every positive tensor power of $L$.
+Indeed, Lemma~\ref{lem:first-normal} makes the first normal derivatives
+of hypothetical $C^1$ weights holomorphic, and their transition
+identities would make $\xi$ a coboundary. Together with the metric
+construction, this gives locally Lipschitz semipositivity without
+$C^1$ semipositivity for these examples.
+
+\paragraph{Ohsawa--V\^{\i}j\^{\i}itu convexity.}
+Ohsawa proved that a connected noncompact smoothly weakly complete
+surface is holomorphically convex if and only if it admits a
+nonconstant holomorphic function
+\cite[Proposition~1.4, p.~156]{Ohsawa1981}.
+Theorem~\ref{thm:curve-fiber-introduction} gives a higher-dimensional
+analogue for reduced spaces with a continuous psh exhaustion.
+For smooth sources, the argument follows V\^{\i}j\^{\i}itu's work
+\cite[Corollary~4.2 and pp.~463--464]{VijituForum2022}.
+Our proof extends the required fiber-stability argument to singular
+total spaces under the stated bound on every fiber, without requiring
+the connected components of the singular locus to be compact.
+For irreducible surfaces, the continuous-exhaustion case already
+follows from the stronger theorem
+\cite[Theorem~1.1]{Vajaitu2022}.
+
+\paragraph{Ohsawa's seminegative converse.}
+Ohsawa observed that the total space of a seminegative holomorphic
+line bundle over a compact complex manifold is smoothly weakly
+complete and discussed the converse
+\cite[\S6, Proposition~6.1 and the following paragraph]{Ohsawa2021}.
+Taking $\mathcal R=C^\infty$ in Theorem~\ref{cor:criterion} proves
+this converse for linear line bundles in every dimension, without
+a K\"ahler assumption. The same theorem preserves each of the
+$C^r$, local H\"older, and real analytic classes in
+\eqref{eq:regularity-classes}. Ohsawa's Theorem~6.1 treats affine
+line bundles over compact Riemann surfaces; our result extends its
+linear case to higher-dimensional compact bases. It does not assert
+the corresponding equivalence for arbitrary affine bundles or improve
+the regularity of a given exhaustion.
+
+\subsection{Conventions}\label{sec:conventions}
 We use
 \[
 d^c=\frac{i}{4\pi}(\barp-\partial),\qquad
@@ -2454,6 +2555,12 @@ I.~Enoki.
 \newblock {\em Tohoku Math. J. (2)}, 33(4):453--492, 1981.
 \newblock \href{https://doi.org/10.2748/tmj/1178229349}{doi:\nolinkurl{10.2748/tmj/1178229349}}. \href{https://www.jstage.jst.go.jp/article/tmj1949/33/4/33_4_453/_pdf/-char/en}{Original article, pp.~453--454}.
 
+\bibitem[FT18]{FilipTosatti2018}
+S.~Filip and V.~Tosatti.
+\newblock Smooth and rough positive currents.
+\newblock {\em Annales de l'Institut Fourier}, 68(7):2981--2999, 2018.
+\newblock \href{https://doi.org/10.5802/aif.3234}{doi:\nolinkurl{10.5802/aif.3234}}.
+
 \bibitem[FN05]{FN2005}
 Y.~Fujimoto and N.~Nakayama.
 \newblock Compact complex surfaces admitting non-trivial surjective endomorphisms.
@@ -2484,6 +2591,19 @@ S.~Mongodi and Z.~Slodkowski.
 \newblock {\em Math. Z.}, 296(3--4):1011--1019, 2020.
 \newblock \href{https://doi.org/10.1007/s00209-020-02466-z}{doi:\nolinkurl{10.1007/s00209-020-02466-z}}. \href{https://arxiv.org/abs/1904.03497}{arXiv:1904.03497}.
 
+\bibitem[Ohs81]{Ohsawa1981}
+T.~Ohsawa.
+\newblock Weakly 1-complete manifold and {Levi} problem.
+\newblock {\em Publ. Res. Inst. Math. Sci.}, 17(1):153--164, 1981.
+\newblock \href{https://doi.org/10.2977/PRIMS/1195186709}{doi:\nolinkurl{10.2977/PRIMS/1195186709}}.
+
+\bibitem[Ohs21]{Ohsawa2021}
+T.~Ohsawa.
+\newblock {Nishino's} rigidity, locally pseudoconvex maps, and holomorphic motions.
+\newblock {\em RIMS K\^oky\^uroku}, 2175:27--46, 2021.
+\newblock \href{https://hdl.handle.net/2433/263965}{Kyoto University repository}.
+\href{https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/2175-03.pdf}{Author text, Section~6}.
+
 \bibitem[Sta]{StacksHironaka}
 {The Stacks Project Authors}.
 \newblock The {Stacks} project.
@@ -2506,6 +2626,13 @@ V.~V{\^\i}j{\^\i}itu.
 \newblock Holomorphic convexity of pseudoconvex spaces in terms of the rank of structural sheaf.
 \newblock {\em Forum Math.}, 34(2):455--468, 2022.
 \newblock \href{https://doi.org/10.1515/forum-2021-0262}{doi:\nolinkurl{10.1515/forum-2021-0262}}.
+
+\bibitem[Wak80]{Wakabayashi1980}
+I.~Wakabayashi, editor.
+\newblock Collected problems around several complex variables (in Japanese).
+\newblock {\em Sugaku}, 32(2):161--187, 1980.
+\newblock \href{https://doi.org/10.11429/sugaku1947.32.161}{doi:\nolinkurl{10.11429/sugaku1947.32.161}}.
+\newblock S.~Nakano's contribution: Section~I.1, Problem~1, p.~162.
 
 \bibitem[W{\l}o05]{Wlodarczyk05}
 J.~W{\l}odarczyk.

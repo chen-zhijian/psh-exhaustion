@@ -1,11 +1,11 @@
 # Continuous and Smooth Plurisubharmonic Exhaustions
 
 **Threefold Counterexamples and Surface Regularization**  
-**Zhijian Chen and Bo Xiao** · Version 3 · 3 November 2026 · 30 pages
+**Zhijian Chen and Bo Xiao** · Version 3 · 3 November 2026
 
 [Read the paper](papers/paper_v3.pdf) · [LaTeX source](papers/src/main.tex) · [Changes in Version 3](CHANGES_V3.md) · [Personal website](https://chen-zhijian.github.io/)
 
-The paper constructs Kähler and non-Kähler threefolds with locally Lipschitz plurisubharmonic exhaustions but no $C^1$ plurisubharmonic exhaustion; the Kähler example is quasi-projective. It establishes a regularity criterion for semipositive line-bundle metrics and exhaustions of their dual total spaces, smooth regularization for divisor complements in compact Kähler surfaces, and a holomorphic convexity criterion for spaces fibered by curves. The general regularization problem for noncompact complex surfaces remains open.
+The paper answers Nakano’s smoothing question negatively by constructing quasi-projective and non-Kähler threefolds with locally Lipschitz plurisubharmonic exhaustions but no $C^1$ exhaustion of this kind. It proves an affirmative result for divisor complements in compact Kähler surfaces, a regularity criterion for line-bundle metrics and dual total-space exhaustions, and a holomorphic convexity criterion for spaces fibered by curves. The introduction records the precise applications to problems and results of Nakano, Filip–Tosatti, Zhang, Koike, Ohsawa, and Vîjîitu. The unrestricted surface smoothing question remains open.
 
 ## Versions and supporting material
 

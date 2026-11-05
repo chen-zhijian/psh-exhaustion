@@ -1,5 +1,9 @@
 # Mathematical and editorial reviews
 
+## 5 November 2026 — version 4
+
+The [dated revision record](revision-2026-11-05.txt) describes the reorganized introduction, terminology and reference updates, and the editorial review throughout Sections 2–6. Theorem 3.4 and Proposition 5.3 now use numbered equivalence statements, and Theorem 6.1 is explicitly identified with Theorem 1.4. The title is **Regularity of plurisubharmonic exhaustions and related problems**. See [Changes in Version 4](../../CHANGES_V4.md) for the revision summary and the [current build manifest](../../verification/build_manifest.json) for the published source, PDF, and release checks. The Version 3 source and build manifest are preserved in the [dated archive](../../archive/version-3-2026-11-03/).
+
 ## 3 November 2026 — version 3
 
 The [dated revision audit](revision-2026-11-03.txt) records integration of the Grauert regularity and radius-criterion notes, the strengthened $C^1$ obstruction, the regularity criterion for differentiable, local Hölder, and real analytic classes, and the direct check of Enoki's 1981 article. A final editorial review unified notation and removed repetition while retaining the detailed deductions. All 32 numbered statements and 99 labels were preserved during that final pass; version 3 changes the mathematical content of version 2.

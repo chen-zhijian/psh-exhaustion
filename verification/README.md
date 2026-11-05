@@ -1,6 +1,8 @@
 # Verification
 
-`scripts/build.py` compiles the self-contained source three times with pdfLaTeX, rejects undefined references/citations and overfull boxes, and optionally publishes `papers/paper_v3.pdf` with a hash manifest. `scripts/verify.py` checks the current source/PDF hashes, all TeX references and citations, the table of contents, the supporting notes, preserved release files, and every file in the original repository snapshot. CI runs the checks and a fresh compilation.
+`scripts/build.py` compiles the self-contained source three times with pdfLaTeX, rejects undefined references/citations and overfull boxes, and optionally publishes `papers/paper_v4.pdf` with a hash manifest. `scripts/verify.py` checks the current source/PDF hashes, all TeX references and citations, the table of contents, the supporting notes, preserved release files, and every file in the original repository snapshot. CI runs the checks and a fresh compilation.
+
+The [Version 4 revision record](../prompts_and_logs/review_notes/revision-2026-11-05.txt) describes the introduction, terminology, reference, and proof revisions throughout the paper. The current title is *Regularity of plurisubharmonic exhaustions and related problems*, dated 5 November 2026. The Version 3 source and build manifest are preserved in the [dated archive](../archive/version-3-2026-11-03/), and its PDF remains at `papers/paper_v3.pdf`.
 
 [revision-v3.json](revision-v3.json) preserves the checks on the initial 30-page editorial revision of Version 3. Its preservation statements compare that draft before and after the editorial pass. The subsequent [introduction revision](../prompts_and_logs/review_notes/introduction-2026-11-03.txt) updates the abstract, historical applications, bibliography, and front-matter spacing. Version 3 contains mathematical additions relative to Version 2.
 
@@ -15,6 +17,6 @@ python verification/scripts/build.py
 python verification/scripts/verify.py
 ```
 
-Inspect the PDF in `build/`, then use `python verification/scripts/build.py --publish` to update `papers/paper_v3.pdf` and the build manifest together. Windows users may run `powershell -File verification/scripts/build.ps1 -Publish`. Run verification again after publishing.
+Inspect the PDF in `build/`, then use `python verification/scripts/build.py --publish` to update `papers/paper_v4.pdf` and the build manifest together. Windows users may run `powershell -File verification/scripts/build.ps1 -Publish`. Run verification again after publishing.
 
 For a manuscript release, copy the same published PDF to the website's `papers/psh-exhaustion.pdf` and update its source commit and checksum in `papers/manifest.json`. Review the website's paper entry when the title, results, or version changes.

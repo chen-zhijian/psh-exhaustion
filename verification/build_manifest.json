@@ -1,16 +1,16 @@
 {
   "source": {
     "path": "papers/src/main.tex",
-    "sha256": "6a150f14f1859833316a9859691ce7968126784261a4bcd95bb3946e77e67a06",
-    "bytes": 105445
+    "sha256": "83c08d46c3da96afce41dc01f69164bc39dd816c8bd33352540978298d21678a",
+    "bytes": 106335
   },
   "pdf": {
-    "path": "papers/paper_v3.pdf",
-    "sha256": "853ea99430ce598210ebb40c98969d2e11abe04298d7954056cd966577d495c8",
-    "bytes": 558886,
-    "pages": 31
+    "path": "papers/paper_v4.pdf",
+    "sha256": "079abfcac1f3f9d9a985c766c9108e92b60406f2ca76e2ebf768ad9faf6cc75f",
+    "bytes": 565851,
+    "pages": 29
   },
-  "built_at_utc": "2026-11-03T10:05:44+00:00",
+  "built_at_utc": "2026-11-05T03:57:06+00:00",
   "compiler": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026)",
   "passes": 3,
   "technical_checks": [
@@ -20,28 +20,28 @@
     "no overfull or underfull boxes",
     "no missing characters",
     "rendered page review",
-    "Sections 2–6 unchanged"
+    "source identity with version 4 workspace manuscript"
   ],
-  "mathematical_verification": "Earlier mathematical audit: prompts_and_logs/review_notes/revision-2026-11-03.txt. This introduction revision received an independent attribution and scope review; Sections 2–6 are textually unchanged. Not a proof-assistant certificate.",
+  "mathematical_verification": "Section-by-section editorial and mathematical review and primary-source checks recorded in prompts_and_logs/review_notes/revision-2026-11-05.txt.",
   "intake_source": {
     "path": "psh-exhaustion.tex",
-    "sha256": "6a150f14f1859833316a9859691ce7968126784261a4bcd95bb3946e77e67a06",
-    "bytes": 105445
+    "sha256": "83c08d46c3da96afce41dc01f69164bc39dd816c8bd33352540978298d21678a",
+    "bytes": 106335
   },
   "publication_origin": "PDF compiled from the self-contained repository source; identical bytes synchronized to the workspace and personal website.",
   "revision": {
-    "date": "2026-11-03",
-    "version": 3,
-    "input_source_commit": "d545b886c05c67935b5d6111fdbc4a73c5a3c103",
-    "previous_pages": 30,
-    "revised_pages": 31,
+    "date": "2026-11-05",
+    "version": 4,
+    "input_source_commit": "af904ca35fdf7341774f14fe1726c5080f962a52",
+    "previous_pages": 31,
+    "revised_pages": 29,
     "sections": 6,
     "numbered_statements": 33,
-    "unique_labels": 100,
-    "bibliography_entries": 24,
-    "cited_entries": 23,
-    "visual_review": "All 31 pages reviewed in contact sheets; introduction and bibliography inspected individually. The introduction follows the contents with normal section spacing.",
-    "audit_note": "prompts_and_logs/review_notes/introduction-2026-11-03.txt"
+    "unique_labels": 99,
+    "bibliography_entries": 26,
+    "cited_entries": 26,
+    "visual_review": "All 29 pages reviewed in rendered contact sheets; title page inspected individually. Title, running heads, pagination, and equation placement checked.",
+    "audit_note": "prompts_and_logs/review_notes/revision-2026-11-05.txt"
   },
   "layout": {
     "margins": "1.15in",
@@ -171,6 +171,62 @@
       },
       "version": 2,
       "source_commit": "8b0b0f15ab5bf513ca91b687caec007e64d72e5a"
+    },
+    {
+      "source": {
+        "path": "archive/version-3-2026-11-03/main.tex",
+        "sha256": "6a150f14f1859833316a9859691ce7968126784261a4bcd95bb3946e77e67a06",
+        "bytes": 105445
+      },
+      "pdf": {
+        "path": "papers/paper_v3.pdf",
+        "sha256": "853ea99430ce598210ebb40c98969d2e11abe04298d7954056cd966577d495c8",
+        "bytes": 558886,
+        "pages": 31
+      },
+      "built_at_utc": "2026-11-03T10:05:44+00:00",
+      "compiler": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026)",
+      "passes": 3,
+      "technical_checks": [
+        "source labels and citations",
+        "table of contents",
+        "no unresolved references",
+        "no overfull or underfull boxes",
+        "no missing characters",
+        "rendered page review",
+        "Sections 2–6 unchanged"
+      ],
+      "mathematical_verification": "Earlier mathematical audit: prompts_and_logs/review_notes/revision-2026-11-03.txt. This introduction revision received an independent attribution and scope review; Sections 2–6 are textually unchanged. Not a proof-assistant certificate.",
+      "intake_source": {
+        "path": "psh-exhaustion.tex",
+        "sha256": "6a150f14f1859833316a9859691ce7968126784261a4bcd95bb3946e77e67a06",
+        "bytes": 105445
+      },
+      "publication_origin": "PDF compiled from the self-contained repository source; identical bytes synchronized to the workspace and personal website.",
+      "revision": {
+        "date": "2026-11-03",
+        "version": 3,
+        "input_source_commit": "d545b886c05c67935b5d6111fdbc4a73c5a3c103",
+        "previous_pages": 30,
+        "revised_pages": 31,
+        "sections": 6,
+        "numbered_statements": 33,
+        "unique_labels": 100,
+        "bibliography_entries": 24,
+        "cited_entries": 23,
+        "visual_review": "All 31 pages reviewed in contact sheets; introduction and bibliography inspected individually. The introduction follows the contents with normal section spacing.",
+        "audit_note": "prompts_and_logs/review_notes/introduction-2026-11-03.txt"
+      },
+      "layout": {
+        "margins": "1.15in",
+        "bibliography_style": "Alphabetic labels matching grauert-regularity.pdf; embedded BibTeX alpha formatting.",
+        "bibliography_backreferences": false,
+        "post_contents_spacing": "No forced page break or extra amsart post-contents skip; ordinary section spacing."
+      },
+      "version": 3,
+      "source_commit": "af904ca35fdf7341774f14fe1726c5080f962a52"
     }
-  ]
+  ],
+  "version": 4,
+  "title": "Regularity of plurisubharmonic exhaustions and related problems"
 }

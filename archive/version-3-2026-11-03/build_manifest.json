@@ -1,0 +1,176 @@
+{
+  "source": {
+    "path": "papers/src/main.tex",
+    "sha256": "6a150f14f1859833316a9859691ce7968126784261a4bcd95bb3946e77e67a06",
+    "bytes": 105445
+  },
+  "pdf": {
+    "path": "papers/paper_v3.pdf",
+    "sha256": "853ea99430ce598210ebb40c98969d2e11abe04298d7954056cd966577d495c8",
+    "bytes": 558886,
+    "pages": 31
+  },
+  "built_at_utc": "2026-11-03T10:05:44+00:00",
+  "compiler": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026)",
+  "passes": 3,
+  "technical_checks": [
+    "source labels and citations",
+    "table of contents",
+    "no unresolved references",
+    "no overfull or underfull boxes",
+    "no missing characters",
+    "rendered page review",
+    "Sections 2–6 unchanged"
+  ],
+  "mathematical_verification": "Earlier mathematical audit: prompts_and_logs/review_notes/revision-2026-11-03.txt. This introduction revision received an independent attribution and scope review; Sections 2–6 are textually unchanged. Not a proof-assistant certificate.",
+  "intake_source": {
+    "path": "psh-exhaustion.tex",
+    "sha256": "6a150f14f1859833316a9859691ce7968126784261a4bcd95bb3946e77e67a06",
+    "bytes": 105445
+  },
+  "publication_origin": "PDF compiled from the self-contained repository source; identical bytes synchronized to the workspace and personal website.",
+  "revision": {
+    "date": "2026-11-03",
+    "version": 3,
+    "input_source_commit": "d545b886c05c67935b5d6111fdbc4a73c5a3c103",
+    "previous_pages": 30,
+    "revised_pages": 31,
+    "sections": 6,
+    "numbered_statements": 33,
+    "unique_labels": 100,
+    "bibliography_entries": 24,
+    "cited_entries": 23,
+    "visual_review": "All 31 pages reviewed in contact sheets; introduction and bibliography inspected individually. The introduction follows the contents with normal section spacing.",
+    "audit_note": "prompts_and_logs/review_notes/introduction-2026-11-03.txt"
+  },
+  "layout": {
+    "margins": "1.15in",
+    "bibliography_style": "Alphabetic labels matching grauert-regularity.pdf; embedded BibTeX alpha formatting.",
+    "bibliography_backreferences": false,
+    "post_contents_spacing": "No forced page break or extra amsart post-contents skip; ordinary section spacing."
+  },
+  "supporting_files": [
+    {
+      "path": "supporting_notes/grauert-regularity/grauert-regularity.pdf",
+      "sha256": "14b441cdbf27ca1577a8f313ca8d32b1528f0529cdc0c3686391bbd57cc39e74",
+      "bytes": 494883,
+      "pages": 28
+    },
+    {
+      "path": "supporting_notes/grauert-regularity/grauert-regularity.tex",
+      "sha256": "c33d81e7a4241395fb895f53c4a9b6446e8726e8fc499e5d29c959f195e84d78",
+      "bytes": 98809
+    },
+    {
+      "path": "supporting_notes/grauert-regularity/references.bib",
+      "sha256": "1d8676e757b343b45d6a8966422bc00f0e16e3b88f7e9610de40e0ea25e3614b",
+      "bytes": 8744
+    },
+    {
+      "path": "supporting_notes/real-analytic-radius-criterion/real-analytic-radius-criterion.pdf",
+      "sha256": "8c84d686a26d6b2cb712473648bab022ba68c072e31043fc5af2f24ebf59e9ce",
+      "bytes": 136946,
+      "pages": 12
+    },
+    {
+      "path": "supporting_notes/real-analytic-radius-criterion/real-analytic-radius-criterion.tex",
+      "sha256": "74cba0d8f2bffc42c9f80147473061f9c36410ef30aee8f1b3b7718ddd3397d0",
+      "bytes": 36880
+    }
+  ],
+  "previous_releases": [
+    {
+      "source": {
+        "path": "papers/src/main.tex",
+        "sha256": "bad0b794aa7d2d489450d13ae2d29dfa84c915d72961a0db308bfbbd4d46abf7",
+        "bytes": 59901
+      },
+      "pdf": {
+        "path": "papers/paper_v1.pdf",
+        "sha256": "737e3d55ba2f3b51b4b7d744f5c8e7b4496952b7091d08850247ce5866d07adb",
+        "bytes": 492773,
+        "pages": 17
+      },
+      "built_at_utc": "2026-10-29T04:36:36+00:00",
+      "compiler": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026)",
+      "passes": 3,
+      "technical_checks": [
+        "source labels and citations",
+        "table of contents",
+        "no unresolved references",
+        "no overfull boxes",
+        "no missing characters"
+      ],
+      "mathematical_verification": "Not performed by this script; see the review notes.",
+      "intake_source": {
+        "path": "archive/revision-intake-2026-10-29/main.tex",
+        "sha256": "496cc87da575252d459066633a1575025adf967b5a8318db37c2467e9bc92776",
+        "bytes": 131547
+      },
+      "revision": {
+        "date": "2026-10-29",
+        "intake_pages": 43,
+        "revised_pages": 17,
+        "sections": 6,
+        "subsections_before": 25,
+        "subsections_after": 8,
+        "visual_review": "All 17 rendered pages inspected; no clipping, overlap, or missing symbols."
+      },
+      "layout": {
+        "margins": "1.15in",
+        "bibliography_backreferences": "Upward arrow followed by linked unique citation-page numbers."
+      },
+      "version": 1,
+      "source_commit": "4e2454f3e368dfe5cabdd9d0a306e8aff4b2fa1e"
+    },
+    {
+      "source": {
+        "path": "archive/version-2-2026-10-30/main.tex",
+        "sha256": "3c0bd2fcbf33127b712c92fe745b639c19f58bfa8d7896501ded79f669fbf0c1",
+        "bytes": 81646
+      },
+      "pdf": {
+        "path": "papers/paper_v2.pdf",
+        "sha256": "4867e7a7f0a091d6b9d035185a014f3d31c336687624beb12591b9292b0bace6",
+        "bytes": 549085,
+        "pages": 24
+      },
+      "built_at_utc": "2026-10-30T07:28:00+00:00",
+      "compiler": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026)",
+      "passes": 3,
+      "technical_checks": [
+        "source labels and citations",
+        "table of contents",
+        "no unresolved references",
+        "no overfull boxes",
+        "no missing characters"
+      ],
+      "mathematical_verification": "Not performed by this script; see the review notes.",
+      "intake_source": {
+        "path": "archive/revision-intake-2026-10-29/main.tex",
+        "sha256": "496cc87da575252d459066633a1575025adf967b5a8318db37c2467e9bc92776",
+        "bytes": 131547
+      },
+      "revision": {
+        "date": "2026-10-30",
+        "version": 2,
+        "input_source_commit": "4e2454f3e368dfe5cabdd9d0a306e8aff4b2fa1e",
+        "intake_pages": 17,
+        "revised_pages": 24,
+        "sections": 6,
+        "subsections_before": 8,
+        "subsections_after": 8,
+        "abstract_typeset_lines": 4,
+        "preserved_mathematical_statements": 29,
+        "visual_review": "All 24 pages reviewed; three pagination issues corrected and all affected pages rechecked.",
+        "audit_note": "prompts_and_logs/review_notes/revision-2026-10-30.txt"
+      },
+      "layout": {
+        "margins": "1.15in",
+        "bibliography_backreferences": "Upward arrow followed by linked unique citation-page numbers."
+      },
+      "version": 2,
+      "source_commit": "8b0b0f15ab5bf513ca91b687caec007e64d72e5a"
+    }
+  ]
+}

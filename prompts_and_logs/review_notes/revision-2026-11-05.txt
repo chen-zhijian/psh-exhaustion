@@ -1,0 +1,80 @@
+Version 4 revision record
+5 November 2026
+
+Title
+Regularity of plurisubharmonic exhaustions and related problems
+Authors: Zhijian Chen and Bo Xiao
+
+Scope
+The author requested a revised introduction, clearer terminology and
+notation, explicit historical references, and removal of redundant scope
+qualifications. The same editorial approach was then applied throughout
+the paper. The author subsequently requested numbered equivalence
+statements in Theorem 3.4 and Proposition 5.3, an explicit identification
+of Theorem 6.1 with Theorem 1.4, the shorter title, and publication as
+version 4 in the research repository and on the personal website.
+
+Introduction
+The introduction defines continuous psh exhaustions before introducing
+weak 1-completeness and the smoothness question. Weak pseudoconvexity is
+used for the smooth condition. Demailly's broader definition is explained
+with references to his thesis and L2 paper. The complete Kähler conclusion
+is stated for Kähler manifolds. A Main Results subsection precedes the
+theorems, regularity conventions are explained in place, and the five
+applications have numbered, bold titles. The threefold theorems use
+C^{0,1}_{loc} and C^{1,0}. The Hironaka construction, surface problem,
+logarithmic collar, and comparison with Ohsawa receive connecting text
+and explicit references.
+
+Sections 2–6
+The revision adds short explanations of the proof strategy and unifies
+notation. It clarifies the ruled-surface cocycle and first-normal
+derivative argument, global metric construction, averaging and radius
+recovery, modification invariance, exceptional-curve calculation,
+surface boundary cases, and the curve-fibering argument. Theorem 3.4
+uses two numbered equivalent conditions. Proposition 5.3 uses three,
+with the metric criterion supplying the degree obstruction directly.
+Theorem 6.1 is restated as (=Theorem 1.4), and the surface theorem in
+Section 5 is connected explicitly to Theorem 1.3. The local convexity
+argument retains the continuous exhaustion that controls vertical
+escape. Redundant negative-scope remarks have been removed.
+
+Review completed before the title change
+The manuscript received a section-by-section editorial review and
+independent readings of the metric/modification, surface, and
+curve-fibering arguments. These readings found no unresolved substantive
+issue in the reviewed arguments. Primary references were checked for
+the Demailly terminology and complete Kähler assertion, the Hironaka
+construction, the surface inputs, and the Vîjîitu fiber-cycle and
+convexity arguments. The review retained the nonconstant holomorphic
+function hypothesis where the square-zero surface comparison requires
+it, and the Kähler hypothesis in the Demailly explanation.
+
+The completed manuscript before the title change compiled in three
+passes without unresolved references or layout warnings. Its 29 pages
+were inspected in contact sheets, with the revised equivalence
+statements and repeated theorem heading checked individually.
+
+Final publication checks
+After the title change, the packaged source compiled in three passes
+to a 29-page PDF. The final build has 99 labels, 26 bibliography entries
+(all cited), and 33 numbered statements, with resolved references and
+no overfull or underfull boxes. The epstopdf package reports that shell
+escape is disabled, which does not affect this document. All 29 rendered
+pages were inspected in contact sheets, and the first page was inspected
+individually. The revised title and running heads display correctly.
+The source/PDF hashes and release checks are recorded in
+verification/build_manifest.json.
+
+Preservation and synchronization
+The previous published version is commit
+af904ca35fdf7341774f14fe1726c5080f962a52. Its source and build manifest
+are preserved in archive/version-3-2026-11-03/, and its PDF remains at
+papers/paper_v3.pdf. The current source is papers/src/main.tex and the
+version 4 PDF is papers/paper_v4.pdf. The personal website serves the
+matching PDF at its stable papers/psh-exhaustion.pdf path, with its source
+commit and checksum recorded in the website manifest.
+
+This record summarizes the editorial and mathematical readings. The
+automated build and consistency checks are documented separately in
+verification/README.md.

@@ -1,0 +1,49 @@
+Version 5 XeLaTeX publication — 8 November 2026
+
+Scope
+The author requested XeLaTeX as the default build engine and publication
+of its PDF to the GitHub research repository and personal website.
+The release remains Version 5. The manuscript source is unchanged from
+commit 82b06d2; no mathematical or typesetting edits are part of this
+engine-selection change.
+
+The earlier publication-2026-11-08.txt, formatting-2026-11-08.txt, and
+xelatex-2026-11-08.txt records remain unchanged. Their statements about
+the canonical PDF describe their respective historical release stages.
+
+Build and publication configuration
+verification/scripts/build.py and its PowerShell wrapper select XeLaTeX
+by default. The default build output is build/xelatex/main.pdf.
+Running build.py --publish uses that XeLaTeX output to update
+papers/paper_v5.pdf and the release manifest. The website's stable
+papers/psh-exhaustion.pdf uses the same canonical PDF bytes.
+
+pdfLaTeX remains available through --engine pdflatex, with output at
+build/main.pdf and separate auxiliary files. --executable PATH selects
+the chosen engine's executable. The legacy --pdflatex PATH option
+requires explicit --engine pdflatex. The CI workflow is configured to
+run the default XeLaTeX build and an explicit pdfLaTeX compatibility
+build. Strict source, reference, missing-character, and overfull/underfull
+checks remain in place for both engines.
+
+Validation results
+A build without --engine selected XeLaTeX and passed all three
+compilation passes. The published output has 40 pages. Its final log
+contains no compiler or package warnings, overfull or underfull boxes,
+missing characters, unresolved references, or outstanding rerun warnings.
+The command-line help and PowerShell wrapper both specify XeLaTeX as
+the default. The explicit pdfLaTeX route remains the compatibility check
+in CI, and the previous successful check used the same unchanged source.
+
+The manuscript source is byte-for-byte identical to commit 82b06d2.
+All 40 pages of the final XeLaTeX PDF were rendered and pixel-compared
+with the previously reviewed XeLaTeX output; no page changed.
+The release manifest identifies XeLaTeX as the publication engine and
+records the new PDF hash. The local manuscript PDF and website PDF copy
+match the canonical XeLaTeX PDF byte-for-byte. Source references,
+citations, local links, checksums, and retained archives pass repository
+verification. Version 5 and the mathematical content are unchanged.
+
+Compiler selection can change typography, PDF metadata, and hashes even
+when the source is unchanged. Compilation, checksums, and rendered-page
+comparison establish technical consistency, not mathematical correctness.

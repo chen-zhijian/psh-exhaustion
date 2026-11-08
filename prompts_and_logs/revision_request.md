@@ -32,4 +32,8 @@ The author subsequently requested correction of the minor formatting issues, a r
 
 ## XeLaTeX follow-up — 8 November 2026
 
-The author then requested that the manuscript also compile cleanly with XeLaTeX while preserving the mathematical content and **version 5** designation. The follow-up corrects the remaining typesetting issues without suppressing warnings and checks both pdfLaTeX and XeLaTeX. The established publication workflow continues to use the canonical pdfLaTeX PDF. The [XeLaTeX record](review_notes/xelatex-2026-11-08.txt) describes the source adjustments and build support added for this follow-up.
+The author then requested that the manuscript also compile cleanly with XeLaTeX while preserving the mathematical content and **version 5** designation. The follow-up corrected the remaining typesetting issues without suppressing warnings and checked both pdfLaTeX and XeLaTeX. The publication workflow at that stage continued to use the canonical pdfLaTeX PDF. The [XeLaTeX record](review_notes/xelatex-2026-11-08.txt) describes the source adjustments and build support added for this follow-up.
+
+## XeLaTeX publication request — 8 November 2026
+
+The author subsequently requested XeLaTeX as the default build and publication of its PDF to the GitHub research repository and personal website. Keep the manuscript source unchanged and retain **version 5**. Preserve pdfLaTeX as an explicit alternate build. The [XeLaTeX publication record](review_notes/xelatex-publication-2026-11-08.txt) documents the default-engine change and publication checks.

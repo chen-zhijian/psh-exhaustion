@@ -6,25 +6,26 @@
   },
   "pdf": {
     "path": "papers/paper_v5.pdf",
-    "sha256": "a72d5aa0b4e32d1bc45859f3dd0d1a18bdeb9f8f08e03fab34a2c1f312251e52",
-    "bytes": 624515,
+    "sha256": "d6ca4a23ae518c80e6bfff4a6e90d346f2c95642a8327bceedc3b2c14a15a3f7",
+    "bytes": 314122,
     "pages": 40
   },
-  "built_at_utc": "2026-11-08T06:31:13+00:00",
-  "compiler": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026)",
+  "built_at_utc": "2026-11-08T06:39:55+00:00",
+  "compiler": "XeTeX 3.141592653-2.6-0.999998 (TeX Live 2026)",
   "technical_checks": [
+    "default engine is XeLaTeX",
+    "three-pass XeLaTeX compilation",
     "source labels and citations",
     "table of contents",
-    "three passes with each of pdfLaTeX and XeLaTeX",
-    "no final-pass compiler warnings",
+    "no compiler or package warnings",
     "no overfull or underfull boxes",
     "no missing characters",
     "no unresolved references",
-    "source changes limited to layout and unused EPS-converter configuration",
-    "both engine outputs visually reviewed",
+    "source unchanged",
+    "final XeLaTeX output visually checked against reviewed XeLaTeX build",
     "local links and preserved archive hashes"
   ],
-  "mathematical_verification": "Exact source comparison confirms only three layout adjustments and unused EPS-converter configuration changed since commit 3baa19019568143069756dbd47a797bba74cf107. Mathematical content unchanged; no new mathematical audit.",
+  "mathematical_verification": "The manuscript source is byte-for-byte unchanged from commit 82b06d2aa0d4595e8f6b4a38373d5ce0f116716e. Only the default publication engine and release artifacts changed; no new mathematical audit.",
   "intake_source": {
     "path": "psh-exhaustion.tex",
     "sha256": "24494117cee6fdd75736c392dc4f4199bc4c725e66742cde332d10ec02959f9c",
@@ -36,7 +37,7 @@
     "bytes": 313947,
     "pages": 40
   },
-  "publication_origin": "Canonical PDF rebuilt with pdfLaTeX from a source also checked with XeLaTeX. Corrected source and canonical PDF synchronized to version6-11-8; website PDF bytes identical. Version 5 retained.",
+  "publication_origin": "Canonical version 5 PDF rebuilt with the default XeLaTeX engine. Identical PDF bytes synchronized to the local manuscript and personal website. The manuscript source is unchanged.",
   "revision": {
     "date": "2026-11-08",
     "version": 5,
@@ -47,8 +48,8 @@
     "numbered_statements": 35,
     "unique_labels": 100,
     "bibliography_entries": 30,
-    "visual_review": "All 40 pages from each engine reviewed in contact sheets, with affected paragraphs, bibliography, and final corollary/diagram checked individually. Final outputs pixel-compared with the reviewed renders. No remaining visual issues.",
-    "audit_note": "prompts_and_logs/review_notes/xelatex-2026-11-08.txt",
+    "visual_review": "All 40 final XeLaTeX pages pixel-compared with the previously reviewed XeLaTeX output; no visual changes.",
+    "audit_note": "prompts_and_logs/review_notes/xelatex-publication-2026-11-08.txt",
     "initial_publication_note": "prompts_and_logs/review_notes/publication-2026-11-08.txt"
   },
   "layout": {
@@ -336,7 +337,7 @@
     "pages_before": 40,
     "pages_after": 40
   },
-  "engine": "pdflatex",
+  "engine": "xelatex",
   "engine_checks": [
     {
       "engine": "pdflatex",
@@ -350,10 +351,10 @@
     },
     {
       "engine": "xelatex",
-      "compiler": "This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.1)  8 NOV 2026 14:31",
+      "compiler": "This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.1)  8 NOV 2026 14:39",
       "passes": 3,
       "source_sha256": "6151baafca40a9180b663a07febf05984a9ea2bdf9631bb17bcb404bc3a4132f",
-      "pdf_sha256": "c7464ad12898835ae50f0c43f8e014877ac066568a24e773b2708f291ad39474",
+      "pdf_sha256": "d6ca4a23ae518c80e6bfff4a6e90d346f2c95642a8327bceedc3b2c14a15a3f7",
       "pdf_bytes": 314122,
       "pages": 40,
       "warnings": []
@@ -373,5 +374,15 @@
     "pages_with_pdflatex": 40,
     "pages_with_xelatex": 40,
     "checked_at_utc": "2026-11-08T06:33:32+00:00"
+  },
+  "publication_engine_update": {
+    "date": "2026-11-08",
+    "version": 5,
+    "input_source_commit": "82b06d2aa0d4595e8f6b4a38373d5ce0f116716e",
+    "previous_engine": "pdflatex",
+    "default_engine": "xelatex",
+    "source_changed": false,
+    "previous_pdf_sha256": "a72d5aa0b4e32d1bc45859f3dd0d1a18bdeb9f8f08e03fab34a2c1f312251e52",
+    "checked_at_utc": "2026-11-08T06:41:10+00:00"
   }
 }

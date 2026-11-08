@@ -15,14 +15,14 @@ The paper answers Nakano’s smoothing question negatively by constructing quasi
 
 ## Build and verify
 
-Requires Python 3 and a TeX distribution with pdfLaTeX or XeLaTeX. The source is self-contained, including its bibliography. The build supports both engines; pdfLaTeX remains the default for the published PDF.
+Requires Python 3 and a TeX distribution with XeLaTeX; pdfLaTeX is also supported. The source is self-contained, including its bibliography. XeLaTeX is the default build and publication engine.
 
 ```sh
 python verification/scripts/build.py
-python verification/scripts/build.py --engine xelatex
+python verification/scripts/build.py --engine pdflatex
 python verification/scripts/verify.py
 ```
 
-The pdfLaTeX build writes to `build/`, and the XeLaTeX build writes to `build/xelatex/` with separate auxiliary files. Use `--executable PATH` to select an engine executable. After inspecting the default pdfLaTeX output, use `python verification/scripts/build.py --publish` to update the published PDF and manifest together. See [verification notes](verification/README.md) for package requirements and release instructions. Automated checks establish technical consistency; no proof-assistant formalization is supplied.
+The default XeLaTeX build writes to `build/xelatex/`; the alternate pdfLaTeX build writes to `build/` with separate auxiliary files. Use `--executable PATH` to select an engine executable. After inspecting the XeLaTeX output, use `python verification/scripts/build.py --publish` to update the published PDF and manifest together. See [verification notes](verification/README.md) for package requirements and release instructions. Automated checks establish technical consistency; no proof-assistant formalization is supplied.
 
 See [LICENSE-NOTICE.md](LICENSE-NOTICE.md) for licensing status.

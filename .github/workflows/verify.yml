@@ -50,8 +50,8 @@ jobs:
             amscls amsfonts amsmath lm mathtools microtype enumitem \
             booktabs tools placeins needspace tikz-cd pgf xcolor hyperref geometry xetex
 
-      - name: Compile three pdfLaTeX passes without replacing the published PDF
-        run: python verification/scripts/build.py --engine pdflatex
+      - name: Compile three default XeLaTeX passes without replacing the published PDF
+        run: python verification/scripts/build.py
 
-      - name: Compile three XeLaTeX passes without replacing the published PDF
-        run: python verification/scripts/build.py --engine xelatex
+      - name: Check pdfLaTeX compatibility without replacing the published PDF
+        run: python verification/scripts/build.py --engine pdflatex

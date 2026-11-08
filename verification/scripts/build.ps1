@@ -1,7 +1,7 @@
 param(
     [switch]$Publish,
     [ValidateSet('pdflatex', 'xelatex')]
-    [string]$Engine = 'pdflatex',
+    [string]$Engine = 'xelatex',
     [string]$Executable,
     [string]$PdfLatex,
     [string]$IntakeSource,

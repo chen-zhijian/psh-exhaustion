@@ -46,7 +46,7 @@ def compilation_failures(log: str) -> list[str]:
     return failures
 
 
-def run_engine(engine: str, engine_name: str = "pdflatex") -> tuple[Path, dict]:
+def run_engine(engine: str, engine_name: str = "xelatex") -> tuple[Path, dict]:
     if not SOURCE.is_file():
         raise RuntimeError("Missing papers/src/main.tex")
     # Imported lazily so --help is available even in an incomplete checkout.
@@ -110,8 +110,8 @@ def run_engine(engine: str, engine_name: str = "pdflatex") -> tuple[Path, dict]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--engine", choices=("pdflatex", "xelatex"), default="pdflatex",
-                        help="TeX engine; default: pdflatex")
+    parser.add_argument("--engine", choices=("pdflatex", "xelatex"), default="xelatex",
+                        help="TeX engine; default: xelatex")
     executable = parser.add_mutually_exclusive_group()
     executable.add_argument("--executable", help="selected engine executable or full path; default: search PATH")
     executable.add_argument("--pdflatex", help="legacy pdfLaTeX executable override; use only with --engine pdflatex")

@@ -10,7 +10,6 @@ import argparse
 from datetime import datetime, timezone
 import hashlib
 import json
-import math
 import os
 from pathlib import Path
 import re
@@ -30,34 +29,6 @@ def digest(path: Path, relative: str) -> dict:
     return {"path": relative, "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
 
 
-def check_overfull(log: str, source_sha256: str, known_warnings: list) -> tuple[list[str], list[str]]:
-    """Accept only single, source-bound hbox warnings recorded in the manifest."""
-    if not isinstance(known_warnings, list):
-        raise RuntimeError("known_build_warnings must be a list")
-    warnings = re.findall(r"^.*Overfull \\[hv]box[^\n]*$", log, re.M | re.I)
-    accepted: set[int] = set()
-    header = re.compile(r"Overfull \\hbox \(([0-9]+(?:\.[0-9]+)?)pt too wide\) "
-                        r"in paragraph at lines ([0-9]+)--([0-9]+)")
-    for entry in known_warnings:
-        if (not isinstance(entry, dict) or entry.get("kind") != "overfull_hbox"
-                or entry.get("source_sha256") != source_sha256):
-            continue
-        maximum = entry.get("maximum_excess_pt")
-        if type(maximum) not in {int, float} or not math.isfinite(maximum) or maximum < 0:
-            continue
-        matches = []
-        for index, warning in enumerate(warnings):
-            match = header.fullmatch(warning.strip())
-            if (match and [int(match[2]), int(match[3])] == entry.get("source_lines")
-                    and float(match[1]) <= maximum):
-                matches.append(index)
-        # Repeated warnings cannot reuse a single recorded exception.
-        if len(matches) == 1:
-            accepted.add(matches[0])
-    return ([warning for index, warning in enumerate(warnings) if index not in accepted],
-            [warning for index, warning in enumerate(warnings) if index in accepted])
-
-
 def run_engine(engine: str) -> tuple[Path, dict]:
     if not SOURCE.is_file():
         raise RuntimeError("Missing papers/src/main.tex")
@@ -68,9 +39,6 @@ def run_engine(engine: str) -> tuple[Path, dict]:
     if errors:
         raise RuntimeError("Source checks failed:\n" + "\n".join(errors))
     source_record = digest(SOURCE, "papers/src/main.tex")
-    manifest = json.loads(MANIFEST.read_text(encoding="utf-8")) if MANIFEST.exists() else {}
-    if not isinstance(manifest, dict):
-        raise RuntimeError("Existing build manifest must be a JSON object")
     OUTPUT.mkdir(parents=True, exist_ok=True)
     command = [engine, "-no-shell-escape", "-interaction=nonstopmode",
                "-halt-on-error", "-file-line-error", f"-output-directory={OUTPUT}", SOURCE.name]
@@ -93,16 +61,11 @@ def run_engine(engine: str) -> tuple[Path, dict]:
         (r"Label\(s\) may have changed|Rerun to get (?:cross-references|outlines) right",
          "references or outlines still require another pass"),
         (r"multiply[- ]defined|multiply defined", "multiply defined labels"),
+        (r"Overfull \\[hv]box", "overfull boxes"),
         (r"Missing character:", "missing font characters"),
     ):
         if re.search(expression, log, re.I):
             failures.append(message)
-    unrecorded, accepted = check_overfull(log, source_record["sha256"],
-                                         manifest.get("known_build_warnings", []))
-    if unrecorded:
-        failures.append("unrecorded overfull boxes")
-    for warning in accepted:
-        print(f"Recorded layout warning for this exact source: {warning}")
     if failures:
         raise RuntimeError("Final compilation has " + ", ".join(failures) + "; see build/main.log")
     if digest(SOURCE, "papers/src/main.tex") != source_record:
@@ -127,10 +90,10 @@ def run_engine(engine: str) -> tuple[Path, dict]:
         "compiler": version_lines[0] if version_lines else "pdfLaTeX",
         "passes": 3,
         "technical_checks": ["source labels and citations", "table of contents",
-                             "no unresolved references", "no unrecorded overfull boxes", "no missing characters"],
+                             "no unresolved references", "no overfull boxes", "no missing characters"],
         "mathematical_verification": "Not performed by this script; see the review notes.",
     }
-    print("Built build/main.pdf with resolved references and no unrecorded overfull boxes.")
+    print("Built build/main.pdf with resolved references and no overfull boxes.")
     return generated, record
 
 

@@ -2,7 +2,7 @@
 
 **8 November 2026** · [Version 5](papers/paper_v5.pdf) · [Version 4](papers/paper_v4.pdf)
 
-Version 5 broadens the holomorphic convexity theorem, expands the surface arguments, and revises the exposition and references. The 40-page PDF and its supplied LaTeX source are published as Version 5.
+Version 5 broadens the holomorphic convexity theorem, expands the surface arguments, and revises the exposition and references. It also includes a formatting correction to quotation marks and line wrapping, followed by a fresh PDF build, under the same version number.
 
 ## Holomorphic convexity over Stein spaces
 
@@ -20,4 +20,6 @@ The manuscript adds bibliography page back-references, seven references, a Remme
 
 ## Release records
 
-The Version 4 source and build manifest are preserved in the [archive](archive/README.md), and its PDF remains available. The [current build manifest](verification/build_manifest.json) records the Version 5 source and PDF hashes and release checks. These release notes summarize changes in the supplied manuscript; they do not constitute a new mathematical audit.
+The [initial publication record](prompts_and_logs/review_notes/publication-2026-11-08.txt) describes the unchanged supplied source and 40-page PDF at the first upload. The subsequent [formatting record](prompts_and_logs/review_notes/formatting-2026-11-08.txt) describes the quotation-mark and line-wrapping corrections, the pagination adjustment keeping the final corollary and diagram together, and the replacement 40-page PDF. The corrected source builds without overfull or underfull boxes, missing characters, or unresolved references. These formatting changes preserve the mathematical content and the Version 5 designation.
+
+The Version 4 source and build manifest are preserved in the [archive](archive/README.md), and its PDF remains available. The [current build manifest](verification/build_manifest.json) records the current Version 5 source and PDF hashes and release checks. These release notes do not constitute a new mathematical audit.

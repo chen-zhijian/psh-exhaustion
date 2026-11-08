@@ -2,7 +2,9 @@
 
 ## 8 November 2026 — version 5 publication
 
-The [publication record](publication-2026-11-08.txt) documents the unchanged supplied source and 40-page PDF, technical checks, visual inspection, and existing minor formatting warnings. [Changes in Version 5](../../CHANGES_V5.md) summarizes the expanded convexity theorem and other manuscript revisions. This publication task did not perform a new mathematical audit. The [current manifest](../../verification/build_manifest.json) records version 5; version 4's source and manifest are preserved in its [dated archive](../../archive/version-4-2026-11-05/).
+The [initial publication record](publication-2026-11-08.txt) documents the unchanged supplied source and 40-page PDF, technical checks, visual inspection, and existing minor formatting warnings at the first upload. Its warning allowance and preservation of the supplied PDF describe that initial upload only. The subsequent [formatting record](formatting-2026-11-08.txt) describes the quotation-mark and line-wrapping corrections and the replacement PDF built from the corrected source, retaining Version 5 and the mathematical content.
+
+[Changes in Version 5](../../CHANGES_V5.md) summarizes the expanded convexity theorem and other manuscript revisions. These publication and formatting tasks did not perform a new mathematical audit. The [current manifest](../../verification/build_manifest.json) records version 5; version 4's source and manifest are preserved in its [dated archive](../../archive/version-4-2026-11-05/).
 
 ## 5 November 2026 — version 4
 

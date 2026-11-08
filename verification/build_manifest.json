@@ -1,26 +1,29 @@
 {
   "source": {
     "path": "papers/src/main.tex",
-    "sha256": "24494117cee6fdd75736c392dc4f4199bc4c725e66742cde332d10ec02959f9c",
-    "bytes": 141459
+    "sha256": "fa00f75772ce050ed124d3303e00ccdbb2d9ae002d89bb5089a6691bf7166fa6",
+    "bytes": 141490
   },
   "pdf": {
     "path": "papers/paper_v5.pdf",
-    "sha256": "777aaae14451ca06e8ebc6657f3158ffb00faffbbb318a59ff19972e6b7d4b50",
-    "bytes": 313947,
+    "sha256": "b1063ded0e5ec7973011fe10ecb4d4b3a5ccba4785546f199b06d609002d279d",
+    "bytes": 624562,
     "pages": 40
   },
-  "built_at_utc": "2026-11-08T05:53:13+00:00",
-  "compiler": "XeTeX 0.999998 (MiKTeX 26.5); supplied PDF producer MiKTeX-dvipdfmx (20260404)",
+  "built_at_utc": "2026-11-08T06:16:52+00:00",
+  "compiler": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026)",
   "technical_checks": [
     "source labels and citations",
     "table of contents",
-    "source and PDF identity with supplied files",
-    "rendered page review",
-    "separate three-pass pdfLaTeX build with recorded layout warning",
-    "local links and preserved archive hashes"
+    "three-pass pdfLaTeX compilation",
+    "no unresolved references",
+    "no overfull or underfull boxes",
+    "no missing characters",
+    "source changes limited to three formatting edits",
+    "local links and preserved archive hashes",
+    "final rebuilt PDF rendered-page review"
   ],
-  "mathematical_verification": "No new mathematical audit performed for this publication; earlier review records retained.",
+  "mathematical_verification": "Mathematical content preserved: source differs only in quotation syntax, inline-to-display equation layout, and a local page-space directive. No new mathematical audit.",
   "intake_source": {
     "path": "psh-exhaustion.tex",
     "sha256": "24494117cee6fdd75736c392dc4f4199bc4c725e66742cde332d10ec02959f9c",
@@ -32,7 +35,7 @@
     "bytes": 313947,
     "pages": 40
   },
-  "publication_origin": "Author-supplied source and PDF copied unchanged; personal website uses identical PDF bytes. Repository pdfLaTeX compilation checked separately.",
+  "publication_origin": "PDF rebuilt with pdfLaTeX from the corrected repository source; identical source/PDF synchronized to version6-11-8 and identical PDF to the personal website. Formatting-only update within version 5.",
   "revision": {
     "date": "2026-11-08",
     "version": 5,
@@ -43,32 +46,17 @@
     "numbered_statements": 35,
     "unique_labels": 100,
     "bibliography_entries": 30,
-    "visual_review": "All 40 supplied pages reviewed in contact sheets; title, warning locations, and Section 6 diagram inspected individually. Minor existing warnings recorded.",
-    "audit_note": "prompts_and_logs/review_notes/publication-2026-11-08.txt"
+    "visual_review": "All 40 rebuilt pages reviewed; title, quotation marks, former overflow locations, diagram, and bibliography inspected individually. Final changed pages 38-40 rechecked; corollary, diagram, and proof stay together on page 39. No remaining visual issues.",
+    "audit_note": "prompts_and_logs/review_notes/formatting-2026-11-08.txt",
+    "initial_publication_note": "prompts_and_logs/review_notes/publication-2026-11-08.txt"
   },
   "layout": {
     "margins": "1.15in",
     "bibliography_style": "Embedded alphabetic bibliography.",
     "bibliography_backreferences": true,
     "post_contents_spacing": "Ordinary section spacing; no forced page break.",
-    "supplied_pdf_warnings": [
-      "Omitted curly quotation marks on page 2",
-      "Minor overfull lines on pages 3, 33, and 34",
-      "One underfull bibliography line"
-    ]
+    "known_warnings": []
   },
-  "known_build_warnings": [
-    {
-      "kind": "overfull_hbox",
-      "source_sha256": "24494117cee6fdd75736c392dc4f4199bc4c725e66742cde332d10ec02959f9c",
-      "source_lines": [
-        2832,
-        2836
-      ],
-      "maximum_excess_pt": 3.54,
-      "reason": "Existing layout in author-supplied version 5; text remains legible. Source and PDF preserved unchanged."
-    }
-  ],
   "supporting_files": [
     {
       "path": "supporting_notes/grauert-regularity/grauert-regularity.pdf",
@@ -332,5 +320,19 @@
     }
   ],
   "version": 5,
-  "title": "Regularity of plurisubharmonic exhaustions and related problems"
+  "title": "Regularity of plurisubharmonic exhaustions and related problems",
+  "passes": 3,
+  "formatting_update": {
+    "date": "2026-11-08",
+    "version": 5,
+    "input_source_commit": "4ba824780b682823f49102269c337aa6a37f07bc",
+    "changes": [
+      "TeX quotation syntax restores quotation marks",
+      "K3 vanishing equality displayed to prevent line overflow",
+      "Remmert-reduction corollary and diagram kept together"
+    ],
+    "mathematical_content_changed": false,
+    "pages_before": 40,
+    "pages_after": 40
+  }
 }

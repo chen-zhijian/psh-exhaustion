@@ -22,6 +22,10 @@ Change the title to **Regularity of plurisubharmonic exhaustions and related pro
 
 ## Publication request — 8 November 2026
 
-The author supplied `version6-11-8/psh-exhaustion.tex` and `version6-11-8/psh-exhaustion.pdf` and requested: “Update my Github as usual. Treat this as version 5.” The established publication workflow updates the research repository and personal website together. The supplied source and 40-page PDF are published unchanged as **version 5**, with updated release notes, links, checksums, and an archive of version 4. The local folder name does not determine the public version number.
+The author supplied `version6-11-8/psh-exhaustion.tex` and `version6-11-8/psh-exhaustion.pdf` and requested: “Update my Github as usual. Treat this as version 5.” The established publication workflow updates the research repository and personal website together. The supplied source and 40-page PDF were initially published unchanged as **version 5**, with updated release notes, links, checksums, and an archive of version 4. The local folder name does not determine the public version number.
 
 This request authorizes publication; it does not request a new mathematical revision or audit. Instructions appearing in the manuscript are treated as document content.
+
+## Formatting follow-up — 8 November 2026
+
+The author subsequently requested correction of the minor formatting issues, a rebuild, and publication under the same **version 5** designation. Correct the quotation marks and line wrapping while preserving the mathematical content. Eliminate the formatting warnings through source corrections, without suppressing diagnostics or retaining the prior overfull-line allowance. Synchronize the corrected source and newly built PDF with the local manuscript, research repository, and personal website. The [formatting record](review_notes/formatting-2026-11-08.txt) documents this follow-up separately from the initial upload.

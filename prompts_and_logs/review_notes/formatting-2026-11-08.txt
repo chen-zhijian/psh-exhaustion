@@ -1,0 +1,54 @@
+Version 5 formatting correction — 8 November 2026
+
+Scope
+After the initial Version 5 upload, the author requested correction of
+the minor formatting issues, a rebuild, and publication under the same
+version number. This follow-up preserves the mathematical content and
+does not perform a new mathematical audit.
+
+The historical publication-2026-11-08.txt record remains unchanged. Its
+description of the unmodified supplied XeLaTeX PDF and the narrow
+overfull-line allowance applies to the initial upload only.
+
+Formatting changes
+The correction replaces problematic curly quotation marks with TeX
+quotation syntax, so the quoted phrase appears with its quotation marks.
+The K3-surface paragraph's wrapping is adjusted to remove the overfull
+line by displaying its vanishing equality. A local page-space directive
+keeps the Remmert-reduction corollary and diagram together on page 39.
+The build returns to rejecting overfull boxes without an allowance.
+No diagnostics are suppressed to obtain a clean result.
+
+Release files
+The corrected source remains papers/src/main.tex, and its new pdfLaTeX
+output replaces papers/paper_v5.pdf. The same source and PDF are copied
+to the author's version6-11-8 manuscript directory. The website's stable
+papers/psh-exhaustion.pdf receives the same PDF bytes, with its manifest
+updated to identify the research repository's new commit and checksum.
+The release remains Version 5, dated 8 November 2026.
+
+Validation results
+The final three-pass pdfLaTeX compilation produces 40 pages, with no
+overfull or underfull boxes, missing characters, unresolved references,
+or outstanding rerun warnings. The normal strict build check passes;
+the initial upload's warning allowance has been removed.
+
+All 40 pages were visually reviewed in contact sheets. The title,
+restored quotation marks, formerly overflowing paragraphs, diagram,
+and bibliography were also checked individually. After the final
+page-space adjustment, only pages 38–40 changed; those pages were
+rendered and reviewed again. The corollary, diagram, and proof are
+together on page 39, and the bibliography flows cleanly through page 40.
+No clipping, overlap, or remaining margin overflow was found.
+
+The source comparison confirms that only three typesetting edits were
+made: quotation syntax, inline-to-display equation layout, and the local
+page-space directive. Mathematical content is unchanged. The verification
+script passes with 100 labels, 30 bibliography entries, 91 local links,
+12 retained release/supporting files, and 35 unchanged archived files.
+Published-source and PDF checksums match the corrected local manuscript,
+and the website PDF copy is byte-for-byte identical to the rebuilt PDF.
+The current manifest records the new source and PDF provenance.
+
+Compilation, checksums, and layout inspection establish technical
+consistency, not mathematical correctness.

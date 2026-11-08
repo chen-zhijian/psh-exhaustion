@@ -29,3 +29,7 @@ This request authorizes publication; it does not request a new mathematical revi
 ## Formatting follow-up — 8 November 2026
 
 The author subsequently requested correction of the minor formatting issues, a rebuild, and publication under the same **version 5** designation. Correct the quotation marks and line wrapping while preserving the mathematical content. Eliminate the formatting warnings through source corrections, without suppressing diagnostics or retaining the prior overfull-line allowance. Synchronize the corrected source and newly built PDF with the local manuscript, research repository, and personal website. The [formatting record](review_notes/formatting-2026-11-08.txt) documents this follow-up separately from the initial upload.
+
+## XeLaTeX follow-up — 8 November 2026
+
+The author then requested that the manuscript also compile cleanly with XeLaTeX while preserving the mathematical content and **version 5** designation. The follow-up corrects the remaining typesetting issues without suppressing warnings and checks both pdfLaTeX and XeLaTeX. The established publication workflow continues to use the canonical pdfLaTeX PDF. The [XeLaTeX record](review_notes/xelatex-2026-11-08.txt) describes the source adjustments and build support added for this follow-up.

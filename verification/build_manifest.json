@@ -1,29 +1,30 @@
 {
   "source": {
     "path": "papers/src/main.tex",
-    "sha256": "fa00f75772ce050ed124d3303e00ccdbb2d9ae002d89bb5089a6691bf7166fa6",
-    "bytes": 141490
+    "sha256": "6151baafca40a9180b663a07febf05984a9ea2bdf9631bb17bcb404bc3a4132f",
+    "bytes": 141603
   },
   "pdf": {
     "path": "papers/paper_v5.pdf",
-    "sha256": "b1063ded0e5ec7973011fe10ecb4d4b3a5ccba4785546f199b06d609002d279d",
-    "bytes": 624562,
+    "sha256": "a72d5aa0b4e32d1bc45859f3dd0d1a18bdeb9f8f08e03fab34a2c1f312251e52",
+    "bytes": 624515,
     "pages": 40
   },
-  "built_at_utc": "2026-11-08T06:16:52+00:00",
+  "built_at_utc": "2026-11-08T06:31:13+00:00",
   "compiler": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026)",
   "technical_checks": [
     "source labels and citations",
     "table of contents",
-    "three-pass pdfLaTeX compilation",
-    "no unresolved references",
+    "three passes with each of pdfLaTeX and XeLaTeX",
+    "no final-pass compiler warnings",
     "no overfull or underfull boxes",
     "no missing characters",
-    "source changes limited to three formatting edits",
-    "local links and preserved archive hashes",
-    "final rebuilt PDF rendered-page review"
+    "no unresolved references",
+    "source changes limited to layout and unused EPS-converter configuration",
+    "both engine outputs visually reviewed",
+    "local links and preserved archive hashes"
   ],
-  "mathematical_verification": "Mathematical content preserved: source differs only in quotation syntax, inline-to-display equation layout, and a local page-space directive. No new mathematical audit.",
+  "mathematical_verification": "Exact source comparison confirms only three layout adjustments and unused EPS-converter configuration changed since commit 3baa19019568143069756dbd47a797bba74cf107. Mathematical content unchanged; no new mathematical audit.",
   "intake_source": {
     "path": "psh-exhaustion.tex",
     "sha256": "24494117cee6fdd75736c392dc4f4199bc4c725e66742cde332d10ec02959f9c",
@@ -35,7 +36,7 @@
     "bytes": 313947,
     "pages": 40
   },
-  "publication_origin": "PDF rebuilt with pdfLaTeX from the corrected repository source; identical source/PDF synchronized to version6-11-8 and identical PDF to the personal website. Formatting-only update within version 5.",
+  "publication_origin": "Canonical PDF rebuilt with pdfLaTeX from a source also checked with XeLaTeX. Corrected source and canonical PDF synchronized to version6-11-8; website PDF bytes identical. Version 5 retained.",
   "revision": {
     "date": "2026-11-08",
     "version": 5,
@@ -46,8 +47,8 @@
     "numbered_statements": 35,
     "unique_labels": 100,
     "bibliography_entries": 30,
-    "visual_review": "All 40 rebuilt pages reviewed; title, quotation marks, former overflow locations, diagram, and bibliography inspected individually. Final changed pages 38-40 rechecked; corollary, diagram, and proof stay together on page 39. No remaining visual issues.",
-    "audit_note": "prompts_and_logs/review_notes/formatting-2026-11-08.txt",
+    "visual_review": "All 40 pages from each engine reviewed in contact sheets, with affected paragraphs, bibliography, and final corollary/diagram checked individually. Final outputs pixel-compared with the reviewed renders. No remaining visual issues.",
+    "audit_note": "prompts_and_logs/review_notes/xelatex-2026-11-08.txt",
     "initial_publication_note": "prompts_and_logs/review_notes/publication-2026-11-08.txt"
   },
   "layout": {
@@ -334,5 +335,43 @@
     "mathematical_content_changed": false,
     "pages_before": 40,
     "pages_after": 40
+  },
+  "engine": "pdflatex",
+  "engine_checks": [
+    {
+      "engine": "pdflatex",
+      "compiler": "This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.10.1)  8 NOV 2026 14:31",
+      "passes": 3,
+      "source_sha256": "6151baafca40a9180b663a07febf05984a9ea2bdf9631bb17bcb404bc3a4132f",
+      "pdf_sha256": "a72d5aa0b4e32d1bc45859f3dd0d1a18bdeb9f8f08e03fab34a2c1f312251e52",
+      "pdf_bytes": 624515,
+      "pages": 40,
+      "warnings": []
+    },
+    {
+      "engine": "xelatex",
+      "compiler": "This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.1)  8 NOV 2026 14:31",
+      "passes": 3,
+      "source_sha256": "6151baafca40a9180b663a07febf05984a9ea2bdf9631bb17bcb404bc3a4132f",
+      "pdf_sha256": "c7464ad12898835ae50f0c43f8e014877ac066568a24e773b2708f291ad39474",
+      "pdf_bytes": 314122,
+      "pages": 40,
+      "warnings": []
+    }
+  ],
+  "engine_compatibility_update": {
+    "date": "2026-11-08",
+    "version": 5,
+    "input_source_commit": "3baa19019568143069756dbd47a797bba74cf107",
+    "changes": [
+      "Discretionary hyphen in Nakano application",
+      "Paragraph break before the boundary-tools lemma reference",
+      "Bibliography line-break opportunity after volume and issue",
+      "Disable unused automatic EPS conversion"
+    ],
+    "mathematical_content_changed": false,
+    "pages_with_pdflatex": 40,
+    "pages_with_xelatex": 40,
+    "checked_at_utc": "2026-11-08T06:33:32+00:00"
   }
 }

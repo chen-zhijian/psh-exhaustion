@@ -1,0 +1,70 @@
+Version 5 XeLaTeX follow-up — 8 November 2026
+
+Scope
+After the Version 5 formatting correction, the author requested clean
+XeLaTeX compilation as well. This follow-up preserves the mathematical
+content and release number. It does not perform a new mathematical audit.
+The earlier publication-2026-11-08.txt and formatting-2026-11-08.txt
+records remain unchanged and describe their respective release stages.
+
+Typesetting changes
+Relative to the published formatting correction at commit 3baa190, the
+source adds these three layout adjustments:
+- a discretionary hyphen in Lelong-pseudo\-convex in the Nakano application;
+- a paragraph break before the Lemma 5.1 reference in the proof of
+  Theorem 5.12;
+- an \allowbreak after 336(3): in the Vajaitu2006 bibliography entry.
+These changes provide line-breaking opportunities without changing the
+mathematical statements, arguments, or bibliography information.
+
+A fourth source change sets \newcommand{\DoNotLoadEpstopdf}{} before
+\documentclass, with the comment that no external graphics require
+automatic EPS-to-PDF conversion. The manuscript uses no external images,
+so this graphics-driver option prevents loading the unused EPS converter
+and removes its shell-escape-disabled warning. It does not enable shell
+execution or suppress diagnostics.
+
+Build support
+verification/scripts/build.py supports --engine pdflatex or --engine
+xelatex, with pdfLaTeX as the default. --executable PATH selects a compiler
+outside PATH; the legacy --pdflatex PATH option remains available.
+pdfLaTeX writes to build/, while XeLaTeX writes to build/xelatex/ with
+separate auxiliary files. Both builds use three passes and reject
+overfull or underfull boxes, missing characters, unresolved references
+or citations, and outstanding rerun diagnostics. No warning allowance
+or diagnostic suppression is used. The CI workflow checks both engines.
+
+The canonical publication output remains the pdfLaTeX PDF at
+papers/paper_v5.pdf. The XeLaTeX output provides a separate compatibility
+check. The source and canonical PDF are synchronized with the author's
+local manuscript, and the website copy uses the canonical PDF bytes.
+The release remains Version 5.
+
+Validation results
+Both engines passed the updated build script with three passes and
+produced 40-page PDFs. The final logs contain no compiler or package
+warnings, overfull or underfull boxes, missing characters, unresolved
+references, or outstanding rerun diagnostics.
+
+All 40 pages from each engine were rendered and reviewed in contact
+sheets. The affected paragraphs, bibliography wrapping, and final
+corollary and diagram were also inspected individually. After the final
+EPS-converter configuration change, all 80 pages were rendered again
+and pixel-compared with those reviewed outputs: no page changed.
+No clipping, overlap, overflow, or missing glyphs were found.
+
+An exact source comparison confirms only the three layout changes and
+the unused-converter configuration. Mathematical content is unchanged.
+Repository checks pass with 100 labels, 30 bibliography entries, 96 local
+links, 12 release/supporting files, and 35 unchanged archived files.
+The manifest records both compiler checks, their source and PDF hashes,
+and the canonical publication PDF. Local source/PDF copies match the
+repository, and the website PDF copy matches the canonical PDF.
+
+Build-guard checks reject overfull and underfull horizontal/vertical
+boxes, missing characters, unresolved references and citations,
+duplicate labels, and rerun diagnostics. Engine-selection and invalid
+argument checks also pass.
+
+Compilation, checksums, and layout inspection establish technical
+consistency, not mathematical correctness.

@@ -1,4 +1,6 @@
 % Revised November 7, 2026.
+% No external graphics require automatic EPS-to-PDF conversion.
+\newcommand{\DoNotLoadEpstopdf}{}
 \documentclass[11pt]{amsart}
 
 \usepackage[margin=1.15in]{geometry}
@@ -251,7 +253,7 @@ counterexample dimension at three.
 
 \begin{enumerate}[label=\textbf{(\roman*)},widest=iii,leftmargin=*]
 \item \textbf{Nakano's  question.}
-As recalled above, Nakano asked whether every Lelong-pseudoconvex
+As recalled above, Nakano asked whether every Lelong-pseudo\-convex
 manifold is weakly $1$-complete.
 Choose a locally Lipschitz psh exhaustion $\rho\ge0$ on the threefold
 $M$ of Theorem~\ref{thm:main}.
@@ -2938,7 +2940,9 @@ The three conditions in Theorem~\ref{thm:nonprojective} are equivalent.
 \end{theorem}
 \begin{proof}
 As above, it suffices to construct smooth divergent collars under
-condition \textup{(iii)}. Lemma~\ref{lem:surface-boundary-tools}
+condition \textup{(iii)}.
+
+Lemma~\ref{lem:surface-boundary-tools}
 handles boundary components with a positive eigenvalue. For a connected component
 $E$ with zero largest eigenvalue, choose its positive kernel divisor
 $A$. If $E$ is vertical, it is a whole fiber, and the punctured-base
@@ -3605,7 +3609,7 @@ Tetsuo Ueda.
 \bibitem[V{\^a}j06]{Vajaitu2006}
 V.~V{\^a}j{\^a}itu.
 \newblock {Stein} spaces with plurisubharmonic bounded exhaustion functions.
-\newblock {\em Math. Ann.}, 336(3):539--550, 2006.
+\newblock {\em Math. Ann.}, 336(3):\allowbreak 539--550, 2006.
 \newblock \href{https://doi.org/10.1007/s00208-006-0770-7}
 {doi:\nolinkurl{10.1007/s00208-006-0770-7}}.
 

@@ -10,6 +10,7 @@ import argparse
 from datetime import datetime, timezone
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -19,7 +20,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / "papers/src/main.tex"
-PUBLISHED = ROOT / "papers/paper_v4.pdf"
+PUBLISHED = ROOT / "papers/paper_v5.pdf"
 MANIFEST = ROOT / "verification/build_manifest.json"
 OUTPUT = ROOT / "build"
 
@@ -27,6 +28,34 @@ OUTPUT = ROOT / "build"
 def digest(path: Path, relative: str) -> dict:
     data = path.read_bytes()
     return {"path": relative, "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
+
+
+def check_overfull(log: str, source_sha256: str, known_warnings: list) -> tuple[list[str], list[str]]:
+    """Accept only single, source-bound hbox warnings recorded in the manifest."""
+    if not isinstance(known_warnings, list):
+        raise RuntimeError("known_build_warnings must be a list")
+    warnings = re.findall(r"^.*Overfull \\[hv]box[^\n]*$", log, re.M | re.I)
+    accepted: set[int] = set()
+    header = re.compile(r"Overfull \\hbox \(([0-9]+(?:\.[0-9]+)?)pt too wide\) "
+                        r"in paragraph at lines ([0-9]+)--([0-9]+)")
+    for entry in known_warnings:
+        if (not isinstance(entry, dict) or entry.get("kind") != "overfull_hbox"
+                or entry.get("source_sha256") != source_sha256):
+            continue
+        maximum = entry.get("maximum_excess_pt")
+        if type(maximum) not in {int, float} or not math.isfinite(maximum) or maximum < 0:
+            continue
+        matches = []
+        for index, warning in enumerate(warnings):
+            match = header.fullmatch(warning.strip())
+            if (match and [int(match[2]), int(match[3])] == entry.get("source_lines")
+                    and float(match[1]) <= maximum):
+                matches.append(index)
+        # Repeated warnings cannot reuse a single recorded exception.
+        if len(matches) == 1:
+            accepted.add(matches[0])
+    return ([warning for index, warning in enumerate(warnings) if index not in accepted],
+            [warning for index, warning in enumerate(warnings) if index in accepted])
 
 
 def run_engine(engine: str) -> tuple[Path, dict]:
@@ -39,6 +68,9 @@ def run_engine(engine: str) -> tuple[Path, dict]:
     if errors:
         raise RuntimeError("Source checks failed:\n" + "\n".join(errors))
     source_record = digest(SOURCE, "papers/src/main.tex")
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8")) if MANIFEST.exists() else {}
+    if not isinstance(manifest, dict):
+        raise RuntimeError("Existing build manifest must be a JSON object")
     OUTPUT.mkdir(parents=True, exist_ok=True)
     command = [engine, "-no-shell-escape", "-interaction=nonstopmode",
                "-halt-on-error", "-file-line-error", f"-output-directory={OUTPUT}", SOURCE.name]
@@ -61,11 +93,16 @@ def run_engine(engine: str) -> tuple[Path, dict]:
         (r"Label\(s\) may have changed|Rerun to get (?:cross-references|outlines) right",
          "references or outlines still require another pass"),
         (r"multiply[- ]defined|multiply defined", "multiply defined labels"),
-        (r"Overfull \\[hv]box", "overfull boxes"),
         (r"Missing character:", "missing font characters"),
     ):
         if re.search(expression, log, re.I):
             failures.append(message)
+    unrecorded, accepted = check_overfull(log, source_record["sha256"],
+                                         manifest.get("known_build_warnings", []))
+    if unrecorded:
+        failures.append("unrecorded overfull boxes")
+    for warning in accepted:
+        print(f"Recorded layout warning for this exact source: {warning}")
     if failures:
         raise RuntimeError("Final compilation has " + ", ".join(failures) + "; see build/main.log")
     if digest(SOURCE, "papers/src/main.tex") != source_record:
@@ -80,7 +117,7 @@ def run_engine(engine: str) -> tuple[Path, dict]:
                              stderr=subprocess.STDOUT, encoding="utf-8", errors="replace", check=True)
     version_lines = version.stdout.splitlines()
     page_match = re.search(r"Output written on[^\n]*(?:\n[^\n]*)?\((\d+) pages?[,)]", log)
-    pdf_record = digest(generated, "papers/paper_v4.pdf")
+    pdf_record = digest(generated, "papers/paper_v5.pdf")
     if page_match:
         pdf_record["pages"] = int(page_match.group(1))
     record = {
@@ -90,10 +127,10 @@ def run_engine(engine: str) -> tuple[Path, dict]:
         "compiler": version_lines[0] if version_lines else "pdfLaTeX",
         "passes": 3,
         "technical_checks": ["source labels and citations", "table of contents",
-                             "no unresolved references", "no overfull boxes", "no missing characters"],
+                             "no unresolved references", "no unrecorded overfull boxes", "no missing characters"],
         "mathematical_verification": "Not performed by this script; see the review notes.",
     }
-    print("Built build/main.pdf with resolved references and no overfull boxes.")
+    print("Built build/main.pdf with resolved references and no unrecorded overfull boxes.")
     return generated, record
 
 
@@ -131,7 +168,7 @@ def main() -> int:
             manifest_temp.write_text(json.dumps(existing, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
             os.replace(pdf_temp, PUBLISHED)
             os.replace(manifest_temp, MANIFEST)
-            print("Published papers/paper_v4.pdf and verification/build_manifest.json.")
+            print("Published papers/paper_v5.pdf and verification/build_manifest.json.")
         else:
             print("Compilation checked. Published files were not changed.")
         return 0

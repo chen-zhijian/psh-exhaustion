@@ -1,5 +1,9 @@
 # Mathematical and editorial reviews
 
+## 8 November 2026 — version 5 publication
+
+The [publication record](publication-2026-11-08.txt) documents the unchanged supplied source and 40-page PDF, technical checks, visual inspection, and existing minor formatting warnings. [Changes in Version 5](../../CHANGES_V5.md) summarizes the expanded convexity theorem and other manuscript revisions. This publication task did not perform a new mathematical audit. The [current manifest](../../verification/build_manifest.json) records version 5; version 4's source and manifest are preserved in its [dated archive](../../archive/version-4-2026-11-05/).
+
 ## 5 November 2026 — version 4
 
 The [dated revision record](revision-2026-11-05.txt) describes the reorganized introduction, terminology and reference updates, and the editorial review throughout Sections 2–6. Theorem 3.4 and Proposition 5.3 now use numbered equivalence statements, and Theorem 6.1 is explicitly identified with Theorem 1.4. The title is **Regularity of plurisubharmonic exhaustions and related problems**. See [Changes in Version 4](../../CHANGES_V4.md) for the revision summary and the [current build manifest](../../verification/build_manifest.json) for the published source, PDF, and release checks. The Version 3 source and build manifest are preserved in the [dated archive](../../archive/version-3-2026-11-03/).

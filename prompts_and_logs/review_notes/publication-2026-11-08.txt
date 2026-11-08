@@ -1,0 +1,51 @@
+Version 5 publication record — 8 November 2026
+
+Scope
+The author supplied version6-11-8/psh-exhaustion.tex and
+version6-11-8/psh-exhaustion.pdf and requested the usual GitHub update,
+explicitly treating it as version 5. Both files are published unchanged.
+The 40-page PDF is the supplied XeLaTeX/MiKTeX output dated 8 November.
+No new mathematical audit or manuscript revision was performed in this
+publication task. CHANGES_V5.md summarizes the supplied manuscript changes.
+
+Packaging
+The current source is papers/src/main.tex and the PDF is papers/paper_v5.pdf.
+Version 4's source and build manifest are archived under
+archive/version-4-2026-11-05/, from repository commit
+b4e4c65e5a5d84d0d78fe612a60deae371b1c386. Earlier PDFs remain available.
+The personal website uses the same PDF bytes at papers/psh-exhaustion.pdf;
+its entry and manifest are updated for version 5.
+
+Technical checks
+The source has six sections, 35 numbered statements, 100 labels, and
+30 active bibliography entries. Source references and citations, local document
+links, source/PDF checksums, prior releases, and original archive hashes
+are checked by verification/scripts/verify.py.
+The new tikz-cd/PGF and needspace dependencies are included in the build
+instructions and CI package list.
+
+A separate three-pass pdfLaTeX build produces 40 pages with resolved
+references and no missing characters. One pre-existing overfull hbox is
+3.53885 points wide at source lines 2832–2836, in the K3-surface paragraph.
+The manifest's known_build_warnings entry binds acceptance to the exact
+source hash, those lines, and a maximum excess of 3.54 points. The build
+reports this warning explicitly; all unmatched warnings remain errors.
+The separate build does not replace the author-supplied PDF.
+
+Visual review and existing limitations
+All 40 supplied pages were inspected in ten contact sheets. Pages 1, 2,
+3, 33, 34, and 39 were additionally inspected individually. The title,
+date, contents, pagination, references, bibliography back-references,
+and Section 6 diagram render legibly, without clipped or overlapping
+content.
+
+The supplied XeLaTeX output has three slight right-margin protrusions:
+8.2529 points on page 3, 9.75717 points on page 33, and 9.0056 points on
+page 34. The opening and closing curly quotes around "continuous
+semipositive Hermitian metric" on page 2 are omitted by the supplied
+font setup. The source log also records one underfull bibliography line.
+These minor issues are retained to preserve the supplied source and PDF.
+
+Checksums and compilation checks establish technical consistency, not
+mathematical correctness. No missing conversation or review history
+has been reconstructed.

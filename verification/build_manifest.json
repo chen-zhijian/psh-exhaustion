@@ -1,17 +1,17 @@
 {
   "version": 6,
   "title": "Regularity of plurisubharmonic exhaustions and related problems",
-  "publication_mode": "author-supplied",
-  "publication_origin": "Author-supplied paper_CX.tex and paper_CX.pdf, preserved byte for byte.",
+  "publication_mode": "rebuilt",
+  "publication_origin": "Version 6 rebuilt with the authors' original MiKTeX XeLaTeX engine after restoring the two quotation marks on page 2.",
   "source": {
     "path": "papers/src/main.tex",
-    "sha256": "f0bc534fb375c4f741b3ee9661597f8ec7fb635b61194a2c24c7f65a0eb5ae95",
-    "bytes": 156951
+    "sha256": "163f1aaa1041e09de34119c3ef2071e7780bec4c0859ee9b7b98c388915c586b",
+    "bytes": 156949
   },
   "pdf": {
     "path": "papers/paper_v6.pdf",
-    "sha256": "1a4b3654aaf6d3d7d1095a75e3f63e4d3decc32bc2df3e2fb5e2c18077928234",
-    "bytes": 327220,
+    "sha256": "bcd690efa9a9d6922ba3e86522079d4f60f07885e9062beded169ea8f8479f85",
+    "bytes": 327325,
     "pages": 45
   },
   "intake_source": {
@@ -27,6 +27,7 @@
   },
   "revision": {
     "date": "2026-11-21",
+    "initial_version_6_commit": "f5ea6ca596d06765bb40ea49fdb1b233e64d110c",
     "manuscript_date": "2026-11-13",
     "version": 6,
     "previous_pages": 40,
@@ -36,12 +37,16 @@
     "bibliography_entries": 22,
     "release_notes": "CHANGES_V6.md"
   },
-  "built_at_utc": "2026-11-13T08:22:08+00:00",
+  "built_at_utc": "2026-11-21T02:15:04+00:00",
+  "passes": 3,
   "engine": "xelatex",
   "compiler": "XeTeX 3.141592653-2.6-0.999998 (MiKTeX 26.5)",
   "pdf_producer": "MiKTeX-dvipdfmx (20260404)",
   "technical_checks": [
-    "SHA-256 and byte counts of both author-supplied files",
+    "SHA-256 and byte counts of the corrected source and published PDF",
+    "opening and closing double quotation marks confirmed in the text and rendering of page 2",
+    "all 45 rendered pages compared to the initial Version 6 PDF, with differences confined to two lines on page 2",
+    "title-page date, 267 link annotations and named destinations preserved",
     "embedded bibliography, citations, labels, and table of contents",
     "source compiled separately with XeLaTeX and pdfLaTeX",
     "versioned release files, supporting notes, repository links, and preserved archive"
@@ -54,9 +59,7 @@
       "date": "2026-11-21",
       "passes": 3,
       "pages": 45,
-      "warnings": [
-        "T1 Latin Modern omits U+201C and U+201D around continuous semipositive Hermitian metric, also in the supplied PDF."
-      ]
+      "warnings": []
     },
     {
       "engine": "pdflatex",

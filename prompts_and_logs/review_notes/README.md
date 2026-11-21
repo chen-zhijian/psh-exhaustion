@@ -2,7 +2,7 @@
 
 ## 21 November 2026 — version 6 publication
 
-The [release notes](../../CHANGES_V6.md) compare the supplied manuscript with Version 5. The [verification record](../../verification/README.md) describes the original PDF, both independent compilation checks, and the two quotation marks missing in the supplied typesetting.
+The [release notes](../../CHANGES_V6.md) compare the manuscript with Version 5. The [verification record](../../verification/README.md) documents the restored quotation marks around “continuous semipositive Hermitian metric” and the checks on the corrected Version 6 PDF.
 
 ## 8 November 2026 — version 5 publication
 

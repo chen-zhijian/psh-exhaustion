@@ -20,4 +20,4 @@ Theorem 1.4 removes the continuity hypothesis on the exhaustion from Version 5. 
 
 ## Release files
 
-The authors’ [13 November manuscript](papers/paper_v6.pdf) has 45 pages. The [source](papers/src/main.tex) and PDF are preserved byte for byte. The [verification notes](verification/README.md) describe the two quotation marks missing in the supplied typesetting. The [Version 5 source and manifest](archive/version-5-2026-11-08/) and the [40-page Version 5 PDF](papers/paper_v5.pdf) remain available.
+The [corrected 45-page PDF](papers/paper_v6.pdf) retains the manuscript date of 13 November 2026. The 21 November correction restores the quotation marks around “continuous semipositive Hermitian metric” in the introduction. The [LaTeX source](papers/src/main.tex) now uses TeX quotation marks for the phrase. The [verification notes](verification/README.md) record the checks on the rebuilt PDF. The [Version 5 source and manifest](archive/version-5-2026-11-08/) and the [40-page Version 5 PDF](papers/paper_v5.pdf) remain available.

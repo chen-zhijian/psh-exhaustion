@@ -7,7 +7,7 @@ correctness. Python's standard library and pdfLaTeX or XeLaTeX are required.
 from __future__ import annotations
 
 import argparse
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 import hashlib
 import json
 import os
@@ -29,14 +29,7 @@ def digest(path: Path, relative: str) -> dict:
     return {"path": relative, "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
 
 
-def compilation_failures(log: str, engine_name: str, source_hash: str) -> list[str]:
-    # Single occurrence of each quotation mark in the authors' v6 XeLaTeX log.
-    if engine_name == "xelatex" and source_hash == "f0bc534fb375c4f741b3ee9661597f8ec7fb635b61194a2c24c7f65a0eb5ae95":
-        for glyph, code in (("“", "201C"), ("”", "201D")):
-            pattern = rf'^Missing character: There is no {glyph}(?: \("{code}"?\))? in font ec-lmr10!$'
-            log, found = re.subn(pattern, "", log, count=1, flags=re.M)
-            if found:
-                print(f"Documented Version 6 XeLaTeX diagnostic: missing U+{code} in ec-lmr10.")
+def compilation_failures(log: str) -> list[str]:
     failures = []
     for expression, message in (
         (r"(?:Reference|Citation)[^\n]*undefined|There were undefined (?:references|citations)",
@@ -53,7 +46,7 @@ def compilation_failures(log: str, engine_name: str, source_hash: str) -> list[s
     return failures
 
 
-def run_engine(engine: str, engine_name: str = "xelatex") -> tuple[Path, dict]:
+def run_engine(engine: str, engine_name: str = "xelatex", manuscript_date: str | None = None) -> tuple[Path, dict]:
     if not SOURCE.is_file():
         raise RuntimeError("Missing papers/src/main.tex")
     # Imported lazily so --help is available even in an incomplete checkout.
@@ -66,8 +59,12 @@ def run_engine(engine: str, engine_name: str = "xelatex") -> tuple[Path, dict]:
     output = OUTPUT if engine_name == "pdflatex" else OUTPUT / engine_name
     engine_label = "pdfLaTeX" if engine_name == "pdflatex" else "XeLaTeX"
     output.mkdir(parents=True, exist_ok=True)
+    tex_input = SOURCE.name
+    if manuscript_date:
+        day = date.fromisoformat(manuscript_date)
+        tex_input = rf"\year={day.year}\month={day.month}\day={day.day}\relax\input{{{SOURCE.name}}}"
     command = [engine, "-no-shell-escape", "-interaction=nonstopmode",
-               "-halt-on-error", "-file-line-error", f"-output-directory={output}", SOURCE.name]
+               "-halt-on-error", "-file-line-error", f"-output-directory={output}", tex_input]
     # The source contains the bibliography; no BibTeX step is needed.
     for number in range(1, 4):
         print(f"Compiling paper with {engine_label}, pass {number}/3 ...", flush=True)
@@ -80,7 +77,7 @@ def run_engine(engine: str, engine_name: str = "xelatex") -> tuple[Path, dict]:
                                + "\n".join(result.stdout.splitlines()[-20:]))
     log_path = output / "main.log"
     log = log_path.read_text(encoding="utf-8", errors="replace")
-    failures = compilation_failures(log, engine_name, source_record["sha256"])
+    failures = compilation_failures(log)
     if failures:
         raise RuntimeError("Final compilation has " + ", ".join(failures)
                            + f"; see {log_path.relative_to(ROOT)}")
@@ -107,7 +104,7 @@ def run_engine(engine: str, engine_name: str = "xelatex") -> tuple[Path, dict]:
         "engine": engine_name,
         "passes": 3,
         "technical_checks": ["source labels and citations", "table of contents",
-                             "no unresolved references", "no overfull or underfull boxes", "no unexpected missing characters"],
+                             "no unresolved references", "no overfull or underfull boxes", "no missing characters"],
         "mathematical_verification": "Not performed by this script; see the review notes.",
     }
     print(f"Built {generated.relative_to(ROOT)} with resolved references "
@@ -137,7 +134,7 @@ def main() -> int:
         parser.error(f"{args.engine} was not found; install a TeX distribution or pass --executable PATH")
     try:
         existing = {}
-        if args.publish and MANIFEST.exists():
+        if MANIFEST.exists():
             existing = json.loads(MANIFEST.read_text(encoding="utf-8"))
             if not isinstance(existing, dict):
                 raise RuntimeError("Existing build manifest must be a JSON object")
@@ -146,7 +143,7 @@ def main() -> int:
             intake_path = args.intake_source.resolve(strict=True)
             intake = digest(intake_path, intake_path.relative_to(ROOT).as_posix()
                             if intake_path.is_relative_to(ROOT) else intake_path.name)
-        generated, record = run_engine(engine, args.engine)
+        generated, record = run_engine(engine, args.engine, existing.get("revision", {}).get("manuscript_date"))
         if args.publish:
             if existing.get("publication_mode") == "author-supplied":
                 if record["source"] != existing["source"] or (intake and intake["sha256"] != existing["source"]["sha256"]):

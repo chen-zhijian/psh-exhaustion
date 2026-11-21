@@ -1,64 +1,74 @@
 {
+  "version": 6,
+  "title": "Regularity of plurisubharmonic exhaustions and related problems",
+  "publication_mode": "author-supplied",
+  "publication_origin": "Author-supplied paper_CX.tex and paper_CX.pdf, preserved byte for byte.",
   "source": {
     "path": "papers/src/main.tex",
-    "sha256": "6151baafca40a9180b663a07febf05984a9ea2bdf9631bb17bcb404bc3a4132f",
-    "bytes": 141603
+    "sha256": "f0bc534fb375c4f741b3ee9661597f8ec7fb635b61194a2c24c7f65a0eb5ae95",
+    "bytes": 156951
   },
   "pdf": {
-    "path": "papers/paper_v5.pdf",
-    "sha256": "d6ca4a23ae518c80e6bfff4a6e90d346f2c95642a8327bceedc3b2c14a15a3f7",
-    "bytes": 314122,
-    "pages": 40
+    "path": "papers/paper_v6.pdf",
+    "sha256": "1a4b3654aaf6d3d7d1095a75e3f63e4d3decc32bc2df3e2fb5e2c18077928234",
+    "bytes": 327220,
+    "pages": 45
   },
-  "built_at_utc": "2026-11-08T06:39:55+00:00",
-  "compiler": "XeTeX 3.141592653-2.6-0.999998 (TeX Live 2026)",
-  "technical_checks": [
-    "default engine is XeLaTeX",
-    "three-pass XeLaTeX compilation",
-    "source labels and citations",
-    "table of contents",
-    "no compiler or package warnings",
-    "no overfull or underfull boxes",
-    "no missing characters",
-    "no unresolved references",
-    "source unchanged",
-    "final XeLaTeX output visually checked against reviewed XeLaTeX build",
-    "local links and preserved archive hashes"
-  ],
-  "mathematical_verification": "The manuscript source is byte-for-byte unchanged from commit 82b06d2aa0d4595e8f6b4a38373d5ce0f116716e. Only the default publication engine and release artifacts changed; no new mathematical audit.",
   "intake_source": {
-    "path": "psh-exhaustion.tex",
-    "sha256": "24494117cee6fdd75736c392dc4f4199bc4c725e66742cde332d10ec02959f9c",
-    "bytes": 141459
+    "path": "paper_CX.tex",
+    "sha256": "f0bc534fb375c4f741b3ee9661597f8ec7fb635b61194a2c24c7f65a0eb5ae95",
+    "bytes": 156951
   },
   "intake_pdf": {
-    "path": "psh-exhaustion.pdf",
-    "sha256": "777aaae14451ca06e8ebc6657f3158ffb00faffbbb318a59ff19972e6b7d4b50",
-    "bytes": 313947,
-    "pages": 40
+    "path": "paper_CX.pdf",
+    "sha256": "1a4b3654aaf6d3d7d1095a75e3f63e4d3decc32bc2df3e2fb5e2c18077928234",
+    "bytes": 327220,
+    "pages": 45
   },
-  "publication_origin": "Canonical version 5 PDF rebuilt with the default XeLaTeX engine. Identical PDF bytes synchronized to the local manuscript and personal website. The manuscript source is unchanged.",
   "revision": {
-    "date": "2026-11-08",
-    "version": 5,
-    "input_source_commit": "b4e4c65e5a5d84d0d78fe612a60deae371b1c386",
-    "previous_pages": 29,
-    "revised_pages": 40,
+    "date": "2026-11-21",
+    "manuscript_date": "2026-11-13",
+    "version": 6,
+    "previous_pages": 40,
+    "revised_pages": 45,
     "sections": 6,
-    "numbered_statements": 35,
-    "unique_labels": 100,
-    "bibliography_entries": 30,
-    "visual_review": "All 40 final XeLaTeX pages pixel-compared with the previously reviewed XeLaTeX output; no visual changes.",
-    "audit_note": "prompts_and_logs/review_notes/xelatex-publication-2026-11-08.txt",
-    "initial_publication_note": "prompts_and_logs/review_notes/publication-2026-11-08.txt"
+    "unique_labels": 107,
+    "bibliography_entries": 22,
+    "release_notes": "CHANGES_V6.md"
   },
-  "layout": {
-    "margins": "1.15in",
-    "bibliography_style": "Embedded alphabetic bibliography.",
-    "bibliography_backreferences": true,
-    "post_contents_spacing": "Ordinary section spacing; no forced page break.",
-    "known_warnings": []
-  },
+  "built_at_utc": "2026-11-13T08:22:08+00:00",
+  "engine": "xelatex",
+  "compiler": "XeTeX 3.141592653-2.6-0.999998 (MiKTeX 26.5)",
+  "pdf_producer": "MiKTeX-dvipdfmx (20260404)",
+  "technical_checks": [
+    "SHA-256 and byte counts of both author-supplied files",
+    "embedded bibliography, citations, labels, and table of contents",
+    "source compiled separately with XeLaTeX and pdfLaTeX",
+    "versioned release files, supporting notes, repository links, and preserved archive"
+  ],
+  "mathematical_verification": "The release checks verify file integrity and typesetting. The authors' statements are summarized in CHANGES_V6.md.",
+  "engine_checks": [
+    {
+      "engine": "xelatex",
+      "compiler": "XeTeX 3.141592653-2.6-0.999998 (TeX Live 2026)",
+      "date": "2026-11-21",
+      "passes": 3,
+      "pages": 45,
+      "warnings": [
+        "T1 Latin Modern omits U+201C and U+201D around continuous semipositive Hermitian metric, also in the supplied PDF."
+      ]
+    },
+    {
+      "engine": "pdflatex",
+      "compiler": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026)",
+      "date": "2026-11-21",
+      "passes": 3,
+      "pages": 45,
+      "warnings": [
+        "epstopdf reports that shell escape is disabled."
+      ]
+    }
+  ],
   "supporting_files": [
     {
       "path": "supporting_notes/grauert-regularity/grauert-regularity.pdf",
@@ -319,70 +329,167 @@
       "version": 4,
       "title": "Regularity of plurisubharmonic exhaustions and related problems",
       "source_commit": "b4e4c65e5a5d84d0d78fe612a60deae371b1c386"
-    }
-  ],
-  "version": 5,
-  "title": "Regularity of plurisubharmonic exhaustions and related problems",
-  "passes": 3,
-  "formatting_update": {
-    "date": "2026-11-08",
-    "version": 5,
-    "input_source_commit": "4ba824780b682823f49102269c337aa6a37f07bc",
-    "changes": [
-      "TeX quotation syntax restores quotation marks",
-      "K3 vanishing equality displayed to prevent line overflow",
-      "Remmert-reduction corollary and diagram kept together"
-    ],
-    "mathematical_content_changed": false,
-    "pages_before": 40,
-    "pages_after": 40
-  },
-  "engine": "xelatex",
-  "engine_checks": [
-    {
-      "engine": "pdflatex",
-      "compiler": "This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.10.1)  8 NOV 2026 14:31",
-      "passes": 3,
-      "source_sha256": "6151baafca40a9180b663a07febf05984a9ea2bdf9631bb17bcb404bc3a4132f",
-      "pdf_sha256": "a72d5aa0b4e32d1bc45859f3dd0d1a18bdeb9f8f08e03fab34a2c1f312251e52",
-      "pdf_bytes": 624515,
-      "pages": 40,
-      "warnings": []
     },
     {
-      "engine": "xelatex",
-      "compiler": "This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.1)  8 NOV 2026 14:39",
+      "source": {
+        "path": "archive/version-5-2026-11-08/main.tex",
+        "sha256": "6151baafca40a9180b663a07febf05984a9ea2bdf9631bb17bcb404bc3a4132f",
+        "bytes": 141603
+      },
+      "pdf": {
+        "path": "papers/paper_v5.pdf",
+        "sha256": "d6ca4a23ae518c80e6bfff4a6e90d346f2c95642a8327bceedc3b2c14a15a3f7",
+        "bytes": 314122,
+        "pages": 40
+      },
+      "built_at_utc": "2026-11-08T06:39:55+00:00",
+      "compiler": "XeTeX 3.141592653-2.6-0.999998 (TeX Live 2026)",
+      "technical_checks": [
+        "default engine is XeLaTeX",
+        "three-pass XeLaTeX compilation",
+        "source labels and citations",
+        "table of contents",
+        "no compiler or package warnings",
+        "no overfull or underfull boxes",
+        "no missing characters",
+        "no unresolved references",
+        "source unchanged",
+        "final XeLaTeX output visually checked against reviewed XeLaTeX build",
+        "local links and preserved archive hashes"
+      ],
+      "mathematical_verification": "The manuscript source is byte-for-byte unchanged from commit 82b06d2aa0d4595e8f6b4a38373d5ce0f116716e. Only the default publication engine and release artifacts changed; no new mathematical audit.",
+      "intake_source": {
+        "path": "psh-exhaustion.tex",
+        "sha256": "24494117cee6fdd75736c392dc4f4199bc4c725e66742cde332d10ec02959f9c",
+        "bytes": 141459
+      },
+      "intake_pdf": {
+        "path": "psh-exhaustion.pdf",
+        "sha256": "777aaae14451ca06e8ebc6657f3158ffb00faffbbb318a59ff19972e6b7d4b50",
+        "bytes": 313947,
+        "pages": 40
+      },
+      "publication_origin": "Canonical version 5 PDF rebuilt with the default XeLaTeX engine. Identical PDF bytes synchronized to the local manuscript and personal website. The manuscript source is unchanged.",
+      "revision": {
+        "date": "2026-11-08",
+        "version": 5,
+        "input_source_commit": "b4e4c65e5a5d84d0d78fe612a60deae371b1c386",
+        "previous_pages": 29,
+        "revised_pages": 40,
+        "sections": 6,
+        "numbered_statements": 35,
+        "unique_labels": 100,
+        "bibliography_entries": 30,
+        "visual_review": "All 40 final XeLaTeX pages pixel-compared with the previously reviewed XeLaTeX output; no visual changes.",
+        "audit_note": "prompts_and_logs/review_notes/xelatex-publication-2026-11-08.txt",
+        "initial_publication_note": "prompts_and_logs/review_notes/publication-2026-11-08.txt"
+      },
+      "layout": {
+        "margins": "1.15in",
+        "bibliography_style": "Embedded alphabetic bibliography.",
+        "bibliography_backreferences": true,
+        "post_contents_spacing": "Ordinary section spacing; no forced page break.",
+        "known_warnings": []
+      },
+      "supporting_files": [
+        {
+          "path": "supporting_notes/grauert-regularity/grauert-regularity.pdf",
+          "sha256": "14b441cdbf27ca1577a8f313ca8d32b1528f0529cdc0c3686391bbd57cc39e74",
+          "bytes": 494883,
+          "pages": 28
+        },
+        {
+          "path": "supporting_notes/grauert-regularity/grauert-regularity.tex",
+          "sha256": "c33d81e7a4241395fb895f53c4a9b6446e8726e8fc499e5d29c959f195e84d78",
+          "bytes": 98809
+        },
+        {
+          "path": "supporting_notes/grauert-regularity/references.bib",
+          "sha256": "1d8676e757b343b45d6a8966422bc00f0e16e3b88f7e9610de40e0ea25e3614b",
+          "bytes": 8744
+        },
+        {
+          "path": "supporting_notes/real-analytic-radius-criterion/real-analytic-radius-criterion.pdf",
+          "sha256": "8c84d686a26d6b2cb712473648bab022ba68c072e31043fc5af2f24ebf59e9ce",
+          "bytes": 136946,
+          "pages": 12
+        },
+        {
+          "path": "supporting_notes/real-analytic-radius-criterion/real-analytic-radius-criterion.tex",
+          "sha256": "74cba0d8f2bffc42c9f80147473061f9c36410ef30aee8f1b3b7718ddd3397d0",
+          "bytes": 36880
+        }
+      ],
+      "version": 5,
+      "title": "Regularity of plurisubharmonic exhaustions and related problems",
       "passes": 3,
-      "source_sha256": "6151baafca40a9180b663a07febf05984a9ea2bdf9631bb17bcb404bc3a4132f",
-      "pdf_sha256": "d6ca4a23ae518c80e6bfff4a6e90d346f2c95642a8327bceedc3b2c14a15a3f7",
-      "pdf_bytes": 314122,
-      "pages": 40,
-      "warnings": []
+      "formatting_update": {
+        "date": "2026-11-08",
+        "version": 5,
+        "input_source_commit": "4ba824780b682823f49102269c337aa6a37f07bc",
+        "changes": [
+          "TeX quotation syntax restores quotation marks",
+          "K3 vanishing equality displayed to prevent line overflow",
+          "Remmert-reduction corollary and diagram kept together"
+        ],
+        "mathematical_content_changed": false,
+        "pages_before": 40,
+        "pages_after": 40
+      },
+      "engine": "xelatex",
+      "engine_checks": [
+        {
+          "engine": "pdflatex",
+          "compiler": "This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.10.1)  8 NOV 2026 14:31",
+          "passes": 3,
+          "source_sha256": "6151baafca40a9180b663a07febf05984a9ea2bdf9631bb17bcb404bc3a4132f",
+          "pdf_sha256": "a72d5aa0b4e32d1bc45859f3dd0d1a18bdeb9f8f08e03fab34a2c1f312251e52",
+          "pdf_bytes": 624515,
+          "pages": 40,
+          "warnings": []
+        },
+        {
+          "engine": "xelatex",
+          "compiler": "This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.1)  8 NOV 2026 14:39",
+          "passes": 3,
+          "source_sha256": "6151baafca40a9180b663a07febf05984a9ea2bdf9631bb17bcb404bc3a4132f",
+          "pdf_sha256": "d6ca4a23ae518c80e6bfff4a6e90d346f2c95642a8327bceedc3b2c14a15a3f7",
+          "pdf_bytes": 314122,
+          "pages": 40,
+          "warnings": []
+        }
+      ],
+      "engine_compatibility_update": {
+        "date": "2026-11-08",
+        "version": 5,
+        "input_source_commit": "3baa19019568143069756dbd47a797bba74cf107",
+        "changes": [
+          "Discretionary hyphen in Nakano application",
+          "Paragraph break before the boundary-tools lemma reference",
+          "Bibliography line-break opportunity after volume and issue",
+          "Disable unused automatic EPS conversion"
+        ],
+        "mathematical_content_changed": false,
+        "pages_with_pdflatex": 40,
+        "pages_with_xelatex": 40,
+        "checked_at_utc": "2026-11-08T06:33:32+00:00"
+      },
+      "publication_engine_update": {
+        "date": "2026-11-08",
+        "version": 5,
+        "input_source_commit": "82b06d2aa0d4595e8f6b4a38373d5ce0f116716e",
+        "previous_engine": "pdflatex",
+        "default_engine": "xelatex",
+        "source_changed": false,
+        "previous_pdf_sha256": "a72d5aa0b4e32d1bc45859f3dd0d1a18bdeb9f8f08e03fab34a2c1f312251e52",
+        "checked_at_utc": "2026-11-08T06:41:10+00:00"
+      },
+      "manifest": {
+        "path": "archive/version-5-2026-11-08/build_manifest.json",
+        "sha256": "2531f1d67d67d3641a748af11b2d776ef83523ff4311903fe5c17265630487b8",
+        "bytes": 15705
+      },
+      "source_commit": "53d935079458381a38ad2ae4a68041ddab6114d7"
     }
-  ],
-  "engine_compatibility_update": {
-    "date": "2026-11-08",
-    "version": 5,
-    "input_source_commit": "3baa19019568143069756dbd47a797bba74cf107",
-    "changes": [
-      "Discretionary hyphen in Nakano application",
-      "Paragraph break before the boundary-tools lemma reference",
-      "Bibliography line-break opportunity after volume and issue",
-      "Disable unused automatic EPS conversion"
-    ],
-    "mathematical_content_changed": false,
-    "pages_with_pdflatex": 40,
-    "pages_with_xelatex": 40,
-    "checked_at_utc": "2026-11-08T06:33:32+00:00"
-  },
-  "publication_engine_update": {
-    "date": "2026-11-08",
-    "version": 5,
-    "input_source_commit": "82b06d2aa0d4595e8f6b4a38373d5ce0f116716e",
-    "previous_engine": "pdflatex",
-    "default_engine": "xelatex",
-    "source_changed": false,
-    "previous_pdf_sha256": "a72d5aa0b4e32d1bc45859f3dd0d1a18bdeb9f8f08e03fab34a2c1f312251e52",
-    "checked_at_utc": "2026-11-08T06:41:10+00:00"
-  }
+  ]
 }

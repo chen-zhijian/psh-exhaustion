@@ -1,5 +1,9 @@
 # Mathematical and editorial reviews
 
+## 21 November 2026 — version 6 publication
+
+The [release notes](../../CHANGES_V6.md) compare the supplied manuscript with Version 5. The [verification record](../../verification/README.md) describes the original PDF, both independent compilation checks, and the two quotation marks missing in the supplied typesetting.
+
 ## 8 November 2026 — version 5 publication
 
 The [initial publication record](publication-2026-11-08.txt) documents the unchanged supplied source and 40-page PDF, technical checks, visual inspection, and existing minor formatting warnings at the first upload. Its warning allowance and preservation of the supplied PDF describe that initial upload only. The subsequent [formatting record](formatting-2026-11-08.txt) describes the quotation-mark and line-wrapping corrections and the replacement PDF built from the corrected source, retaining Version 5 and the mathematical content.
@@ -8,7 +12,7 @@ The later [XeLaTeX record](xelatex-2026-11-08.txt) describes three additional ty
 
 The subsequent [XeLaTeX publication record](xelatex-publication-2026-11-08.txt) documents XeLaTeX becoming the default build and canonical publication engine at the author's request. This changes the publication output without changing the manuscript source from commit `82b06d2` or the Version 5 designation. The earlier XeLaTeX record is preserved unchanged.
 
-[Changes in Version 5](../../CHANGES_V5.md) summarizes the expanded convexity theorem and other manuscript revisions. These publication and formatting tasks did not perform a new mathematical audit. The [current manifest](../../verification/build_manifest.json) records version 5; version 4's source and manifest are preserved in its [dated archive](../../archive/version-4-2026-11-05/).
+[Changes in Version 5](../../CHANGES_V5.md) summarizes the expanded convexity theorem and other manuscript revisions. These publication and formatting tasks did not perform a new mathematical audit. The [archived Version 5 manifest](../../archive/version-5-2026-11-08/build_manifest.json) records this release. The Version 4 source and manifest are preserved in its [dated archive](../../archive/version-4-2026-11-05/).
 
 ## 5 November 2026 — version 4
 

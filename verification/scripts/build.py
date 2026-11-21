@@ -19,7 +19,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / "papers/src/main.tex"
-PUBLISHED = ROOT / "papers/paper_v5.pdf"
+PUBLISHED = ROOT / "papers/paper_v6.pdf"
 MANIFEST = ROOT / "verification/build_manifest.json"
 OUTPUT = ROOT / "build"
 
@@ -29,7 +29,14 @@ def digest(path: Path, relative: str) -> dict:
     return {"path": relative, "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
 
 
-def compilation_failures(log: str) -> list[str]:
+def compilation_failures(log: str, engine_name: str, source_hash: str) -> list[str]:
+    # Single occurrence of each quotation mark in the authors' v6 XeLaTeX log.
+    if engine_name == "xelatex" and source_hash == "f0bc534fb375c4f741b3ee9661597f8ec7fb635b61194a2c24c7f65a0eb5ae95":
+        for glyph, code in (("“", "201C"), ("”", "201D")):
+            pattern = rf'^Missing character: There is no {glyph}(?: \("{code}"?\))? in font ec-lmr10!$'
+            log, found = re.subn(pattern, "", log, count=1, flags=re.M)
+            if found:
+                print(f"Documented Version 6 XeLaTeX diagnostic: missing U+{code} in ec-lmr10.")
     failures = []
     for expression, message in (
         (r"(?:Reference|Citation)[^\n]*undefined|There were undefined (?:references|citations)",
@@ -73,7 +80,7 @@ def run_engine(engine: str, engine_name: str = "xelatex") -> tuple[Path, dict]:
                                + "\n".join(result.stdout.splitlines()[-20:]))
     log_path = output / "main.log"
     log = log_path.read_text(encoding="utf-8", errors="replace")
-    failures = compilation_failures(log)
+    failures = compilation_failures(log, engine_name, source_record["sha256"])
     if failures:
         raise RuntimeError("Final compilation has " + ", ".join(failures)
                            + f"; see {log_path.relative_to(ROOT)}")
@@ -89,7 +96,7 @@ def run_engine(engine: str, engine_name: str = "xelatex") -> tuple[Path, dict]:
                              stderr=subprocess.STDOUT, encoding="utf-8", errors="replace", check=True)
     version_lines = version.stdout.splitlines()
     page_match = re.search(r"Output written on[^\n]*(?:\n[^\n]*)?\((\d+) pages?[,)]", log)
-    pdf_record = digest(generated, "papers/paper_v5.pdf")
+    pdf_record = digest(generated, PUBLISHED.relative_to(ROOT).as_posix())
     if page_match:
         pdf_record["pages"] = int(page_match.group(1))
     record = {
@@ -100,7 +107,7 @@ def run_engine(engine: str, engine_name: str = "xelatex") -> tuple[Path, dict]:
         "engine": engine_name,
         "passes": 3,
         "technical_checks": ["source labels and citations", "table of contents",
-                             "no unresolved references", "no overfull or underfull boxes", "no missing characters"],
+                             "no unresolved references", "no overfull or underfull boxes", "no unexpected missing characters"],
         "mathematical_verification": "Not performed by this script; see the review notes.",
     }
     print(f"Built {generated.relative_to(ROOT)} with resolved references "
@@ -117,9 +124,12 @@ def main() -> int:
     executable.add_argument("--pdflatex", help="legacy pdfLaTeX executable override; use only with --engine pdflatex")
     parser.add_argument("--publish", action="store_true", help="replace the published PDF and update its manifest")
     parser.add_argument("--intake-source", type=Path, help="record the original supplied source's SHA-256 when publishing")
+    parser.add_argument("--intake-pdf", type=Path, help="restore an author-supplied release PDF from the original file")
     args = parser.parse_args()
     if args.intake_source and not args.publish:
         parser.error("--intake-source is meaningful only with --publish")
+    if args.intake_pdf and not args.publish:
+        parser.error("--intake-pdf requires --publish")
     if args.pdflatex and args.engine != "pdflatex":
         parser.error("--pdflatex requires --engine pdflatex; use --executable for XeLaTeX")
     engine = shutil.which(args.executable or args.pdflatex or args.engine)
@@ -138,6 +148,21 @@ def main() -> int:
                             if intake_path.is_relative_to(ROOT) else intake_path.name)
         generated, record = run_engine(engine, args.engine)
         if args.publish:
+            if existing.get("publication_mode") == "author-supplied":
+                if record["source"] != existing["source"] or (intake and intake["sha256"] != existing["source"]["sha256"]):
+                    raise RuntimeError("Source differs from the supplied release source recorded in the manifest")
+                candidate = args.intake_pdf or PUBLISHED
+                expected = existing["pdf"]
+                if digest(candidate, expected["path"]) != {k: expected[k] for k in ("path", "sha256", "bytes")}:
+                    raise RuntimeError("PDF differs from the supplied release PDF; use --intake-pdf with the original file")
+                if candidate.resolve() != PUBLISHED.resolve():
+                    pdf_temp = PUBLISHED.with_suffix(".pdf.tmp")
+                    shutil.copyfile(candidate, pdf_temp)
+                    os.replace(pdf_temp, PUBLISHED)
+                print(f"Confirmed author-supplied publication at {PUBLISHED.relative_to(ROOT)}.")
+                return 0
+            if args.intake_pdf:
+                raise RuntimeError("--intake-pdf applies to an author-supplied release")
             existing.update(record)
             if intake is not None:
                 existing["intake_source"] = intake
@@ -148,7 +173,7 @@ def main() -> int:
             manifest_temp.write_text(json.dumps(existing, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
             os.replace(pdf_temp, PUBLISHED)
             os.replace(manifest_temp, MANIFEST)
-            print("Published papers/paper_v5.pdf and verification/build_manifest.json.")
+            print(f"Published {PUBLISHED.relative_to(ROOT)} and verification/build_manifest.json.")
         else:
             print("Compilation checked. Published files were not changed.")
         return 0

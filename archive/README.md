@@ -2,7 +2,9 @@
 
 `repository-2026-10-23/` preserves every tracked file from commit `2b84e92c2cac18be9de2ea650737e63dee7fa74a`, including the former active paper and the older archives. The directory date identifies the manuscript revision; the last repository infrastructure commit may be later.
 
-The files are historical and may contain superseded mathematical statements or repository paths. Their original structure and Git blob contents are preserved. `snapshot-manifest.json` records SHA-256 hashes, checked by the current verification script. The current manuscript is [Version 5](../papers/paper_v5.pdf).
+The files are historical and may contain superseded mathematical statements or repository paths. Their original structure and Git blob contents are preserved. `snapshot-manifest.json` records SHA-256 hashes, checked by the current verification script. The current manuscript is [Version 6](../papers/paper_v6.pdf).
+
+[`version-5-2026-11-08/`](version-5-2026-11-08/) preserves the Version 5 source and build manifest from commit `53d935079458381a38ad2ae4a68041ddab6114d7`. Its [40-page PDF](../papers/paper_v5.pdf) remains available. The [Version 6 changes](../CHANGES_V6.md) describe the subsequent revision.
 
 `version-4-2026-11-05/` preserves the Version 4 source and build manifest from commit `b4e4c65e5a5d84d0d78fe612a60deae371b1c386`. Its PDF remains at [papers/paper_v4.pdf](../papers/paper_v4.pdf). The [Version 5 changes](../CHANGES_V5.md) describe the subsequent revision.
 

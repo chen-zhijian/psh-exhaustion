@@ -1,28 +1,32 @@
 # Regularity of plurisubharmonic exhaustions and related problems
 
-**Zhijian Chen and Bo Xiao** · Version 5 · 8 November 2026
+**Zhijian Chen and Bo Xiao** · Version 6 · Manuscript dated 13 November 2026 · Published here 21 November 2026
 
-[Read the paper](papers/paper_v5.pdf) · [LaTeX source](papers/src/main.tex) · [Changes in Version 5](CHANGES_V5.md) · [Personal website](https://chen-zhijian.github.io/)
+[Read the paper (45 pages)](papers/paper_v6.pdf) · [LaTeX source](papers/src/main.tex) · [Changes in Version 6](CHANGES_V6.md) · [Personal website](https://chen-zhijian.github.io/)
 
-The paper answers Nakano’s smoothing question negatively by constructing quasi-projective and non-Kähler threefolds with locally Lipschitz plurisubharmonic exhaustions but no $C^1$ exhaustion of this kind. It proves an affirmative result for divisor complements in compact Kähler surfaces and a regularity criterion for line-bundle metrics and dual total-space exhaustions. Version 5 broadens the holomorphic convexity criterion to maps from reduced complex spaces with continuous plurisubharmonic exhaustions to Stein spaces, provided every irreducible component of every reduced fiber is compact or Stein. The introduction records the applications to problems and results of Nakano, Filip–Tosatti, Zhang, Koike, Ohsawa, and Vîjîitu. The unrestricted surface smoothing question remains open.
+The paper answers Nakano’s smoothing question negatively in dimension three. It constructs quasi-projective and non-Kähler threefolds with locally Lipschitz plurisubharmonic (psh) exhaustions on which no $C^1$ psh exhaustion exists.
+
+In dimension two, a continuous psh exhaustion can be replaced by a smooth one on the complement of a nonzero effective Weil divisor in a normal compact connected Kähler surface, and on every normal complex quasi-projective surface. A cuspidal projective example shows that a reduced irreducible surface can fail this conclusion. This manuscript leaves the unrestricted smoothing question for smooth complex surfaces open.
+
+For a holomorphic vector bundle over a compact complex manifold, the higher-rank criterion relates exhaustions on the dual total space to semipositive metrics on the tautological line bundle over the projectivized dual. The holomorphic convexity criterion over a Stein base now allows a discontinuous psh exhaustion, including one taking the value $-\infty$.
 
 ## Versions and supporting material
 
-- [Version 4](papers/paper_v4.pdf), [Version 3](papers/paper_v3.pdf), [Version 2](papers/paper_v2.pdf), and [Version 1](papers/paper_v1.pdf), with earlier sources and records in the [archive](archive/README.md).
-- [Supporting notes](supporting_notes/): the Grauert regularity and radius-criterion documents integrated into Version 3.
-- [Review records](prompts_and_logs/review_notes/README.md): mathematical and editorial audits, including the Enoki source check.
-- [Verification](verification/README.md) and [build manifest](verification/build_manifest.json): checks and source/PDF hashes.
+- [Version 5](papers/paper_v5.pdf), [Version 4](papers/paper_v4.pdf), [Version 3](papers/paper_v3.pdf), [Version 2](papers/paper_v2.pdf), and [Version 1](papers/paper_v1.pdf). Earlier sources and release records are listed in the [archive](archive/README.md).
+- The [supporting notes](supporting_notes/) contain the Grauert regularity and radius-criterion documents integrated into Version 3.
+- The [review records](prompts_and_logs/review_notes/README.md) include earlier mathematical and editorial audits.
+- The [verification notes](verification/README.md) and [release manifest](verification/build_manifest.json) document the supplied files and the separate compilation checks.
 
 ## Build and verify
 
-Requires Python 3 and a TeX distribution with XeLaTeX; pdfLaTeX is also supported. The source is self-contained, including its bibliography. XeLaTeX is the default build and publication engine.
+With Python 3 and a TeX distribution installed, run the following from the repository root.
 
 ```sh
+python verification/scripts/verify.py
 python verification/scripts/build.py
 python verification/scripts/build.py --engine pdflatex
-python verification/scripts/verify.py
 ```
 
-The default XeLaTeX build writes to `build/xelatex/`; the alternate pdfLaTeX build writes to `build/` with separate auxiliary files. Use `--executable PATH` to select an engine executable. After inspecting the XeLaTeX output, use `python verification/scripts/build.py --publish` to update the published PDF and manifest together. See [verification notes](verification/README.md) for package requirements and release instructions. Automated checks establish technical consistency; no proof-assistant formalization is supplied.
+The default XeLaTeX build writes to `build/xelatex/`. The alternate pdfLaTeX build writes to `build/`. The published Version 6 PDF and source are the files supplied by the authors. See the [verification notes](verification/README.md) for compiler diagnostics and package requirements.
 
 See [LICENSE-NOTICE.md](LICENSE-NOTICE.md) for licensing status.

@@ -16,7 +16,7 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_REL = "papers/src/main.tex"
-PDF_REL = "papers/paper_v5.pdf"
+PDF_REL = "papers/paper_v6.pdf"
 ARCHIVE = ROOT / "archive/repository-2026-10-23"
 
 
@@ -95,7 +95,7 @@ def check_manifest(errors: list[str]) -> None:
         if not re.fullmatch(r"[0-9a-f]{64}", str(record.get("sha256", ""))):
             errors.append(f"Invalid SHA-256 in {name} manifest record")
         elif hashlib.sha256(data).hexdigest() != record["sha256"]:
-            errors.append(f"SHA-256 mismatch: {expected_path}; build with --publish after reviewing changes")
+            errors.append(f"SHA-256 mismatch: {expected_path}")
         if type(record.get("bytes")) is not int or record["bytes"] != len(data):
             errors.append(f"Byte-count mismatch: {expected_path}")
         if name == "pdf":
@@ -147,6 +147,8 @@ def check_release_files(errors: list[str]) -> int:
     records = list(manifest.get("supporting_files", []))
     for release in manifest.get("previous_releases", []):
         records.append(release["pdf"])
+        if "manifest" in release:
+            records.append(release["manifest"])
         # Earlier source records may refer to a historical commit at the
         # current source path; check sources archived under distinct paths.
         if release.get("source", {}).get("path", "").startswith("archive/"):

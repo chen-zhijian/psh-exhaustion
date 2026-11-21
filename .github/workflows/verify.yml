@@ -48,7 +48,7 @@ jobs:
           tlmgr update --self
           tlmgr install \
             amscls amsfonts amsmath lm mathtools microtype enumitem \
-            booktabs tools placeins needspace tikz-cd pgf xcolor hyperref geometry xetex
+            booktabs tools placeins needspace tikz-cd pgf xcolor hyperref backref geometry xetex
 
       - name: Compile three default XeLaTeX passes without replacing the published PDF
         run: python verification/scripts/build.py
